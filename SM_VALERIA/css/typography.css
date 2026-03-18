@@ -1,0 +1,63 @@
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #003B6F;
+    border-bottom: 2px solid #B38633;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.section-title i {
+    color: #B38633;
+    font-size: 2rem;
+}
+
+.seminario-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #003B6F;
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+
+.objetivo {
+    font-size: 0.9rem;
+    color: #2d3e50;
+    margin: 0.8rem 0 1rem;
+    border-left: 3px solid #B38633;
+    background: #fafafa;
+    padding: 0.8rem 1rem;
+    border-radius: 0 8px 8px 0;
+}
+.objetivo strong {
+    color: #003B6F;
+    display: block;
+    margin-bottom: 5px;
+}
+.responsable {
+    font-size: 0.9rem;
+    margin: 0.3rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.responsable i {
+    color: #B38633;
+    width: 18px;
+}
+.correo, .telefono {
+    font-size: 0.85rem;
+    background: #f0f3f7;
+    padding: 0.4rem 0.8rem;
+    border-radius: 40px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0.3rem 0;
+    color: #003B6F;
+    font-weight: 600;
+    word-break: break-word;
+}
