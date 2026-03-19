@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,9 +22,7 @@
         <h1 class="h4 mb-0 text-center flex-grow-1 fw-bold">
             Unidad de Investigación Multidisciplinaria
         </h1>
-
         <img src="{{ asset('header/logo_unam_fesa.png') }}" class="logo" alt="FES Acatlán">
-
     </div>
 </header>
 
