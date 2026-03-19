@@ -8,6 +8,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard1', function () {
+    return view('dashboard1');
+});
+
 Route::middleware('web')->group(function () {
     Route::get('/login', [WebAuthController::class, 'showLogin'])->name('web.login');
     Route::post('/login', [WebAuthController::class, 'login'])->name('web.login.submit');

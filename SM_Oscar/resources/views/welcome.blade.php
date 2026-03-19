@@ -54,7 +54,7 @@
             <div class="carousel-item" data-bs-interval="3000">
                 <img src="{{ asset('dashboard/img3.jpg') }}" class="d-block w-100" alt="slide3">
                 <div class="carousel-caption">
-                    <h2 class="slide-title">orueba de trancision</h2>
+                    <h2 class="slide-title">prueba de trancision</h2>
                 </div>
             </div>
 
