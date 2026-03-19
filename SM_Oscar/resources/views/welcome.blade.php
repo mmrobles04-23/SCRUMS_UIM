@@ -1,31 +1,7 @@
-
+@extends('layouts.app')
+@section('content')
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>UIM FES Acatlán — UNAM</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-
-<body class="bg-light">
-
-<!-- HEADER -->
-<header class="bg-unam text-white py-3 shadow">
-    <div class="container-fluid d-flex align-items-center justify-content-between">
-
-        <img src="{{ asset('header/logo_unam.png') }}" class="logo" alt="UNAM">
-
-        <h1 class="h4 mb-0 text-center flex-grow-1 fw-bold">
-            Unidad de Investigación Multidisciplinaria
-        </h1>
-        <img src="{{ asset('header/logo_unam_fesa.png') }}" class="logo" alt="FES Acatlán">
-    </div>
-</header>
-
 <section class="bg-secondary-subtle bloque-carrucel d-flex align-items-center">
     <div id="carousel" class="carousel slide" data-bs-ride="carousel">
 
@@ -54,7 +30,7 @@
             <div class="carousel-item" data-bs-interval="3000">
                 <img src="{{ asset('dashboard/img3.jpg') }}" class="d-block w-100" alt="slide3">
                 <div class="carousel-caption">
-                    <h2 class="slide-title">orueba de trancision</h2>
+                    <h2 class="slide-title">prueba de trancision</h2>
                 </div>
             </div>
 
@@ -72,39 +48,17 @@
 </section>
 
 <div class="container-fluid">
+    <br>
     <div class="row">
 
         <aside class="col-2 bg-unam text-white sidebar py-3 px-0 shadow-lg">
 
             <h5 class="text-center border-bottom pb-2">Menú</h5>
 
-            <ul class="nav flex-column px-2 mt-3">
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ url('/') }}">🏠 Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ route('web.dashboard') }}">📊 Dashboard</a>
-                </li>
-            </ul>
-
             <div class="mt-4 px-2">
-                <h6 class="text-warning">Secciones UIM</h6>
-
                 <ul class="nav flex-column mt-2">
                     <li class="nav-item">
-                        <a class="nav-link text-white sidebar-link" href="#">📊 Líneas de investigación</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white sidebar-link" href="#">📁 Proyectos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white sidebar-link" href="#">👩‍🏫 Cuerpos académicos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white sidebar-link" href="#">📚 Publicaciones</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white sidebar-link" href="#">📢 Convocatorias</a>
+                        <a class="nav-link text-white sidebar-link" href="{{ url('/departamentos') }}">Departamentos</a>
                     </li>
                 </ul>
             </div>
@@ -166,43 +120,136 @@
 
                 <div class="col-3 d-flex flex-column gap-3">
 
-                    <div class="bg-unam text-white rounded p-3 bloque-seccion shadow">
-                        <h5>Investigación</h5>
-                        <p class="small">Proyectos y líneas de investigación.</p>
-                    </div>
+            <!-- INVESTIGACIÓN -->
+            <div class="bloque-sec p-3 text-white rounded expandable">
+                <h6>Investigación</h6>
 
-                    <div class="bg-unam text-white rounded p-3 bloque-seccion shadow">
-                        <h5>Convocatorias</h5>
-                        <p class="small">Oportunidades académicas.</p>
-                    </div>
+                <p class="resumen">
+                    La FES Acatlán desarrolla actividades de investigación para integrarlas en la vida académica.
+                </p>
+
+                <!-- info extra -->
+                <div class="extra">
+                    <p>
+                        Se busca que la investigación ayude a resolver problemas reales y se relacione con la docencia.
+                    </p>
+                </div>
+
+                <!-- botones -->
+                <div class="d-flex gap-2 mt-2">
+                    <button class="btn btn-light btn-sm btn-toggle">Ver más</button>
+                    <a href="investigacion.html" class="btn btn-warning btn-sm">Ir</a>
+                </div>
+            </div>
+
+            <!-- SECCIÓN -->
+            <div class="bloque-sec p-3 text-white rounded expandable">
+               <h6>Dep. de Investigacion</h6>  
+              <h6>Proyecto cultural</h6>
+
+                <p class="resumen">
+                    Participación en proyectos culturales y digitales dentro de la facultad.
+                </p>
+
+                <div class="extra">
+                    <ul>
+                        <li>Trabajo colaborativo</li>
+                        <li>Interés cultural</li>
+                    </ul>
+                </div>
+
+                <div class="d-flex gap-2 mt-2">
+                    <button class="btn btn-light btn-sm btn-toggle">Ver más</button>
+                    <a href="seccion.html" class="btn btn-warning btn-sm">Ir</a>
+           </div>
+           
 
                 </div>
+
+
+                            <!-- INVESTIGACIÓN -->
+            <div class="bloque-sec p-3 text-white rounded expandable">
+                <h6>Investigación</h6>
+
+                <p class="resumen">
+                    La FES Acatlán desarrolla actividades de investigación para integrarlas en la vida académica.
+                </p>
+
+                <!-- info extra -->
+                <div class="extra">
+                    <p>
+                        Se busca que la investigación ayude a resolver problemas reales y se relacione con la docencia.
+                    </p>
+                </div>
+
+                <!-- botones -->
+                <div class="d-flex gap-2 mt-2">
+                    <button class="btn btn-light btn-sm btn-toggle">Ver más</button>
+                    <a href="investigacion.html" class="btn btn-warning btn-sm">Ir</a>
+                </div>
+            </div>
 
             </div>
 
             <div class="row g-3">
 
                 <div class="col-9">
+                    <h5>Eventos</h5>
                     <div class="row g-2">
 
                         <div class="col">
-                            <div class="card bloque-evento shadow-sm border-top border-warning border-3 p-2">Evento</div>
+                            <a href="" class="text-decoration-none">
+                                <div class="card bloque-evento shadow-sm border-top border-warning border-3 h-100">
+                                    <img src="{{ asset('dashboard/img1.jpg') }}" class="card-img-top evento-img" alt="Evento">
+                                    <div class="card-body p-2 text-center">
+                                        <h6 class="card-title mb-0 text-dark">Evento</h6>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
 
                         <div class="col">
-                            <div class="card bloque-evento shadow-sm border-top border-warning border-3 p-2">Seminario</div>
+                            <a href="" class="text-decoration-none">
+                                <div class="card bloque-evento shadow-sm border-top border-warning border-3 h-100">
+                                    <img src="{{ asset('dashboard/img2.jpg') }}" class="card-img-top evento-img" alt="Seminario">
+                                    <div class="card-body p-2 text-center">
+                                        <h6 class="card-title mb-0 text-dark">Seminario</h6>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
 
                         <div class="col">
-                            <div class="card bloque-evento shadow-sm border-top border-warning border-3 p-2">Congreso</div>
+                            <a href="" class="text-decoration-none">
+                                <div class="card bloque-evento shadow-sm border-top border-warning border-3 h-100">
+                                    <img src="{{ asset('dashboard/img3.jpg') }}" class="card-img-top evento-img" alt="Congreso">
+                                    <div class="card-body p-2 text-center">
+                                        <h6 class="card-title mb-0 text-dark">Congreso</h6>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
 
                         <div class="col">
-                            <div class="card bloque-evento shadow-sm border-top border-warning border-3 p-2">Taller</div>
+                            <a href="" class="text-decoration-none">
+                                <div class="card bloque-evento shadow-sm border-top border-warning border-3 h-100">
+                                    <img src="{{ asset('dashboard/img1.jpg') }}" class="card-img-top evento-img" alt="Taller">
+                                    <div class="card-body p-2 text-center">
+                                        <h6 class="card-title mb-0 text-dark">Taller</h6>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
 
                         <div class="col">
-                            <div class="card bloque-evento shadow-sm border-top border-warning border-3 p-2">Conferencia</div>
+                            <a href="" class="text-decoration-none">
+                                <div class="card bloque-evento shadow-sm border-top border-warning border-3 h-100">
+                                    <img src="{{ asset('dashboard/img2.jpg') }}" class="card-img-top evento-img" alt="Conferencia">
+                                    <div class="card-body p-2 text-center">
+                                        <h6 class="card-title mb-0 text-dark">Conferencia</h6>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
 
                     </div>
@@ -222,15 +269,20 @@
     </div>
 </div>
 
-<footer class="bg-unam text-white pt-4 pb-3 mt-3">
-    <div class="container-fluid">
-        <p class="text-center text-secondary small">
-            Hecho en México, todos los derechos reservados 2026.
-        </p>
-    </div>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
+@endsection
+
+<script>
+// toggle de ver más (funciona bien, no moverle mucho)
+document.querySelectorAll(".btn-toggle").forEach(btn => {
+    btn.addEventListener("click", function () {
+        const box = this.closest(".expandable");
+
+        box.classList.toggle("activo");
+
+        this.textContent = box.classList.contains("activo") ? "Ver menos" : "Ver más";
+    });
+});
+</script>

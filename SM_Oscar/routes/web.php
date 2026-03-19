@@ -7,6 +7,9 @@ use App\Http\Controllers\WebPasswordResetController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/departamentos', function () {
+    return view('departamentos');
+});
 
 Route::middleware('web')->group(function () {
     Route::get('/login', [WebAuthController::class, 'showLogin'])->name('web.login');

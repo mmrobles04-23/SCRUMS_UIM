@@ -14,6 +14,11 @@ body {
 --unam-azul:#003375;
 --unam-dorado:#b38c00;
 --fesa-verde:#0b791d;
+    --azul: #003375;
+    --azul-claro: #2c4a7a;
+    --dorado: #b38c00;
+    --verde: #2e6b3e;
+    --verde-sec: #4c8c6b;
 
 }
 
@@ -38,6 +43,7 @@ background-color:var(--fesa-verde)!important;
 
 .sidebar{
 min-height:100vh;
+border-radius: 0 15px 15px 0;
 }
 
 /* MENU LATERAL */
@@ -92,6 +98,23 @@ justify-content:center;
 
 font-weight:bold;
 
+}
+
+/* Estilos para imágenes en tarjetas de eventos */
+.evento-img {
+    height: 80px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.bloque-evento {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bloque-evento:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .bloque-carrucel{
@@ -175,4 +198,89 @@ filter:brightness(0) invert(1);
 .carousel-control-prev-icon,
 .carousel-control-next-icon{
   background-size:70%;
+}
+
+
+/* <!-- ══════════════════════════════
+     tarjetas de investigacion y tecnologias 
+     laterales del dashboard
+════════════════════════════════ --> */
+
+/* tarjetas (las cambié a blanco porque se veía muy cargado) */
+.bloque-sec{
+    background: white;
+    color: #333;
+    border-radius: 10px;
+    border-left: 5px solid var(--dorado);
+    padding: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    transition: 0.25s;
+}
+
+/* efecto cuando pasas el mouse */
+.bloque-sec:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* títulos */
+.bloque-sec h6{
+    font-weight: bold;
+    color: var(--azul);
+    margin-bottom: 6px;
+}
+
+/* texto general */
+.bloque-sec p{
+    font-size: 13px;
+    color: #555;
+}
+
+/* eventos */
+.evento{
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 4px solid var(--dorado);
+    font-weight: bold;
+}
+
+/* expandible (esto me costó jaja) */
+.expandable{
+    max-height: 160px;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.expandable .extra{
+    display: none;
+}
+
+.expandable.activo{
+    max-height: 600px;
+}
+
+.expandable.activo .extra{
+    display: block;
+}
+
+/* botones */
+.btn-toggle{
+    background-color: #e9ecef;
+    border: none;
+}
+
+.btn-toggle:hover{
+    background-color: #d6d6d6;
+}
+
+.btn-warning{
+    background-color: var(--dorado);
+    border: none;
+    color: white;
+}
+
+.btn-warning:hover{
+    background-color: #8c6d00;
 }
