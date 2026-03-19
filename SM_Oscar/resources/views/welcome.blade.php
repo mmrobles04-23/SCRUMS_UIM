@@ -166,17 +166,74 @@
 
                 <div class="col-3 d-flex flex-column gap-3">
 
-                    <div class="bg-unam text-white rounded p-3 bloque-seccion shadow">
-                        <h5>Investigación</h5>
-                        <p class="small">Proyectos y líneas de investigación.</p>
-                    </div>
+            <!-- INVESTIGACIÓN -->
+            <div class="bloque-sec p-3 text-white rounded expandable">
+                <h6>Investigación</h6>
 
-                    <div class="bg-unam text-white rounded p-3 bloque-seccion shadow">
-                        <h5>Convocatorias</h5>
-                        <p class="small">Oportunidades académicas.</p>
-                    </div>
+                <p class="resumen">
+                    La FES Acatlán desarrolla actividades de investigación para integrarlas en la vida académica.
+                </p>
+
+                <!-- info extra -->
+                <div class="extra">
+                    <p>
+                        Se busca que la investigación ayude a resolver problemas reales y se relacione con la docencia.
+                    </p>
+                </div>
+
+                <!-- botones -->
+                <div class="d-flex gap-2 mt-2">
+                    <button class="btn btn-light btn-sm btn-toggle">Ver más</button>
+                    <a href="investigacion.html" class="btn btn-warning btn-sm">Ir</a>
+                </div>
+            </div>
+
+            <!-- SECCIÓN -->
+            <div class="bloque-sec p-3 text-white rounded expandable">
+               <h6>Dep. de Investigacion</h6>  
+              <h6>Proyecto cultural</h6>
+
+                <p class="resumen">
+                    Participación en proyectos culturales y digitales dentro de la facultad.
+                </p>
+
+                <div class="extra">
+                    <ul>
+                        <li>Trabajo colaborativo</li>
+                        <li>Interés cultural</li>
+                    </ul>
+                </div>
+
+                <div class="d-flex gap-2 mt-2">
+                    <button class="btn btn-light btn-sm btn-toggle">Ver más</button>
+                    <a href="seccion.html" class="btn btn-warning btn-sm">Ir</a>
+           </div>
+           
 
                 </div>
+
+
+                            <!-- INVESTIGACIÓN -->
+            <div class="bloque-sec p-3 text-white rounded expandable">
+                <h6>Investigación</h6>
+
+                <p class="resumen">
+                    La FES Acatlán desarrolla actividades de investigación para integrarlas en la vida académica.
+                </p>
+
+                <!-- info extra -->
+                <div class="extra">
+                    <p>
+                        Se busca que la investigación ayude a resolver problemas reales y se relacione con la docencia.
+                    </p>
+                </div>
+
+                <!-- botones -->
+                <div class="d-flex gap-2 mt-2">
+                    <button class="btn btn-light btn-sm btn-toggle">Ver más</button>
+                    <a href="investigacion.html" class="btn btn-warning btn-sm">Ir</a>
+                </div>
+            </div>
 
             </div>
 
@@ -234,3 +291,16 @@
 
 </body>
 </html>
+
+<script>
+// toggle de ver más (funciona bien, no moverle mucho)
+document.querySelectorAll(".btn-toggle").forEach(btn => {
+    btn.addEventListener("click", function () {
+        const box = this.closest(".expandable");
+
+        box.classList.toggle("activo");
+
+        this.textContent = box.classList.contains("activo") ? "Ver menos" : "Ver más";
+    });
+});
+</script>
