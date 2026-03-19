@@ -58,7 +58,10 @@
             <div class="mt-4 px-2">
                 <ul class="nav flex-column mt-2">
                     <li class="nav-item">
-                        <a class="nav-link text-white sidebar-link" href="{{ url('/departamentos') }}">Departamentos</a>
+                        <a class="nav-link text-white sidebar-link" href="{{ url('/investigacion') }}">Investigación</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white sidebar-link" href="{{ url('/departamento') }}">Departamentos</a>
                     </li>
                 </ul>
             </div>
@@ -81,35 +84,46 @@
                                 </h3>
 
                                 <p>
-                                    La Facultad de Estudios Superiores Acatlán, como entidad académica de la Universidad Nacional Autónoma de México, desarrolla actividades de investigación orientadas al fortalecimiento de la vida académica, promoviendo la generación de conocimiento y su integración con las funciones sustantivas de la Universidad.
+                                    La Facultad de Estudios Superiores Acatlán, como entidad académica de la Universidad
+                                    Nacional Autónoma de México, desarrolla actividades de investigación orientadas al
+                                    fortalecimiento de la vida académica, promoviendo la generación de conocimiento y su
+                                    integración con las funciones sustantivas de la Universidad.
                                 </p>
 
                                 <h5 class="text-warning mt-4">Objetivo</h5>
 
                                 <p>
-                                    Vincular la investigación con la atención y solución de problemáticas nacionales, fomentando su integración con la docencia y la difusión de la cultura. Asimismo, impulsar la formación y consolidación de profesores de carrera dedicados a la investigación, fortaleciendo la relación entre la generación de conocimiento y el proceso educativo.
+                                    Vincular la investigación con la atención y solución de problemáticas nacionales,
+                                    fomentando su integración con la docencia y la difusión de la cultura. Asimismo,
+                                    impulsar la formación y consolidación de profesores de carrera dedicados a la
+                                    investigación, fortaleciendo la relación entre la generación de conocimiento y el
+                                    proceso educativo.
                                 </p>
 
                                 <h5 class="text-warning mt-4">Funciones</h5>
 
                                 <ul>
                                     <li>
-                                        Desarrollar investigación interdisciplinaria, multidisciplinaria y especializada, enfocada prioritariamente en el apoyo a la docencia y en la atención de problemáticas nacionales.
+                                        Desarrollar investigación interdisciplinaria, multidisciplinaria y
+                                        especializada, enfocada prioritariamente en el apoyo a la docencia y en la
+                                        atención de problemáticas nacionales.
                                     </li>
                                     <li>
-                                        Generar y aportar conocimiento científico en las áreas sociales, humanísticas y de las ciencias exactas.
+                                        Generar y aportar conocimiento científico en las áreas sociales, humanísticas y
+                                        de las ciencias exactas.
                                     </li>
                                     <li>
-                                        Brindar apoyo a las actividades de docencia e investigación tanto en la Universidad Nacional Autónoma de México como en otras instituciones de carácter nacional.
+                                        Brindar apoyo a las actividades de docencia e investigación tanto en la
+                                        Universidad Nacional Autónoma de México como en otras instituciones de carácter
+                                        nacional.
                                     </li>
                                 </ul>
 
                             </div>
 
                             <div class="col-md-4 d-flex align-items-center justify-content-center">
-                                <img src="{{ asset('dashboard/investigacion.jpg') }}"
-                                     class="img-fluid rounded shadow"
-                                     alt="Investigación UIM">
+                                <img src="{{ asset('dashboard/investigacion.jpg') }}" class="img-fluid rounded shadow"
+                                    alt="Investigación UIM">
                             </div>
 
                         </div>
@@ -120,164 +134,174 @@
 
                 <div class="col-3 d-flex flex-column gap-3">
 
-            <!-- INVESTIGACIÓN -->
-            <div class="bloque-sec p-3 text-white rounded expandable">
-                <h6>Investigación</h6>
+                    <!-- INVESTIGACIÓN -->
+                    <div class="bloque-sec p-3 text-white rounded expandable">
+                        <h6>Investigación</h6>
 
-                <p class="resumen">
-                    La FES Acatlán desarrolla actividades de investigación para integrarlas en la vida académica.
-                </p>
+                        <p class="resumen">
+                            La FES Acatlán desarrolla actividades de investigación para integrarlas en la vida
+                            académica.
+                        </p>
 
-                <!-- info extra -->
-                <div class="extra">
-                    <p>
-                        Se busca que la investigación ayude a resolver problemas reales y se relacione con la docencia.
-                    </p>
-                </div>
-
-                <!-- botones -->
-                <div class="d-flex gap-2 mt-2">
-                    <button class="btn btn-light btn-sm btn-toggle">Ver más</button>
-                    <a href="investigacion.html" class="btn btn-warning btn-sm">Ir</a>
-                </div>
-            </div>
-
-            <!-- SECCIÓN -->
-            <div class="bloque-sec p-3 text-white rounded expandable">
-               <h6>Dep. de Investigacion</h6>  
-              <h6>Proyecto cultural</h6>
-
-                <p class="resumen">
-                    Participación en proyectos culturales y digitales dentro de la facultad.
-                </p>
-
-                <div class="extra">
-                    <ul>
-                        <li>Trabajo colaborativo</li>
-                        <li>Interés cultural</li>
-                    </ul>
-                </div>
-
-                <div class="d-flex gap-2 mt-2">
-                    <button class="btn btn-light btn-sm btn-toggle">Ver más</button>
-                    <a href="seccion.html" class="btn btn-warning btn-sm">Ir</a>
-           </div>
-           
-
-                </div>
-
-
-                            <!-- INVESTIGACIÓN -->
-            <div class="bloque-sec p-3 text-white rounded expandable">
-                <h6>Investigación</h6>
-
-                <p class="resumen">
-                    La FES Acatlán desarrolla actividades de investigación para integrarlas en la vida académica.
-                </p>
-
-                <!-- info extra -->
-                <div class="extra">
-                    <p>
-                        Se busca que la investigación ayude a resolver problemas reales y se relacione con la docencia.
-                    </p>
-                </div>
-
-                <!-- botones -->
-                <div class="d-flex gap-2 mt-2">
-                    <button class="btn btn-light btn-sm btn-toggle">Ver más</button>
-                    <a href="investigacion.html" class="btn btn-warning btn-sm">Ir</a>
-                </div>
-            </div>
-
-            </div>
-
-            <div class="row g-3">
-
-                <div class="col-9">
-                    <h5>Eventos</h5>
-                    <div class="row g-2">
-
-                        <div class="col">
-                            <a href="" class="text-decoration-none">
-                                <div class="card bloque-evento shadow-sm border-top border-warning border-3 h-100">
-                                    <img src="{{ asset('dashboard/img1.jpg') }}" class="card-img-top evento-img" alt="Evento">
-                                    <div class="card-body p-2 text-center">
-                                        <h6 class="card-title mb-0 text-dark">Evento</h6>
-                                    </div>
-                                </div>
-                            </a>
+                        <!-- info extra -->
+                        <div class="extra">
+                            <p>
+                                Se busca que la investigación ayude a resolver problemas reales y se relacione con la
+                                docencia.
+                            </p>
                         </div>
 
-                        <div class="col">
-                            <a href="" class="text-decoration-none">
-                                <div class="card bloque-evento shadow-sm border-top border-warning border-3 h-100">
-                                    <img src="{{ asset('dashboard/img2.jpg') }}" class="card-img-top evento-img" alt="Seminario">
-                                    <div class="card-body p-2 text-center">
-                                        <h6 class="card-title mb-0 text-dark">Seminario</h6>
-                                    </div>
-                                </div>
-                            </a>
+                        <!-- botones -->
+                        <div class="d-flex gap-2 mt-2">
+                            <button class="btn btn-light btn-sm btn-toggle">Ver más</button>
+                            <a href="investigacion.html" class="btn btn-warning btn-sm">Ir</a>
+                        </div>
+                    </div>
+
+                    <!-- SECCIÓN -->
+                    <div class="bloque-sec p-3 text-white rounded expandable">
+                        <h6>Dep. de Investigacion</h6>
+                        <h6>Proyecto cultural</h6>
+
+                        <p class="resumen">
+                            Participación en proyectos culturales y digitales dentro de la facultad.
+                        </p>
+
+                        <div class="extra">
+                            <ul>
+                                <li>Trabajo colaborativo</li>
+                                <li>Interés cultural</li>
+                            </ul>
                         </div>
 
-                        <div class="col">
-                            <a href="" class="text-decoration-none">
-                                <div class="card bloque-evento shadow-sm border-top border-warning border-3 h-100">
-                                    <img src="{{ asset('dashboard/img3.jpg') }}" class="card-img-top evento-img" alt="Congreso">
-                                    <div class="card-body p-2 text-center">
-                                        <h6 class="card-title mb-0 text-dark">Congreso</h6>
-                                    </div>
-                                </div>
-                            </a>
+                        <div class="d-flex gap-2 mt-2">
+                            <button class="btn btn-light btn-sm btn-toggle">Ver más</button>
+                            <a href="seccion.html" class="btn btn-warning btn-sm">Ir</a>
                         </div>
 
-                        <div class="col">
-                            <a href="" class="text-decoration-none">
-                                <div class="card bloque-evento shadow-sm border-top border-warning border-3 h-100">
-                                    <img src="{{ asset('dashboard/img1.jpg') }}" class="card-img-top evento-img" alt="Taller">
-                                    <div class="card-body p-2 text-center">
-                                        <h6 class="card-title mb-0 text-dark">Taller</h6>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col">
-                            <a href="" class="text-decoration-none">
-                                <div class="card bloque-evento shadow-sm border-top border-warning border-3 h-100">
-                                    <img src="{{ asset('dashboard/img2.jpg') }}" class="card-img-top evento-img" alt="Conferencia">
-                                    <div class="card-body p-2 text-center">
-                                        <h6 class="card-title mb-0 text-dark">Conferencia</h6>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
 
                     </div>
+
+
+                    <!-- INVESTIGACIÓN -->
+                    <div class="bloque-sec p-3 text-white rounded expandable">
+                        <h6>Investigación</h6>
+
+                        <p class="resumen">
+                            La FES Acatlán desarrolla actividades de investigación para integrarlas en la vida
+                            académica.
+                        </p>
+
+                        <!-- info extra -->
+                        <div class="extra">
+                            <p>
+                                Se busca que la investigación ayude a resolver problemas reales y se relacione con la
+                                docencia.
+                            </p>
+                        </div>
+
+                        <!-- botones -->
+                        <div class="d-flex gap-2 mt-2">
+                            <button class="btn btn-light btn-sm btn-toggle">Ver más</button>
+                            <a href="investigacion.html" class="btn btn-warning btn-sm">Ir</a>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="col-3">
-                    <div class="bg-unam text-white rounded p-3 h-100 shadow">
-                        <h5>Noticias</h5>
-                        <p class="small">Actualizaciones recientes.</p>
+                <div class="row g-3">
+
+                    <div class="col-9">
+                        <h5>Eventos</h5>
+                        <div class="row g-2">
+
+                            <div class="col">
+                                <a href="" class="text-decoration-none">
+                                    <div class="card bloque-evento shadow-sm border-top border-warning border-3 h-100">
+                                        <img src="{{ asset('dashboard/img1.jpg') }}" class="card-img-top evento-img"
+                                            alt="Evento">
+                                        <div class="card-body p-2 text-center">
+                                            <h6 class="card-title mb-0 text-dark">Evento</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col">
+                                <a href="" class="text-decoration-none">
+                                    <div class="card bloque-evento shadow-sm border-top border-warning border-3 h-100">
+                                        <img src="{{ asset('dashboard/img2.jpg') }}" class="card-img-top evento-img"
+                                            alt="Seminario">
+                                        <div class="card-body p-2 text-center">
+                                            <h6 class="card-title mb-0 text-dark">Seminario</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col">
+                                <a href="" class="text-decoration-none">
+                                    <div class="card bloque-evento shadow-sm border-top border-warning border-3 h-100">
+                                        <img src="{{ asset('dashboard/img3.jpg') }}" class="card-img-top evento-img"
+                                            alt="Congreso">
+                                        <div class="card-body p-2 text-center">
+                                            <h6 class="card-title mb-0 text-dark">Congreso</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col">
+                                <a href="" class="text-decoration-none">
+                                    <div class="card bloque-evento shadow-sm border-top border-warning border-3 h-100">
+                                        <img src="{{ asset('dashboard/img1.jpg') }}" class="card-img-top evento-img"
+                                            alt="Taller">
+                                        <div class="card-body p-2 text-center">
+                                            <h6 class="card-title mb-0 text-dark">Taller</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col">
+                                <a href="" class="text-decoration-none">
+                                    <div class="card bloque-evento shadow-sm border-top border-warning border-3 h-100">
+                                        <img src="{{ asset('dashboard/img2.jpg') }}" class="card-img-top evento-img"
+                                            alt="Conferencia">
+                                        <div class="card-body p-2 text-center">
+                                            <h6 class="card-title mb-0 text-dark">Conferencia</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
                     </div>
+
+                    <div class="col-3">
+                        <div class="bg-unam text-white rounded p-3 h-100 shadow">
+                            <h5>Noticias</h5>
+                            <p class="small">Actualizaciones recientes.</p>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
 
         </div>
-
     </div>
-</div>
 
 
-</body>
+    </body>
+
 </html>
 @endsection
 
 <script>
 // toggle de ver más (funciona bien, no moverle mucho)
 document.querySelectorAll(".btn-toggle").forEach(btn => {
-    btn.addEventListener("click", function () {
+    btn.addEventListener("click", function() {
         const box = this.closest(".expandable");
 
         box.classList.toggle("activo");

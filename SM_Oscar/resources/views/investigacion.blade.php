@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- archivos del CSS -->
-    @vite(['resources/css/departamentos.css', 'resources/js/departamentos.js'])
+    @vite(['resources/css/investigacion.css', 'resources/js/investigacion.js'])
 </head>
 <body>
     <div class="site-wrapper">
