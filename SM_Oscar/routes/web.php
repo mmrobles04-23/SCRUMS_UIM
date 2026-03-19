@@ -12,6 +12,10 @@ Route::get('/dashboard1', function () {
     return view('dashboard1');
 });
 
+Route::get('/dashboard2', function () {
+    return view('dashboard2');
+});
+
 Route::middleware('web')->group(function () {
     Route::get('/login', [WebAuthController::class, 'showLogin'])->name('web.login');
     Route::post('/login', [WebAuthController::class, 'login'])->name('web.login.submit');

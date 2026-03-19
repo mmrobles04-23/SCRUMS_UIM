@@ -25,6 +25,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::patch('/users/{id}/status', [UserController::class, 'toggleStatus']);
         Route::delete('/users/{id}', [UserController::class, 'destroy']);
     });
+    
 });
 
 Route::get('/test', function () {
