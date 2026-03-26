@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departamentos de Investigación</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="hero-section">
+        <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80" alt="Campus Universitario" class="hero-image">
+        <h1 class="hero-title">DEPARTAMENTOS DE INVESTIGACIÓN</h1>
+    </header>
+
+    <main class="main-container">
+        
+        <section class="info-section">
+            
+            <div class="profile-card">
+                <div class="profile-image-placeholder">
+                    <span>👩🏻‍🏫</span>
+                </div>
+                <h2>Dra. Luz María Montelongo Díaz Barriga</h2>
+                <p class="role">Jefa de Departamento</p>
+                <ul class="contact-info">
+                    <li>📍 Unidad de Investigación Multidisciplinaria II, edificio A</li>
+                    <li>📞 5623 1750 ext. 38578</li>
+                    <li>✉️ diesiedu@acatlan.unam.mx</li>
+                </ul>
+            </div>
+
+            <div class="details-column">
+                <div class="detail-card highlight-card">
+                    <h3>🎯 Nuestro Objetivo</h3>
+                    <ul>
+                        <li>Desarrollar investigación educativa multidisciplinaria.</li>
+                        <li>Analizar problemáticas en planeación y administración educativa.</li>
+                        <li>Diseñar estrategias de intervención psico-pedagógica.</li>
+                    </ul>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-IN">
+                        <h3>Funciones</h3>
+                        <p onclick="toggleDisplayFlex(funcionesVen)" class="link-btn">Ver funciones &gt;</p>
+                    </div>
+                    <hr>
+                    <div class="detail-card-IN">
+                        <h3>Proyectos</h3>
+                        <a href="#" class="link-btn">Ver proyectos &gt;</a>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+        <section id="tarjetas-contenedor" class="cards-grid">
+            </section>
+
+    </main>
+    <div class="Ventana" id="funcionesVen">
+        <div class="Emergente">
+            <h2>Funciones</h2>
+            <br>
+            <ul>
+                <li>a</li>
+                <li>b</li>
+                <li>c</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="Ventana" id="proyectosVen">
+        <div class="Emergente">
+            <h2>Proyectos</h2>
+            <br>
+            <ul>
+                <li>a</li>
+                <li>b</li>
+                <li>c</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
