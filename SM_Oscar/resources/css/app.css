@@ -11,7 +11,7 @@ body {
 
 :root {
 
---unam-azul:#003375;
+--unam-azul:#1E3C70;
 --unam-dorado:#b38c00;
 --fesa-verde:#0b791d;
     --azul: #003375;
@@ -39,11 +39,61 @@ background-color:var(--fesa-verde)!important;
      sidebar (col-2) + contenido (col-10)
 ════════════════════════════════ --> */
 
+/* Footer estilos específicos para eliminar padding lateral */
+footer {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+footer .container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+footer .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+footer .col-md-4,
+footer .col-md-8,
+footer .col-6 {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
+/* Contenedor principal para evitar corte de sidebar */
+.container-fluid {
+    padding-left: 10px !important;
+}
+
+.bloque-principal1{
+    background: white;
+    color: #333;
+    border-radius: 10px;
+    border-left: 5px solid var(--dorado);
+    padding: 5px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    transition: 0.25s;
+
+}
+
+
 /* Sidebar */
 
 .sidebar{
 min-height:100vh;
-border-radius: 0 15px 15px 0;
+border-radius: 15px;
+margin-top: 20px; /* Bajar el sidebar 15px */
+position: relative;
+z-index: 10;
+box-shadow: 4px 0 15px rgba(0,0,0,0.1);
+}
+
+/* Sidebar compacto para welcome - solo altura del contenido */
+.sidebar-compact {
+    min-height: 81vh;
+    height: fit-content;
 }
 
 /* MENU LATERAL */
@@ -85,6 +135,7 @@ transform:translateY(-4px);
 min-height:140px;
 
 }
+
 
 .bloque-evento{
 
@@ -216,6 +267,8 @@ filter:brightness(0) invert(1);
     box-shadow: 0 3px 10px rgba(0,0,0,0.08);
     transition: 0.25s;
 }
+
+
 
 /* efecto cuando pasas el mouse */
 .bloque-sec:hover{

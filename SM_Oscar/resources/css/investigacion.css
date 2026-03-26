@@ -1,4 +1,12 @@
-.filter-toolbar {
+ .investigacion-page {
+    background: #e9ecf0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0 3rem;
+ }
+
+ .investigacion-page .filter-toolbar {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -8,12 +16,12 @@
     padding: 0.8rem 1.5rem;
     border-radius: 40px;
 }
-.filter-group {
+ .investigacion-page .filter-group {
     display: flex;
     flex-wrap: wrap;
     gap: 0.8rem;
 }
-.filter-btn {
+ .investigacion-page .filter-btn {
     background: white;
     border: 1px solid #ccc;
     padding: 0.5rem 1.2rem;
@@ -25,19 +33,19 @@
     transition: all 0.15s;
 }
 
-.filter-btn i {
+ .investigacion-page .filter-btn i {
     margin-right: 6px;
     color: #B38633;
 }
-.filter-btn.active {
+ .investigacion-page .filter-btn.active {
     background-color: #003B6F;
     color: white;
     border-color: #003B6F;
 }
-.filter-btn.active i {
+ .investigacion-page .filter-btn.active i {
     color: white;
 }
-.search-wrapper {
+ .investigacion-page .search-wrapper {
     display: flex;
     align-items: center;
     background: white;
@@ -46,10 +54,10 @@
     border: 1px solid #ccc;
     min-width: 240px;
 }
-.search-wrapper i {
+ .investigacion-page .search-wrapper i {
     color: #B38633;
 }
-.search-wrapper input {
+ .investigacion-page .search-wrapper input {
     border: none;
     padding: 0.5rem 0.8rem;
     font-family: 'Open Sans', sans-serif;
@@ -58,7 +66,7 @@
     outline: none;
     font-size: 0.9rem;
 }
-.search-wrapper button {
+ .investigacion-page .search-wrapper button {
     background: #003B6F;
     border: none;
     color: white;
@@ -68,7 +76,18 @@
     cursor: pointer;
 }
 
-.seminario-card {
+ .investigacion-page .uim-info-line {
+    margin: 0.2rem 0 1rem 0.2rem;
+    color: #003B6F;
+    font-weight: 600;
+ }
+
+ .investigacion-page .uim-info-line i {
+    color: #B38633;
+    margin-right: 0.4rem;
+ }
+
+ .investigacion-page .seminario-card {
     background: white;
     border: 1px solid #e2e6ea;
     border-radius: 20px;
@@ -80,18 +99,18 @@
     border-top: 4px solid #B38633;
     overflow: hidden;
 }
-.card-body {
+ .investigacion-page .seminario-card .card-body {
     padding: 0 1.5rem;
     display: flex;
     flex-direction: column;
     flex: 1;
 }
-.seminario-card:hover {
+ .investigacion-page .seminario-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 16px 28px rgba(0,59,111,0.12);
     border-color: #003B6F;
 }
-.card-tag {
+ .investigacion-page .card-tag {
     display: inline-block;
     background: #003B6F;
     color: white;
@@ -103,10 +122,10 @@
     align-self: flex-start;
     text-transform: uppercase;
 }
-.card-tag.permanente { background-color: #1f4b7a; }
-.card-tag.especial { background: #B38633; color: #003B6F; }
+ .investigacion-page .card-tag.permanente { background-color: #1f4b7a; }
+ .investigacion-page .card-tag.especial { background: #B38633; color: #003B6F; }
 
-.btn-inscripcion {
+ .investigacion-page .btn-inscripcion {
     background: white;
     border: 2px solid #003B6F;
     color: #003B6F;
@@ -123,17 +142,17 @@
     transition: all 0.15s;
     margin-top: 1rem;
 }
-.btn-inscripcion i { color: #B38633; }
-.btn-inscripcion:hover { background: #003B6F; color: white; }
-.btn-inscripcion:hover i { color: white; }
-.card-img {
+ .investigacion-page .btn-inscripcion i { color: #B38633; }
+ .investigacion-page .btn-inscripcion:hover { background: #003B6F; color: white; }
+ .investigacion-page .btn-inscripcion:hover i { color: white; }
+ .investigacion-page .seminario-card .card-img {
     width: 100%;
     height: 160px;
     object-fit: cover;
     display: block;
     margin-bottom: 1rem;
 }
-.card-img-fallback {
+ .investigacion-page .seminario-card .card-img-fallback {
     width: 100%;
     height: 160px;
     margin-bottom: 1rem;
@@ -142,12 +161,12 @@
     align-items: center;
     justify-content: center;
 }
-.card-img-fallback i {
+ .investigacion-page .seminario-card .card-img-fallback i {
     font-size: 3rem;
     color: #B38633;
 }
 
-.card-areas {
+ .investigacion-page .card-areas {
     display: flex;
     align-items: flex-start;
     gap: 0.4rem;
@@ -156,27 +175,29 @@
     font-size: 0.85rem;
     color: #003B6F;
 }
-.card-areas i {
+ .investigacion-page .card-areas i {
     color: #B38633;
     margin-top: 2px;
 }
-.card-areas span {
+ .investigacion-page .card-areas span {
     background: #e8f0f8;
     border-radius: 20px;
     padding: 0.15rem 0.7rem;
     font-weight: 600;
 }
-.site-wrapper {
+ .investigacion-page .site-wrapper {
     max-width: 1280px;
     width: 100%;
     background: white;
     box-shadow: 0 10px 25px rgba(0,59,111,0.2);
+    border-radius: 16px;
+    overflow: hidden;
 }
-.seminarios-section {
+ .investigacion-page .seminarios-section {
     padding: 2rem 2rem 3rem;
 }
 
-.cards-grid {
+ .investigacion-page .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
     gap: 1.8rem;
@@ -184,21 +205,9 @@
 }
 
 @media (max-width: 700px) {
-    .filter-toolbar { flex-direction: column; align-items: stretch; }
+    .investigacion-page .filter-toolbar { flex-direction: column; align-items: stretch; }
 }
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body {
-    font-family: 'Open Sans', sans-serif;
-    background: #e9ecf0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.section-title {
+ .investigacion-page .section-title {
     font-size: 2rem;
     font-weight: 700;
     color: #003B6F;
@@ -209,12 +218,12 @@ body {
     align-items: center;
     gap: 12px;
 }
-.section-title i {
+ .investigacion-page .section-title i {
     color: #B38633;
     font-size: 2rem;
 }
 
-.seminario-card h3 {
+ .investigacion-page .seminario-card h3 {
     font-size: 1.3rem;
     font-weight: 700;
     color: #003B6F;
@@ -223,7 +232,7 @@ body {
 }
 
 
-.objetivo {
+ .investigacion-page .objetivo {
     font-size: 0.9rem;
     color: #2d3e50;
     margin: 0.8rem 0 1rem;
@@ -232,23 +241,24 @@ body {
     padding: 0.8rem 1rem;
     border-radius: 0 8px 8px 0;
 }
-.objetivo strong {
+ .investigacion-page .objetivo strong {
     color: #003B6F;
     display: block;
     margin-bottom: 5px;
 }
-.responsable {
+ .investigacion-page .responsable {
     font-size: 0.9rem;
     margin: 0.3rem 0;
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
-.responsable i {
+ .investigacion-page .responsable i {
     color: #B38633;
     width: 18px;
 }
-.correo, .telefono {
+ .investigacion-page .correo,
+ .investigacion-page .telefono {
     font-size: 0.85rem;
     background: #f0f3f7;
     padding: 0.4rem 0.8rem;

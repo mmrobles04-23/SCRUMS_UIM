@@ -44,11 +44,12 @@
 
     </div>
 </section>
-<div class="container-fluid">
 
-<div class="row">
-    <div class="col-md-2">
-         <aside class="bg-unam text-white sidebar sidebar-compact py-3 px-0 shadow-lg">
+<div class="container-fluid">
+    <br>
+    <div class="row">
+
+        <aside class="col-2 bg-unam text-white sidebar sidebar-compact py-3 px-0 shadow-lg">
 
             <h5 class="text-center border-bottom pb-2">Menú</h5>
 
@@ -65,12 +66,13 @@
 
         </aside>
 
+        <div class="col-md-10 py-3">
 
+            <div class="row g-3 mb-3">
 
-    </div>
-        <div class="col-md-8">
-            <br>
-                            <div class="bloque-principal1 p-3 text-grey">
+                <div class="col-md-9">
+
+                    <div class="bloque-principal1 p-3 text-grey">
                         <div class="row">
 
                             <div class="col-md-8">
@@ -125,10 +127,12 @@
                         </div>
 
                     </div>
-    </div>
-        <div class="col-md-2">
-            <br>
-           <div id="tarjetasCarousel" class="carousel slide" data-bs-ride="carousel">
+
+                </div>
+
+                <div class="col-3 d-flex flex-column gap-3">
+                    <!-- Carrusel horizontal de tarjetas laterales -->
+                    <div id="tarjetasCarousel" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <!-- Primera fila de tarjetas -->
                             <div class="carousel-item active">
@@ -137,11 +141,11 @@
                                     <div class="bloque-sec p-3 text-white rounded expandable">
                                         <h6>Investigación</h6>
                                         <p class="resumen">
-                                            La FES Acatlán desarrolla actividades de investigación ...
+                                            La FES Acatlán desarrolla actividades de investigación para integrarlas en la vida académica.
                                         </p>
                                         <div class="extra">
                                             <p>
-                                                Se busca que la investigación ayude a resolver ...
+                                                Se busca que la investigación ayude a resolver problemas reales y se relacione con la docencia.
                                             </p>
                                         </div>
                                         <div class="d-flex gap-2 mt-2">
@@ -153,13 +157,15 @@
                                     <!-- SECCIÓN -->
                                     <div class="bloque-sec p-3 text-white rounded expandable">
                                         <h6>Dep. de Investigacion</h6>
+                                        <h6>Proyecto cultural</h6>
                                         <p class="resumen">
-                                            Participación en proyectos culturales y digitales ...
+                                            Participación en proyectos culturales y digitales dentro de la facultad.
                                         </p>
                                         <div class="extra">
-                                            <p>
-                                                Se busca que la investigación ayude a resolver problemas reales y se relacione con la docencia.
-                                            </p>
+                                            <ul>
+                                                <li>Trabajo colaborativo</li>
+                                                <li>Interés cultural</li>
+                                            </ul>
                                         </div>
                                         <div class="d-flex gap-2 mt-2">
                                             <button class="btn btn-light btn-sm btn-toggle">Ver más</button>
@@ -171,7 +177,7 @@
                                     <div class="bloque-sec p-3 text-white rounded expandable">
                                         <h6>Investigación</h6>
                                         <p class="resumen">
-                                            La FES Acatlán desarrolla actividades de investigación ...
+                                            La FES Acatlán desarrolla actividades de investigación para integrarlas en la vida académica.
                                         </p>
                                         <div class="extra">
                                             <p>
@@ -263,10 +269,14 @@
                         <button class="btn btn-warning btn-sm w-100">Revista Figuras</button>
                     </div>
                 </div>
-    </div>
 
+                <!-- Botones adicionales -->
 
-    <div class="col-12">
+            </div>
+
+        </div>
+
+        <div class="col-12">
             <h5>Eventos</h5>
             
             <!-- Carrusel horizontal de eventos -->
@@ -395,10 +405,6 @@
                 </button>
             </div>
         </div>
-        
-</div>
-</div>
-
 
 
 @push('scripts')
