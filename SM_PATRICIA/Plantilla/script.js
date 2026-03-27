@@ -1,36 +1,52 @@
 // script.js
 
-// Arreglo con los datos de los departamentos (El nuevo formato de tarjetas)
+// Arreglo actualizado: Añadimos la propiedad "url" a cada departamento
 const departamentos = [
     {
         nombre: "Departamento de Investigación en Comunicación y Estudios Culturales",
-        icono: "📊"
+        icono: "📊",
+        url: "investigacion_comunicacion.html" // <- URL a donde dirigirá el clic
     },
     {
         nombre: "Departamento de Tecnología Ambiental",
-        icono: "🌿"
+        icono: "🌿",
+        url: "tecnologia_ambiental.html"
     },
     {
-        nombre: "Departamento de Innovación Educativa",
-        icono: "💡"
+        nombre: "Departamento de Proyección Empresarial e Intercambio y Colaboración Institucional",
+        icono: "💡",
+        url: "proyeccion_empresarial.html"
     },
     {
-        nombre: "Departamento de Proyección Empresarial",
-        icono: "🏢"
+        nombre: "Departamento de Investigación en Procuración y Administración de Justicia.",
+        icono: "🏢",
+        url: "administracion_justicia.html"
+    },
+    {
+        nombre: "Departamento De Investigación Educativa",
+        icono: "🏢",
+        url: "investigacion_educativa.html"
+    },
+    {
+        nombre: "Departamento de Análisis de Riesgos Naturales y Antropogénicos",
+        icono: "🏢",
+        url: "analisis_riesgos.html"
     }
 ];
 
 // Función que se ejecuta cuando la página ha cargado
 document.addEventListener("DOMContentLoaded", () => {
     
-    // Seleccionamos el contenedor HTML donde irán las tarjetas
     const contenedor = document.getElementById("tarjetas-contenedor");
 
     // Recorremos nuestros datos y creamos el HTML para cada tarjeta
     departamentos.forEach(depto => {
-        // Creamos un elemento div
-        const tarjeta = document.createElement("div");
-        tarjeta.className = "new-format-card"; // Clase definida en el CSS
+        // CAMBIO CLAVE: Creamos un elemento <a> en lugar de un <div>
+        const tarjeta = document.createElement("a");
+        tarjeta.className = "new-format-card"; 
+        
+        // Le asignamos el enlace a la tarjeta (si no hay url, ponemos "#" por defecto)
+        tarjeta.href = depto.url || "#"; 
 
         // Le insertamos la estructura HTML interna
         tarjeta.innerHTML = `
@@ -38,11 +54,21 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="card-text">${depto.nombre}</div>
         `;
 
-        // Agregamos la tarjeta terminada al contenedor principal
+        // Agregamos la tarjeta terminada al contenedor
         contenedor.appendChild(tarjeta);
     });
 
-    console.log("Tarjetas cargadas dinámicamente con éxito.");
+    console.log("Tarjetas cargadas dinámicamente como enlaces con éxito.");
+	
+    // Lógica de ventanas emergentes (se mantiene igual)
+    const ventanasEmergentes = document.querySelectorAll(".Ventana");
+    ventanasEmergentes.forEach(ventana => {
+        ventana.addEventListener("click", function(event) {
+            if (event.target === this) {
+                this.style.display = "none";
+            }
+        });
+    });
 });
 
 /**
@@ -51,13 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {
 function toggleDisplayFlex(elementId) {
     try {
         const element = document.getElementById(elementId);
+        if (!element) return;
 
-        if (!element) {
-            console.error(`No se encontró un elemento con id="${elementId}"`);
-            return;
-        }
-
-        // Si está oculto, mostrar como flex; si no, ocultar
         if (window.getComputedStyle(element).display === "none") {
             element.style.display = "flex";
         } else {
