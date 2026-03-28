@@ -38,21 +38,33 @@ const departamentos = [
 document.addEventListener("DOMContentLoaded", () => {
     
     const contenedor = document.getElementById("tarjetas-contenedor");
+	
+    const elementoNombre = document.getElementById("NombreDepto");
+    const nombreDeptoActual = elementoNombre ? elementoNombre.textContent.trim() : "";
 
     // Recorremos nuestros datos y creamos el HTML para cada tarjeta
     departamentos.forEach(depto => {
         // CAMBIO CLAVE: Creamos un elemento <a> en lugar de un <div>
         const tarjeta = document.createElement("a");
-        tarjeta.className = "new-format-card"; 
-        
-        // Le asignamos el enlace a la tarjeta (si no hay url, ponemos "#" por defecto)
+
+	// Le asignamos el enlace a la tarjeta (si no hay url, ponemos "#" por defecto)
         tarjeta.href = depto.url || "#"; 
 
-        // Le insertamos la estructura HTML interna
-        tarjeta.innerHTML = `
+	if (depto.nombre === nombreDeptoActual) {
+            tarjeta.className = "new-format-card DeptoActual";
+	    // Le insertamos la estructura HTML interna
+            tarjeta.innerHTML = `
+            <div class="card-icon">${depto.icono}</div>
+            <div class="card-text" style="color: var(--unam-dorado);">${depto.nombre}</div>
+            `;
+        } else {
+            tarjeta.className = "new-format-card"; // Clase normal
+	    // Le insertamos la estructura HTML interna
+            tarjeta.innerHTML = `
             <div class="card-icon">${depto.icono}</div>
             <div class="card-text">${depto.nombre}</div>
-        `;
+            `;
+        }
 
         // Agregamos la tarjeta terminada al contenedor
         contenedor.appendChild(tarjeta);
