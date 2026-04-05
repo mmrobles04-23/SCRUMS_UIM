@@ -1,5 +1,6 @@
-
 @extends('layouts.app')
+
+@section('title', 'Investigación — UIM FES Acatlán')
 
 @push('styles')
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +15,10 @@
 @endpush
 
 @section('content')
+    {{-- NOTA (Bootstrap): espaciado vertical y márgenes laterales coherentes con welcome/dashboard. --}}
+    {{-- NOTA (CSS propio): .investigacion-page y componentes internos viven en resources/css/investigacion.css. --}}
+    <div class="py-3 py-lg-4">
+        <div class="container-fluid px-3 px-lg-4">
     <div class="investigacion-page">
         <div class="site-wrapper">
             <section class="seminarios-section">
@@ -42,6 +47,8 @@
 
                 <div class="cards-grid" id="cardsContainer"></div>
             </section>
+        </div>
+    </div>
         </div>
     </div>
 @endsection

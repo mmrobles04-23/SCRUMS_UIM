@@ -1,14 +1,20 @@
 @extends('layouts.app')
-@section('content')
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-        @vite(['resources/css/departamentos.css', 'resources/js/departamentos.js'])
-</head>
-<body>
 
+@section('title', 'Departamentos — UIM FES Acatlán')
+
+ @push('styles')
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+     @vite(['resources/css/departamentos.css'])
+ @endpush
+ 
+ @push('scripts')
+     @vite(['resources/js/departamentos.js'])
+ @endpush
+ 
+@section('content')
+    {{-- NOTA (Bootstrap): wrapper con padding; el diseño detallado sigue en resources/css/departamentos.css. --}}
+    <div class="py-3 py-lg-4">
+        <div class="container-fluid px-3 px-lg-4">
 <div class="banner">
     <img src="/departamentos/UIM.jpg" alt="">
     <h1>DEPARTAMENTOS DE <b>INVESTIGACION</b></h1>
@@ -127,9 +133,6 @@
     </div>
 
 </div>
-
-<script src="script.js"></script>
-
-</body>
-</html>
+        </div>
+    </div>
 @endsection
