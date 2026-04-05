@@ -3,124 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyección Empresarial y Colaboración | UNAM</title>
-    
-    <link rel="stylesheet" href="style.css">
-
-    <style>
-        .header-interno {
-            background-color: var(--unam-azul);
-            padding: 40px 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .header-interno h1 {
-            color: #ffffff !important;
-            margin: 0;
-            font-size: 2.2em;
-            letter-spacing: 1px;
-        }
-
-        .back-nav {
-            margin-bottom: 20px;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--unam-azul);
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1em;
-            transition: color 0.2s, transform 0.2s;
-        }
-
-        .back-link:hover {
-            color: var(--unam-dorado);
-            transform: translateX(-5px);
-        }
-
-        .content-card {
-            background: #fff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            border-top: 5px solid var(--unam-dorado);
-            margin-bottom: 30px;
-        }
-
-        .content-card h2 {
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #e1e4e8;
-            font-size: 1.5em;
-            color: var(--unam-azul);
-        }
-
-        .content-card p {
-            line-height: 1.7;
-            color: #444;
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-
-        .content-card ul {
-            margin-left: 20px;
-            margin-bottom: 20px;
-            line-height: 1.6;
-            color: #444;
-        }
-
-        .content-card li {
-            margin-bottom: 10px;
-        }
-    </style>
+    <title>Departamentos de Investigación</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <header class="header-interno">
-        <h1>Departamento de Proyección Empresarial e Intercambio Institucional</h1>
+    <header class="hero-section">
+        <img src="img/F1.jpg" alt="Campus Universitario" class="hero-image">
+        <h1 class="hero-title">DEPARTAMENTOS DE INVESTIGACIÓN</h1>
     </header>
 
     <main class="main-container">
-        
-        <nav class="back-nav">
-            <a href="index.html" class="back-link">
-                <span>←</span> Regresar a Departamentos
-            </a>
-        </nav>
+    <img class="logoDepto" src="img/DPE.png" alt="Departamento de proyeccion Empresarial e Intercambio y Colaboracion Institucional">
+        <div id="NombreDepto" style="color: #e31d93;"><h2>Departamento de Proyección Empresarial e Intercambio y Colaboración Institucional</h2></div>
+        <section class="info-section">
+            
+            <div class="profile-card">
+                <div class="profile-image-placeholder">
+                <img src="" alt="Perfil">
+                </div>
+                <h2>Dr. Nemesio Orozco Sánchez</h2>
+                <p class="role">Jefe del Departamento</p>
+                <ul class="contact-info">
+                    <li>Edificio A de la Unidad de Investigación Multidisciplinaria II, segundo piso.</li>
+                    <li>📞 555623-1750, Ext. 38981, 38983 </li>
+                    <li>✉️ proyeccion.empresarial@acatlan.unam.mx</li>
 
-        <section class="content-card">
-            <h2>🎯 Nuestro Objetivo</h2>
-            <p>
-                Fomentar el vínculo estratégico entre la comunidad universitaria, el sector productivo y diversas instituciones nacionales e internacionales. Nuestro departamento busca impulsar el espíritu emprendedor, facilitar la transferencia de conocimientos y gestionar alianzas que enriquezcan la formación profesional y el desarrollo tecnológico de nuestra facultad.
-            </p>
+                </ul>
+            </div>
+
+            <div class="details-column">
+                <div class="detail-card highlight-card">
+                    <h3>🎯 Nuestro Objetivo</h3>
+                    <ul>
+                        <li>Crear un ecosistema emprendedor en la comunidad interna de la Facultad, para coordinar programas de emprendimiento, proveer servicios especializados, capacitar en temas empresariales, desarrollar modelos de negocio y promover servicios profesionales con objeto de fomentar la actitud emprendedora y la colaboración interna y externa.</li>
+                    </ul>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-IN" onclick="toggleDisplayFlex('funcionesVen')">
+                        <h3>Funciones</h3>
+                        <p class="link-btn">Ver funciones &gt;</p>
+                    </div>
+                    <hr>
+                    <div class="detail-card-IN" onclick="toggleDisplayFlex('IcubacionVig')">
+                        <h3>Proyectos de Incubación Vigentes</h3>
+                        <p class="link-btn">Ver proyectos &gt;</p>
+                    </div>
+                    <hr>
+                    <div class="detail-card-IN" onclick="toggleDisplayFlex('proyectosVig')">
+                        <h3>Proyectos de Investigacion Vigentes</h3>
+                        <p class="link-btn">Ver proyectos &gt;</p>
+                    </div>
+                </div>
+            </div>
+            
         </section>
+    <hr>
 
-        <div class="info-section">
-            <div class="detail-card">
-                <h3>📋 Funciones Principales</h3>
-                <ul>
-                    <li>Gestionar convenios de colaboración y vinculación con empresas del sector público y privado.</li>
-                    <li>Asesorar e incubar proyectos de emprendimiento desarrollados por alumnos y egresados.</li>
-                    <li>Coordinar programas de movilidad académica e intercambio estudiantil a nivel nacional e internacional.</li>
-                    <li>Organizar ferias de empleo, foros de networking y encuentros empresariales en el campus.</li>
-                </ul>
-            </div>
+    <div><h2 style="color: var(--unam-azul);margin: 20px;margin-left: 0;">Departamentos</h2></div>
 
-            <div class="detail-card highlight-card">
-                <h3>🚀 Proyectos Destacados</h3>
-                <ul>
-                    <li><strong>Incubadora de Negocios InnovaUNAM:</strong> Acompañamiento integral para la creación de empresas de base tecnológica y tradicional.</li>
-                    <li><strong>Feria de Vinculación Laboral:</strong> Evento anual que conecta a los mejores talentos universitarios con empresas líderes.</li>
-                    <li><strong>Programa Red Global de Intercambio:</strong> Gestión de becas y estancias de investigación en universidades aliadas en el extranjero.</li>
-                </ul>
-            </div>
-        </div>
+        <section id="tarjetas-contenedor" class="cards-grid">
+            </section>
 
     </main>
 
+    <div class="Ventana" id="funcionesVen">
+        <div class="Emergente">
+            <h2>Funciones</h2>
+            <br>
+            <ul>
+                <li>Generar un ecosistema emprendedor dentro de la Facultad, para fomentar la actitud emprendedora en la comunidad interna.</li>
+                <li>Coordinar el programa de emprendimiento e incubación de negocios.</li>
+                <li>Proveer de estudios de mercado a las empresas del sector público y privado.</li>
+                <li>Canalizar a la comunidad interna con áreas especializadas con relación a propiedad intelectual, patentes y derecho administrativo público y privado.</li>
+                <li>Capacitar a la comunidad interna y externa sobre temas de emprendimiento.</li>
+                <li>Desarrollar modelos de negocio para la comunidad interna.</li>
+                <li>Promover servicios profesionales de personal especializado en las diferentes disciplinas con las que cuenta la facultad en el sector público y privado.</li>
+                <li>Desarrollar el programa anual de actividades de investigación y de servicios de la Proyección Empresarial e Intercambio y Colaboración Institucional.</li>
+                <li>Generar estrategias de marketing para la promoción de los servicios de la Coordinación de la Unidad de Investigación Multidisciplinaria Aplicada a partir de los diagnósticos de necesidades del entorno.</li>
+                <li>Propiciar y regular la vinculación con los departamentos de la Coordinación de la Unidad de Investigación Multidisciplinaria Aplicada, para el mejor aprovechamiento de los recursos de las áreas comunes.</li>
+                <li>Promover la formación de recursos humanos en Proyección Empresarial e Intercambio y Colaboración Institucional.</li>
+                <li>Desarrollar actividades en vinculación con los programas de licenciatura y posgrado.</li>       </ul>
+        </div>
+    </div>
+
+    <div class="Ventana" id="IcubacionVig">
+        <div class="Emergente">
+            <h2>Proyectos de Incubacion Vigentes.</h2>
+            <br>
+            <ul>
+                <li><strong>"Biodizarq"</strong>Despacho multidisciplinario de arquitectura y construcción que ofrece diseño y ejecución de diseños novedosos, flexibles y sustentables que se adaptan a los gustos y necesidades del cliente.</li>
+                <li><strong>"TERVI"</strong>Empresa especializada en proporcionar servicios de inspección de ductos y tuberías, evitando el desperdicio de agua y previniendo la contaminación.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="Ventana" id="proyectosVig">
+        <div class="Emergente">
+            <h2>Proyecto de Investigacion Vigente.</h2>
+            <br>
+            <ul>
+                <li><strong>"Fortalecimiento del Ecosistema Emprendedor en la FES Acatlán: Estrategias para el Desarrollo de Emprendimientos Sostenibles"</strong>Esta investigación aplicada busca analizar y fortalecer la proyección empresarial en la Facultad de Estudios Superiores (FES) Acatlán mediante la implementación de estrategias innovadoras que impulsen el desarrollo de emprendimientos sostenibles. Se investigarán las principales barreras y oportunidades que enfrentan los estudiantes y egresados en la creación de empresas, proponiendo soluciones basadas en modelos de incubación, mentoría y vinculación con el sector productivo.</li>
+            <ul>
+                <li><strong>Fecha de inicio:</strong>  01 de agosto de 2024</li>
+                <li><strong>Fecha de término:</strong> 01 de diciembre 2025</li>
+            </ul>          
+            </ul>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
 </body>
 </html>

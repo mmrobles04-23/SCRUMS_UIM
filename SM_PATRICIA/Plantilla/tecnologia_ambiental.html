@@ -3,124 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Departamento de Tecnología Ambiental | UNAM</title>
-    
-    <link rel="stylesheet" href="style.css">
-
-    <style>
-        .header-interno {
-            background-color: var(--unam-azul);
-            padding: 40px 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .header-interno h1 {
-            color: #ffffff !important;
-            margin: 0;
-            font-size: 2.2em;
-            letter-spacing: 1px;
-        }
-
-        .back-nav {
-            margin-bottom: 20px;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--unam-azul);
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1em;
-            transition: color 0.2s, transform 0.2s;
-        }
-
-        .back-link:hover {
-            color: var(--unam-dorado);
-            transform: translateX(-5px);
-        }
-
-        .content-card {
-            background: #fff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            border-top: 5px solid var(--unam-dorado);
-            margin-bottom: 30px;
-        }
-
-        .content-card h2 {
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #e1e4e8;
-            font-size: 1.5em;
-            color: var(--unam-azul);
-        }
-
-        .content-card p {
-            line-height: 1.7;
-            color: #444;
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-
-        .content-card ul {
-            margin-left: 20px;
-            margin-bottom: 20px;
-            line-height: 1.6;
-            color: #444;
-        }
-
-        .content-card li {
-            margin-bottom: 10px;
-        }
-    </style>
+    <title>Departamentos de Investigación</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <header class="header-interno">
-        <h1>Departamento de Tecnología Ambiental</h1>
+    <header class="hero-section">
+        <img src="img/F1.jpg" alt="Campus Universitario" class="hero-image">
+        <h1 class="hero-title">DEPARTAMENTOS DE INVESTIGACIÓN</h1>
+        
     </header>
 
     <main class="main-container">
-        
-        <nav class="back-nav">
-            <a href="index.html" class="back-link">
-                <span>←</span> Regresar a Departamentos
-            </a>
-        </nav>
+    <img class="logoDepto" src="img/DICEC.png" alt="Departamento de Tecnología Ambiental">
+        <div id="NombreDepto" style="color: #8347ad;"><h2>Departamento de Tecnología Ambiental</h2></div>
+        <section class="info-section">
+            
+            <div class="profile-card">
+                <div class="profile-image-placeholder">
+                <img src="img/jefe_comunicacion_cultura.jpg" alt="Perfil">
+                </div>
+                <h2>Ing. Gabriela Nava Amezcua</h2>
+                <p class="role">Jefe del Departamento</p>
+                <ul class="contact-info">
+                <li>📍 Edificio A de la Unidad de Investigación Multidisciplinaria II, planta baja</li>
+                <li>📞 5556231750 Ext. 38968 y 38969</li>
+                <li>✉️ detea@acatlan.unam.mx</li>
+                </ul>
+            </div>
 
-        <section class="content-card">
-            <h2>🎯 Nuestro Objetivo</h2>
-            <p>
-                Desarrollar y aplicar metodologías y tecnologías innovadoras para la evaluación, mitigación y solución de problemas ambientales. Nuestro departamento se enfoca en la investigación multidisciplinaria orientada a la sustentabilidad, la preservación de los recursos naturales y el mejoramiento de la calidad de vida de la sociedad mediante el desarrollo de tecnologías limpias.
-            </p>
+            <div class="details-column">
+                <div class="detail-card highlight-card">
+                    <h3>🎯 Nuestro Objetivo</h3>
+                    <ul>
+                        Contribuir al desarrollo sostenible mediante la implementación de estrategias innovadoras 
+                        para resolver problemas en el área químico-industrial y ambiental a través de la promoción 
+                        y participación en proyectos tecnológicos y la vinculación con instituciones educativas 
+                        públicas y privadas, con la finalidad de que la comunidad de la FES Acatlán se involucre 
+                        activamente en cada uno de los programas.
+                    </ul>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-IN" onclick="toggleDisplayFlex('funcionesVen')">
+                        <h3>Funciones</h3>
+                        <p class="link-btn">Ver funciones &gt;</p>
+                    </div>
+                    <hr>
+                    <div class="detail-card-IN" onclick="toggleDisplayFlex('proyectosVen')">
+                        <h3>Proyectos</h3>
+                        <a href="#" class="link-btn">Ver proyectos &gt;</a>
+                    </div>
+                </div>
+            </div>
+            
         </section>
+    <hr>
 
-        <div class="info-section">
-            <div class="detail-card">
-                <h3>📋 Funciones Principales</h3>
-                <ul>
-                    <li>Realizar estudios de impacto ambiental y análisis de contaminantes en agua, suelo y aire.</li>
-                    <li>Diseñar e implementar tecnologías limpias y procesos sustentables para el sector público y privado.</li>
-                    <li>Fomentar la educación ambiental y la formación de recursos humanos especializados en ecología.</li>
-                    <li>Brindar asesoría y consultoría técnica en materia de gestión, preservación y normatividad ambiental.</li>
-                </ul>
-            </div>
+    <div><h2 style="color: var(--unam-azul);margin: 20px;margin-left: 0;">Departamentos</h2></div>
 
-            <div class="detail-card highlight-card">
-                <h3>🚀 Proyectos Destacados</h3>
-                <ul>
-                    <li><strong>Sistemas Bio-regenerativos:</strong> Tratamiento y recuperación de aguas residuales mediante humedales artificiales.</li>
-                    <li><strong>Gestión Integral de Residuos:</strong> Valorización de residuos sólidos urbanos para la generación de energías alternativas y biogás.</li>
-                    <li><strong>Monitoreo Ambiental:</strong> Evaluación de la calidad del aire y su impacto en la salud pública en zonas metropolitanas.</li>
-                </ul>
-            </div>
-        </div>
+        <section id="tarjetas-contenedor" class="cards-grid">
+            </section>
 
     </main>
+    <div class="Ventana" id="funcionesVen">
+        <div class="Emergente">
+            <h2>Funciones</h2>
+            <br>
+            <ul>
+                <li>Establecer estrategias para problemas químico-industriales.</li>
+                <li>Promover proyectos tecnológicos ambientales.</li>
+                <li>Vinculación con instituciones públicas y privadas.</li>
+                <li>Implementar gestión de calidad.</li>
+                <li>Desarrollar programas anuales.</li>
+                <li>Optimizar recursos con otros departamentos.</li>
+                <li>Formar recursos humanos.</li>
+                <li>Vinculación con licenciatura y posgrado.</li>
+                <li>Elaborar informes institucionales.</li>
+                <li>Cumplir funciones asignadas.</li>
+            </ul>
+        </div>
+    </div>
 
+    <div class="Ventana" id="proyectosVen">
+        <div class="Emergente">
+            <h2>Proyectos</h2>
+            <br>
+    <ul>
+                   <li>
+                    <strong>Compostaje de residuos</strong>
+                    <ul>
+                        <li>Inicio: 12 agosto 2024</li>
+                        <li>Fin: 12 agosto 2025</li>
+                    </ul>
+                    </li>    
+    </ul>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
 </body>
 </html>

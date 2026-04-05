@@ -3,121 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Investigación en Comunicación y Estudios Culturales | UNAM</title>
-    
-    <link rel="stylesheet" href="style.css">
-
-    <style>
-        .header-interno {
-            background-color: var(--unam-azul);
-            padding: 40px 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .header-interno h1 {
-            color: #ffffff !important;
-            margin: 0;
-            font-size: 2.2em;
-            letter-spacing: 1px;
-        }
-
-        .back-nav {
-            margin-bottom: 20px;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--unam-azul);
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1em;
-            transition: color 0.2s, transform 0.2s;
-        }
-
-        .back-link:hover {
-            color: var(--unam-dorado);
-            transform: translateX(-5px);
-        }
-
-        .content-card {
-            background: #fff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            border-top: 5px solid var(--unam-dorado);
-            margin-bottom: 30px;
-        }
-
-        .content-card h2 {
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #e1e4e8;
-            font-size: 1.5em;
-            color: var(--unam-azul);
-        }
-
-        .content-card p {
-            line-height: 1.7;
-            color: #444;
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-
-        .content-card ul {
-            margin-left: 20px;
-            margin-bottom: 20px;
-            line-height: 1.6;
-            color: #444;
-        }
-
-        .content-card li {
-            margin-bottom: 10px;
-        }
-    </style>
+    <title>Departamentos de Investigación</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <header class="header-interno">
-        <h1>Departamento de Investigación en Comunicación y Estudios Culturales</h1>
+    <header class="hero-section">
+        <img src="img/F1.jpg" alt="Campus Universitario" class="hero-image">
+        <h1 class="hero-title">DEPARTAMENTOS DE INVESTIGACIÓN</h1>
+        
     </header>
 
     <main class="main-container">
-        
-        <nav class="back-nav">
-            <a href="index.html" class="back-link">
-                <span>←</span> Regresar a Departamentos
-            </a>
-        </nav>
+    <img class="logoDepto" src="img/DICEC.png" alt="Departamento de Investigación en Comunicación y Estudios Culturales">
+        <div id="NombreDepto" style="color: #8347ad;"><h2>Departamento de Investigación en Comunicación y Estudios Culturales</h2></div>
+        <section class="info-section">
+            
+            <div class="profile-card">
+                <div class="profile-image-placeholder">
+                <img src="img/jefe_comunicacion_cultura.jpg" alt="Perfil">
+                </div>
+                <h2>Lic. Miguel Ángel de la Calleja López</h2>
+                <p class="role">Jefe del Departamento</p>
+                <ul class="contact-info">
+                    <li>Edificio A de la Unidad de Investigación Multidisciplinaria II, planta baja.</li>
+                    <li>📞 555623-1750, ext. 38963 y 38958</li>
+                    <li>✉️ comycultura@acatlan.unam.mx</li>
+                </ul>
+            </div>
 
-        <section class="content-card">
-            <h2>🎯 Nuestro Objetivo</h2>
-            <p>
-                Analizar, comprender y proponer soluciones a los fenómenos de la comunicación y las manifestaciones culturales en la sociedad contemporánea. Nuestro departamento se enfoca en el estudio crítico de los medios masivos, las nuevas tecnologías de la información y su impacto en la construcción de identidades y realidades socioculturales en México y América Latina.
-            </p>
+            <div class="details-column">
+                <div class="detail-card highlight-card">
+                    <h3>🎯 Nuestro Objetivo</h3>
+                    <ul>
+                        Promover el desarrollo de proyectos de investigación multidisciplinaria que permitan analizar procesos comunicativos y diversas expresiones culturales para comprender su impacto en la conformación de los modos de pensar y actuar de la sociedad y contribuir al mejoramiento de la convivencia social.
+                    </ul>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-IN" onclick="toggleDisplayFlex('funcionesVen')">
+                        <h3>Funciones</h3>
+                        <p class="link-btn">Ver funciones &gt;</p>
+                    </div>
+                    <hr>
+                    <div class="detail-card-IN" onclick="toggleDisplayFlex('proyectosVen')">
+                        <h3>Proyectos</h3>
+                        <a href="#" class="link-btn">Ver proyectos &gt;</a>
+                    </div>
+                </div>
+            </div>
+            
         </section>
+    <hr>
 
-        <div class="info-section">
-            <div class="detail-card">
-                <h3>📋 Funciones Principales</h3>
-                <ul>
-                    <li>Promover e impulsar la investigación teórica y aplicada en el campo de la comunicación.</li>
-                    <li>Organizar seminarios, foros y congresos para la difusión del conocimiento cultural y mediático.</li>
-                    <li>Vincular a estudiantes y egresados con proyectos de investigación académica de alto impacto.</li>
-                    <li>Publicar artículos, libros y revistas especializadas con los hallazgos de nuestros investigadores.</li>
-                </ul>
-            </div>
+    <div><h2 style="color: var(--unam-azul);margin: 20px;margin-left: 0;">Departamentos</h2></div>
 
-            <div class="detail-card highlight-card">
-                <h3>🚀 Proyectos Destacados</h3>
-                <ul>
-                    <li><strong>Observatorio de Medios:</strong> Análisis crítico del discurso periodístico y narrativas digitales.</li>
-                    <li><strong>Ciberculturas:</strong> Estudio del impacto de las redes sociales en la participación ciudadana juvenil.</li>
-                    <li><strong>Identidades y Cultura Popular:</strong> Representaciones audiovisuales en el cine y la televisión mexicana contemporánea.</li>
-                </ul>
-            </div>
+        <section id="tarjetas-contenedor" class="cards-grid">
+            </section>
+
+    </main>
+    <div class="Ventana" id="funcionesVen">
+        <div class="Emergente">
+            <h2>Funciones</h2>
+            <br>
+            <ul>
+                <li>Desarrollar proyectos de investigación en el ámbito de la comunicación y de la cultura con un enfoque multidisciplinario.</li>
+                <li>Realizar investigaciones acerca del papel de las Humanidades y las Ciencias Sociales en la conformación de la identidad nacional y las diversas manifestaciones de la cultura.</li>
+                <li>Diseñar protocolos de investigación con especial énfasis en la aplicación de métodos cualitativos.</li>
+                <li>Realizar análisis de mensajes mediáticos.</li>
+                <li>Desarrollar estudios de recepción de productos comunicativos.</li>
+                <li>Efectuar diagnósticos y análisis de distintas manifestaciones culturales.</li>
+                <li>Fomentar y promover la formación de recursos humanos en investigación.</li>
+                <li>Fomentar y promover la vinculación interdisciplinaria y multidisciplinaria con las diferentes áreas académicas de nuestra Facultad, así como con los diferentes departamentos que integran la UIM y la Secretaría de Posgrado e Investigación, con el objeto de desarrollar proyectos de investigación y otras actividades académicas en forma conjunta y que cumplan con lo estipulado en el Plan de Desarrollo Institucional.</li>
+            </ul>
         </div>
+    </div>
 
-    </main
+    <div class="Ventana" id="proyectosVen">
+        <div class="Emergente">
+            <h2>Proyectos</h2>
+            <br>
+    <ul>
+        <li><h3>Programa de investigación en edición digital y escritura académica (artículos y ensayos)</h3></li>
+            <ul>
+                <li><strong>FIGURAS REVISTA ACADÉMICA DE INVESTIGACIÓN:</strong> Análisis, creación, publicación...</li>
+            <li><strong>Edición digital de una revista multidisciplinaria</strong> con una investigación y aplicación...
+                <ul>
+                    <li>Conocimiento profundo, constante y actualizado de la plataforma OJS...</li>
+                    <li>Amplia competencia y rigurosa marcación de los textos en el sistema XML-JATS...</li>
+                    <li>Comprender los requisitos de los diferentes catálogos...</li>
+                </ul>
+            </li>
+            <li><strong>Laboratorio de escritura:</strong> reconocer los aspectos fundamentales...</li>
+            </ul>
+        <li><h3>Programa de Iniciación a la Investigación</h3>
+            <ul><li><strong>Jóvenes Investigadores:</strong>Orientado a proporcionar bases</li></ul>
+        </li>
+        <li><h3>Manifestaciones de la cultura</h3>
+            <ul>
+                <li><strong>Seminario “En la mirada de otros”.</strong>Grupo de estudio sobre</li>
+                <li><strong>Seminario de podcast académico de investigación.</strong>Brindar una aproximación</li>
+            </ul>
+    </ul>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

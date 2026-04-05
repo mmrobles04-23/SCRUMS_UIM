@@ -3,124 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Investigación en Procuración y Administración de Justicia | UNAM</title>
-    
-    <link rel="stylesheet" href="style.css">
-
-    <style>
-        .header-interno {
-            background-color: var(--unam-azul);
-            padding: 40px 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .header-interno h1 {
-            color: #ffffff !important;
-            margin: 0;
-            font-size: 2.2em;
-            letter-spacing: 1px;
-        }
-
-        .back-nav {
-            margin-bottom: 20px;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--unam-azul);
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1em;
-            transition: color 0.2s, transform 0.2s;
-        }
-
-        .back-link:hover {
-            color: var(--unam-dorado);
-            transform: translateX(-5px);
-        }
-
-        .content-card {
-            background: #fff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            border-top: 5px solid var(--unam-dorado);
-            margin-bottom: 30px;
-        }
-
-        .content-card h2 {
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #e1e4e8;
-            font-size: 1.5em;
-            color: var(--unam-azul);
-        }
-
-        .content-card p {
-            line-height: 1.7;
-            color: #444;
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-
-        .content-card ul {
-            margin-left: 20px;
-            margin-bottom: 20px;
-            line-height: 1.6;
-            color: #444;
-        }
-
-        .content-card li {
-            margin-bottom: 10px;
-        }
-    </style>
+    <title>Departamentos de Investigación</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <header class="header-interno">
-        <h1>Departamento de Investigación en Procuración y Administración de Justicia</h1>
+    <header class="hero-section">
+        <img src="img/F1.jpg" alt="Campus Universitario" class="hero-image">
+        <h1 class="hero-title">DEPARTAMENTOS DE INVESTIGACIÓN</h1>
+        
     </header>
 
     <main class="main-container">
-        
-        <nav class="back-nav">
-            <a href="index.html" class="back-link">
-                <span>←</span> Regresar a Departamentos
-            </a>
-        </nav>
+    <img class="logoDepto" src="img/IPAJ.png" alt="Departamento de Investigación en Procuración y Administración de Justicia">
+        <div id="NombreDepto" style="color: #3f96b4;"><h2>Departamento de Investigación en Procuración y Administración de Justicia.</h2></div>
+        <section class="info-section">
+            
+            <div class="profile-card">
+                <div class="profile-image-placeholder">
+                <img src="" alt="Perfil">
+                </div>
+                <h2>Dra. Lidia Chávez Fonseca</h2>
+                <p class="role">Jefa del Departamento</p>
+                <ul class="contact-info">
+                    <li>Edificio A de la Unidad de Investigación Multidisciplinaria II, segundo piso.</li>
+                    <li>📞 555623-1750, Ext. 38982</li>
+                    <li>✉️ cdepjusp@acatlan.unam.mx</li>
+                </ul>
+            </div>
 
-        <section class="content-card">
-            <h2>🎯 Nuestro Objetivo</h2>
-            <p>
-                Realizar estudios socio-jurídicos, criminológicos y de política criminal para coadyuvar a la mejora de los sistemas de procuración e impartición de justicia en México. Nuestro departamento analiza el marco normativo, las prácticas institucionales y el respeto a los derechos humanos para proponer reformas sustanciales que garanticen un acceso equitativo, transparente y eficaz a la justicia para toda la sociedad.
-            </p>
+            <div class="details-column">
+                <div class="detail-card highlight-card">
+                    <h3>🎯 Nuestro Objetivo</h3>
+                    <ul>
+                        Fomentar y promover grupos de estudio para el desarrollo de proyectos de investigación básica y aplicada que propongan soluciones a los problemas del entorno relacionados con la administración e impartición de justicia en las diversas ramas de las ciencias jurídicas.
+                    </ul>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-IN" onclick="toggleDisplayFlex('funcionesVen')">
+                        <h3>Funciones</h3>
+                        <p class="link-btn">Ver funciones &gt;</p>
+                    </div>
+                    <hr>
+                    <div class="detail-card-IN" onclick="toggleDisplayFlex('proyectosVen')">
+                        <h3>Proyectos</h3>
+                        <a href="#" class="link-btn">Ver proyectos &gt;</a>
+                    </div>
+                </div>
+            </div>
+            
         </section>
+    <hr>
 
-        <div class="info-section">
-            <div class="detail-card">
-                <h3>📋 Funciones Principales</h3>
-                <ul>
-                    <li>Desarrollar investigación aplicada sobre el Sistema Penal Acusatorio, seguridad pública y victimología.</li>
-                    <li>Fomentar el debate académico a través de congresos, mesas redondas y seminarios con especialistas del sector judicial.</li>
-                    <li>Proponer actualizaciones legislativas y de políticas públicas basadas en evidencia empírica y estudios de derecho comparado.</li>
-                    <li>Publicar obras jurídicas, artículos científicos y boletines sobre la realidad criminológica y procesal del país.</li>
-                </ul>
-            </div>
+    <div><h2 style="color: var(--unam-azul);margin: 20px;margin-left: 0;">Departamentos</h2></div>
 
-            <div class="detail-card highlight-card">
-                <h3>🚀 Proyectos Destacados</h3>
-                <ul>
-                    <li><strong>Observatorio del Sistema Penal:</strong> Evaluación de la eficacia y los retos del sistema de justicia penal acusatorio en el Estado de México.</li>
-                    <li><strong>Derechos Humanos y Víctimas:</strong> Estudio integral sobre los mecanismos de reparación del daño y la atención institucional a víctimas del delito.</li>
-                    <li><strong>Política Criminal Sustentable:</strong> Análisis de las estrategias contemporáneas de prevención del delito y los modelos de reinserción social.</li>
-                </ul>
-            </div>
-        </div>
+        <section id="tarjetas-contenedor" class="cards-grid">
+            </section>
 
     </main>
+    <div class="Ventana" id="funcionesVen">
+        <div class="Emergente">
+            <h2>Funciones</h2>
+            <br>
+            <ul>
+                <li>Conformar grupos de investigación en las distintas áreas de las ciencias jurídicas.</li>
+                <li>Fomentar y promover la actualización y profundización del conocimiento en las distintas ciencias jurídicas.</li>
+                <li>Desarrollar proyectos de investigación que tengan impacto en el sistema jurídico en los distintos órdenes de gobierno.</li>
+                <li>Realizar estudios en materia de prevención, protección ciudadana y persecución de delitos.</li>
+                <li>Impartir capacitación al personal técnico, administrativo y directivo de la Facultad, en el ámbito de la prevención y combate de delitos en la Facultad.</li>
+                <li>Coadyuvar en el diseño de sistemas de seguridad para la protección del patrimonio institucional.</li>
+                <li>Promover la formación de recursos humanos en Investigación en Procuración y Administración de Justicia en las diversas ramas de las ciencias Jurídicas.</li>
+                <li>Desarrollar el programa anual de actividades de Investigación en Procuración y Administración de Justicia.</li>
+                <li>Propiciar y supervisar la vinculación con los departamentos de la Coordinación de la Unidad de Investigación Multidisciplinaria Aplicada, para el mejor aprovechamiento de los recursos de las áreas comunes.</li>
+                <li>Desarrollar actividades en vinculación con los programas de licenciatura y posgrado.</li>
+                <li>Realizar los informes de actividades de acuerdo a los lineamientos y períodos establecidos por la Dirección de la Facultad.</li>
+                <li>Las demás que le encomiende la Coordinación de la Unidad de Investigación Multidisciplinaria Aplicada y las inherentes al puesto.</li>
+            </ul>
+        </div>
+    </div>
 
+    <div class="Ventana" id="proyectosVen">
+        <div class="Emergente">
+            <h2>Proyectos</h2>
+            <br>
+    <ul>
+        <li><h3>Programa de investigación en edición digital y escritura académica (artículos y ensayos)</h3></li>
+                <ul>
+                    <li>Perspectivas contemporáneas del Derecho Constitucional Mexicano.</li>
+                    <li>La justicia restaurativa como política pública para el mantenimiento de la paz.</li>
+                    <li>Violencia contra las mujeres: perspectivas y retos.</li>
+                    <li>Estudio y prevención de Ciberdelitos.</li>
+                    <li>Violencia de Género en perspectiva comparada.
+                        <ul>
+                            <li><strong>Fecha de inicio:</strong> 01 de septiembre del 2024</li>
+                            <li><strong>Fecha de término:</strong> 01 de octubre del 2025</li>
+                        </ul>
+                    </li>
+                    <li>Las comunidades afro mexicanas en el Estado de México.</li>
+                    <li>Seguridad Universitaria: prevención, acciones y castigos.</li>
+                    <li>Seminario del Fenómeno Migratorio
+                        <ul>
+                            <li><strong>Fecha de inicio:</strong> 01 de marzo de 2025</li>
+                            <li><strong>Fecha de término:</strong> 01 de marzo de 2026</li>
+                        </ul>
+                    </li>
+                </ul>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
 </body>
 </html>
