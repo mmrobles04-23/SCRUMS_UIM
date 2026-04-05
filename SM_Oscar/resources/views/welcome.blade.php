@@ -77,10 +77,7 @@
                         <a class="nav-link text-white sidebar-link py-2" href="{{ url('/departamento') }}">Departamentos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white sidebar-link py-2" href="{{ config('uim.urls.revista_figuras') }}" target="_blank" rel="noopener noreferrer">Revista FIGURAS <i class="bi bi-box-arrow-up-right small" aria-hidden="true"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white sidebar-link py-2" href="{{ config('uim.urls.uim_oficial') }}" target="_blank" rel="noopener noreferrer">Sitio UIM (FES) <i class="bi bi-box-arrow-up-right small" aria-hidden="true"></i></a>
+                        <a class="nav-link text-white sidebar-link py-2" href="{{ config('uim.urls.revista_figuras') }}" target="_blank" rel="noopener noreferrer">Revista FIGURAS</a>
                     </li>
                 </ul>
             </div>
