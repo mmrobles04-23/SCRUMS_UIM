@@ -69,9 +69,10 @@ footer .col-6 {
     padding-left: 10px !important;
 }
 
-/* Ancla #uim-proposito (welcome): scroll desde el menú sin pegar el título al borde (estilo propio). */
-#uim-proposito {
-    scroll-margin-top: 1.25rem;
+/* Anclas en welcome: compensan header + subbarra fijos al usar enlaces internos (estilo propio). */
+#uim-proposito,
+#uim-congresos {
+    scroll-margin-top: 7.5rem;
 }
 
 .bloque-principal1{
@@ -408,6 +409,48 @@ filter:brightness(0) invert(1);
 /* Línea dorada institucional bajo el header (usa --unam-dorado sin cambiar su valor). */
 .uim-header-institutional {
     border-bottom: 3px solid var(--unam-dorado);
+}
+
+/*
+   Bloque pegajoso: header + subbarra (si existe) suben juntos al hacer scroll.
+   NOTA (Bootstrap): z-index 1030 es coherente con navbar fija BS5; modales van encima.
+*/
+.uim-site-head-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* Subbarra horizontal alineada al mismo container-fluid que el header (estilo propio + utilidades BS en Blade). */
+.uim-subnav {
+    background: var(--unam-dorado)!important;
+    /* Borde inferior: cierre del bloque fijo antes del contenido (header ya trae borde dorado inferior). */
+    border-bottom: 3px solid var(--unam-azul);
+}
+
+.uim-subnav .uim-subnav-inner {
+    scrollbar-width: thin;
+}
+
+.uim-subnav .nav-link {
+    color: rgba(255, 255, 255, 0.92);
+    border-radius: 6px;
+    white-space: nowrap;
+    padding: 0.45rem 0.85rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.uim-subnav .nav-link:hover,
+.uim-subnav .nav-link:focus {
+    background-color: rgba(255, 255, 255, 0.14);
+    color: #fff;
+}
+
+.uim-subnav .nav-link .bi-box-arrow-up-right {
+    opacity: 0.75;
+    font-size: 0.7rem;
 }
 
 /* Misma idea en el borde superior del footer para cerrar el sitio con identidad UNAM. */

@@ -77,10 +77,10 @@
                         <a class="nav-link text-white sidebar-link py-2" href="{{ url('/departamento') }}">Departamentos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white sidebar-link py-2" href="{{ config('uim.urls.revista_figuras') }}" target="_blank" rel="noopener noreferrer">Revista FIGURAS <i class="bi bi-box-arrow-up-right small" aria-hidden="true"></i></a>
+                        <a class="nav-link text-white sidebar-link py-2" href="{{ url('/') }}#uim-congresos">Congresos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white sidebar-link py-2" href="{{ config('uim.urls.uim_oficial') }}" target="_blank" rel="noopener noreferrer">Sitio UIM (FES) <i class="bi bi-box-arrow-up-right small" aria-hidden="true"></i></a>
+                        <a class="nav-link text-white sidebar-link py-2" href="{{ config('uim.urls.revista_figuras') }}" target="_blank" rel="noopener noreferrer">Revista FIGURAS</a>
                     </li>
                 </ul>
             </div>
@@ -280,6 +280,56 @@
                         <a href="{{ config('uim.urls.revista_figuras') }}" class="btn btn-outline-secondary btn-sm w-100" target="_blank" rel="noopener noreferrer">Revista FIGURAS</a>
                     </div>
                 </div>
+
+    {{-- NOTA: $congresos viene de HomeController; solo activos. Ruta pública: route('congresos.show', $c). --}}
+    <div class="col-12 uim-congresos-section" id="uim-congresos">
+        <div class="d-flex flex-column flex-md-row align-items-md-end justify-content-between gap-2 mb-3">
+            <div>
+                <h2 class="h4 text-warning fw-bold mb-1">Congresos</h2>
+                <p class="text-body-secondary small mb-0">Encuentros académicos de la UIM; detalle e inscripción por evento.</p>
+            </div>
+        </div>
+
+        @forelse($congresos as $congreso)
+            <div class="card border-0 shadow-sm uim-page-shell mb-3 overflow-hidden">
+                <div class="row g-0 align-items-stretch">
+                    <div class="col-md-4 col-lg-3">
+                        <img src="{{ $congreso->urlPortada() }}" class="img-fluid w-100 h-100 object-fit-cover" style="min-height: 160px;" alt="{{ $congreso->titulo }}">
+                    </div>
+                    <div class="col-md-8 col-lg-9">
+                        <div class="card-body p-3 p-md-4">
+                            <h3 class="h5 text-body fw-bold mb-2">{{ $congreso->titulo }}</h3>
+                            <div class="small text-body-secondary mb-2">
+                                @if($congreso->fecha_inicio)
+                                    <i class="bi bi-calendar-event me-1 text-warning"></i>
+                                    {{ $congreso->fecha_inicio->format('d/m/Y') }}
+                                    @if($congreso->fecha_fin) — {{ $congreso->fecha_fin->format('d/m/Y') }} @endif
+                                @endif
+                                @if($congreso->sede)
+                                    <span class="ms-md-3 d-inline-block"><i class="bi bi-geo-alt me-1 text-warning"></i>{{ $congreso->sede }}</span>
+                                @endif
+                            </div>
+                            @if($congreso->resumen)
+                                <p class="small text-body mb-3 mb-md-0">{{ \Illuminate\Support\Str::limit($congreso->resumen, 220) }}</p>
+                            @endif
+                            <div class="d-flex flex-column flex-sm-row flex-wrap gap-2 mt-3">
+                                <a href="{{ route('congresos.show', $congreso) }}" class="btn btn-outline-secondary btn-sm">Ver congreso</a>
+                                @if($congreso->enlace_inscripcion)
+                                    <a href="{{ $congreso->enlace_inscripcion }}" class="btn btn-warning btn-sm" target="_blank" rel="noopener noreferrer">Inscribirme</a>
+                                @else
+                                    <button type="button" class="btn btn-warning btn-sm" disabled title="El administrador aún no ha configurado el enlace de inscripción">Inscribirme</button>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @empty
+            <div class="alert alert-light border text-body-secondary small mb-0" role="status">
+                No hay congresos publicados por el momento. El administrador puede dar de alta eventos desde el panel.
+            </div>
+        @endforelse
+    </div>
 
     {{-- NOTA (Bootstrap): fila completa para carrusel de tarjetas; NOTA (app.css): .uim-events-section márgenes. --}}
     <div class="col-12 uim-events-section">

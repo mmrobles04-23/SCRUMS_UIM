@@ -2,6 +2,34 @@
 
 @section('title', 'Inicio — UIM FES Acatlán')
 
+{{-- NOTA (Blade/layout): se renderiza bajo el header dentro de .uim-site-head-sticky (fijo al hacer scroll). --}}
+{{-- NOTA (Bootstrap): nav, flex-nowrap, overflow-x-auto para móvil. --}}
+@section('subnav')
+    <nav class="uim-subnav text-white" aria-label="Navegación investigación UIM">
+        <div class="container-fluid px-3 px-lg-4 uim-subnav-inner">
+            <ul class="nav flex-nowrap overflow-x-auto py-2 mb-0 gap-1">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('home') }}#uim-proposito">Propósito</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/investigacion') }}">Seminarios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/departamento') }}">Departamentos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('home') }}#uim-congresos">Congresos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ config('uim.urls.revista_figuras') }}" target="_blank" rel="noopener noreferrer">
+                        Revista FIGURAS
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+@endsection
+
 @section('content')
     {{--
         Referencia: menú Investigación del portal FES Acatlán (Propósito, Seminarios, Departamentos, FIGURAS).
@@ -57,41 +85,9 @@
 
     {{-- NOTA (Bootstrap): container-fluid, gutters g-4, px responsive; orden en móvil: contenido principal primero. --}}
 <div class="container-fluid px-3 px-lg-4 py-4">
+{{-- NOTA (Bootstrap): sin columna lateral; contenido principal + columna derecha (8/4 en lg). --}}
 <div class="row g-4 align-items-start">
-    <div class="col-12 col-md-2 order-2 order-md-1">
-         {{-- NOTA (Bootstrap): nav + nav-link; NOTA (app.css): .sidebar, .sidebar-link. --}}
-         {{-- NOTA (contenido): ítems alineados al menú “Investigación” del portal oficial de la FES Acatlán. --}}
-         <aside class="bg-unam text-white sidebar sidebar-compact py-3 px-0 shadow-lg" aria-label="Navegación investigación UIM">
-
-            <h5 class="text-center border-bottom pb-2 px-2 small text-uppercase text-white-50">Investigación</h5>
-
-            <div class="mt-3 px-2">
-                <ul class="nav flex-column mt-2">
-                    <li class="nav-item">
-                        <a class="nav-link text-white sidebar-link py-2" href="{{ url('/') }}#uim-proposito">Propósito</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white sidebar-link py-2" href="{{ url('/investigacion') }}">Seminarios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white sidebar-link py-2" href="{{ url('/departamento') }}">Departamentos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white sidebar-link py-2" href="{{ url('/') }}#uim-congresos">Congresos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white sidebar-link py-2" href="{{ config('uim.urls.revista_figuras') }}" target="_blank" rel="noopener noreferrer">Revista FIGURAS</a>
-                    </li>
-                </ul>
-            </div>
-
-        </aside>
-
-
-
-    </div>
-        {{-- NOTA (Bootstrap): orden order-1 en móvil para mostrar el bloque principal arriba. --}}
-        <div class="col-12 col-md-8 order-1 order-md-2">
+        <div class="col-12 col-lg-8">
                             <div class="bloque-principal1 p-3 p-md-4 text-body-secondary">
                         <div class="row">
 
@@ -155,7 +151,7 @@
 
                     </div>
     </div>
-        <div class="col-12 col-md-2 order-3 uim-carousel-side">
+        <div class="col-12 col-lg-4 uim-carousel-side">
            {{-- NOTA (app.css): .uim-carousel-side reduce ancho de flechas del carousel lateral. --}}
            {{-- NOTA (contenido): tres tarjetas por slide, sin duplicar “Investigación”; enlaces coherentes con el menú del portal FES. --}}
            <div id="tarjetasCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -169,7 +165,7 @@
                                         </p>
                                         <div class="extra">
                                             <p class="small mb-0 mt-2">
-                                                Consulta el texto completo en el bloque principal o desde el menú lateral.
+                                                Consulta el texto completo en el bloque principal o desde la barra superior.
                                             </p>
                                         </div>
                                         <div class="d-flex flex-wrap gap-2 mt-2">

@@ -17,24 +17,29 @@
 </head>
 {{-- NOTA (Bootstrap): d-flex flex-column min-vh-100 = columna de altura mínima viewport; footer queda abajo en páginas cortas. --}}
 <body class="bg-light d-flex flex-column min-vh-100">
-    {{-- NOTA (Bootstrap): bg-unam (app.css, color UNAM), shadow-sm, py-*. --}}
-    {{-- NOTA (Estilo propio / app.css): .uim-header-institutional = borde dorado inferior con var(--unam-dorado). --}}
-    <header class="bg-unam text-white shadow-sm uim-header-institutional">
-        <div class="container-fluid px-3 px-lg-4">
-            <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 py-3">
-                <div class="d-flex align-items-center gap-2 gap-md-3 order-md-1">
-                    <img src="{{ asset('header/logo_unam.png') }}" class="logo" alt="UNAM">
-                </div>
-                {{-- NOTA (Bootstrap): h4 + utilidades de flex y espaciado; en pantallas muy estrechas el texto puede partir en varias líneas. --}}
-                <h1 class="h4 mb-0 text-center flex-grow-1 fw-bold order-md-2 px-2">
-                    Unidad de Investigación Multidisciplinaria
-                </h1>
-                <div class="d-flex align-items-center gap-2 order-md-3">
-                    <img src="{{ asset('header/logo_unam_fesa.png') }}" class="logo" alt="FES Acatlán">
+    {{-- NOTA (Estilo propio / app.css): .uim-site-head-sticky mantiene header + subbarra visibles al hacer scroll. --}}
+    {{-- NOTA (Blade): @section('subnav') opcional en vistas (p. ej. welcome); si no existe, solo se muestra el header. --}}
+    <div class="uim-site-head-sticky">
+        {{-- NOTA (Bootstrap): bg-unam (app.css), shadow-sm; borde dorado en .uim-header-institutional. --}}
+        <header class="bg-unam text-white shadow-sm uim-header-institutional">
+            <div class="container-fluid px-3 px-lg-4">
+                <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 py-3">
+                    <div class="d-flex align-items-center gap-2 gap-md-3 order-md-1">
+                        <img src="{{ asset('header/logo_unam.png') }}" class="logo" alt="UNAM">
+                    </div>
+                    <h1 class="h4 mb-0 text-center flex-grow-1 fw-bold order-md-2 px-2">
+                        Unidad de Investigación Multidisciplinaria
+                    </h1>
+                    <div class="d-flex align-items-center gap-2 order-md-3">
+                        <img src="{{ asset('header/logo_unam_fesa.png') }}" class="logo" alt="FES Acatlán">
+                    </div>
                 </div>
             </div>
-        </div>
-    </header>
+        </header>
+        @hasSection('subnav')
+            @yield('subnav')
+        @endif
+    </div>
 
     {{-- NOTA (Bootstrap): flex-grow-1 empuja el footer hacia abajo dentro del body flex. --}}
     <main class="flex-grow-1">

@@ -19,7 +19,6 @@ Route::get('/departamento', function () {
     return view('departamento');
 });
 
-
 Route::middleware('web')->group(function () {
     Route::get('/login', [WebAuthController::class, 'showLogin'])->name('web.login');
     Route::post('/login', [WebAuthController::class, 'login'])->name('web.login.submit');
