@@ -131,6 +131,20 @@ php artisan config:clear
 | `resources/views/auth/*.blade.php` | Mensajes legales o de aviso si la UIM los pide. |
 | `resources/views/emails/*.blade.php` | Firmas y enlaces en correos transaccionales. |
 
+### 5.1 Módulo Congresos
+
+| Recurso | Ubicación / notas |
+|---------|-------------------|
+| **Tabla** | `congresos` (migración `database/migrations/2026_04_04_120000_create_congresos_table.php`). |
+| **Modelo** | `app/Models/Congreso.php` |
+| **Página pública dinámica** | `resources/views/congresos/show.blade.php` — URL `/congresos/{slug}`. |
+| **Listado en inicio** | `resources/views/welcome.blade.php` sección `#uim-congresos` (datos desde `HomeController`). |
+| **CRUD administrador** | Rutas bajo `admin/congresos` (middleware `auth.token` + `admin.or.dev`). Vistas en `resources/views/admin/congresos/`. |
+| **Imágenes** | Se guardan en `storage/app/public/congresos/` (requiere `php artisan storage:link`). |
+| **Campos editables** | Título, slug (opcional), resumen, descripción, fechas, sede, portada, enlaces inscripción/programa/sitio, bandera `activo`. |
+
+**Inscripción de alumnos:** el botón usa el campo `enlace_inscripcion` (URL externa, p. ej. formulario o Google Forms). En una etapa posterior puede sustituirse por ruta interna y modelo `Inscripcion`.
+
 ---
 
 ## 6. Imágenes y assets estáticos
@@ -158,9 +172,10 @@ php artisan config:clear
 ## 8. Hacia el administrador (segunda etapa)
 
 1. **Tabla `site_settings` (clave / valor JSON o texto):** migrar las claves de `config/uim.php` para editar URLs y contacto desde el panel.
-2. **Tablas `carousel_slides`, `events`, `pages`:** sustituir bloques estáticos de `welcome.blade.php` por `@foreach`.
-3. **Caché:** al guardar en admin, ejecutar `config:clear` o invalidar caché de vistas si aplica.
-4. **Autorización:** reutilizar middleware existente (`admin.or.dev`, Sanctum) para restringir el CRUD.
+2. **Congresos:** el CRUD ya existe; el siguiente paso es enriquecer validaciones, auditoría y quizá inscripciones en BD.
+3. **Tablas `carousel_slides`, `events`, `pages`:** sustituir bloques estáticos de `welcome.blade.php` por `@foreach`.
+4. **Caché:** al guardar en admin, ejecutar `config:clear` o invalidar caché de vistas si aplica.
+5. **Autorización:** reutilizar middleware existente (`admin.or.dev`, Sanctum) para restringir el CRUD.
 
 Esta guía puede mantenerse como **checklist** al cerrar entrega con la UNAM y al planear el módulo de administración.
 

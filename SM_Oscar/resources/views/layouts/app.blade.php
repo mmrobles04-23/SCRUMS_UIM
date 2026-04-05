@@ -66,8 +66,9 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <ul class="list-unstyled small mb-0">
-                                <li class="mb-2"><a href="{{ url('/') }}" class="text-white text-decoration-none">Inicio</a></li>
-                                <li class="mb-2"><a href="{{ url('/') }}#uim-proposito" class="text-white text-decoration-none">Propósito</a></li>
+                                <li class="mb-2"><a href="{{ route('home') }}" class="text-white text-decoration-none">Inicio</a></li>
+                                <li class="mb-2"><a href="{{ route('home') }}#uim-proposito" class="text-white text-decoration-none">Propósito</a></li>
+                                <li class="mb-2"><a href="{{ route('home') }}#uim-congresos" class="text-white text-decoration-none">Congresos</a></li>
                                 <li class="mb-2"><a href="{{ url('/investigacion') }}" class="text-white text-decoration-none">Seminarios</a></li>
                                 <li class="mb-2"><a href="{{ url('/departamento') }}" class="text-white text-decoration-none">Departamentos</a></li>
                             </ul>

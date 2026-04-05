@@ -17,6 +17,7 @@
                             </p>
 
                             <div class="d-flex flex-column flex-sm-row flex-wrap gap-2 mb-4">
+                                <a href="{{ route('admin.congresos.index') }}" class="btn btn-warning btn-sm">Gestionar congresos</a>
                                 <a href="{{ route('web.dashboard') }}" class="btn btn-outline-secondary btn-sm">Volver al dashboard</a>
                                 <a href="{{ url('/') }}" class="btn btn-outline-secondary btn-sm">Sitio público</a>
                             </div>
