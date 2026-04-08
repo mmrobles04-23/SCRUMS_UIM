@@ -19,7 +19,7 @@ const departamentos = [
     },
     {
         nombre: "Departamento de Investigación en Procuración y Administración de Justicia.",
-        icono: "🏢",
+        icono: "⚖️",
         url: "administracion_justicia.html"
     },
     {
@@ -29,7 +29,7 @@ const departamentos = [
     },
     {
         nombre: "Departamento de Análisis de Riesgos Naturales y Antropogénicos",
-        icono: "🏢",
+        icono: "☣️",
         url: "analisis_riesgos.html"
     }
 ];

@@ -1,12 +1,14 @@
-@import 'tailwindcss';
-
 /* Ejemplo de CSS personalizado */
 body {
     font-family: 'Instrument Sans', sans-serif;
 }
 
 .btn-custom {
-    @apply bg-blue-500 text-white px-4 py-2 rounded;
+    background-color: #0d6efd;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    border: 1px solid transparent;
 }
 
 :root {
@@ -65,6 +67,12 @@ footer .col-6 {
 /* Contenedor principal para evitar corte de sidebar */
 .container-fluid {
     padding-left: 10px !important;
+}
+
+/* Anclas en welcome: compensan header + subbarra fijos al usar enlaces internos (estilo propio). */
+#uim-proposito,
+#uim-congresos {
+    scroll-margin-top: 7.5rem;
 }
 
 .bloque-principal1{
@@ -336,4 +344,154 @@ filter:brightness(0) invert(1);
 
 .btn-warning:hover{
     background-color: #8c6d00;
+}
+
+.uim-auth-wrapper {
+    min-height: calc(100vh - 160px);
+    display: flex;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.uim-auth-card {
+    border: 0;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0, 51, 117, 0.12);
+    overflow: hidden;
+}
+
+.uim-auth-accent {
+    background: linear-gradient(135deg, var(--unam-azul), var(--azul));
+    color: #fff;
+}
+
+.uim-auth-accent .text-muted {
+    color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.uim-auth-title {
+    letter-spacing: 0.5px;
+}
+
+/* Estilo personalizado para logos en Auth */
+.uim-auth-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* línea blanca de separación */
+    margin-bottom: 1rem;
+}
+
+.uim-auth-logos img {
+    max-height: 120px; /* más grandes */
+    filter: brightness(0) invert(1); /* blanco */
+    transition: transform 0.2s ease-in-out;
+}
+
+.uim-auth-logos img:hover {
+    transform: scale(1.05);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LAYOUT GLOBAL (estilo propio; colores = variables :root ya definidas)
+   Docencia: el “armazón” usa utilidades Bootstrap en el Blade
+   (flex, min-vh-100, shadow-sm). Aquí solo detalles que Bootstrap
+   no cubre con la identidad UNAM.
+═══════════════════════════════════════════════════════════════ */
+
+/* Separador vertical entre logos en Auth: evita style="" en el HTML. */
+.uim-auth-logos-divider {
+    width: 1px;
+    height: 50px;
+    flex-shrink: 0;
+}
+
+/* Línea dorada institucional bajo el header (usa --unam-dorado sin cambiar su valor). */
+.uim-header-institutional {
+    border-bottom: 3px solid var(--unam-dorado);
+}
+
+/*
+   Bloque pegajoso: header + subbarra (si existe) suben juntos al hacer scroll.
+   NOTA (Bootstrap): z-index 1030 es coherente con navbar fija BS5; modales van encima.
+*/
+.uim-site-head-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* Subbarra horizontal alineada al mismo container-fluid que el header (estilo propio + utilidades BS en Blade). */
+.uim-subnav {
+    background: var(--unam-dorado)!important;
+    /* Borde inferior: cierre del bloque fijo antes del contenido (header ya trae borde dorado inferior). */
+    border-bottom: 3px solid var(--unam-azul);
+}
+
+.uim-subnav .uim-subnav-inner {
+    scrollbar-width: thin;
+}
+
+.uim-subnav .nav-link {
+    color: rgba(255, 255, 255, 0.92);
+    border-radius: 6px;
+    white-space: nowrap;
+    padding: 0.45rem 0.85rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.uim-subnav .nav-link:hover,
+.uim-subnav .nav-link:focus {
+    background-color: rgba(255, 255, 255, 0.14);
+    color: #fff;
+}
+
+.uim-subnav .nav-link .bi-box-arrow-up-right {
+    opacity: 0.75;
+    font-size: 0.7rem;
+}
+
+/* Misma idea en el borde superior del footer para cerrar el sitio con identidad UNAM. */
+.uim-footer-institutional {
+    border-top: 3px solid var(--unam-dorado);
+}
+
+/*
+   Contenedor tipo “tarjeta de página” para dashboard y bloques destacados:
+   sombra/radio coherentes con `.uim-auth-card` (estilo propio).
+   En Blade se combina con Bootstrap `card` + `border-0` si se desea.
+*/
+.uim-page-shell {
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0, 51, 117, 0.12);
+    background: #fff;
+    border: 0;
+    overflow: hidden;
+}
+
+/* Carruseles laterales en welcome: controles no tapen el contenido (estilo propio). */
+.uim-carousel-side .carousel-control-prev,
+.uim-carousel-side .carousel-control-next {
+    width: 2rem;
+}
+
+/* Sección de eventos en welcome: aire vertical uniforme (Bootstrap ya da el grid). */
+.uim-events-section {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Bloque “Congresos” en welcome: separación del carrusel de eventos (estilo propio). */
+.uim-congresos-section {
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Ancho máximo del bloque de logout en dashboards (estilo propio; evita style="" en Blade). */
+.uim-form-actions-narrow {
+    max-width: 220px;
 }
