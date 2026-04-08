@@ -28,13 +28,16 @@ RUN npm run build
 RUN chown -R www-data:www-data storage bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache
 
+# Preparar el archivo .env para producción antes de las optimizaciones
+RUN cp .env.produccion .env || true
+
 # Puerto Render
 ENV PORT=10000
 EXPOSE 10000
 
-# Arranque
+# Arranque con optimizaciones y migración segura
 CMD php artisan config:cache && \
     php artisan route:cache && \
     php artisan view:cache && \
-    php artisan migrate:fresh --seed --force && \
+    php artisan migrate --force && \
     php artisan serve --host=0.0.0.0 --port=$PORT
