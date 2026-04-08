@@ -1,0 +1,339 @@
+@import 'tailwindcss';
+
+/* Ejemplo de CSS personalizado */
+body {
+    font-family: 'Instrument Sans', sans-serif;
+}
+
+.btn-custom {
+    @apply bg-blue-500 text-white px-4 py-2 rounded;
+}
+
+:root {
+
+--unam-azul:#1E3C70;
+--unam-dorado:#b38c00;
+--fesa-verde:#0b791d;
+    --azul: #003375;
+    --azul-claro: #2c4a7a;
+    --dorado: #b38c00;
+    --verde: #2e6b3e;
+    --verde-sec: #4c8c6b;
+
+}
+
+.bg-unam{
+background-color:var(--unam-azul)!important;
+}
+
+.bg-dorado{
+background-color:var(--unam-dorado)!important;
+}
+
+.bg-verde{
+background-color:var(--fesa-verde)!important;
+}
+
+/* <!-- ══════════════════════════════
+     LAYOUT PRINCIPAL
+     sidebar (col-2) + contenido (col-10)
+════════════════════════════════ --> */
+
+/* Footer estilos específicos para eliminar padding lateral */
+footer {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+footer .container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+footer .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+footer .col-md-4,
+footer .col-md-8,
+footer .col-6 {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
+/* Contenedor principal para evitar corte de sidebar */
+.container-fluid {
+    padding-left: 10px !important;
+}
+
+.bloque-principal1{
+    background: white;
+    color: #333;
+    border-radius: 10px;
+    border-left: 5px solid var(--dorado);
+    padding: 5px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    transition: 0.25s;
+
+}
+
+
+/* Sidebar */
+
+.sidebar{
+min-height:100vh;
+border-radius: 15px;
+margin-top: 20px; /* Bajar el sidebar 15px */
+position: relative;
+z-index: 10;
+box-shadow: 4px 0 15px rgba(0,0,0,0.1);
+}
+
+/* Sidebar compacto para welcome - solo altura del contenido */
+.sidebar-compact {
+    min-height: 81vh;
+    height: fit-content;
+}
+
+/* MENU LATERAL */
+
+.sidebar-link{
+
+border-radius:6px;
+
+transition:0.3s;
+
+}
+
+.sidebar-link:hover{
+
+background-color:rgba(255,255,255,0.15);
+
+padding-left:10px;
+
+}
+
+/* BLOQUES */
+
+.bloque-uim{
+
+min-height:320px;
+
+transition:0.3s;
+
+}
+
+.bloque-uim:hover{
+
+transform:translateY(-4px);
+
+}
+
+.bloque-seccion{
+
+min-height:140px;
+
+}
+
+
+.bloque-evento{
+
+min-height:120px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-weight:bold;
+
+}
+
+/* Estilos para imágenes en tarjetas de eventos */
+.evento-img {
+    height: 80px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.bloque-evento {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bloque-evento:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.bloque-carrucel{
+
+min-height:160px;
+
+}
+
+/* LOGOS */
+
+.logo{
+
+height:60px;
+
+filter:brightness(0) invert(1);
+
+}
+
+
+/* <!-- ══════════════════════════════
+     CARRUCEL
+     (noticias y convocatorias)
+════════════════════════════════ -->
+
+ */
+#carousel{
+  width: 100%;
+  flex:1;
+  height:30vh;
+}
+
+#carousel .carousel-item{
+  height:30vh;
+  position:relative;
+}
+
+#carousel img{
+  height:30vh;
+  object-fit:cover;
+  width: 100%;
+}
+
+#carousel .carousel-item::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.4);
+  z-index:1;
+}
+
+.carousel-caption{
+  z-index:2;
+  top:50%;
+  transform:translateY(-50%);
+  bottom:auto;
+}
+
+.slide-title{
+  font-size:clamp(1.8rem, 4vw, 3.5rem);
+  color:white;
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-weight:400;
+  animation:fadeSlide 1s ease;
+}
+
+@keyframes fadeSlide{
+  from{
+    opacity:0;
+    transform:translateY(50px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon{
+  background-size:70%;
+}
+
+
+/* <!-- ══════════════════════════════
+     tarjetas de investigacion y tecnologias 
+     laterales del dashboard
+════════════════════════════════ --> */
+
+/* tarjetas (las cambié a blanco porque se veía muy cargado) */
+.bloque-sec{
+    background: white;
+    color: #333;
+    border-radius: 10px;
+    border-left: 5px solid var(--dorado);
+    padding: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    transition: 0.25s;
+}
+
+
+
+/* efecto cuando pasas el mouse */
+.bloque-sec:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* títulos */
+.bloque-sec h6{
+    font-weight: bold;
+    color: var(--azul);
+    margin-bottom: 6px;
+}
+
+/* texto general */
+.bloque-sec p{
+    font-size: 13px;
+    color: #555;
+}
+
+/* eventos */
+.evento{
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 4px solid var(--dorado);
+    font-weight: bold;
+}
+
+/* expandible (esto me costó jaja) */
+.expandable{
+    max-height: 160px;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.expandable .extra{
+    display: none;
+}
+
+.expandable.activo{
+    max-height: 600px;
+}
+
+.expandable.activo .extra{
+    display: block;
+}
+
+/* botones */
+.btn-toggle{
+    background-color: #e9ecef;
+    border: none;
+}
+
+.btn-toggle:hover{
+    background-color: #d6d6d6;
+}
+
+.btn-warning{
+    background-color: var(--dorado);
+    border: none;
+    color: white;
+}
+
+.btn-warning:hover{
+    background-color: #8c6d00;
+}
