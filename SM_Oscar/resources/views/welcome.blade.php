@@ -96,10 +96,10 @@
                                 {{-- NOTA: id para ancla desde el menú lateral (#uim-proposito), patrón típico en sitios institucionales. --}}
                                 {{-- NOTA (Bootstrap): text-warning = acento dorado del tema; lead = párrafo de entrada. --}}
                                 <h3 id="uim-proposito" class="text-warning fw-bold mb-2">
-                                    UIM — Propósito de la investigación
+                                    UIMA — Propósito de la investigación
                                 </h3>
                                 <p class="lead fs-6 text-body-secondary mb-3">
-                                    La <strong class="text-body">Unidad de Investigación Multidisciplinaria (UIM)</strong> de la
+                                    La <strong class="text-body">Unidad de Investigación Multidisciplinaria (UIMA)</strong> de la
                                     <strong class="text-body">FES Acatlán — UNAM</strong> articula esfuerzos de generación de conocimiento
                                     en coherencia con las líneas de la Universidad y del portal de la Facultad.
                                 </p>

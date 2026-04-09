@@ -25,10 +25,10 @@
             <div class="container-fluid px-3 px-lg-4">
                 <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 py-3">
                     <div class="d-flex align-items-center gap-2 gap-md-3 order-md-1">
-                        <img src="{{ asset('header/logo_unam.png') }}" class="logo" alt="UNAM">
+                        <img src="{{ asset('header/UIMA-negro_logo.png') }}" class="logo-uima" alt="UNAM">
                     </div>
                     <h1 class="h4 mb-0 text-center flex-grow-1 fw-bold order-md-2 px-2">
-                        Unidad de Investigación Multidisciplinaria
+                        Unidad de Investigación Multidisciplinaria Aplicada
                     </h1>
                     <div class="d-flex align-items-center gap-2 order-md-3">
                         <img src="{{ asset('header/logo_unam_fesa.png') }}" class="logo" alt="FES Acatlán">
@@ -53,7 +53,7 @@
         <div class="container-fluid px-3 px-lg-4 py-4">
             <div class="row g-4 align-items-start">
                 <div class="col-md-4">
-                    <h5 class="text-warning mb-3">UIM FES Acatlán</h5>
+                    <h5 class="text-warning mb-3">UIMA FES Acatlán</h5>
                     <p class="small mb-2 text-white-50">Unidad de Investigación Multidisciplinaria</p>
                     <p class="small mb-3 text-white-50">FES Acatlán - UNAM</p>
                     {{-- NOTA: URLs en config/uim.php → redes_sociales.* (o .env UIM_REDES_*). Valor # = pendiente por UNAM. --}}
@@ -62,39 +62,23 @@
                         <a href="{{ config('uim.redes_sociales.twitter') }}" class="text-white text-decoration-none" aria-label="X (Twitter)"><i class="bi bi-twitter fs-5"></i></a>
                         <a href="{{ config('uim.redes_sociales.instagram') }}" class="text-white text-decoration-none" aria-label="Instagram"><i class="bi bi-instagram fs-5"></i></a>
                         <a href="{{ config('uim.redes_sociales.youtube') }}" class="text-white text-decoration-none" aria-label="YouTube"><i class="bi bi-youtube fs-5"></i></a>
-                        <a href="{{ config('uim.redes_sociales.spotify') }}" class="text-white text-decoration-none" aria-label="Spotify"><i class="bi bi-spotify fs-5"></i></a>
+                        <a href="{{ config('uim.urls.podcast_uim') }}" class="text-white text-decoration-none" aria-label="Spotify" target="_blank" rel="noopener noreferrer"><i class="bi bi-spotify fs-5"></i></a>
                     </div>
                 </div>
                 {{-- NOTA: misma lógica que welcome (menú Investigación FES). URLs externas → config('uim.urls.*'). --}}
                 <div class="col-md-4 col-lg-5">
-                    <h5 class="text-warning mb-3">Enlaces rápidos</h5>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <ul class="list-unstyled small mb-0">
-                                <li class="mb-2"><a href="{{ route('home') }}" class="text-white text-decoration-none">Inicio</a></li>
-                                <li class="mb-2"><a href="{{ route('home') }}#uim-proposito" class="text-white text-decoration-none">Propósito</a></li>
-                                <li class="mb-2"><a href="{{ route('home') }}#uim-congresos" class="text-white text-decoration-none">Congresos</a></li>
-                                <li class="mb-2"><a href="{{ url('/investigacion') }}" class="text-white text-decoration-none">Seminarios</a></li>
-                                <li class="mb-2"><a href="{{ url('/departamento') }}" class="text-white text-decoration-none">Departamentos</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-sm-6">
-                            <ul class="list-unstyled small mb-0">
-                                <li class="mb-2"><a href="{{ config('uim.urls.revista_figuras') }}" class="text-white text-decoration-none" target="_blank" rel="noopener noreferrer">Revista FIGURAS</a></li>
-                                <li class="mb-2"><a href="{{ config('uim.urls.uim_oficial') }}" class="text-white text-decoration-none" target="_blank" rel="noopener noreferrer">Sitio UIM (FES)</a></li>
-                                <li class="mb-2"><a href="{{ config('uim.urls.portal_fes') }}" class="text-white text-decoration-none" target="_blank" rel="noopener noreferrer">Portal FES Acatlán</a></li>
-                                <li class="mb-2"><a href="{{ config('uim.urls.publicaciones') }}" class="text-white text-decoration-none">Publicaciones</a></li>
-                                <li class="mb-2"><a href="{{ config('uim.urls.convocatorias') }}" class="text-white text-decoration-none">Convocatorias</a></li>
-                                <li class="mb-2"><a href="{{ config('uim.urls.podcast_uim') }}" class="text-white text-decoration-none">Podcast UIM</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    <h5 class="text-warning mb-3">Podcast UIMA</h5>
+                    <p class="small text-white-50 mb-3">
+                        Escucha nuestros episodios sobre investigación multidisciplinaria y proyectos destacados de la FES Acatlán.
+                    </p>
+                    <a href="{{ config('uim.urls.podcast_uim') }}" class="btn btn-outline-light btn-sm" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-spotify me-1"></i> Escuchar en Spotify
+                    </a>
                 </div>
                 <div class="col-md-4 col-lg-3">
                     <h5 class="text-warning mb-3">Contacto</h5>
                     {{-- NOTA: textos en config/uim.php → contacto.* --}}
                     <ul class="list-unstyled small mb-3">
-                        <li class="mb-2"><i class="bi bi-geo-alt me-2 text-warning"></i>{{ config('uim.contacto.direccion') }}</li>
                         <li class="mb-2">
                             <i class="bi bi-globe me-2 text-warning"></i>
                             <a href="{{ config('uim.urls.uim_oficial') }}" class="text-white-50 text-decoration-none" target="_blank" rel="noopener noreferrer">{{ config('uim.contacto.web_etiqueta') }}</a>
@@ -109,10 +93,6 @@
                         </li>
                     </ul>
                     {{-- NOTA (Bootstrap): btn-outline-light y btn-warning; el color dorado del warning viene del override .btn-warning en app.css. --}}
-                    <div class="d-flex flex-wrap gap-2">
-                        <a href="{{ config('uim.urls.contacto_formulario') }}" class="btn btn-outline-light btn-sm">Contacto</a>
-                        <a href="{{ config('uim.urls.informacion') }}" class="btn btn-warning btn-sm">Información</a>
-                    </div>
                 </div>
             </div>
 
