@@ -13,9 +13,9 @@ body {
 
 :root {
 
---unam-azul:#1E3C70;
---unam-dorado:#b38c00;
---fesa-verde:#0b791d;
+    --unam-azul: #1E3C70;
+    --unam-dorado: #b38c00;
+    --fesa-verde: #0b791d;
     --azul: #003375;
     --azul-claro: #2c4a7a;
     --dorado: #b38c00;
@@ -24,16 +24,16 @@ body {
 
 }
 
-.bg-unam{
-background-color:var(--unam-azul)!important;
+.bg-unam {
+    background-color: var(--unam-azul) !important;
 }
 
-.bg-dorado{
-background-color:var(--unam-dorado)!important;
+.bg-dorado {
+    background-color: var(--unam-dorado) !important;
 }
 
-.bg-verde{
-background-color:var(--fesa-verde)!important;
+.bg-verde {
+    background-color: var(--fesa-verde) !important;
 }
 
 /* <!-- ══════════════════════════════
@@ -75,13 +75,13 @@ footer .col-6 {
     scroll-margin-top: 7.5rem;
 }
 
-.bloque-principal1{
+.bloque-principal1 {
     background: white;
     color: #333;
     border-radius: 10px;
     border-left: 5px solid var(--dorado);
     padding: 5px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
     transition: 0.25s;
 
 }
@@ -89,13 +89,14 @@ footer .col-6 {
 
 /* Sidebar */
 
-.sidebar{
-min-height:100vh;
-border-radius: 15px;
-margin-top: 20px; /* Bajar el sidebar 15px */
-position: relative;
-z-index: 10;
-box-shadow: 4px 0 15px rgba(0,0,0,0.1);
+.sidebar {
+    min-height: 100vh;
+    border-radius: 15px;
+    margin-top: 20px;
+    /* Bajar el sidebar 15px */
+    position: relative;
+    z-index: 10;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Sidebar compacto para welcome - solo altura del contenido */
@@ -106,56 +107,56 @@ box-shadow: 4px 0 15px rgba(0,0,0,0.1);
 
 /* MENU LATERAL */
 
-.sidebar-link{
+.sidebar-link {
 
-border-radius:6px;
+    border-radius: 6px;
 
-transition:0.3s;
+    transition: 0.3s;
 
 }
 
-.sidebar-link:hover{
+.sidebar-link:hover {
 
-background-color:rgba(255,255,255,0.15);
+    background-color: rgba(255, 255, 255, 0.15);
 
-padding-left:10px;
+    padding-left: 10px;
 
 }
 
 /* BLOQUES */
 
-.bloque-uim{
+.bloque-uim {
 
-min-height:320px;
+    min-height: 320px;
 
-transition:0.3s;
-
-}
-
-.bloque-uim:hover{
-
-transform:translateY(-4px);
+    transition: 0.3s;
 
 }
 
-.bloque-seccion{
+.bloque-uim:hover {
 
-min-height:140px;
+    transform: translateY(-4px);
+
+}
+
+.bloque-seccion {
+
+    min-height: 140px;
 
 }
 
 
-.bloque-evento{
+.bloque-evento {
 
-min-height:120px;
+    min-height: 120px;
 
-display:flex;
+    display: flex;
 
-align-items:center;
+    align-items: center;
 
-justify-content:center;
+    justify-content: center;
 
-font-weight:bold;
+    font-weight: bold;
 
 }
 
@@ -173,33 +174,34 @@ font-weight:bold;
 
 .bloque-evento:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.bloque-carrucel{
+.bloque-carrucel {
 
-min-height:160px;
+    min-height: 160px;
 
 }
 
 /* LOGOS */
 
-.logo{
+.logo {
 
-height:100px;
+    height: 100px;
 
-filter:brightness(0) invert(1);
+    filter: brightness(0) invert(1);
 
 }
-.logo-uima{
- 
- height:100px;
- display:block;
- transform: scale(1.35);
- transform-origin: left center;
- filter:brightness(0) invert(1);
- 
- }
+
+.logo-uima {
+
+    height: 100px;
+    display: block;
+    transform: scale(1.35);
+    transform-origin: left center;
+    filter: brightness(0) invert(1);
+
+}
 
 /* <!-- ══════════════════════════════
      CARRUCEL
@@ -207,64 +209,65 @@ filter:brightness(0) invert(1);
 ════════════════════════════════ -->
 
  */
-#carousel{
-  width: 100%;
-  flex:1;
-  height:30vh;
+#carousel {
+    width: 100%;
+    flex: 1;
+    height: 30vh;
 }
 
-#carousel .carousel-item{
-  height:30vh;
-  position:relative;
+#carousel .carousel-item {
+    height: 30vh;
+    position: relative;
 }
 
-#carousel img{
-  height:30vh;
-  object-fit:cover;
-  width: 100%;
+#carousel img {
+    height: 30vh;
+    object-fit: cover;
+    width: 100%;
 }
 
-#carousel .carousel-item::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.4);
-  z-index:1;
+#carousel .carousel-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
 }
 
-.carousel-caption{
-  z-index:2;
-  top:50%;
-  transform:translateY(-50%);
-  bottom:auto;
+.carousel-caption {
+    z-index: 2;
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: auto;
 }
 
-.slide-title{
-  font-size:clamp(1.8rem, 4vw, 3.5rem);
-  color:white;
-  text-transform:uppercase;
-  letter-spacing:3px;
-  font-weight:400;
-  animation:fadeSlide 1s ease;
+.slide-title {
+    font-size: clamp(1.8rem, 4vw, 3.5rem);
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 400;
+    animation: fadeSlide 1s ease;
 }
 
-@keyframes fadeSlide{
-  from{
-    opacity:0;
-    transform:translateY(50px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .carousel-control-prev-icon,
-.carousel-control-next-icon{
-  background-size:70%;
+.carousel-control-next-icon {
+    background-size: 70%;
 }
 
 
@@ -274,39 +277,39 @@ filter:brightness(0) invert(1);
 ════════════════════════════════ --> */
 
 /* tarjetas (las cambié a blanco porque se veía muy cargado) */
-.bloque-sec{
+.bloque-sec {
     background: white;
     color: #333;
     border-radius: 10px;
     border-left: 5px solid var(--dorado);
     padding: 15px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
     transition: 0.25s;
 }
 
 
 
 /* efecto cuando pasas el mouse */
-.bloque-sec:hover{
+.bloque-sec:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
 /* títulos */
-.bloque-sec h6{
+.bloque-sec h6 {
     font-weight: bold;
     color: var(--azul);
     margin-bottom: 6px;
 }
 
 /* texto general */
-.bloque-sec p{
+.bloque-sec p {
     font-size: 13px;
     color: #555;
 }
 
 /* eventos */
-.evento{
+.evento {
     height: 140px;
     display: flex;
     align-items: center;
@@ -316,41 +319,41 @@ filter:brightness(0) invert(1);
 }
 
 /* expandible (esto me costó jaja) */
-.expandable{
+.expandable {
     max-height: 160px;
     overflow: hidden;
     transition: 0.4s;
 }
 
-.expandable .extra{
+.expandable .extra {
     display: none;
 }
 
-.expandable.activo{
+.expandable.activo {
     max-height: 600px;
 }
 
-.expandable.activo .extra{
+.expandable.activo .extra {
     display: block;
 }
 
 /* botones */
-.btn-toggle{
+.btn-toggle {
     background-color: #e9ecef;
     border: none;
 }
 
-.btn-toggle:hover{
+.btn-toggle:hover {
     background-color: #d6d6d6;
 }
 
-.btn-warning{
+.btn-warning {
     background-color: var(--dorado);
     border: none;
     color: white;
 }
 
-.btn-warning:hover{
+.btn-warning:hover {
     background-color: #8c6d00;
 }
 
@@ -386,13 +389,16 @@ filter:brightness(0) invert(1);
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px; /* línea blanca de separación */
+    gap: 10px;
+    /* línea blanca de separación */
     margin-bottom: 1rem;
 }
 
 .uim-auth-logos img {
-    max-height: 120px; /* más grandes */
-    filter: brightness(0) invert(1); /* blanco */
+    max-height: 120px;
+    /* más grandes */
+    filter: brightness(0) invert(1);
+    /* blanco */
     transition: transform 0.2s ease-in-out;
 }
 
@@ -439,7 +445,7 @@ filter:brightness(0) invert(1);
 
 /* Subbarra horizontal alineada al mismo container-fluid que el header (estilo propio + utilidades BS en Blade). */
 .uim-subnav {
-    background: var(--unam-dorado)!important;
+    background: var(--unam-dorado) !important;
     /* Borde inferior: cierre del bloque fijo antes del contenido (header ya trae borde dorado inferior). */
     border-bottom: 3px solid var(--unam-azul);
 }
@@ -652,16 +658,88 @@ filter:brightness(0) invert(1);
 
 /* Ajustes de superposición de gradientes para tarjetas con imágenes */
 .bg-gradient-primary-card {
-    background: linear-gradient(to top, var(--unam-azul) 0%, rgba(30,60,112,0.4) 50%, transparent 100%);
+    background: linear-gradient(to top, var(--unam-azul) 0%, rgba(30, 60, 112, 0.4) 50%, transparent 100%);
 }
 
 .bg-gradient-secondary-card {
-    background: linear-gradient(to top, var(--dorado) 0%, rgba(179,140,0,0.4) 50%, transparent 100%);
+    background: linear-gradient(to top, var(--dorado) 0%, rgba(179, 140, 0, 0.4) 50%, transparent 100%);
 }
 
 .line-clamp-3 {
     display: -webkit-box;
     -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;  
+    -webkit-box-orient: vertical;
     overflow: hidden;
+}
+
+/* ====================================================================
+   NUEVO FOOTER PREMIUM (DISEÑO BASADO EN IMAGEN)
+==================================================================== */
+.footer-uim-premium {
+    background-color: var(--unam-azul);
+    background-image:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.03) 0%, transparent 40%),
+        radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
+    border-top: 4px solid var(--unam-dorado);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de ondas */
+.footer-uim-premium::before {
+    content: '';
+    position: absolute;
+    bottom: -70%;
+    right: -10%;
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    box-shadow: 0 0 0 40px rgba(255, 255, 255, 0.02), 0 0 0 80px rgba(255, 255, 255, 0.01);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.footer-uim-premium::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.02);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.footer-social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.footer-social-icon:hover {
+    background-color: var(--unam-dorado);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.footer-contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    flex-shrink: 0;
 }
