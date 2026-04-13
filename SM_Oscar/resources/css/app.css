@@ -503,3 +503,158 @@ filter:brightness(0) invert(1);
 .uim-form-actions-narrow {
     max-width: 220px;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   ESTILOS PREMIUM (MIGRACIÓN BOCETO TAILWIND -> BOOTSTRAP)
+═══════════════════════════════════════════════════════════════ */
+
+/* Fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600&display=swap');
+
+.font-headline {
+    font-family: 'Noto Serif', serif;
+}
+
+.font-body {
+    font-family: 'Manrope', sans-serif;
+}
+
+.font-label {
+    font-family: 'Inter', sans-serif;
+}
+
+.tracking-widest {
+    letter-spacing: 0.1em;
+}
+
+.tracking-tight {
+    letter-spacing: -0.025em;
+}
+
+/* Colores Surface (Fondos premium) */
+.bg-surface-uim {
+    background-color: #f6faff !important;
+}
+
+.bg-surface-container-low {
+    background-color: #ecf5fe !important;
+}
+
+.bg-surface-container-lowest {
+    background-color: #ffffff !important;
+}
+
+.bg-blue-50-uim {
+    background-color: #eff6ff !important;
+}
+
+.bg-amber-50-uim {
+    background-color: #fffbeb !important;
+}
+
+/* Textos de Color (Mapeados a paleta UIMA) */
+.text-primary-uim {
+    color: var(--unam-azul) !important;
+}
+
+.text-secondary-uim {
+    color: var(--dorado) !important;
+}
+
+.text-on-surface-variant {
+    color: #434750 !important;
+}
+
+.text-outline-uim {
+    color: #737781 !important;
+}
+
+.text-blue-100-uim {
+    color: #dbeafe !important;
+}
+
+/* Componentes Especiales y Efectos */
+.hero-gradient {
+    background: linear-gradient(135deg, rgba(30, 60, 112, 0.85) 0%, rgba(0, 51, 117, 0.4) 100%);
+}
+
+.card-hover-premium {
+    transition: all 0.5s ease;
+}
+
+.card-hover-premium:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+    transform: translateY(-4px);
+}
+
+.group-hover-icon .bi {
+    transition: all 0.5s ease;
+}
+
+.group-hover-icon:hover .bi {
+    color: #ffffff !important;
+}
+
+.group-hover-scale {
+    overflow: hidden;
+}
+
+.group-hover-scale img {
+    transition: transform 0.7s ease;
+}
+
+.group-hover-scale:hover img {
+    transform: scale(1.1);
+}
+
+.group-hover-opacity .hover-target {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.group-hover-opacity:hover .hover-target {
+    opacity: 1;
+}
+
+.card-pilar-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: background-color 0.5s ease;
+}
+
+.card-hover-premium:hover .card-pilar-icon.bg-blue-50-uim {
+    background-color: var(--unam-azul) !important;
+}
+
+.card-hover-premium:hover .card-pilar-icon.bg-amber-50-uim {
+    background-color: var(--dorado) !important;
+}
+
+.icon-transition {
+    transition: transform 0.3s ease;
+}
+
+.group-arrow-hover:hover .icon-transition {
+    transform: translateX(4px);
+}
+
+/* Ajustes de superposición de gradientes para tarjetas con imágenes */
+.bg-gradient-primary-card {
+    background: linear-gradient(to top, var(--unam-azul) 0%, rgba(30,60,112,0.4) 50%, transparent 100%);
+}
+
+.bg-gradient-secondary-card {
+    background: linear-gradient(to top, var(--dorado) 0%, rgba(179,140,0,0.4) 50%, transparent 100%);
+}
+
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
