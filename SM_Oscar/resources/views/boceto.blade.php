@@ -278,66 +278,8 @@
             </div>
         </section>
 
-        <!-- Strategic Access -->
-        <section class="py-5 bg-surface-uim">
-            <div class="container py-4">
-                <div class="row g-0 rounded-4 shadow-lg overflow-hidden group-hover-scale group-hover-opacity">
-                    <!-- Col 1 -->
-                    <div class="col-lg-4">
-                        <a href="#"
-                            class="text-decoration-none d-block position-relative group-hover-scale group-hover-opacity"
-                            style="height: 320px;">
-                            <img alt="Convocatorias"
-                                class="position-absolute top-0 bottom-0 start-0 end-0 w-100 h-100 object-fit-cover"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT7oZg8QOpNrneUIoh8P3fpRWCQd49Z0226_IY5ZeChGShfAGh4LtELKlXUVE8VBEuYa5ZuQLUOkaPD4sARkmEfWnXroO_Wb_7IJBE0s9qoqdbIjbqLMVm9guFRuA8R04A_1NkSVJw4ueS8J96wj-mKT2U8YN6SES0J6F1-r8Kx4RBpRAv5R8KHPY7QE_kJPf2z8_w8z0Y5BGVMdm7vse96lBM1zubzcwru0feO04H0UrxlrFRjV0biUa0UpFxAhqsONV_o60JjQ" />
-                            <div class="position-absolute top-0 bottom-0 start-0 end-0 bg-gradient-primary-card"></div>
-                            <div class="position-absolute bottom-0 start-0 end-0 p-4 p-md-5 z-1">
-                                <h4 class="font-headline fs-3 text-white fw-bold mb-2">Convocatorias</h4>
-                                <p class="text-blue-100-uim small mb-0 hover-target">Oportunidades de investigación y becas
-                                    activas.</p>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- Col 2 -->
-                    <div class="col-lg-4 border-start border-end border-white border-opacity-10">
-                        <a href="#"
-                            class="text-decoration-none d-block position-relative group-hover-scale group-hover-opacity"
-                            style="height: 320px;">
-                            <img alt="Repositorio"
-                                class="position-absolute top-0 bottom-0 start-0 end-0 w-100 h-100 object-fit-cover"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7If9ncJIYShn5zmtN6YVlJIcplAnn7Z2bg9ZUutPYhkV2xjsi8eYLAcnpTXYJkdbFZZ8G92beItRe9VilFncyhbWNKK6qKASHKYKv60u1TuWRn1fFLXprk2yIzoTf_iBGjq0J84pIPhe48hHPE3Yt9KTJLhNg8dZtuBYFVDDIy9CoLJb57G-PwpwXCgZfe6-8YT3y0KCZQkWztJJqUGgXnvFVuo0Bywu-XNtgeyZFzsNLbtKU4qGKduLUDieX00bQAFE8im1Fvw" />
-                            <div class="position-absolute top-0 bottom-0 start-0 end-0 bg-gradient-secondary-card"></div>
-                            <div class="position-absolute bottom-0 start-0 end-0 p-4 p-md-5 z-1">
-                                <h4 class="font-headline fs-3 text-white fw-bold mb-2">Repositorio Digital</h4>
-                                <p class="text-white-50 small mb-0 hover-target">Consulta de tesis, artículos y libros
-                                    publicados.</p>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- Col 3 -->
-                    <div class="col-lg-4">
-                        <a href="#"
-                            class="text-decoration-none d-block position-relative group-hover-scale group-hover-opacity"
-                            style="height: 320px;">
-                            <img alt="Vinculación"
-                                class="position-absolute top-0 bottom-0 start-0 end-0 w-100 h-100 object-fit-cover"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxxMcO0645ppTiApTcFcX1EXEWM6aZbowCvKIETHgqBLSpcVTHgAChohVXd0rbE6zgBtOqfvylw7LliOToj9qsjliK3-M0Yo62aTE8iWaneOlAeEyutqNaqEzbuSzKtXc6L5KNXAFaoVbHzfo-94bRHDAILb82PYhXFAdOxJVmt9edpwRbobBGeCNim06oaNx0_Mg9a1kz9rcetrtnnNLUOIgunWprIlDZYLDYLlhSH-mR88t6_k0zTLdKwf3frYp4cAqokpHTuA" />
-                            <div class="position-absolute top-0 bottom-0 start-0 end-0 bg-gradient-primary-card"></div>
-                            <div class="position-absolute bottom-0 start-0 end-0 p-4 p-md-5 z-1">
-                                <h4 class="font-headline fs-3 text-white fw-bold mb-2">Vinculación</h4>
-                                <p class="text-blue-100-uim small mb-0 hover-target">Alianzas con el sector público, privado
-                                    y social.</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Congresos Dinámicos -->
-        <section id="uim-congresos" class="py-5 bg-surface-container-lowest">
+        <section id="uim-congresos" class="py-5 bg-surface-uim">
             <div class="container py-4">
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4 gap-3">
                     <div>
@@ -409,7 +351,7 @@
         </section>
 
         <!-- News & Events -->
-        <section class="py-5 bg-surface-uim">
+        <section class="py-5 bg-surface-container-lowest">
             <div class="container py-4">
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-5 gap-3">
                     <div>
