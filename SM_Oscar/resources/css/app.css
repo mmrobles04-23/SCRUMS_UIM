@@ -452,7 +452,7 @@ filter:brightness(0) invert(1);
     color: rgba(255, 255, 255, 0.92);
     border-radius: 6px;
     white-space: nowrap;
-    padding: 0.45rem 0.85rem;
+    padding: 0.2rem 0.85rem;
     font-size: 0.875rem;
     font-weight: 500;
 }
