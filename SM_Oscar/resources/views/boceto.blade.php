@@ -39,7 +39,7 @@
 @endpush
 
 @section('content')
-    <div class="font-body bg-surface-uim" style="color: #141d23;">
+    <div class="font-body bg-surface-container-lowest" style="color: #141d23;">
 
         <!-- Hero Section -->
     {{--
@@ -95,7 +95,7 @@
 </section>
 
         <!-- What is UIMA? -->
-        <section id="uim-proposito" class="py-5 bg-surface-uim">
+        <section id="uim-proposito" class="py-5 bg-surface-container-lowest">
             <div class="container-fluid">
 
                 <div class="row align-items-center column-gap-4 row-gap-5">
@@ -161,7 +161,7 @@
             </div>
         </section>
         <!-- Departamentos Section (7 Áreas) -->
-        <section id="uim-departamentos" class="py-5 bg-surface-container-lowest">
+        <section id="uim-departamentos" class="py-5 bg-surface-uim">
             <div class="container py-5">
                 <div class="text-center mb-5 pb-3">
                     <span class="text-secondary-uim fw-bold tracking-widest small text-uppercase mb-3 d-block">Estructura Académica</span>
@@ -187,7 +187,7 @@
 
                     @foreach($departamentos as $index => $depto)
                         <div class="col-sm-6 col-lg-3">
-                            <div class="bg-surface-uim p-4 rounded-4 border border-primary border-opacity-10 h-100 card-hover-premium d-flex flex-column group-arrow-hover position-relative overflow-hidden">
+                            <div class="bg-surface-container-lowest p-4 rounded-4 border border-primary border-opacity-10 h-100 card-hover-premium d-flex flex-column group-arrow-hover position-relative overflow-hidden">
                                 <!-- Línea decorativa lateral -->
                                 <div class="position-absolute top-0 bottom-0 start-0 bg-secondary-uim" style="width: 4px; opacity: 0.9;"></div>
                                 
@@ -213,7 +213,7 @@
             </div>
         </section>
         <!-- Pillars Section -->
-        <section class="py-5 bg-surface-container-low">
+        <section class="py-5 bg-surface-container-lowest">
             <div class="container py-4">
                 <div class="text-center mb-5 pb-3">
                     <h2 class="font-headline display-6 text-primary-uim fw-bold mb-3">Pilares de Investigación</h2>
@@ -337,7 +337,7 @@
         </section>
 
         <!-- Congresos Dinámicos -->
-        <section id="uim-congresos" class="py-5 bg-surface-container-low">
+        <section id="uim-congresos" class="py-5 bg-surface-container-lowest">
             <div class="container py-4">
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4 gap-3">
                     <div>
