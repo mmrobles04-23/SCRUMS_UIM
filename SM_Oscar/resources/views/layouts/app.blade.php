@@ -106,6 +106,33 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let lastScrollTop = 0;
+            const header = document.querySelector('.uim-site-head-sticky');
+            
+            if (header) {
+                window.addEventListener('scroll', function() {
+                    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    
+                    // Ocultar al bajar después de 150px
+                    if (scrollTop > 150) {
+                        if (scrollTop > lastScrollTop) {
+                            // Scrolee hacia abajo: Ocultar
+                            header.classList.add('header-hidden');
+                        } else {
+                            // Scrolee hacia arriba: Mostrar
+                            header.classList.remove('header-hidden');
+                        }
+                    } else {
+                        // Siempre mostrar si estamos hasta arriba (menos de 150px)
+                        header.classList.remove('header-hidden');
+                    }
+                    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
+                }, { passive: true });
+            }
+        });
+    </script>
     @stack('scripts')
 </body>
 </html>
