@@ -24,13 +24,14 @@
         <header class="bg-unam text-white shadow-sm uim-header-institutional">
             <div class="container-fluid px-3 px-lg-4">
                 <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 py-3">
-                    <div class="d-flex align-items-center gap-2 gap-md-3 order-md-1">
+                    <div class="d-none d-md-flex align-items-center gap-3 order-md-1">
                         <img src="{{ asset('header/UIMA-negro_logo.png') }}" class="logo-uima" alt="UNAM">
                     </div>
                     <h1 class="h4 mb-0 text-center flex-grow-1 fw-bold order-md-2 px-2">
-                        Unidad de Investigación Multidisciplinaria Aplicada
+                        <span class="d-md-none tracking-widest fs-3">UIMA</span>
+                        <span class="d-none d-md-inline">Unidad de Investigación Multidisciplinaria Aplicada</span>
                     </h1>
-                    <div class="d-flex align-items-center gap-2 order-md-3">
+                    <div class="d-none d-md-flex align-items-center gap-2 order-md-3">
                         <img src="{{ asset('header/logo_unam_fesa.png') }}" class="logo" alt="FES Acatlán">
                     </div>
                 </div>
@@ -46,17 +47,14 @@
         @yield('content')
     </main>
 
-    {{-- NOTA (Bootstrap): grid row/col, g-4, utilidades de texto y botones. --}}
-    {{-- NOTA (Estilo propio / app.css): .uim-footer-institutional = borde dorado superior. --}}
-    {{-- NOTA (contenido): enlaces y contacto desde config('uim.*'); ver docs/GUIA_CONTENIDO_UIM.md --}}
     <footer class="footer-uim-premium text-white mt-auto">
         <div class="container-fluid px-4 px-lg-5 pt-5 pb-5 position-relative z-1">
-            <div class="row g-4 align-items-stretch">
+            <div class="row g-4 align-items-stretch text-center text-lg-start">
                 
                 <!-- Col 1 -->
-                <div class="col-lg-4 d-flex flex-column pe-lg-4">
-                    <div class="d-flex align-items-start gap-3 mb-4">
-                        <img src="{{ asset('header/UIMA-negro_logo.png') }}" alt="UNAM UIMA" style="width: 70px; filter: brightness(0) invert(1);">
+                <div class="col-lg-4 d-flex flex-column pe-lg-4 align-items-center align-items-lg-start">
+                    <div class="d-flex flex-column flex-lg-row align-items-center align-items-lg-start gap-3 mb-4">
+                        <img src="{{ asset('header/UIMA-negro_logo.png') }}" class="mb-2 mb-lg-0" alt="UNAM UIMA" style="width: 70px; filter: brightness(0) invert(1);">
                         <div>
                             <h5 class="text-warning text-uppercase mb-1 fw-bold tracking-widest fs-6">UIMA FES Acatlán</h5>
                             <p class="small text-white-50 mb-0 font-body">Unidad de Investigación Multidisciplinaria<br>FES Acatlán • UNAM</p>
@@ -65,7 +63,7 @@
                     <p class="small text-white-50 mb-4 font-body pe-md-4">
                         Impulsamos la investigación multidisciplinaria para generar conocimiento que transforme la sociedad.
                     </p>
-                    <div class="d-flex flex-wrap gap-2 mt-auto">
+                    <div class="d-flex justify-content-center justify-content-lg-start flex-wrap gap-2 mt-auto">
                         <a href="{{ config('uim.redes_sociales.facebook') }}" class="footer-social-icon text-decoration-none" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
                         <a href="{{ config('uim.redes_sociales.twitter') }}" class="footer-social-icon text-decoration-none" aria-label="X (Twitter)"><i class="bi bi-twitter-x"></i></a>
                         <a href="{{ config('uim.redes_sociales.instagram') }}" class="footer-social-icon text-decoration-none" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
@@ -75,9 +73,9 @@
                 </div>
                 
                 <!-- Col 2 -->
-                <div class="col-lg-4 border-start border-end border-white border-opacity-10 px-lg-5 py-4 py-lg-0 d-flex flex-column">
+                <div class="col-lg-4 border-uim-responsive px-lg-5 py-4 py-lg-0 d-flex flex-column align-items-center align-items-lg-start">
                     <h5 class="text-warning text-uppercase mb-3 fw-bold tracking-widest fs-6">Podcast UIMA</h5>
-                    <p class="small text-white-50 mb-4 font-body">
+                    <p class="small text-white-50 mb-4 font-body text-center text-lg-start">
                         Escucha nuestros episodios sobre investigación multidisciplinaria y proyectos destacados de la FES Acatlán.
                     </p>
                     <div class="mt-auto">
@@ -88,24 +86,24 @@
                 </div>
                 
                 <!-- Col 3 -->
-                <div class="col-lg-4 ps-lg-5 d-flex flex-column py-4 py-lg-0">
+                <div class="col-lg-4 ps-lg-5 d-flex flex-column py-4 py-lg-0 align-items-center align-items-lg-start">
                     <h5 class="text-warning text-uppercase mb-4 fw-bold tracking-widest fs-6">Contacto</h5>
-                    <ul class="list-unstyled mb-0 d-flex flex-column gap-3">
-                        <li class="d-flex align-items-center gap-3">
+                    <ul class="list-unstyled mb-0 d-flex flex-column gap-3 w-100 align-items-center align-items-lg-start">
+                        <li class="d-flex align-items-center gap-3 text-start">
                             <div class="footer-contact-icon shadow-sm"><i class="bi bi-globe fs-5"></i></div>
                             <div class="font-body">
                                 <div class="small text-white-50">Sitio web</div>
                                 <a href="{{ config('uim.urls.uim_oficial') }}" class="text-warning text-decoration-none small fw-bold" target="_blank" rel="noopener noreferrer">{{ config('uim.contacto.web_etiqueta') }}</a>
                             </div>
                         </li>
-                        <li class="d-flex align-items-center gap-3">
+                        <li class="d-flex align-items-center gap-3 text-start">
                             <div class="footer-contact-icon shadow-sm"><i class="bi bi-telephone fs-5"></i></div>
                             <div class="font-body">
                                 <div class="small text-white-50">Teléfono</div>
                                 <a href="{{ config('uim.contacto.telefono_enlace') }}" class="text-warning text-decoration-none small fw-bold">{{ config('uim.contacto.telefono') }}</a>
                             </div>
                         </li>
-                        <li class="d-flex align-items-center gap-3">
+                        <li class="d-flex align-items-center gap-3 text-start">
                             <div class="footer-contact-icon shadow-sm"><i class="bi bi-envelope fs-5"></i></div>
                             <div class="font-body">
                                 <div class="small text-white-50">Correo</div>
@@ -120,14 +118,14 @@
 
         <!-- Barra inferior oscura -->
         <div class="py-3 px-4 px-lg-5 w-100 position-relative z-1" style="background-color: rgba(0,0,0,0.25);">
-            <div class="row align-items-center font-body small">
+            <div class="row align-items-center font-body small text-center text-md-start">
                 <div class="col-md-8 text-white-50 mb-3 mb-md-0 d-flex flex-column">
                     <span class="mb-1">© {{ date('Y') }} Universidad Nacional Autónoma de México.</span>
                     <span class="mb-1">Todos los derechos reservados.</span>
                     <span>FES Acatlán - UIMA</span>
                 </div>
-                <div class="col-md-4 text-md-end">
-                    <a href="#" class="text-warning text-decoration-none me-3" style="transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--unam-dorado)'">Aviso de privacidad</a>
+                <div class="col-md-4 text-md-end d-flex flex-column flex-md-row justify-content-center justify-content-md-end gap-2 gap-md-3">
+                    <a href="#" class="text-warning text-decoration-none" style="transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--unam-dorado)'">Aviso de privacidad</a>
                     <a href="#" class="text-warning text-decoration-none" style="transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--unam-dorado)'">Mapa del sitio</a>
                 </div>
             </div>

@@ -743,3 +743,18 @@ footer .col-6 {
     color: #fff;
     flex-shrink: 0;
 }
+
+/* Modificadores Responsive de Bordes de Footer */
+.border-uim-responsive {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 992px) {
+    .border-uim-responsive {
+        border-top: none;
+        border-bottom: none;
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+}
