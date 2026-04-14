@@ -758,3 +758,20 @@ footer .col-6 {
         border-right: 1px solid rgba(255, 255, 255, 0.1);
     }
 }
+
+/* Sidebar Utilities */
+.transition-colors {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.hover-bg-surface-variant:hover {
+    background-color: var(--surface-variant-uim) !important;
+    color: var(--unam-azul) !important;
+}
+
+.group-hover-scale {
+    transition: transform 0.5s ease;
+}
+.group-arrow-hover:hover .group-hover-scale {
+    transform: scale(1.08);
+}

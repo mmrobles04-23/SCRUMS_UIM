@@ -1,48 +1,33 @@
-// 🔹 VER MÁS ARRIBA
-function toggleInfo(boton) {
-    let info = boton.nextElementSibling;
+/**
+ * Lógica funcional para la vista de Departamentos en UIMA FES Acatlán
+ */
 
-    info.style.display = (info.style.display === "block") ? "none" : "block";
-}
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // Animación fluida de Intersección Visual para las tarjetas de proyectos
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
 
+    const cardObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Agregar animación CSS u opacidad
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
 
-// 🔹 VER MÁS TARJETAS
-function toggleCardInfo(event, boton) {
-    event.stopPropagation(); // evita que active la tarjeta
-
-    let info = boton.nextElementSibling;
-    info.classList.toggle("activa");
-}
-
-
-// 🔹 SELECCIÓN DE TARJETAS (SIN cambiar info de arriba)
-let tarjetas = document.querySelectorAll(".funcion");
-
-tarjetas.forEach(t => {
-    t.addEventListener("click", function() {
-
-        // quitar selección anterior
-        tarjetas.forEach(el => el.classList.remove("activa"));
-
-        // activar esta
-        this.classList.add("activa");
-    });
-});
-
-
-// 🔹 ANIMACIÓN AL CARGAR
-window.addEventListener("load", function() {
-
-    let tarjetas = document.querySelectorAll(".funcion");
-
-    tarjetas.forEach((el, i) => {
-        el.style.opacity = "0";
-        el.style.transform = "translateY(40px)";
-
-        setTimeout(() => {
-            el.style.opacity = "1";
-            el.style.transform = "translateY(0)";
-        }, i * 120);
+    // Aplicar a las tarjetas de proyectos (Bento Grid)
+    document.querySelectorAll('.card-hover-premium').forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = `all 0.6s ease-out ${index * 0.1}s`;
+        cardObserver.observe(card);
     });
 
 });

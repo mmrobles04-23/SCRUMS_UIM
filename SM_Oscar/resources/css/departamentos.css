@@ -1,234 +1,157 @@
-body{ 
-	background-color: #f4f0ef;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	margin: 0;
-    padding: 20px;
+/* 
+    ========================================================================
+    ESTILOS GENERALES Y DINÁMICOS
+    ========================================================================
+    Los colores (--depto-color) son inyectados dinámicamente permanentemente 
+    desde el contenedor padre (etiqueta HTML d-flex en departamento.blade)
+*/
+
+.text-depto {
+    color: var(--depto-color) !important;
 }
 
-/* -------- BANNER -------- */
-.banner{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.bg-depto {
+    background-color: var(--depto-color) !important;
 }
 
-.banner img{
-	width: 100%;
-    height: 200px;
-    object-fit: cover;
-	border-radius:12px;
+.border-depto {
+    border-color: var(--depto-color) !important;
 }
 
-/* -------- CONTENEDOR -------- */
-.depto{
-	width: 90%;
-	max-width:1200px;
-	margin: 0 auto;
+.nav-link.active-depto {
+    border-left: 4px solid var(--depto-color) !important;
+    background-color: #ffffff !important;
 }
 
-.deptoInfo{
-	display: flex;
-	gap: 20px;
-	margin-bottom: 40px;
-	min-height: 400px; /* 🔥 mejor que height fijo */
-	flex-wrap: wrap; /* 🔥 responsive */
+.badge-depto {
+    background-color: var(--depto-color-alpha);
+    color: var(--depto-color);
+    border: 1px solid var(--depto-color);
 }
 
-/* -------- CONTACTO -------- */
-.contacto{
-	flex: 1; 
-    min-width: 280px;
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.08); 
-    overflow: hidden;
+/* 
+    ========================================================================
+    COMPONENTE: SIDEBAR (Menú lateral de navegación)
+    ======================================================================== 
+*/
+.sidebar-container {
+    width: 320px;
+    min-height: calc(100vh - 140px);
 }
 
-.contImg{
-	width:100%;
-	height:200px;
-	object-fit: cover;
+.sidebar-text-active {
+    color: var(--unam-azul);
 }
 
-.contText{
-	padding: 20px;
+.sidebar-logo {
+    max-height: 65px;
 }
 
-/* -------- LISTA -------- */
-.lista-contacto {
-    list-style: none; 
-    padding: 0;
+
+/* 
+    ========================================================================
+    COMPONENTE: HERO BANNER (Cabecera asimétrica)
+    ======================================================================== 
+*/
+.hero-banner {
+    min-height: 340px;
 }
 
-.lista-contacto li {
-    padding-left: 35px; 
-    margin-bottom: 10px;
-    position: relative;
+.hero-text-container {
+    max-width: 700px;
 }
 
-.lista-contacto li::before {
-    font-family: "Font Awesome 6 Free"; 
-    font-weight: 900; 
-    position: absolute;
-    left: 0;
-    color: #bfa35a;
+.hero-subtitle {
+    color: var(--unam-azul);
+    font-size: 0.75rem;
 }
 
-.lista-contacto li.ubicacion::before { content: "\f3c5"; }
-.lista-contacto li.tel::before { content: "\f095"; }
-.lista-contacto li.email::before { content: "\f0e0"; }
-
-/* -------- INFO DERECHO -------- */
-.infoDepto {
-    flex: 1;
-    min-width: 280px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px; 
+.hero-title {
+    color: var(--unam-azul);
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    letter-spacing: -0.5px;
 }
 
-.noseQejeso {
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
+.hero-description {
+    color: #6c757d;
+    line-height: 1.5;
+    font-size: 1.05rem;
 }
 
-.quejeso1{
-	padding: 20px;
-	padding-left: 70px;
-	position: relative;
-}
-
-.icono{
-	position: absolute;
-	left: 20px;
-	top: 20px;
-	width: 40px;
-}
-
-/* -------- BOTÓN ARRIBA -------- */
-.btnIN{
-	padding: 15px;
-	cursor: pointer;
-	border-top: 1px solid #eee;
-	background-color: #f9fafb;
-	transition: background 0.3s;
-}
-
-.btnIN:hover{
-	background-color: #e2e6e9;
-}
-
-/* -------- INFO OCULTA -------- */
-.infoExtra {
-    display: none;
-    padding: 15px;
-    background-color: #f9fafb;
-}
-
-/* -------- OBJETIVO -------- */
-.objetivo {
-    background-color: #fdf6ec; 
-    border-radius: 12px;
-    padding: 20px;
-}
-
-/* -------- GRID -------- */
-.deptoFunc {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 🔥 responsive */
-    gap: 20px;
-}
-
-/* 🎬 ANIMACIÓN DE ENTRADA */
-@keyframes aparecerTarjeta {
-    from {
-        opacity: 0;
-        transform: translateY(40px) scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-/* -------- TARJETAS -------- */
-.funcion {
-    background-color: white;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
-    cursor: pointer;
-
-    position: relative;
-    overflow: hidden;
-
-    animation: aparecerTarjeta 0.6s ease forwards;
-    transition: all 0.3s ease;
-}
-
-.funcion img{
-	width:35px;
-}
-
-/* HOVER */
-.funcion:hover {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 15px 25px rgba(0,0,0,0.2);
-}
-
-/* BURBUJA */
-.funcion::before {
-    content: "";
-    position: absolute;
-    width: 250%;
-    height: 250%;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: radial-gradient(circle, rgba(191,155,48,0.25) 10%, transparent 60%);
-    transition: 0.7s;
+/* Patrón tenue de topografía en el hero */
+.hero-topography {
+    background-image: repeating-radial-gradient(circle at 100% 50%, transparent 0, transparent 40px, rgba(0, 0, 0, 0.03) 41px, transparent 42px);
     pointer-events: none;
 }
 
-.funcion:hover::before {
-    top: -60%;
+/* Columna especial derecha */
+.hero-img-col {
+    min-height: 340px;
 }
 
-/* CLICK */
-.funcion:active {
-    transform: scale(0.95);
+.hero-img-overlay {
+    background-color: var(--depto-color);
+    mix-blend-mode: color;
+    opacity: 0.2;
 }
 
-/* ACTIVA */
-.funcion.activa {
-    border: 2px solid #bf9b30;
-    box-shadow: 0 0 15px rgba(191,155,48,0.5);
+/* Curva suavizada izquierda */
+.hero-swoosh {
+    width: 100px;
+    z-index: 2;
+    fill: #ffffff;
+    transform: translateX(-1px);
 }
 
-/* -------- VER MÁS TARJETAS -------- */
-.btnVerMas{
-	margin-top:10px;
-	color:#1a56db;
-	cursor:pointer;
-	font-weight: bold;
+/* Versión móvil */
+.hero-mobile-img {
+    height: 180px;
 }
 
-.extraCard{
-	max-height: 0;
-	overflow: hidden;
-	font-size:0.9em;
-	transition: max-height 0.4s ease;
+
+/* 
+    ========================================================================
+    COMPONENTE: OBJETIVO Y PERFIL DEL JEFE (Tarjetas info)
+    ======================================================================== 
+*/
+.profile-card {
+    background-color: var(--unam-azul);
 }
 
-.extraCard.activa{
-	max-height: 500px;
+.profile-avatar {
+    width: 130px;
+    height: 130px;
 }
 
-/* FADE SUAVE */
-#tituloDepto,
-#descDepto,
-#imgDepto,
-#listaObjetivo {
-    transition: opacity 0.3s ease;
+.objective-container {
+    border-left: 6px solid;
+    /* El color se inyecta por .border-depto global */
+}
+
+
+/* 
+    ========================================================================
+    COMPONENTE: PROYECTOS DESTACADOS (Grid Bento)
+    ======================================================================== 
+*/
+.projects-divider {
+    height: 4px;
+    width: 60px;
+    background-color: var(--unam-dorado);
+}
+
+.project-img-container {
+    height: 240px;
+}
+
+.project-img-scale {
+    transition: transform 0.5s ease;
+}
+
+.project-badge-sm {
+    font-size: 0.65rem;
+}
+
+.project-btn-details {
+    font-size: 0.75rem;
 }
