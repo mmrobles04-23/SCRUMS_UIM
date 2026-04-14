@@ -5,23 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Departamentos de Investigación</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+    body {
+        background-color: #f3dde1;
+    }
+    </style>
 </head>
 <body>
 
     <header class="hero-section">
         <img src="img/F1.jpg" alt="Campus Universitario" class="hero-image">
         <h1 class="hero-title">DEPARTAMENTOS DE INVESTIGACIÓN</h1>
-        
+        <br>
+        <section id="tarjetas-contenedor" class="cards-grid">
+        </section>
     </header>
 
     <main class="main-container">
-    <img class="logoDepto" src="img/DRNA.png" alt="Departamento de Investigación de Riesgos Naturales y Antropogénicos">
-        <div id="NombreDepto" style="color: #db0032;"><h2>Departamento de Análisis de Riesgos Naturales y Antropogénicos</h2></div>
+        <img class="logoDepto" src="img/DRNA.png" alt="Departamento de Investigación de Riesgos Naturales y Antropogénicos">
+        <div id="NombreDepto" style="color: #e1043bd6;">
+            <h2>Departamento de Análisis de Riesgos Naturales y Antropogénicos</h2>
+        </div>
+        
         <section class="info-section">
             
             <div class="profile-card">
                 <div class="profile-image-placeholder">
-                <img src="img/carlos_arce.webp" alt="Perfil">
+                    <img src="img/carlos_arce.webp" alt="Perfil">
                 </div>
                 <h2>Ing. Carlos Arce León</h2>
                 <p class="role">Jefe del Departamento</p>
@@ -33,85 +43,91 @@
             </div>
 
             <div class="details-column">
+                
                 <div class="detail-card highlight-card">
                     <h3>🎯 Nuestro Objetivo</h3>
                     <ul>
-                        Desarrollar investigación aplicada en la caracterización de las acciones generadas por la exposición a agentes perturbadores tanto de origen natural como antrópico, a través del conocimiento y estudios experimentales de materiales y sistemas estructurales.
+                        <li>Desarrollar investigación aplicada en la caracterización de las acciones generadas por la exposición a agentes perturbadores tanto de origen natural como antrópico, a través del conocimiento y estudios experimentales de materiales y sistemas estructurales.</li>
                     </ul>
                 </div>
 
                 <div class="detail-card">
-                    <div class="detail-card-IN" onclick="toggleDisplayFlex('funcionesVen')">
-                        <h3>Funciones</h3>
-                        <p class="link-btn">Ver funciones &gt;</p>
-                    </div>
-                    <hr>
-                    <div class="detail-card-IN" onclick="toggleDisplayFlex('proyectosVen')">
-                        <h3>Proyectos</h3>
-                        <a href="#" class="link-btn">Ver proyectos &gt;</a>
-                    </div>
+                    
+                    <details class="acordeon-depto">
+                        <summary class="acordeon-titulo">
+                            <h3>📋 Funciones</h3>
+                            <span class="icono-desplegable">▼</span>
+                        </summary>
+                        <div class="acordeon-contenido">
+                            <ul>
+                                <li>Desarrollar investigación sobre el comportamiento dinámico de diversos sistemas estructurales a través de la medición, análisis de su respuesta dinámica y de estudios de interacción suelo-estructura. Mismos que permitan generar y calibrar modelos de predicción ante diferentes acciones generadas por agentes perturbadores.</li>
+                                <li>Proponer y calibrar modelos de sismicidad local basados en los datos recopilados con la utilización de instrumentos de precisión.</li>
+                                <li>Realización del estudio de sismicidad local a través de integrar y actualizar la base de datos de sismos locales con registros procesados y con espectros de Respuesta y de Fourier.</li>
+                                <li>Establecer y aplicar metodologías en la evaluación de vulnerabilidad y riesgo para determinar las condiciones con las que se encuentran expuestas las edificaciones.</li>
+                                <li>Llevar a cabo estudios experimentales y analíticos acerca del comportamiento de materiales y sistemas estructurales: concreto reforzado, acero estructural y mampostería, así como métodos de reparación y rehabilitación de estructuras dañadas.</li>
+                                <li>Desarrollar investigación relativa a: métodos numéricos aplicados a la ingeniería y arquitectura; de algoritmos para predecir el comportamiento experimental de materiales para reproducir el desempeño estructural de edificaciones y para la evaluación de peligro, vulnerabilidad y riesgo.</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <hr style="border: 0; border-top: 1px solid #ecc0c0b3; margin: 15px 0;">
+
+                    <details class="acordeon-depto">
+                        <summary class="acordeon-titulo">
+                            <h3>🚀 Proyectos</h3>
+                            <span class="icono-desplegable">▼</span>
+                        </summary>
+                        <div class="acordeon-contenido">
+                            
+                            <h4>Líneas de investigación</h4>
+                            <ul>
+                                <li>Comportamiento y diseño sísmico de estructuras.</li>
+                                <li>Diseño paramétrico de estructuras especiales con enfoque a la prefabricación.</li>
+                                <li>Evaluación, rehabilitación de estructuras y análisis de patologías.</li>
+                                <li>Instrumentación sísmica y análisis de vibraciones en sistemas mecánicos y de estructuras especiales.</li>
+                            </ul>
+
+                            <br>
+                            <h4>Proyectos de investigación vigentes</h4>
+                            <ul>
+                                <li>
+                                    <strong>Caracterización del comportamiento estructural ante cargas eólicas de fachadas prefabricadas (PAIDI)</strong>
+                                    <p style="margin-top: 10px;">Este proyecto tiene como objetivos principales; Analizar el comportamiento de elementos de fachada prefabricados de concreto y de aluminio bajo condiciones de viento. Conocer los patrones de distribución de lluvia dirigida por viento.</p>
+                                    <p style="margin-top: 10px;">Se realizarán modelos de tipos de fachada comunes modelándolos con software comercial empleando elemento finito como técnica base. Se desarrollarán simulaciones de viento para obtener las presiones de diseño. Por otro lado, se recopilarán datos sobre la velocidad y dirección del viento en puntos seleccionados que permitan conocer la cantidad de lluvia por cara de la fachada contrastándola con la directividad del viento.</p>
+                                    <ul style="margin-top: 15px; list-style-type: none; margin-left: 0;">
+                                        <li><strong>Fecha de inicio:</strong> 01 de agosto de 2024</li>
+                                        <li><strong>Fecha de término:</strong> 01 de agosto de 2025</li>
+                                    </ul>
+                                </li>
+                                <br>
+                                <li>
+                                    <strong>Respuesta eólica en anuncios espectaculares de tipo monopolar</strong>
+                                    <p style="margin-top: 10px;">Se analiza el comportamiento dinámico de estructuras espectaculares del tipo monopolo, tomando base de diseño la normatividad existente. Por otro lado, se realizan simulaciones de viento sinóptico aplicado en modelos de anuncios reales. Se realizan mediciones de vibración ambiental que permitan determinar las propiedades dinámicas reales para la calibración de los modelos analíticos. Se estudian las propiedades y características que inciden en la respuesta real.</p>
+                                    <ul style="margin-top: 15px; list-style-type: none; margin-left: 0;">
+                                        <li><strong>Fecha de inicio:</strong> 01 de mayo de 2024</li>
+                                        <li><strong>Fecha de término:</strong> 01 de septiembre 2025</li>
+                                    </ul>
+                                </li>
+                                <br>
+                                <li>
+                                    <strong>Diseño paramétrico, fabricación digital y sistemas prefabricados</strong>
+                                    <p style="margin-top: 10px;">En esta investigación se plantean alternativas con aplicación de técnicas de diseño paramétrico y fabricación digital en la conceptualización de la forma y construcción de elementos estructurales y arquitectónicos con técnicas de prefabricación industrializada considerando criterios de montaje y transporte al sitio.</p>
+                                    <p style="margin-top: 10px;">Se realizan pruebas de caracterización de propiedades mecánicas de las mezclas de concreto diseñadas y empleadas. Se realizan modelos a escala en los que se realizan pruebas de vibración ambiental y de carga verificando el comportamiento y niveles de seguridad.</p>
+                                    <ul style="margin-top: 15px; list-style-type: none; margin-left: 0;">
+                                        <li><strong>Fecha de inicio:</strong> 01 de enero de 2025</li>
+                                        <li><strong>Fecha de término:</strong> 01 de diciembre 2025</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </details>
                 </div>
             </div>
             
         </section>
-    <hr>
-
-    <div><h2 style="color: var(--unam-azul);margin: 20px;margin-left: 0;">Departamentos</h2></div>
-
-        <section id="tarjetas-contenedor" class="cards-grid">
-            </section>
-
     </main>
-    <div class="Ventana" id="funcionesVen">
-        <div class="Emergente">
-            <h2>Funciones</h2>
-            <br>
-            <ul>
-                <li>Desarrollar investigación sobre el comportamiento dinámico de diversos sistemas estructurales a través de la medición, análisis de su respuesta dinámica y de estudios de interacción suelo-estructura. Mismos que permitan generar y calibrar modelos de predicción ante diferentes acciones generadas por agentes perturbadores.</li>
-                <li>Proponer y calibrar modelos de sismicidad local basados en los datos recopilados con la utilización de instrumentos de precisión.</li>
-                <li>Realización del estudio de sismicidad local a través de integrar y actualizar la base de datos de sismos locales con registros procesados y con espectros de Respuesta y de Fourier.</li>
-                <li>Establecer y aplicar metodologías en la evaluación de vulnerabilidad y riesgo para determinar las condiciones con las que se encuentran expuestas las edificaciones.</li>
-                <li>Llevar a cabo estudios experimentales y analíticos acerca del comportamiento de materiales y sistemas estructurales: concreto reforzado, acero estructural y mampostería, así como métodos de reparación y rehabilitación de estructuras dañadas.</li>
-                <li>Desarrollar investigación relativa a: métodos numéricos aplicados a la ingeniería y arquitectura; de algoritmos para predecir el comportamiento experimental de materiales para reproducir el desempeño estructural de edificaciones y para la evaluación de peligro, vulnerabilidad y riesgo.</li>
-            </ul>
-        </div>
-    </div>
 
-    <div class="Ventana" id="proyectosVen">
-        <div class="Emergente">
-            <h2>Proyectos</h2>
-            <br>
-    <ul>
-        <li><h3>Líneas de investigación</h3></li>
-            <ul>
-                <li>Comportamiento y diseñi sísmico de estructuras.</li>
-                <li>Diseño paramétrico de estructuras especiales con enfoque a la prefabricación.</li>
-                <li>Evaluación, rehabilitación de estructuras y análisis de patologías.</li>
-                <li>Instrumentación sísmica y análisis de vibraciones en sistemas mecánicos y de estructuras especiales.</li>
-               
-            </ul>
-        <li><h3>Proyectos de investigación vigentes</h3>
-            <ul><li><strong><p>Caracterización del comportamiento estructural ante cargas eólicas de fachadas prefabricadas (PAIDI)</p></strong>
-            <p>Este proyecto tiene como objetivos principales; Analizar el comportamiento de elementos de fachada prefabricados de concreto y de aluminio bajo condiciones de viento. Conocer los patrones de distribución de lluvia dirigida por viento.</p>
-            <p>Se realizarán modelos de tipos de fachada comunes modelándolos con software comercial empleando elemento finito como técnica base. Se desarrollarán simulaciones de viento para obtener las presiones de diseño. Por otro lado, se recopilarán datos sobre la velocidad y dirección del viento en puntos seleccionados que permitan conocer la cantidad de lluvia por cara de la fachada contrastándola con la directividad del viento.</p>
-            <div style="margin-top: 50px;"><p><strong>Fecha de inicio:</strong>01 de agosto de 2024</p>
-            <p><strong>Fecha de término:</strong>01 de agosto de 2025</p></div></li>
-            
-            <div style="margin-top: 50px;"><li><strong><p>Respuesta eólica en anuncios espectaculares de tipo monopolar</p></strong></li>
-            <p>Se analiza el comportamiento dinámico de estructuras espectaculares del tipo monopolo, tomando base de diseño la normatividad existente. Por otro lado, se realizan simulaciones de viento sinóptico aplicado en modelos de anuncios reales. Se realizan mediciones de vibración ambiental que permitan determinar las propiedades dinámicas reales para la calibración de los modelos analíticos. Se estudian las propiedades y características que inciden en la respuesta real.</p>
-            <div style="margin-top: 50px;"><p><strong>Fecha de inicio:</strong>01 de mayo de 2024</p>
-            <p><strong>Fecha de término:</strong>01 de septiembre 2025</p></div></div>
-
-            <div style="margin-top: 50px;"><li><p><strong>Diseño paramétrico, fabricación digital y sistemas prefabricados</strong></p>
-            <p>En esta investigación se plantean alternativas con aplicación de técnicas de diseño paramétrico y fabricación digital en la conceptualización de la forma y construcción de elementos estructurales y arquitectónicos con técnicas de prefabricación industrializada considerando criterios de montaje y transporte al sitio.</p>
-            <p>Se realizan pruebas de caracterización de propiedades mecánicas de las mezclas de concreto diseñadas y empleadas. Se realizan modelos a escala en los que se realizan pruebas de vibración ambiental y de carga verificando el comportamiento y niveles de seguridad</p>
-            <div style="margin-top: 50px;"><p><strong>Fecha de inicio:</strong>01 de enero de 2025</p>
-            <p><strong>Fecha de término:</strong>01 de diciembre 2025</p></div></div></li></ul>
-
-        
-            </ul>
-        </div>
-    </div>
     <script src="js/script.js"></script>
 </body>
 </html>

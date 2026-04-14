@@ -5,101 +5,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Departamentos de Investigación</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+    body {
+        background-color: #ebf2e3;
+    }
+</style>
 </head>
 <body>
 
     <header class="hero-section">
         <img src="img/F1.jpg" alt="Campus Universitario" class="hero-image">
         <h1 class="hero-title">DEPARTAMENTOS DE INVESTIGACIÓN</h1>
-        
+        <br>
+        <section id="tarjetas-contenedor" class="cards-grid">
+        </section>
     </header>
 
     <main class="main-container">
-    <img class="logoDepto" src="img/DICEC.png" alt="Departamento de Tecnología Ambiental">
-        <div id="NombreDepto" style="color: #8347ad;"><h2>Departamento de Tecnología Ambiental</h2></div>
+        <img class="logoDepto" src="img/DTA.png" alt="Departamento de Tecnología Ambiental">
+        <div id="NombreDepto" style="color: #70d44b;">
+            <h2>Departamento de Tecnología Ambiental</h2>
+        </div>
+        
         <section class="info-section">
             
             <div class="profile-card">
                 <div class="profile-image-placeholder">
-                <img src="img/jefe_comunicacion_cultura.jpg" alt="Perfil">
+                    <img src="img/jefe_comunicacion_cultura.jpg" alt="Perfil">
                 </div>
                 <h2>Ing. Gabriela Nava Amezcua</h2>
                 <p class="role">Jefe del Departamento</p>
                 <ul class="contact-info">
-                <li>📍 Edificio A de la Unidad de Investigación Multidisciplinaria II, planta baja</li>
-                <li>📞 5556231750 Ext. 38968 y 38969</li>
-                <li>✉️ detea@acatlan.unam.mx</li>
+                    <li>📍 Edificio A de la Unidad de Investigación Multidisciplinaria II, planta baja</li>
+                    <li>📞 5556231750 Ext. 38968 y 38969</li>
+                    <li>✉️ detea@acatlan.unam.mx</li>
                 </ul>
             </div>
 
             <div class="details-column">
+                
                 <div class="detail-card highlight-card">
                     <h3>🎯 Nuestro Objetivo</h3>
                     <ul>
-                        Contribuir al desarrollo sostenible mediante la implementación de estrategias innovadoras 
-                        para resolver problemas en el área químico-industrial y ambiental a través de la promoción 
-                        y participación en proyectos tecnológicos y la vinculación con instituciones educativas 
-                        públicas y privadas, con la finalidad de que la comunidad de la FES Acatlán se involucre 
-                        activamente en cada uno de los programas.
+                        <li>Contribuir al desarrollo sostenible mediante la implementación de estrategias innovadoras para resolver problemas en el área químico-industrial y ambiental a través de la promoción y participación en proyectos tecnológicos y la vinculación con instituciones educativas públicas y privadas, con la finalidad de que la comunidad de la FES Acatlán se involucre activamente en cada uno de los programas.</li>
                     </ul>
                 </div>
 
                 <div class="detail-card">
-                    <div class="detail-card-IN" onclick="toggleDisplayFlex('funcionesVen')">
-                        <h3>Funciones</h3>
-                        <p class="link-btn">Ver funciones &gt;</p>
-                    </div>
-                    <hr>
-                    <div class="detail-card-IN" onclick="toggleDisplayFlex('proyectosVen')">
-                        <h3>Proyectos</h3>
-                        <a href="#" class="link-btn">Ver proyectos &gt;</a>
-                    </div>
+                    
+                    <details class="acordeon-depto">
+                        <summary class="acordeon-titulo">
+                            <h3>📋 Funciones</h3>
+                            <span class="icono-desplegable">▼</span>
+                        </summary>
+                        <div class="acordeon-contenido">
+                            <ul>
+                                <li>Establecer estrategias con la finalidad de solucionar problemas relacionados al área químico-industrial.</li>
+                                <li>Promover y participar en la elaboración de proyectos tecnológicos orientados a resolver la problemática del medio ambiente.</li>
+                                <li>Fomentar la vinculación con instituciones educativas, así como con instituciones públicas y privadas con el objeto de generar convenios, proyectos de investigación y favorecer el intercambio de estudiantes con fines de estancias de investigación y servicio social.</li>
+                                <li>Implementar el Sistema de Gestión de la Calidad en los laboratorios del Departamento, así como la mejora continua.</li>
+                                <li>Desarrollar el programa anual de actividades de investigación y de servicios del Departamento.</li>
+                                <li>Proporcionar y regular la vinculación con los departamentos de la Coordinación de la Unidad de Investigación Multidisciplinaria Aplicada, para el mejor aprovechamiento de los recursos y de las áreas comunes.</li>
+                                <li>Promover la formación de recursos humanos en Tecnología Ambiental.</li>
+                                <li>Desarrollar actividades en vinculación con los programas de licenciatura y posgrado.</li>
+                                <li>Desarrollar los informes de actividades de acuerdo a los lineamientos y períodos establecidos por la Dirección de la Facultad.</li>
+                                <li>Las demás que le encomiende la Coordinación de la Unidad de Investigación Multidisciplinaria Aplicada.</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+
+                    <details class="acordeon-depto">
+                        <summary class="acordeon-titulo">
+                            <h3>🚀 Proyectos</h3>
+                            <span class="icono-desplegable">▼</span>
+                        </summary>
+                        <div class="acordeon-contenido">
+                            <ul>
+                                <li>
+                                    <strong>Escalamiento en la producción de compostaje de residuos de poda y jardinería en la FES Acatlán.</strong>
+                                    <ul style="margin-top: 10px;">
+                                        <li><strong>Fecha de inicio:</strong> 12 de agosto del 2024</li>
+                                        <li><strong>Fecha de término:</strong> 12 de agosto del 2025</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </details>
+
                 </div>
             </div>
             
         </section>
-    <hr>
-
-    <div><h2 style="color: var(--unam-azul);margin: 20px;margin-left: 0;">Departamentos</h2></div>
-
-        <section id="tarjetas-contenedor" class="cards-grid">
-            </section>
 
     </main>
-    <div class="Ventana" id="funcionesVen">
-        <div class="Emergente">
-            <h2>Funciones</h2>
-            <br>
-            <ul>
-                <li>Establecer estrategias para problemas químico-industriales.</li>
-                <li>Promover proyectos tecnológicos ambientales.</li>
-                <li>Vinculación con instituciones públicas y privadas.</li>
-                <li>Implementar gestión de calidad.</li>
-                <li>Desarrollar programas anuales.</li>
-                <li>Optimizar recursos con otros departamentos.</li>
-                <li>Formar recursos humanos.</li>
-                <li>Vinculación con licenciatura y posgrado.</li>
-                <li>Elaborar informes institucionales.</li>
-                <li>Cumplir funciones asignadas.</li>
-            </ul>
-        </div>
-    </div>
 
-    <div class="Ventana" id="proyectosVen">
-        <div class="Emergente">
-            <h2>Proyectos</h2>
-            <br>
-    <ul>
-                   <li>
-                    <strong>Compostaje de residuos</strong>
-                    <ul>
-                        <li>Inicio: 12 agosto 2024</li>
-                        <li>Fin: 12 agosto 2025</li>
-                    </ul>
-                    </li>    
-    </ul>
-        </div>
-    </div>
     <script src="js/script.js"></script>
 </body>
 </html>

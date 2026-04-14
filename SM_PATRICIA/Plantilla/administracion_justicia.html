@@ -3,25 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Departamentos de Investigación</title>
+    <title>Investigación en Procuración y Administración de Justicia | UNAM</title>
     <link rel="stylesheet" href="css/style.css">
+        <style>
+        body {
+            background-color: #ccdfe7;
+        }
+    </style>
 </head>
 <body>
 
     <header class="hero-section">
         <img src="img/F1.jpg" alt="Campus Universitario" class="hero-image">
         <h1 class="hero-title">DEPARTAMENTOS DE INVESTIGACIÓN</h1>
-        
+        <br>
+        <section id="tarjetas-contenedor" class="cards-grid">
+        </section>
     </header>
 
     <main class="main-container">
-    <img class="logoDepto" src="img/IPAJ.png" alt="Departamento de Investigación en Procuración y Administración de Justicia">
-        <div id="NombreDepto" style="color: #3f96b4;"><h2>Departamento de Investigación en Procuración y Administración de Justicia.</h2></div>
+        <img class="logoDepto" src="img/IPAJ.png" alt="Departamento de Investigación en Procuración y Administración de Justicia">
+        
+        <div id="NombreDepto" style="color: #3f96b4;">
+            <h2>Departamento de Investigación en Procuración y Administración de Justicia.</h2>
+        </div>
+
         <section class="info-section">
             
             <div class="profile-card">
                 <div class="profile-image-placeholder">
-                <img src="" alt="Perfil">
+                    <img src="" alt="Perfil">
                 </div>
                 <h2>Dra. Lidia Chávez Fonseca</h2>
                 <p class="role">Jefa del Departamento</p>
@@ -33,84 +44,80 @@
             </div>
 
             <div class="details-column">
+                
                 <div class="detail-card highlight-card">
                     <h3>🎯 Nuestro Objetivo</h3>
                     <ul>
-                        Fomentar y promover grupos de estudio para el desarrollo de proyectos de investigación básica y aplicada que propongan soluciones a los problemas del entorno relacionados con la administración e impartición de justicia en las diversas ramas de las ciencias jurídicas.
+                        <li>Fomentar y promover grupos de estudio para el desarrollo de proyectos de investigación básica y aplicada que propongan soluciones a los problemas del entorno relacionados con la administración e impartición de justicia en las diversas ramas de las ciencias jurídicas.</li>
                     </ul>
                 </div>
 
                 <div class="detail-card">
-                    <div class="detail-card-IN" onclick="toggleDisplayFlex('funcionesVen')">
-                        <h3>Funciones</h3>
-                        <p class="link-btn">Ver funciones &gt;</p>
-                    </div>
-                    <hr>
-                    <div class="detail-card-IN" onclick="toggleDisplayFlex('proyectosVen')">
-                        <h3>Proyectos</h3>
-                        <a href="#" class="link-btn">Ver proyectos &gt;</a>
-                    </div>
+                    
+                    <details class="acordeon-depto">
+                        <summary class="acordeon-titulo">
+                            <h3>📋 Funciones</h3>
+                            <span class="icono-desplegable">▼</span>
+                        </summary>
+                        <div class="acordeon-contenido">
+                            <ul>
+                                <li>Conformar grupos de investigación en las distintas áreas de las ciencias jurídicas.</li>
+                                <li>Fomentar y promover la actualización y profundización del conocimiento en las distintas ciencias jurídicas.</li>
+                                <li>Desarrollar proyectos de investigación que tengan impacto en el sistema jurídico en los distintos órdenes de gobierno.</li>
+                                <li>Realizar estudios en materia de prevención, protección ciudadana y persecución de delitos.</li>
+                                <li>Impartir capacitación al personal técnico, administrativo y directivo de la Facultad, en el ámbito de la prevención y combate de delitos en la Facultad.</li>
+                                <li>Coadyuvar en el diseño de sistemas de seguridad para la protección del patrimonio institucional.</li>
+                                <li>Promover la formación de recursos humanos en Investigación en Procuración y Administración de Justicia en las diversas ramas de las ciencias Jurídicas.</li>
+                                <li>Desarrollar el programa anual de actividades de Investigación en Procuración y Administración de Justicia.</li>
+                                <li>Propiciar y supervisar la vinculación con los departamentos de la Coordinación de la Unidad de Investigación Multidisciplinaria Aplicada, para el mejor aprovechamiento de los recursos de las áreas comunes.</li>
+                                <li>Desarrollar actividades en vinculación con los programas de licenciatura y posgrado.</li>
+                                <li>Realizar los informes de actividades de acuerdo a los lineamientos y períodos establecidos por la Dirección de la Facultad.</li>
+                                <li>Las demás que le encomiende la Coordinación de la Unidad de Investigación Multidisciplinaria Aplicada y las inherentes al puesto.</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+
+                    <details class="acordeon-depto">
+                        <summary class="acordeon-titulo">
+                            <h3>🚀 Proyectos</h3>
+                            <span class="icono-desplegable">▼</span>
+                        </summary>
+                        <div class="acordeon-contenido">
+                            <ul>
+                                <li><strong>Programa de investigación en edición digital y escritura académica (artículos y ensayos)</strong>
+                                    <ul>
+                                        <li>Perspectivas contemporáneas del Derecho Constitucional Mexicano.</li>
+                                        <li>La justicia restaurativa como política pública para el mantenimiento de la paz.</li>
+                                        <li>Violencia contra las mujeres: perspectivas y retos.</li>
+                                        <li>Estudio y prevención de Ciberdelitos.</li>
+                                        <li>Violencia de Género en perspectiva comparada.
+                                            <ul>
+                                                <li><strong>Fecha de inicio:</strong> 01 de septiembre del 2024</li>
+                                                <li><strong>Fecha de término:</strong> 01 de octubre del 2025</li>
+                                            </ul>
+                                        </li>
+                                        <li>Las comunidades afro mexicanas en el Estado de México.</li>
+                                        <li>Seguridad Universitaria: prevención, acciones y castigos.</li>
+                                        <li>Seminario del Fenómeno Migratorio
+                                            <ul>
+                                                <li><strong>Fecha de inicio:</strong> 01 de marzo de 2025</li>
+                                                <li><strong>Fecha de término:</strong> 01 de marzo de 2026</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </details>
+
                 </div>
             </div>
             
         </section>
-    <hr>
-
-    <div><h2 style="color: var(--unam-azul);margin: 20px;margin-left: 0;">Departamentos</h2></div>
-
-        <section id="tarjetas-contenedor" class="cards-grid">
-            </section>
-
     </main>
-    <div class="Ventana" id="funcionesVen">
-        <div class="Emergente">
-            <h2>Funciones</h2>
-            <br>
-            <ul>
-                <li>Conformar grupos de investigación en las distintas áreas de las ciencias jurídicas.</li>
-                <li>Fomentar y promover la actualización y profundización del conocimiento en las distintas ciencias jurídicas.</li>
-                <li>Desarrollar proyectos de investigación que tengan impacto en el sistema jurídico en los distintos órdenes de gobierno.</li>
-                <li>Realizar estudios en materia de prevención, protección ciudadana y persecución de delitos.</li>
-                <li>Impartir capacitación al personal técnico, administrativo y directivo de la Facultad, en el ámbito de la prevención y combate de delitos en la Facultad.</li>
-                <li>Coadyuvar en el diseño de sistemas de seguridad para la protección del patrimonio institucional.</li>
-                <li>Promover la formación de recursos humanos en Investigación en Procuración y Administración de Justicia en las diversas ramas de las ciencias Jurídicas.</li>
-                <li>Desarrollar el programa anual de actividades de Investigación en Procuración y Administración de Justicia.</li>
-                <li>Propiciar y supervisar la vinculación con los departamentos de la Coordinación de la Unidad de Investigación Multidisciplinaria Aplicada, para el mejor aprovechamiento de los recursos de las áreas comunes.</li>
-                <li>Desarrollar actividades en vinculación con los programas de licenciatura y posgrado.</li>
-                <li>Realizar los informes de actividades de acuerdo a los lineamientos y períodos establecidos por la Dirección de la Facultad.</li>
-                <li>Las demás que le encomiende la Coordinación de la Unidad de Investigación Multidisciplinaria Aplicada y las inherentes al puesto.</li>
-            </ul>
-        </div>
-    </div>
 
-    <div class="Ventana" id="proyectosVen">
-        <div class="Emergente">
-            <h2>Proyectos</h2>
-            <br>
-    <ul>
-        <li><h3>Programa de investigación en edición digital y escritura académica (artículos y ensayos)</h3></li>
-                <ul>
-                    <li>Perspectivas contemporáneas del Derecho Constitucional Mexicano.</li>
-                    <li>La justicia restaurativa como política pública para el mantenimiento de la paz.</li>
-                    <li>Violencia contra las mujeres: perspectivas y retos.</li>
-                    <li>Estudio y prevención de Ciberdelitos.</li>
-                    <li>Violencia de Género en perspectiva comparada.
-                        <ul>
-                            <li><strong>Fecha de inicio:</strong> 01 de septiembre del 2024</li>
-                            <li><strong>Fecha de término:</strong> 01 de octubre del 2025</li>
-                        </ul>
-                    </li>
-                    <li>Las comunidades afro mexicanas en el Estado de México.</li>
-                    <li>Seguridad Universitaria: prevención, acciones y castigos.</li>
-                    <li>Seminario del Fenómeno Migratorio
-                        <ul>
-                            <li><strong>Fecha de inicio:</strong> 01 de marzo de 2025</li>
-                            <li><strong>Fecha de término:</strong> 01 de marzo de 2026</li>
-                        </ul>
-                    </li>
-                </ul>
-        </div>
-    </div>
     <script src="js/script.js"></script>
 </body>
 </html>

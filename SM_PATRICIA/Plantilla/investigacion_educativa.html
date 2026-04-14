@@ -5,108 +5,138 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Departamentos de Investigación</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+    body {
+        background-color: #fad9d1;
+    }
+</style>
 </head>
 <body>
 
     <header class="hero-section">
         <img src="img/F1.jpg" alt="Campus Universitario" class="hero-image">
         <h1 class="hero-title">DEPARTAMENTOS DE INVESTIGACIÓN</h1>
-        
+        <br>
+        <section id="tarjetas-contenedor" class="cards-grid">
+        </section>
     </header>
 
     <main class="main-container">
-    <img class="logoDepto" src="img/DICEC.png" alt="Departamento de Investigación en Comunicación y Estudios Culturales">
-        <div id="NombreDepto" style="color: #8347ad;"><h2>Departamento de Investigación en Comunicación y Estudios Culturales</h2></div>
+        <img class="logoDepto" src="img/DIE.png" alt="Departamento De Investigación Educativa">
+        <div id="NombreDepto" style="color: #ff4713;">
+            <h2>Departamento De Investigación Educativa</h2>
+        </div>
+        
         <section class="info-section">
             
             <div class="profile-card">
                 <div class="profile-image-placeholder">
-                <img src="img/jefe_comunicacion_cultura.jpg" alt="Perfil">
+                    <img src="" alt="Perfil">
                 </div>
-                <h2>Lic. Miguel Ángel de la Calleja López</h2>
-                <p class="role">Jefe del Departamento</p>
+                <h2>Dra. Luz María Montelongo Díaz Barriga</h2>
+                <p class="role">Jefa del Departamento</p>
                 <ul class="contact-info">
-                    <li>Edificio A de la Unidad de Investigación Multidisciplinaria II, planta baja.</li>
-                    <li>📞 555623-1750, ext. 38963 y 38958</li>
-                    <li>✉️ comycultura@acatlan.unam.mx</li>
+                    <li>Edificio A de la Unidad de Investigación Multidisciplinaria II, primer piso.</li>
+                    <li>📞 56231750, Ext. 38978, 98980 </li>
+                    <li>✉️ diesisedu@acatlan.unam.mx</li>
+                    <br>
+                    <li><strong>Sala de Asesoría e Intervención Pedagógica</strong></li>
+                    <li>Edificio A de la Unidad de Investigación Multidisciplinaria II, primer piso.</li>
+                    <li>Dra. María Isabel Carolina Medina Rodríguez</li>
+                    <li>📞 56231750, Ext. 38977  </li>
+                    <li>✉️ siap@acatlan.unam.mx</li>
                 </ul>
             </div>
 
             <div class="details-column">
+                
                 <div class="detail-card highlight-card">
                     <h3>🎯 Nuestro Objetivo</h3>
                     <ul>
-                        Promover el desarrollo de proyectos de investigación multidisciplinaria que permitan analizar procesos comunicativos y diversas expresiones culturales para comprender su impacto en la conformación de los modos de pensar y actuar de la sociedad y contribuir al mejoramiento de la convivencia social.
+                        <li>Desarrollar investigación educativa multidisciplinaria de carácter básica y aplicada.</li>
+                        <li>Atender las problemáticas vinculadas a la planeación y administración educativa, diseño curricular y evaluación de los procesos educativos.</li>
+                        <li>Asesoría e intervención psico-socio-pedagógico. </li>
                     </ul>
                 </div>
 
                 <div class="detail-card">
-                    <div class="detail-card-IN" onclick="toggleDisplayFlex('funcionesVen')">
-                        <h3>Funciones</h3>
-                        <p class="link-btn">Ver funciones &gt;</p>
-                    </div>
-                    <hr>
-                    <div class="detail-card-IN" onclick="toggleDisplayFlex('proyectosVen')">
-                        <h3>Proyectos</h3>
-                        <a href="#" class="link-btn">Ver proyectos &gt;</a>
-                    </div>
+                    
+                    <details class="acordeon-depto">
+                        <summary class="acordeon-titulo">
+                            <h3>📋 Funciones</h3>
+                            <span class="icono-desplegable">▼</span>
+                        </summary>
+                        <div class="acordeon-contenido">
+                            <ul>
+                                <li>Brindar a las áreas académicas de la FES Acatlán los servicios de orientación y apoyo para el diseño curricular, la formación docente y la evaluación de los aprendizajes.</li>
+                                <li>Realizar los diagnósticos sobre trayectorias escolares y procesos formativos de los estudiantes de la comunidad universitaria.</li>
+                                <li>Diagnosticar y proponer estrategias de atención al problema sobre desarrollo de adicciones entre los jóvenes de la comunidad universitaria.</li>
+                                <li>Realizar investigaciones sobre fenómenos educativos.</li>
+                                <li>Diseñar el programa de intervención psico-socio-pedagógica.</li>
+                                <li>Intervención pedagógica a la población infantil de tres a doce años en las áreas de: lenguaje, psicomotricidad, problemas de aprendizaje y Déficit de atención e Hiperactividad.</li>
+                                <li>Aplicar y dar seguimiento al programa de intervención psicopedagógica de la SIAP.</li>
+                                <li>Orientar a padres de familia y profesores de educación básica, en relación a su participación en la atención de las necesidades especiales de los asistentes a la SIAP, a través de talleres y coloquios.</li>
+                                <li>Atención a la comunidad universitaria en crisis y en caso necesario canalizarlas al área correspondiente.</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+
+                    <details class="acordeon-depto">
+                        <summary class="acordeon-titulo">
+                            <h3>🔍 Áreas de investigación</h3>
+                            <span class="icono-desplegable">▼</span>
+                        </summary>
+                        <div class="acordeon-contenido">
+                            <ul>
+                                <li>Procesos de aprendizaje y educación</li>
+                                <li>Educación superior, ciencia, tecnología e innovación</li>
+                                <li>Currículum</li>
+                                <li>Evaluación educativa</li>
+                                <li>Sujetos de y en la educación</li>
+                                <li>Temas emergentes en la educación</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+
+                    <details class="acordeon-depto">
+                        <summary class="acordeon-titulo">
+                            <h3>🚀 Proyectos</h3>
+                            <span class="icono-desplegable">▼</span>
+                        </summary>
+                        <div class="acordeon-contenido">
+                            <ul>
+                                <li><strong>Sistema de evaluación de la investigación.</strong> Evaluar los avances de la investigación y el impacto en la solución de problemas del entorno a partir de un programa de indicadores.</li>
+                                <br>
+                                <li><strong>Programa de Iniciación Temprana a la Investigación.</strong> Impulsar la iniciación temprana a la investigación mediante la impartición de talleres anuales para jóvenes investigadoras e investigadores.</li>
+                                <br>
+                                <li><strong>El trabajo de la SIAP. Voces de sus actores.</strong> Dar cuenta del papel formativo del trabajo realizado de la SIAP a través de sus principales actores (coordinadores, prestadores de servicios, padres de familia e infancias) desde el concepto teórico de andamiaje.
+                                    <ul>
+                                        <li><strong>Fecha de inicio:</strong> 25 de marzo de 2025</li>
+                                        <li><strong>Fecha de término:</strong> 31 de enero de 2026</li>
+                                    </ul>
+                                </li>
+                                <br>
+                                <li><strong>Evaluación docente en la FES-Acatlán y sus representaciones sociales.</strong> Conocer y analizar las representaciones sociales acerca de la evaluación docente que tienen los actores implicados directamente en los programas de licenciatura que se implementan en FES-Acatlán (UNAM) en la modalidad escolarizada con la finalidad de contar con insumos para la toma de decisiones orientadas al mejoramiento de los servicios institucionales.
+                                    <ul>
+                                        <li><strong>Fecha de inicio:</strong> 25 de marzo de 2025</li>
+                                        <li><strong>Fecha de término:</strong> 30 de marzo de 2026</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </details>
+
                 </div>
             </div>
             
         </section>
-    <hr>
-
-    <div><h2 style="color: var(--unam-azul);margin: 20px;margin-left: 0;">Departamentos</h2></div>
-
-        <section id="tarjetas-contenedor" class="cards-grid">
-            </section>
 
     </main>
-    <div class="Ventana" id="funcionesVen">
-        <div class="Emergente">
-            <h2>Funciones</h2>
-            <br>
-            <ul>
-                <li>Desarrollar proyectos de investigación en el ámbito de la comunicación y de la cultura con un enfoque multidisciplinario.</li>
-                <li>Realizar investigaciones acerca del papel de las Humanidades y las Ciencias Sociales en la conformación de la identidad nacional y las diversas manifestaciones de la cultura.</li>
-                <li>Diseñar protocolos de investigación con especial énfasis en la aplicación de métodos cualitativos.</li>
-                <li>Realizar análisis de mensajes mediáticos.</li>
-                <li>Desarrollar estudios de recepción de productos comunicativos.</li>
-                <li>Efectuar diagnósticos y análisis de distintas manifestaciones culturales.</li>
-                <li>Fomentar y promover la formación de recursos humanos en investigación.</li>
-                <li>Fomentar y promover la vinculación interdisciplinaria y multidisciplinaria con las diferentes áreas académicas de nuestra Facultad, así como con los diferentes departamentos que integran la UIM y la Secretaría de Posgrado e Investigación, con el objeto de desarrollar proyectos de investigación y otras actividades académicas en forma conjunta y que cumplan con lo estipulado en el Plan de Desarrollo Institucional.</li>
-            </ul>
-        </div>
-    </div>
 
-    <div class="Ventana" id="proyectosVen">
-        <div class="Emergente">
-            <h2>Proyectos</h2>
-            <br>
-    <ul>
-        <li><h3>Programa de investigación en edición digital y escritura académica (artículos y ensayos)</h3></li>
-            <ul>
-                <li><strong>FIGURAS REVISTA ACADÉMICA DE INVESTIGACIÓN:</strong> Análisis, creación, publicación...</li>
-            <li><strong>Edición digital de una revista multidisciplinaria</strong> con una investigación y aplicación...
-                <ul>
-                    <li>Conocimiento profundo, constante y actualizado de la plataforma OJS...</li>
-                    <li>Amplia competencia y rigurosa marcación de los textos en el sistema XML-JATS...</li>
-                    <li>Comprender los requisitos de los diferentes catálogos...</li>
-                </ul>
-            </li>
-            <li><strong>Laboratorio de escritura:</strong> reconocer los aspectos fundamentales...</li>
-            </ul>
-        <li><h3>Programa de Iniciación a la Investigación</h3>
-            <ul><li><strong>Jóvenes Investigadores:</strong>Orientado a proporcionar bases</li></ul>
-        </li>
-        <li><h3>Manifestaciones de la cultura</h3>
-            <ul>
-                <li><strong>Seminario “En la mirada de otros”.</strong>Grupo de estudio sobre</li>
-                <li><strong>Seminario de podcast académico de investigación.</strong>Brindar una aproximación</li>
-            </ul>
-    </ul>
-        </div>
-    </div>
     <script src="js/script.js"></script>
 </body>
 </html>
