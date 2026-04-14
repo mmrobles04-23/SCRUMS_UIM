@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UIMA - FES Acatlán UNAM</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@400;500;700;800&amp;family=Inter:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#003d7c",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#e0e9f2",
+                    "on-tertiary-fixed": "#001b3e",
+                    "tertiary-fixed": "#d7e3ff",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#a9c7ff",
+                    "surface-container-low": "#ecf5fe",
+                    "on-primary-fixed": "#001b3d",
+                    "surface-container-highest": "#dbe4ed",
+                    "surface": "#f6faff",
+                    "surface-bright": "#f6faff",
+                    "surface-dim": "#d2dbe4",
+                    "on-secondary-fixed-variant": "#5b4300",
+                    "secondary-fixed-dim": "#f4bf3c",
+                    "on-primary-fixed-variant": "#134685",
+                    "on-tertiary-container": "#8faadd",
+                    "outline": "#737781",
+                    "secondary-fixed": "#ffdf9e",
+                    "inverse-on-surface": "#e9f2fb",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#141d23",
+                    "on-primary-container": "#81aaf0",
+                    "surface-container": "#e6eff8",
+                    "on-error-container": "#93000a",
+                    "outline-variant": "#c3c6d2",
+                    "on-secondary-container": "#715300",
+                    "primary-fixed": "#d6e3ff",
+                    "surface-variant": "#dbe4ed",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#fdc744",
+                    "tertiary-container": "#223e6a",
+                    "background": "#f6faff",
+                    "surface-tint": "#325e9f",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#293138",
+                    "on-surface-variant": "#434750",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#261a00",
+                    "primary": "#002754",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#acc7fc",
+                    "tertiary": "#052853",
+                    "secondary": "#795900",
+                    "on-background": "#141d23",
+                    "on-tertiary-fixed-variant": "#2b4774",
+                    "primary-fixed-dim": "#a9c7ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Manrope"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(0, 39, 84, 0.85) 0%, rgba(0, 61, 124, 0.4) 100%);
+        }
+        .glass-header {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-secondary-container">
+<!-- Top Navigation Shell -->
+<header class="sticky top-0 z-50 flex flex-col w-full glass-header shadow-lg dark:shadow-none bg-[#002754]/95">
+<div class="max-w-7xl mx-auto w-full px-4 md:px-8 py-3 flex justify-between items-center">
+<div class="flex items-center gap-4">
+<div class="text-xl font-serif font-bold text-white tracking-tight">UIMA</div>
+<div class="hidden md:block h-6 w-[1px] bg-white/20"></div>
+<div class="hidden md:block text-xs font-bold uppercase tracking-wider text-blue-100">FES ACATLÁN — UNAM</div>
+</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-xs font-bold uppercase tracking-wider text-white border-b-2 border-[#795900] pb-1" href="#">Propósito</a>
+<a class="text-xs font-bold uppercase tracking-wider text-blue-100 hover:text-white transition-colors" href="#">Seminarios</a>
+<a class="text-xs font-bold uppercase tracking-wider text-blue-100 hover:text-white transition-colors" href="#">Departamentos</a>
+<a class="text-xs font-bold uppercase tracking-wider text-blue-100 hover:text-white transition-colors" href="#">Congresos</a>
+<a class="text-xs font-bold uppercase tracking-wider text-blue-100 hover:text-white transition-colors" href="#">Revista FIGURAS</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-white p-2 hover:bg-white/10 rounded-full transition-all">search</button>
+<button class="material-symbols-outlined text-white p-2 hover:bg-white/10 rounded-full transition-all">account_circle</button>
+<button class="bg-[#fdc744] text-[#715300] px-6 py-2 rounded-md text-xs font-bold uppercase tracking-widest hover:bg-secondary transition-all active:scale-95 duration-150 shadow-md">Inscribirme</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-[870px] w-full overflow-hidden flex items-center justify-center">
+<div class="absolute inset-0 z-0">
+<img alt="FES Acatlán Main Building" class="w-full h-full object-cover" data-alt="cinematic wide shot of the grand modernist architecture of FES Acatlán university campus at twilight with warm interior lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYkgGfMIhX3mFtsg05eWCSW7chi1T7-VtMUzOPLYx46P3PaOzJXbQ1LgShaW2c2OjgRxHL6H5-AgbRs1JFCnInMR-XRppfv2sncH_aWwhR4b1RyT-wdnYjYt3LZ_Z2u2DI2zVrVy213-0XizSvqqC7hwtbdZImwIn32r5xKYdZnZNwrDAlSri1t75JeE_XDpgpwRGVl2JJn16U8KN3WxiAnqlGaBmqbo3aSZLJrAQDQBFLW_l31Pi7KBHqxcm6JAZP2AGuflR6PA"/>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<div class="relative z-10 text-center px-4 max-w-4xl">
+<h1 class="font-headline text-5xl md:text-7xl lg:text-8xl text-white font-bold mb-6 tracking-tighter opacity-90">FES ACATLÁN — UNAM</h1>
+<p class="text-lg md:text-2xl text-blue-100 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
+                    Unidad de Investigación Multidisciplinaria Aplicada. El epicentro del conocimiento y la innovación académica.
+                </p>
+<div class="flex flex-col md:flex-row gap-4 justify-center">
+<button class="bg-white text-primary px-8 py-4 rounded-lg font-bold hover:bg-blue-50 transition-all flex items-center justify-center gap-2">
+                        Explorar Investigación
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="border border-white/30 backdrop-blur-md text-white px-8 py-4 rounded-lg font-bold hover:bg-white/10 transition-all">
+                        Conoce la UIMA
+                    </button>
+</div>
+</div>
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
+<div class="w-12 h-1 bg-white rounded-full"></div>
+<div class="w-12 h-1 bg-white/30 rounded-full"></div>
+<div class="w-12 h-1 bg-white/30 rounded-full"></div>
+</div>
+</section>
+<!-- What is UIMA? -->
+<section class="py-24 px-4 bg-surface">
+<div class="max-w-7xl mx-auto">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1">
+<span class="text-secondary font-bold tracking-[0.2em] text-sm uppercase mb-4 block">Institucional</span>
+<h2 class="font-headline text-4xl md:text-5xl text-primary font-bold mb-8 leading-tight">¿Qué es la UIMA?</h2>
+<div class="space-y-6 text-on-surface-variant leading-relaxed text-lg">
+<p>
+                                La Unidad de Investigación Multidisciplinaria Aplicada (UIMA) de la FES Acatlán es un espacio dedicado a la generación de conocimiento fronterizo que responde a las necesidades actuales de la sociedad mexicana.
+                            </p>
+<p>
+                                Nuestra misión es articular los esfuerzos de académicos, estudiantes e investigadores en proyectos que trasciendan las fronteras de las disciplinas tradicionales, integrando tecnología, ciencias sociales y humanidades.
+                            </p>
+</div>
+<div class="mt-12 flex items-center gap-8">
+<div class="text-center">
+<div class="text-3xl font-bold text-primary font-headline">25+</div>
+<div class="text-xs uppercase tracking-widest text-outline">Proyectos Activos</div>
+</div>
+<div class="w-[1px] h-12 bg-outline-variant"></div>
+<div class="text-center">
+<div class="text-3xl font-bold text-primary font-headline">150</div>
+<div class="text-xs uppercase tracking-widest text-outline">Investigadores</div>
+</div>
+<div class="w-[1px] h-12 bg-outline-variant"></div>
+<div class="text-center">
+<div class="text-3xl font-bold text-primary font-headline">12</div>
+<div class="text-xs uppercase tracking-widest text-outline">Departamentos</div>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2 grid grid-cols-2 gap-4">
+<div class="space-y-4 translate-y-8">
+<img alt="Library and Research" class="rounded-xl shadow-xl w-full h-64 object-cover" data-alt="interior of a modern academic library with scholars working at wooden tables under soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR86r0zmj2m_u6RFBgfJAY5P4qSfFSA8wHgXNKX46wUEr3z3CNNPR4972wbEABSl_L-uj753cKQxcXg5cmPht-FcWUfzm_NnBvOD9FDvUgZjOhJRkrXPwHYdgPGXgq7Jl4vmEaTCACEQ2dI2OZtsZ9D84Me9A5JsvZFGCCRulo6RQXtDiTdhPKV1guU912gmVbrjuK0QGtOv7HpQROvXc39bx74SWiBEF7xGHBO_PmFkWRW3i2uR_CvC6jHlivtupCjC1oeBFpCA"/>
+<img alt="Academic Collaboration" class="rounded-xl shadow-xl w-full h-48 object-cover" data-alt="close-up of a collaborative academic meeting with notebooks, laptops, and focused students in a brightly lit room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwIW4LphxZIufQdSQ53ZKsw249BjqhHPP_0Ri2m2p69gL1R_T82p0kwMYw-n2oiAUz5C-TENWuaRJ52DPEdNV-IdaGrGNuoZ2z3YpibuZQuBjb7j8JebeKUmI50AyAS6cBHzFPIBmO5d2QH70N_ePPhn0R2iPkJiyS3Kw4MhsgGQyDgbZrEGeMG2GmfnmsRRfCKIFeLelIq47RLdX5tORkZYwDZPFlhOPlvmE0a8eNluH8f6L9UrWnweBaQI5F1XerBbZ6QmiG5Q"/>
+</div>
+<div class="space-y-4">
+<img alt="Technology Lab" class="rounded-xl shadow-xl w-full h-48 object-cover" data-alt="modern research laboratory with advanced equipment and white clean surfaces representing high-end technology" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCh6P81rJCBqaS5_WTAVtBT5j44K9a2HW1El0DeFAg-kCwthVcf6vcKFEycv0fHBG_oUsumUQAyWBhXmVUlv0WRWdXTWLSzILjqeIQv7S63xrOD7FSwM-R8vFB-83pYwSmkqQPZ2l3ahcmEAS-HKz7shxtAa0LfvslovEDvk_VVWBEA0kd0bnZukutOxi3-6Z0_AiYWlyZVojvQyQTbDSjbKGeEBipwJsLkpIuvqa4z8DhS0vZ5DRGv49LkkEkvZr7SPwYhyIt7bQ"/>
+<img alt="Writing and Humanities" class="rounded-xl shadow-xl w-full h-64 object-cover" data-alt="a quiet study space with an open notebook, a fountain pen, and a stack of scholarly books on a dark wood desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIzNEv78eOYnVR7KRLCF96onbQ4PZveaWh4u_Up9sxGWkk_fc7HronCTU8vxVEFUHgedOr8HSQ5iHZAqFnA3f71YMlAKoVQ3BkTKSCTSm3M-9CKZTjtMtdHHp2RmleamftChUEEhaRGAD-LlczgVfKnx8xsH4O2QSA3J5pmb2ir6U0F0eF68PbIvqAlvyjPVDR8JBWPNoOKiufDghP27vgqHKExL2y5xPMSwB6RJzALz1fXoTL4eRNzH3SRUxxrPqJXH6KzTqCCA"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Pillars Section -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-4">
+<div class="text-center mb-20">
+<h2 class="font-headline text-4xl text-primary font-bold mb-4">Pilares de Investigación</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Nuestra estructura se fundamenta en cuatro ejes estratégicos que guían la curiosidad intelectual y la aplicación práctica.</p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Social Sciences -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-2xl transition-all group duration-500">
+<div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-500">
+<span class="material-symbols-outlined text-primary group-hover:text-white text-3xl">groups</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-primary mb-4">Ciencias Sociales</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Análisis de estructuras sociales, dinámicas urbanas y comportamiento humano en el contexto contemporáneo.</p>
+</div>
+<!-- Technology -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-2xl transition-all group duration-500">
+<div class="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-secondary transition-colors duration-500">
+<span class="material-symbols-outlined text-secondary group-hover:text-white text-3xl">lightbulb</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-primary mb-4">Tecnología e Innovación</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Desarrollo de soluciones digitales, inteligencia artificial y procesos tecnológicos aplicados.</p>
+</div>
+<!-- Humanities -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-2xl transition-all group duration-500">
+<div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-500">
+<span class="material-symbols-outlined text-primary group-hover:text-white text-3xl">history_edu</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-primary mb-4">Humanidades</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Estudio crítico del arte, la literatura, la historia y el pensamiento ético de nuestra cultura.</p>
+</div>
+<!-- Law -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-2xl transition-all group duration-500">
+<div class="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-secondary transition-colors duration-500">
+<span class="material-symbols-outlined text-secondary group-hover:text-white text-3xl">gavel</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-primary mb-4">Derecho y Justicia</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Investigación jurídica sobre derechos humanos, legalidad y el fortalecimiento del estado de derecho.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Strategic Access -->
+<section class="py-24 px-4 overflow-hidden relative">
+<div class="max-w-7xl mx-auto">
+<div class="grid lg:grid-cols-3 gap-0 rounded-3xl overflow-hidden shadow-2xl">
+<a class="group relative h-80 flex items-end p-10 overflow-hidden" href="#">
+<img alt="Convocatorias" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="close-up of fountain pen and documents representing academic calls and applications in a professional setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT7oZg8QOpNrneUIoh8P3fpRWCQd49Z0226_IY5ZeChGShfAGh4LtELKlXUVE8VBEuYa5ZuQLUOkaPD4sARkmEfWnXroO_Wb_7IJBE0s9qoqdbIjbqLMVm9guFRuA8R04A_1NkSVJw4ueS8J96wj-mKT2U8YN6SES0J6F1-r8Kx4RBpRAv5R8KHPY7QE_kJPf2z8_w8z0Y5BGVMdm7vse96lBM1zubzcwru0feO04H0UrxlrFRjV0biUa0UpFxAhqsONV_o60JjQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent"></div>
+<div class="relative z-10">
+<h4 class="font-headline text-2xl text-white font-bold mb-2">Convocatorias</h4>
+<p class="text-blue-100 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">Oportunidades de investigación y becas activas.</p>
+</div>
+</a>
+<a class="group relative h-80 flex items-end p-10 overflow-hidden border-x border-white/10" href="#">
+<img alt="Repositorio" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="organized rows of books in a contemporary digital-first library setting with sleek shelves and bright lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7If9ncJIYShn5zmtN6YVlJIcplAnn7Z2bg9ZUutPYhkV2xjsi8eYLAcnpTXYJkdbFZZ8G92beItRe9VilFncyhbWNKK6qKASHKYKv60u1TuWRn1fFLXprk2yIzoTf_iBGjq0J84pIPhe48hHPE3Yt9KTJLhNg8dZtuBYFVDDIy9CoLJb57G-PwpwXCgZfe6-8YT3y0KCZQkWztJJqUGgXnvFVuo0Bywu-XNtgeyZFzsNLbtKU4qGKduLUDieX00bQAFE8im1Fvw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#795900] via-[#795900]/40 to-transparent"></div>
+<div class="relative z-10">
+<h4 class="font-headline text-2xl text-white font-bold mb-2">Repositorio Digital</h4>
+<p class="text-amber-100 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">Consulta de tesis, artículos y libros publicados.</p>
+</div>
+</a>
+<a class="group relative h-80 flex items-end p-10 overflow-hidden" href="#">
+<img alt="Vinculación" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="overhead view of professionals shaking hands over a wooden table with laptops and coffee, representing institutional linkage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxxMcO0645ppTiApTcFcX1EXEWM6aZbowCvKIETHgqBLSpcVTHgAChohVXd0rbE6zgBtOqfvylw7LliOToj9qsjliK3-M0Yo62aTE8iWaneOlAeEyutqNaqEzbuSzKtXc6L5KNXAFaoVbHzfo-94bRHDAILb82PYhXFAdOxJVmt9edpwRbobBGeCNim06oaNx0_Mg9a1kz9rcetrtnnNLUOIgunWprIlDZYLDYLlhSH-mR88t6_k0zTLdKwf3frYp4cAqokpHTuA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent"></div>
+<div class="relative z-10">
+<h4 class="font-headline text-2xl text-white font-bold mb-2">Vinculación</h4>
+<p class="text-blue-100 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">Alianzas con el sector público, privado y social.</p>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- News & Events -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-4">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div>
+<span class="text-secondary font-bold tracking-[0.2em] text-sm uppercase mb-4 block">Actualidad</span>
+<h2 class="font-headline text-4xl text-primary font-bold">Últimas Noticias y Eventos</h2>
+</div>
+<a class="text-primary font-bold flex items-center gap-2 hover:gap-4 transition-all" href="#">
+                        Ver todas las noticias
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- News Item 1 -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+<div class="h-56 overflow-hidden">
+<img alt="Conference" class="w-full h-full object-cover" data-alt="dynamic close-up of a speaker at a podium with blurred audience in a modern lecture hall, bright stage lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMq2I7N3vkdWCx4paQkSh_AXABg-2ONJzp2pQgHO4Pq_ckLBHhDWCnr-eUqQvb0mkxU38OR-1H7Krp6n0KBfBLdA-trJW0Z8xbdqH6018H-pZTLbztsOYzpnDMuFbYWf3x20u0XHp29lZvI-WL3nl8o9XMATf2HKOGs2drHAvfX_yAETWCz5EshBsxMuCnfFKup6JAGJA28-Kb-eZxZAjf15eSrn36oA-ho33qZjb1uJV5EXKwCsMbBT5PaKAc58jTFqjJEy-kpg"/>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<div class="flex items-center gap-3 mb-4">
+<span class="bg-blue-50 text-primary text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">Seminario</span>
+<span class="text-outline text-xs font-label">Oct 24, 2024</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-primary mb-4 leading-snug">Nuevas perspectivas en la investigación multidisciplinaria 2024</h3>
+<p class="text-on-surface-variant text-sm mb-8 line-clamp-3">Se invita a la comunidad académica a participar en el ciclo de conferencias sobre innovación social y tecnología aplicada...</p>
+<a class="mt-auto text-secondary font-bold text-xs uppercase tracking-widest flex items-center gap-2 group" href="#">
+                                Leer Más
+                                <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">chevron_right</span>
+</a>
+</div>
+</article>
+<!-- News Item 2 -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+<div class="h-56 overflow-hidden">
+<img alt="Book presentation" class="w-full h-full object-cover" data-alt="selective focus of several thick scholarly books stacked neatly on a library table, symbolizing academic publications" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHjKt7oFAI9ORQdzBv6W8DR3odBagHGWikgR7MNz17MIQZ9CUdlYCGnqEb69hZS_oHc3mOfNuBQ0LaBJaBXCeF7Ef8pyeBxe9i6KjxrnOhRcIrRZEiZxMLNLCP2NWFeTCPG9iPbhOM7p_Bkry6TmU9-FqcHwxVD68Cwyfg3TzJrDvXrbIEM24_3VxUu8GWpTLOedBCu1P_30pQ9PpLA_fBR0DXuTIwtrypc1zmVuIwY5PmqaR-o8-Fs1fD8vBs-M8ahkTqt4Ujkg"/>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<div class="flex items-center gap-3 mb-4">
+<span class="bg-amber-50 text-secondary text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">Publicación</span>
+<span class="text-outline text-xs font-label">Oct 12, 2024</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-primary mb-4 leading-snug">Presentación de la Revista FIGURAS: Volumen de Invierno</h3>
+<p class="text-on-surface-variant text-sm mb-8 line-clamp-3">Explora los artículos más recientes sobre humanidades digitales y justicia social en nuestra edición trimestral.</p>
+<a class="mt-auto text-secondary font-bold text-xs uppercase tracking-widest flex items-center gap-2 group" href="#">
+                                Leer Más
+                                <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">chevron_right</span>
+</a>
+</div>
+</article>
+<!-- News Item 3 -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+<div class="h-56 overflow-hidden">
+<img alt="Research Lab News" class="w-full h-full object-cover" data-alt="wide shot of a clean, futuristic laboratory with blue led lighting and scientists working in the background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvy5x0C_1PEYcY8DG_3U1ya56lDXE32_WpGDrmXJcdCVGNxCtFJEKJd-T3-oqyC-74ebHkEuoRD6UIkbZ-PsTCFtXihCi3IU_RDUbTqcqBnXaeWvX4g5oy53iSveMTYrMBtYQXUplz9QCLY4asIByZ8Jn6GVBlJ_7LTlSMhd3pb9VDJCmfwlsH8H26AsaJPDxQUuEEelGAhrIqMIP2Zk6i4LniZDVfVk9gk9kBLCauMBw0P_tH4DZLp4hkcb2Oiuku71WvHsTLbA"/>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<div class="flex items-center gap-3 mb-4">
+<span class="bg-blue-50 text-primary text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">Vinculación</span>
+<span class="text-outline text-xs font-label">Sep 28, 2024</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-primary mb-4 leading-snug">Alianza con institutos internacionales de tecnología</h3>
+<p class="text-on-surface-variant text-sm mb-8 line-clamp-3">UIMA firma convenio de colaboración con universidades europeas para el intercambio de investigadores y patentes...</p>
+<a class="mt-auto text-secondary font-bold text-xs uppercase tracking-widest flex items-center gap-2 group" href="#">
+                                Leer Más
+                                <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">chevron_right</span>
+</a>
+</div>
+</article>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 px-8 flex flex-col md:flex-row justify-between items-start gap-12 bg-[#f6faff] dark:bg-slate-900">
+<div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="md:col-span-1">
+<div class="text-2xl font-serif font-bold text-[#002754] dark:text-blue-300 mb-6">UIMA</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+                    FES Acatlán — UNAM<br/>
+                    Unidad de Investigación Multidisciplinaria Aplicada
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-lg">share</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-lg">mail</span>
+</a>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-bold text-primary uppercase text-xs tracking-widest mb-2">Institucional</h5>
+<a class="text-slate-600 dark:text-slate-400 hover:text-[#002754] transition-colors text-sm" href="#">Aviso de Privacidad</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-[#002754] transition-colors text-sm" href="#">Contacto</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-[#002754] transition-colors text-sm" href="#">Directorio</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-[#002754] transition-colors text-sm" href="#">Mapa de Sitio</a>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-bold text-primary uppercase text-xs tracking-widest mb-2">Secciones</h5>
+<a class="text-slate-600 dark:text-slate-400 hover:text-[#002754] transition-colors text-sm" href="#">Propósito</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-[#002754] transition-colors text-sm" href="#">Seminarios</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-[#002754] transition-colors text-sm" href="#">Departamentos</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-[#002754] transition-colors text-sm" href="#">Congresos</a>
+</div>
+<div class="md:col-span-1">
+<h5 class="font-bold text-primary uppercase text-xs tracking-widest mb-4">Ubicación</h5>
+<div class="w-full h-32 rounded-lg bg-surface-container overflow-hidden mb-4">
+<div class="w-full h-full bg-slate-200 flex items-center justify-center" data-location="Naucalpan, Mexico" style="">
+<span class="material-symbols-outlined text-outline text-3xl">map</span>
+</div>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+                    Av. Alcanfores y San Juan Totoltepec s/n, Sta Cruz Acatlan, 53150 Naucalpan de Juárez, Méx.
+                </p>
+</div>
+</div>
+<div class="max-w-7xl mx-auto w-full mt-16 pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-[10px] text-slate-500 uppercase tracking-widest">
+                © 2024 Unidad de Investigación Multidisciplinaria Aplicada - FES Acatlán UNAM
+            </p>
+<div class="flex gap-6">
+<span class="text-[10px] text-[#795900] font-bold uppercase tracking-widest">Hecho en México</span>
+<span class="text-[10px] text-slate-500 uppercase tracking-widest">Todos los derechos reservados</span>
+</div>
+</div>
+</footer>
+</body></html>

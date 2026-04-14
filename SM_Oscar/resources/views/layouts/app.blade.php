@@ -49,63 +49,119 @@
     {{-- NOTA (Bootstrap): grid row/col, g-4, utilidades de texto y botones. --}}
     {{-- NOTA (Estilo propio / app.css): .uim-footer-institutional = borde dorado superior. --}}
     {{-- NOTA (contenido): enlaces y contacto desde config('uim.*'); ver docs/GUIA_CONTENIDO_UIM.md --}}
-    <footer class="bg-unam text-white mt-auto shadow uim-footer-institutional">
-        <div class="container-fluid px-3 px-lg-4 py-4">
-            <div class="row g-4 align-items-start">
-                <div class="col-md-4">
-                    <h5 class="text-warning mb-3">UIMA FES Acatlán</h5>
-                    <p class="small mb-2 text-white-50">Unidad de Investigación Multidisciplinaria</p>
-                    <p class="small mb-3 text-white-50">FES Acatlán - UNAM</p>
-                    {{-- NOTA: URLs en config/uim.php → redes_sociales.* (o .env UIM_REDES_*). Valor # = pendiente por UNAM. --}}
-                    <div class="d-flex flex-wrap gap-2">
-                        <a href="{{ config('uim.redes_sociales.facebook') }}" class="text-white text-decoration-none" aria-label="Facebook"><i class="bi bi-facebook fs-5"></i></a>
-                        <a href="{{ config('uim.redes_sociales.twitter') }}" class="text-white text-decoration-none" aria-label="X (Twitter)"><i class="bi bi-twitter fs-5"></i></a>
-                        <a href="{{ config('uim.redes_sociales.instagram') }}" class="text-white text-decoration-none" aria-label="Instagram"><i class="bi bi-instagram fs-5"></i></a>
-                        <a href="{{ config('uim.redes_sociales.youtube') }}" class="text-white text-decoration-none" aria-label="YouTube"><i class="bi bi-youtube fs-5"></i></a>
-                        <a href="{{ config('uim.urls.podcast_uim') }}" class="text-white text-decoration-none" aria-label="Spotify" target="_blank" rel="noopener noreferrer"><i class="bi bi-spotify fs-5"></i></a>
+    <footer class="footer-uim-premium text-white mt-auto">
+        <div class="container-fluid px-4 px-lg-5 pt-5 pb-5 position-relative z-1">
+            <div class="row g-4 align-items-stretch">
+                
+                <!-- Col 1 -->
+                <div class="col-lg-4 d-flex flex-column pe-lg-4">
+                    <div class="d-flex align-items-start gap-3 mb-4">
+                        <img src="{{ asset('header/UIMA-negro_logo.png') }}" alt="UNAM UIMA" style="width: 70px; filter: brightness(0) invert(1);">
+                        <div>
+                            <h5 class="text-warning text-uppercase mb-1 fw-bold tracking-widest fs-6">UIMA FES Acatlán</h5>
+                            <p class="small text-white-50 mb-0 font-body">Unidad de Investigación Multidisciplinaria<br>FES Acatlán • UNAM</p>
+                        </div>
+                    </div>
+                    <p class="small text-white-50 mb-4 font-body pe-md-4">
+                        Impulsamos la investigación multidisciplinaria para generar conocimiento que transforme la sociedad.
+                    </p>
+                    <div class="d-flex flex-wrap gap-2 mt-auto">
+                        <a href="{{ config('uim.redes_sociales.facebook') }}" class="footer-social-icon text-decoration-none" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="{{ config('uim.redes_sociales.twitter') }}" class="footer-social-icon text-decoration-none" aria-label="X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+                        <a href="{{ config('uim.redes_sociales.instagram') }}" class="footer-social-icon text-decoration-none" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="{{ config('uim.redes_sociales.youtube') }}" class="footer-social-icon text-decoration-none" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                        <a href="{{ config('uim.urls.podcast_uim') }}" class="footer-social-icon text-decoration-none" aria-label="Spotify" target="_blank" rel="noopener noreferrer"><i class="bi bi-spotify"></i></a>
                     </div>
                 </div>
-                {{-- NOTA: misma lógica que welcome (menú Investigación FES). URLs externas → config('uim.urls.*'). --}}
-                <div class="col-md-4 col-lg-5">
-                    <h5 class="text-warning mb-3">Podcast UIMA</h5>
-                    <p class="small text-white-50 mb-3">
+                
+                <!-- Col 2 -->
+                <div class="col-lg-4 border-start border-end border-white border-opacity-10 px-lg-5 py-4 py-lg-0 d-flex flex-column">
+                    <h5 class="text-warning text-uppercase mb-3 fw-bold tracking-widest fs-6">Podcast UIMA</h5>
+                    <p class="small text-white-50 mb-4 font-body">
                         Escucha nuestros episodios sobre investigación multidisciplinaria y proyectos destacados de la FES Acatlán.
                     </p>
-                    <a href="{{ config('uim.urls.podcast_uim') }}" class="btn btn-outline-light btn-sm" target="_blank" rel="noopener noreferrer">
-                        <i class="bi bi-spotify me-1"></i> Escuchar en Spotify
-                    </a>
+                    <div class="mt-auto">
+                        <a href="{{ config('uim.urls.podcast_uim') }}" class="btn rounded-pill fw-bold text-dark font-label d-inline-flex align-items-center justify-content-center gap-2 px-4 py-2" style="background-color: var(--unam-dorado); border: none;" target="_blank" rel="noopener noreferrer">
+                            <i class="bi bi-spotify fs-5"></i> ESCUCHAR EN SPOTIFY
+                        </a>
+                    </div>
                 </div>
-                <div class="col-md-4 col-lg-3">
-                    <h5 class="text-warning mb-3">Contacto</h5>
-                    {{-- NOTA: textos en config/uim.php → contacto.* --}}
-                    <ul class="list-unstyled small mb-3">
-                        <li class="mb-2">
-                            <i class="bi bi-globe me-2 text-warning"></i>
-                            <a href="{{ config('uim.urls.uim_oficial') }}" class="text-white-50 text-decoration-none" target="_blank" rel="noopener noreferrer">{{ config('uim.contacto.web_etiqueta') }}</a>
+                
+                <!-- Col 3 -->
+                <div class="col-lg-4 ps-lg-5 d-flex flex-column py-4 py-lg-0">
+                    <h5 class="text-warning text-uppercase mb-4 fw-bold tracking-widest fs-6">Contacto</h5>
+                    <ul class="list-unstyled mb-0 d-flex flex-column gap-3">
+                        <li class="d-flex align-items-center gap-3">
+                            <div class="footer-contact-icon shadow-sm"><i class="bi bi-globe fs-5"></i></div>
+                            <div class="font-body">
+                                <div class="small text-white-50">Sitio web</div>
+                                <a href="{{ config('uim.urls.uim_oficial') }}" class="text-warning text-decoration-none small fw-bold" target="_blank" rel="noopener noreferrer">{{ config('uim.contacto.web_etiqueta') }}</a>
+                            </div>
                         </li>
-                        <li class="mb-2">
-                            <i class="bi bi-telephone me-2 text-warning"></i>
-                            <a href="{{ config('uim.contacto.telefono_enlace') }}" class="text-white-50 text-decoration-none">{{ config('uim.contacto.telefono') }}</a>
+                        <li class="d-flex align-items-center gap-3">
+                            <div class="footer-contact-icon shadow-sm"><i class="bi bi-telephone fs-5"></i></div>
+                            <div class="font-body">
+                                <div class="small text-white-50">Teléfono</div>
+                                <a href="{{ config('uim.contacto.telefono_enlace') }}" class="text-warning text-decoration-none small fw-bold">{{ config('uim.contacto.telefono') }}</a>
+                            </div>
                         </li>
-                        <li class="mb-2">
-                            <i class="bi bi-envelope me-2 text-warning"></i>
-                            <a href="mailto:{{ config('uim.contacto.correo') }}" class="text-white-50 text-decoration-none">{{ config('uim.contacto.correo') }}</a>
+                        <li class="d-flex align-items-center gap-3">
+                            <div class="footer-contact-icon shadow-sm"><i class="bi bi-envelope fs-5"></i></div>
+                            <div class="font-body">
+                                <div class="small text-white-50">Correo</div>
+                                <a href="mailto:{{ config('uim.contacto.correo') }}" class="text-warning text-decoration-none small fw-bold">{{ config('uim.contacto.correo') }}</a>
+                            </div>
                         </li>
                     </ul>
-                    {{-- NOTA (Bootstrap): btn-outline-light y btn-warning; el color dorado del warning viene del override .btn-warning en app.css. --}}
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Barra inferior oscura -->
+        <div class="py-3 px-4 px-lg-5 w-100 position-relative z-1" style="background-color: rgba(0,0,0,0.25);">
+            <div class="row align-items-center font-body small">
+                <div class="col-md-8 text-white-50 mb-3 mb-md-0 d-flex flex-column">
+                    <span class="mb-1">© {{ date('Y') }} Universidad Nacional Autónoma de México.</span>
+                    <span class="mb-1">Todos los derechos reservados.</span>
+                    <span>FES Acatlán - UIMA</span>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <a href="#" class="text-warning text-decoration-none me-3" style="transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--unam-dorado)'">Aviso de privacidad</a>
+                    <a href="#" class="text-warning text-decoration-none" style="transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--unam-dorado)'">Mapa del sitio</a>
                 </div>
             </div>
-
-            <hr class="border-secondary border-opacity-25 my-4">
-
-            <p class="text-center small mb-0 text-white-50">
-                <i class="bi bi-c-circle me-1"></i>
-                Hecho en México, todos los derechos reservados 2026 — UNAM
-            </p>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let lastScrollTop = 0;
+            const header = document.querySelector('.uim-site-head-sticky');
+            
+            if (header) {
+                window.addEventListener('scroll', function() {
+                    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    
+                    // Ocultar al bajar después de 150px
+                    if (scrollTop > 150) {
+                        if (scrollTop > lastScrollTop) {
+                            // Scrolee hacia abajo: Ocultar
+                            header.classList.add('header-hidden');
+                        } else {
+                            // Scrolee hacia arriba: Mostrar
+                            header.classList.remove('header-hidden');
+                        }
+                    } else {
+                        // Siempre mostrar si estamos hasta arriba (menos de 150px)
+                        header.classList.remove('header-hidden');
+                    }
+                    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
+                }, { passive: true });
+            }
+        });
+    </script>
     @stack('scripts')
 </body>
 </html>

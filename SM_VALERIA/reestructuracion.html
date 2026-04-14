@@ -45,7 +45,36 @@
             <div class="cards-grid" id="cardsContainer"></div>
         </section>
     </div>
-    //  archivo de seminarios.js
+    <!-- Modal de Inscripción -->
+    <div class="modal-overlay" id="inscripcionModal">
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <div class="modal-header">
+                <h2 id="modalTitle"><i class="fas fa-pen-alt"></i> Inscripción al Seminario</h2>
+                <button class="modal-close" id="modalClose" aria-label="Cerrar"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="formInscripcion" class="modal-form" novalidate>
+                <div class="form-group">
+                    <label for="inputNombre">Nombre completo</label>
+                    <input type="text" id="inputNombre" placeholder="Tu nombre completo" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputCorreo">Correo electrónico</label>
+                    <input type="email" id="inputCorreo" placeholder="tu@correo.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="modalSeminario">Seminario</label>
+                    <select id="modalSeminario" required></select>
+                </div>
+                <div class="form-group">
+                    <label for="inputMotivo">Motivo de inscripción</label>
+                    <textarea id="inputMotivo" rows="4" placeholder="¿Por qué deseas inscribirte a este seminario?" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Enviar inscripción</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- archivo de seminarios.js -->
     <script src="js/seminarios.js"></script>
 
 </body>
