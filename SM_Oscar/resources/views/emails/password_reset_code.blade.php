@@ -5,7 +5,7 @@
     <title>Restablecer Contraseña</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;

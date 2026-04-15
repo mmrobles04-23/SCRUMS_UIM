@@ -1,6 +1,6 @@
 /* Ejemplo de CSS personalizado */
 body {
-    font-family: 'Instrument Sans', sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .btn-custom {
@@ -522,18 +522,16 @@ footer .col-6 {
 ═══════════════════════════════════════════════════════════════ */
 
 /* Fuentes */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600&display=swap');
-
 .font-headline {
-    font-family: 'Noto Serif', serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .font-body {
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .font-label {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .tracking-widest {
