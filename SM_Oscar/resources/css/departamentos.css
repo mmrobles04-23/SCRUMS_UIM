@@ -54,7 +54,7 @@
     ======================================================================== 
 */
 .hero-banner {
-    min-height: 340px;
+    min-height: 180px;
 }
 
 .hero-text-container {
@@ -86,7 +86,7 @@
 
 /* Columna especial derecha */
 .hero-img-col {
-    min-height: 340px;
+    min-height: 180px;
 }
 
 .hero-img-overlay {
