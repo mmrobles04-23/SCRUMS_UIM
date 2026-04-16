@@ -123,7 +123,7 @@
                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJZUQyxPjpEhZBK90S18No2X-jckocvzlxWoIGtVvdhyQ1Yu3MihmxjyT01uSDznGkf699HqZhlimShC-FehOmtgWfmrLnhYIBzpyrhjciKTDi5P29hH946vB7DT0HhbslTZoB8BnTwda5gxQSPx-utlbfL_RoQxJwuFW2oPUGT_f9Is_k5PH2cx16S2_WiJISDyGLYVu1z3vacpQ0dz_hijfPgycEGdb4FOT975ewr8JjDfFTzOuWf-OZ_Kyi8K6ijkJlMIFukg" />
                     </div>
                     <h3 class="h4 fw-bold mb-1 font-headline">Ing. Carlos Arce León</h3>
-                    <p class="small fw-bold mb-4 text-depto">Jefe del Departamento</p>
+                    <p class="small fw-bold mb-4 text-white-50">Jefe del Departamento</p>
 
                     <div class="w-100 border-top border-white border-opacity-10 pt-4 mt-auto text-start">
                       <div class="d-flex align-items-center gap-3 mb-3">

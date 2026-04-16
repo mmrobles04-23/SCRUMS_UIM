@@ -10,6 +10,11 @@
     color: var(--depto-color) !important;
 }
 
+.text-depto-black {
+    color: #000000 !important;
+}
+
+
 .bg-depto {
     background-color: var(--depto-color) !important;
 }
