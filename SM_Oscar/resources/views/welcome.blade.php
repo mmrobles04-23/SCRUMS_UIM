@@ -212,7 +212,7 @@
                 </div>
             </div>
         </section>
-
+<br>
         <!-- Congresos Dinámicos -->
         <section id="uim-congresos" class="py-5 bg-surface-uim">
             <div class="container py-4">
@@ -284,7 +284,7 @@
                 @endforelse
             </div>
         </section>
-
+<br>
         <!-- News & Events -->
         <section class="py-5 bg-surface-container-lowest">
             <div class="container py-4">
@@ -394,6 +394,7 @@
                 </div>
             </div>
         </section>
+    
 
     </div>
 @endsection

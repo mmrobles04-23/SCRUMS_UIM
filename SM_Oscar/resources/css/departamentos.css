@@ -6,6 +6,7 @@
     desde el contenedor padre (etiqueta HTML d-flex en departamento.blade)
 */
 
+
 .text-depto {
     color: var(--depto-color) !important;
 }

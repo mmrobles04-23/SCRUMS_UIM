@@ -2,6 +2,10 @@
 body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+/* Estilos para section */
+section {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
 
 .btn-custom {
     background-color: #0d6efd;
@@ -40,6 +44,8 @@ body {
      LAYOUT PRINCIPAL
      sidebar (col-2) + contenido (col-10)
 ════════════════════════════════ --> */
+
+
 
 /* Footer estilos específicos para eliminar padding lateral */
 footer {
@@ -544,7 +550,7 @@ footer .col-6 {
 
 /* Colores Surface (Fondos premium) */
 .bg-surface-uim {
-    background-color: #f6faff !important;
+    background-color: #dde8f6 !important;
 }
 
 .bg-surface-container-low {
@@ -552,7 +558,7 @@ footer .col-6 {
 }
 
 .bg-surface-container-lowest {
-    background-color: #ffffff !important;
+    background-color: #ffffffd7 !important;
 }
 
 .bg-blue-50-uim {
