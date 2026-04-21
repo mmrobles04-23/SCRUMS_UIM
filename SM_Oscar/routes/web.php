@@ -56,6 +56,18 @@ Route::middleware('web')->group(function () {
             Route::prefix('admin')->name('admin.')->group(function () {
                 Route::patch('congresos/{congreso}/activo', [AdminCongresoController::class, 'toggleActivo'])->name('congresos.toggle-activo');
                 Route::resource('congresos', AdminCongresoController::class)->except(['show']);
+
+                Route::get('departamentos', function () {
+                    return view('admin.departamentos.index');
+                })->name('departamentos.index');
+
+                Route::get('seminarios', function () {
+                    return view('admin.seminarios.index');
+                })->name('seminarios.index');
+
+                Route::get('welcome', function () {
+                    return view('admin.welcome.edit');
+                })->name('welcome.edit');
             });
         });
     });

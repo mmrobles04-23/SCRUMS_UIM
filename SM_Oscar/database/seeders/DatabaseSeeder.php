@@ -42,6 +42,36 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
+        User::updateOrCreate(
+            ['email' => '313227743@pcpuma.acatlan.unam.mx'],
+            [
+                'name' => 'oscar',
+                'password' => Hash::make('19970825'),
+                'permiso_id' => 1,
+                'rol_id' => 1,
+                'active' => true,
+                'nombre' => 'Oscar',
+                'apellido_paterno' => 'Valdés',
+                'apellido_materno' => 'Admin',
+                'asignado' => null,
+            ]
+        );
+
+        User::updateOrCreate(
+            ['email' => '422088820@pcpuma.acatlan.unam.mx'],
+            [
+                'name' => 'miriam',
+                'password' => Hash::make('20010723'),
+                'permiso_id' => 1,
+                'rol_id' => 1,
+                'active' => true,
+                'nombre' => 'Miriam',
+                'apellido_paterno' => 'Admin',
+                'apellido_materno' => 'UIM',
+                'asignado' => null,
+            ]
+        );
+
         /*
         User::factory()->create([
             'name' => 'Test User',

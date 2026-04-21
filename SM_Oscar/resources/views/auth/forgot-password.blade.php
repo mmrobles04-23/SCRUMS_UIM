@@ -54,7 +54,16 @@
 
                                 <hr class="my-4">
 
-                                <a class="link-secondary" href="{{ route('web.login') }}">Volver a login</a>
+                                <div class="uim-auth-actions">
+                                    <a class="uim-auth-action-link" href="{{ auth()->check() ? route('web.dashboard') : route('home') }}">
+                                        <i class="bi bi-arrow-left"></i>
+                                        Volver al dashboard
+                                    </a>
+                                    <a class="uim-auth-action-link" href="{{ route('web.login') }}">
+                                        <i class="bi bi-box-arrow-in-right"></i>
+                                        Volver a login
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

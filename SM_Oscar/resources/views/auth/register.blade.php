@@ -77,7 +77,12 @@
 
                                     <div class="mb-3">
                                         <label for="password" class="form-label">Contraseña</label>
-                                        <input id="password" type="password" name="password" class="form-control @error('password') is-invalid @enderror" required autocomplete="new-password">
+                                        <div class="input-group">
+                                            <input id="password" type="password" name="password" class="form-control @error('password') is-invalid @enderror" required autocomplete="new-password">
+                                            <button class="btn btn-toggle" type="button" data-uim-toggle-password="#password" aria-label="Mostrar contraseña">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                        </div>
                                         @error('password')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -85,7 +90,12 @@
 
                                     <div class="mb-3">
                                         <label for="password_confirmation" class="form-label">Confirmar contraseña</label>
-                                        <input id="password_confirmation" type="password" name="password_confirmation" class="form-control" required autocomplete="new-password">
+                                        <div class="input-group">
+                                            <input id="password_confirmation" type="password" name="password_confirmation" class="form-control" required autocomplete="new-password">
+                                            <button class="btn btn-toggle" type="button" data-uim-toggle-password="#password_confirmation" aria-label="Mostrar contraseña">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                        </div>
                                     </div>
 
                                     <div class="d-grid gap-2">
@@ -95,7 +105,16 @@
 
                                 <hr class="my-4">
 
-                                <a class="link-secondary" href="{{ route('web.login') }}">Ya tengo cuenta</a>
+                                <div class="uim-auth-actions">
+                                    <a class="uim-auth-action-link" href="{{ auth()->check() ? route('web.dashboard') : route('home') }}">
+                                        <i class="bi bi-arrow-left"></i>
+                                        Volver al dashboard
+                                    </a>
+                                    <a class="uim-auth-action-link" href="{{ route('web.login') }}">
+                                        <i class="bi bi-box-arrow-in-right"></i>
+                                        Ya tengo cuenta
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -104,3 +123,23 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('[data-uim-toggle-password]').forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    const selector = btn.getAttribute('data-uim-toggle-password');
+                    const input = selector ? document.querySelector(selector) : null;
+                    if (!input) return;
+                    input.type = input.type === 'password' ? 'text' : 'password';
+                    const icon = btn.querySelector('i');
+                    if (icon) {
+                        icon.classList.toggle('bi-eye');
+                        icon.classList.toggle('bi-eye-slash');
+                    }
+                });
+            });
+        });
+    </script>
+@endpush

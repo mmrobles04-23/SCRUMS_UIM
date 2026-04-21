@@ -40,12 +40,35 @@ section {
     background-color: var(--fesa-verde) !important;
 }
 
-/* <!-- ══════════════════════════════
+ /* <!-- ══════════════════════════════
      LAYOUT PRINCIPAL
      sidebar (col-2) + contenido (col-10)
-════════════════════════════════ --> */
-
-
+ ═════════════════════════════════ --> */
+ 
+ .uim-admin-shell {
+     --uim-admin-sidebar-bg: #ffffff;
+ }
+ 
+ .uim-admin-sidebar {
+     background: var(--uim-admin-sidebar-bg);
+     border-radius: 14px;
+ }
+ 
+ .uim-admin-sidebar .nav-link {
+     color: #222222;
+ }
+ 
+ .uim-admin-sidebar .nav-link:hover {
+     background: rgba(30, 60, 112, 0.06);
+     color: #222222;
+ }
+ 
+ .uim-admin-sidebar .nav-link.active {
+     background: rgba(30, 60, 112, 0.10);
+     border-left: 4px solid var(--unam-dorado);
+     color: #222222;
+     font-weight: 600;
+ }
 
 /* Footer estilos específicos para eliminar padding lateral */
 footer {
@@ -388,6 +411,42 @@ footer .col-6 {
 
 .uim-auth-title {
     letter-spacing: 0.5px;
+}
+
+.uim-auth-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.uim-auth-action-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.75rem;
+    border-radius: 10px;
+    text-decoration: none;
+    border: 1px solid rgba(30, 60, 112, 0.18);
+    background: rgba(30, 60, 112, 0.04);
+    color: #222222;
+    font-size: 0.95rem;
+    transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.uim-auth-action-link:hover {
+    background: rgba(30, 60, 112, 0.07);
+    border-color: rgba(30, 60, 112, 0.25);
+    transform: translateY(-1px);
+}
+
+.uim-auth-action-link--primary {
+    border-color: rgba(179, 140, 0, 0.35);
+    background: rgba(179, 140, 0, 0.10);
+}
+
+.uim-auth-action-link--primary:hover {
+    background: rgba(179, 140, 0, 0.14);
+    border-color: rgba(179, 140, 0, 0.55);
 }
 
 /* Estilo personalizado para logos en Auth */

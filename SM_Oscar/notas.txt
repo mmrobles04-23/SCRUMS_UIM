@@ -51,6 +51,8 @@ pasos para iniciar el proyecto:
                 php artisan migrate
                 (Opcional) Ejecutar seeders
                         php artisan db:seed
+                        #comando para recargar toda la base de datos
+                        php artisan migrate:fresh --seed
 
         6.5️⃣ Instalar dependencias de Node.js
                 npm install
