@@ -48,3 +48,11 @@
     </div>
 </div>
 @endsection
+@push('styles')
+    <style>
+        .uim-header-institutional,
+        footer {
+            display: none !important;
+        }
+    </style>
+@endpush
