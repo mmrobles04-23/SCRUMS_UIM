@@ -1,12 +1,11 @@
- .investigacion-page {
-    background: #e9ecf0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem 0 3rem;
- }
 
- .investigacion-page .filter-toolbar {
+/* <!-- ══════════════════════════════
+  Componentes
+════════════════════════════════ -->
+
+ */
+
+.filter-toolbar {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -16,12 +15,14 @@
     padding: 0.8rem 1.5rem;
     border-radius: 40px;
 }
- .investigacion-page .filter-group {
+
+.filter-group {
     display: flex;
     flex-wrap: wrap;
     gap: 0.8rem;
 }
- .investigacion-page .filter-btn {
+
+.filter-btn {
     background: white;
     border: 1px solid #ccc;
     padding: 0.5rem 1.2rem;
@@ -33,19 +34,22 @@
     transition: all 0.15s;
 }
 
- .investigacion-page .filter-btn i {
+.filter-btn i {
     margin-right: 6px;
     color: #B38633;
 }
- .investigacion-page .filter-btn.active {
+
+.filter-btn.active {
     background-color: #003B6F;
     color: white;
     border-color: #003B6F;
 }
- .investigacion-page .filter-btn.active i {
+
+.filter-btn.active i {
     color: white;
 }
- .investigacion-page .search-wrapper {
+
+.search-wrapper {
     display: flex;
     align-items: center;
     background: white;
@@ -54,18 +58,22 @@
     border: 1px solid #ccc;
     min-width: 240px;
 }
- .investigacion-page .search-wrapper i {
+
+.search-wrapper i {
     color: #B38633;
 }
- .investigacion-page .search-wrapper input {
+
+.search-wrapper input {
     border: none;
     padding: 0.5rem 0.8rem;
+    font-family: 'Open Sans', sans-serif;
     flex: 1;
     border-radius: 30px;
     outline: none;
     font-size: 0.9rem;
 }
- .investigacion-page .search-wrapper button {
+
+.search-wrapper button {
     background: #003B6F;
     border: none;
     color: white;
@@ -75,18 +83,8 @@
     cursor: pointer;
 }
 
- .investigacion-page .uim-info-line {
-    margin: 0.2rem 0 1rem 0.2rem;
-    color: #003B6F;
-    font-weight: 600;
- }
-
- .investigacion-page .uim-info-line i {
-    color: #B38633;
-    margin-right: 0.4rem;
- }
-
- .investigacion-page .seminario-card {
+/* Card Principal */
+.seminario-card {
     background: white;
     border: 1px solid #e2e6ea;
     border-radius: 20px;
@@ -94,22 +92,27 @@
     box-shadow: 0 8px 18px rgba(0,59,111,0.05);
     transition: all 0.2s ease;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     border-top: 4px solid #B38633;
     overflow: hidden;
+    height: 100%; 
 }
- .investigacion-page .seminario-card .card-body {
+
+
+.card-body {
     padding: 0 1.5rem;
     display: flex;
-    flex-direction: column;
-    flex: 1;
+    flex-direction: column; 
+    flex: 1; 
 }
- .investigacion-page .seminario-card:hover {
+
+.seminario-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 16px 28px rgba(0,59,111,0.12);
     border-color: #003B6F;
 }
- .investigacion-page .card-tag {
+
+.card-tag {
     display: inline-block;
     background: #003B6F;
     color: white;
@@ -121,10 +124,12 @@
     align-self: flex-start;
     text-transform: uppercase;
 }
- .investigacion-page .card-tag.permanente { background-color: #1f4b7a; }
- .investigacion-page .card-tag.especial { background: #B38633; color: #003B6F; }
 
- .investigacion-page .btn-inscripcion {
+.card-tag.permanente { background-color: #1f4b7a; }
+.card-tag.especial { background: #B38633; color: #003B6F; }
+
+/*Para boton abajo*/
+.btn-inscripcion {
     background: white;
     border: 2px solid #003B6F;
     color: #003B6F;
@@ -139,19 +144,31 @@
     gap: 0.6rem;
     cursor: pointer;
     transition: all 0.15s;
-    margin-top: 1rem;
+    margin-top: auto; 
 }
- .investigacion-page .btn-inscripcion i { color: #B38633; }
- .investigacion-page .btn-inscripcion:hover { background: #003B6F; color: white; }
- .investigacion-page .btn-inscripcion:hover i { color: white; }
- .investigacion-page .seminario-card .card-img {
+
+.btn-inscripcion i {
+    color: #B38633;
+}
+
+.btn-inscripcion:hover {
+    background: #003B6F;
+    color: white;
+}
+
+.btn-inscripcion:hover i {
+    color: white;
+}
+
+.card-img {
     width: 100%;
     height: 160px;
     object-fit: cover;
     display: block;
     margin-bottom: 1rem;
 }
- .investigacion-page .seminario-card .card-img-fallback {
+
+.card-img-fallback {
     width: 100%;
     height: 160px;
     margin-bottom: 1rem;
@@ -160,12 +177,13 @@
     align-items: center;
     justify-content: center;
 }
- .investigacion-page .seminario-card .card-img-fallback i {
+
+.card-img-fallback i {
     font-size: 3rem;
     color: #B38633;
 }
 
- .investigacion-page .card-areas {
+.card-areas {
     display: flex;
     align-items: flex-start;
     gap: 0.4rem;
@@ -174,29 +192,170 @@
     font-size: 0.85rem;
     color: #003B6F;
 }
- .investigacion-page .card-areas i {
+
+.card-areas i {
     color: #B38633;
     margin-top: 2px;
 }
- .investigacion-page .card-areas span {
+
+.card-areas span {
     background: #e8f0f8;
     border-radius: 20px;
     padding: 0.15rem 0.7rem;
     font-weight: 600;
 }
- .investigacion-page .site-wrapper {
+
+/* ===== Modal de Inscripción ===== */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 29, 55, 0.6);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 520px;
+    box-shadow: 0 24px 60px rgba(0, 59, 111, 0.2);
+    border-top: 4px solid #B38633;
+    overflow: hidden;
+    animation: modalIn 0.2s ease;
+}
+
+@keyframes modalIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to   { transform: translateY(0);     opacity: 1; }
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 1.5rem;
+    background: #003B6F;
+    color: white;
+}
+
+.modal-header h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    margin: 0;
+}
+
+.modal-header h2 i {
+    color: #B38633;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.3rem 0.5rem;
+    border-radius: 8px;
+    transition: background 0.15s;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.modal-form {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #003B6F;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 0.6rem 0.9rem;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    color: #2d3e50;
+    outline: none;
+    transition: border-color 0.15s;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #003B6F;
+}
+
+.btn-submit {
+    background: #003B6F;
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 40px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    transition: background 0.15s;
+    margin-top: 0.5rem;
+}
+
+.btn-submit i {
+    color: #B38633;
+}
+
+.btn-submit:hover {
+    background: #1f4b7a;
+}
+
+
+/* <!-- ══════════════════════════════
+Layout
+════════════════════════════════ -->
+ */
+ .site-wrapper {
     max-width: 1280px;
     width: 100%;
     background: white;
     box-shadow: 0 10px 25px rgba(0,59,111,0.2);
-    border-radius: 16px;
-    overflow: hidden;
 }
- .investigacion-page .seminarios-section {
+.seminarios-section {
     padding: 2rem 2rem 3rem;
 }
 
- .investigacion-page .cards-grid {
+.cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
     gap: 1.8rem;
@@ -204,9 +363,27 @@
 }
 
 @media (max-width: 700px) {
-    .investigacion-page .filter-toolbar { flex-direction: column; align-items: stretch; }
+    .filter-toolbar { flex-direction: column; align-items: stretch; }
 }
- .investigacion-page .section-title {
+
+
+/* <!-- ══════════════════════════════
+Reset
+════════════════════════════════ -->
+ */
+
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* <!-- ══════════════════════════════
+typography
+════════════════════════════════ -->
+ */
+
+ .section-title {
     font-size: 2rem;
     font-weight: 700;
     color: #003B6F;
@@ -217,12 +394,12 @@
     align-items: center;
     gap: 12px;
 }
- .investigacion-page .section-title i {
+.section-title i {
     color: #B38633;
     font-size: 2rem;
 }
 
- .investigacion-page .seminario-card h3 {
+.seminario-card h3 {
     font-size: 1.3rem;
     font-weight: 700;
     color: #003B6F;
@@ -231,7 +408,7 @@
 }
 
 
- .investigacion-page .objetivo {
+.objetivo {
     font-size: 0.9rem;
     color: #2d3e50;
     margin: 0.8rem 0 1rem;
@@ -240,24 +417,23 @@
     padding: 0.8rem 1rem;
     border-radius: 0 8px 8px 0;
 }
- .investigacion-page .objetivo strong {
+.objetivo strong {
     color: #003B6F;
     display: block;
     margin-bottom: 5px;
 }
- .investigacion-page .responsable {
+.responsable {
     font-size: 0.9rem;
     margin: 0.3rem 0;
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
- .investigacion-page .responsable i {
+.responsable i {
     color: #B38633;
     width: 18px;
 }
- .investigacion-page .correo,
- .investigacion-page .telefono {
+.correo, .telefono {
     font-size: 0.85rem;
     background: #f0f3f7;
     padding: 0.4rem 0.8rem;

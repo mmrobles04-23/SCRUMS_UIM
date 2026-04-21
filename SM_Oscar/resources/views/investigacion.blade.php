@@ -17,38 +17,60 @@
 @section('content')
     {{-- NOTA (Bootstrap): espaciado vertical y márgenes laterales coherentes con welcome/dashboard. --}}
     {{-- NOTA (CSS propio): .investigacion-page y componentes internos viven en resources/css/investigacion.css. --}}
-    <div class="py-3 py-lg-4">
-        <div class="container-fluid px-3 px-lg-4">
-    <div class="investigacion-page">
-        <div class="site-wrapper">
-            <section class="seminarios-section">
-                <div class="section-title">
-                    <i class="fas fa-chalkboard"></i>
-                    <span>SEMINARIOS DE INVESTIGACIÓN</span>
-                </div>
+    <div class="site-wrapper">
+        <section class="seminarios-section">
+            <div class="section-title">
+                <i class="fas fa-chalkboard"></i>
+                <span>SEMINARIOS DE INVESTIGACIÓN</span>
+            </div>
 
-                <div class="filter-toolbar">
-                    <div class="filter-group">
-                        <button class="filter-btn active" data-filter="todos"><i class="fas fa-layer-group"></i> Todos</button>
-                        <button class="filter-btn" data-filter="anual"><i class="far fa-calendar-alt"></i> Anuales</button>
-                        <button class="filter-btn" data-filter="permanente"><i class="fas fa-sync-alt"></i> Permanentes</button>
-                        <button class="filter-btn" data-filter="especial"><i class="fas fa-star"></i> Otros</button>
-                    </div>
-                    <div class="search-wrapper">
-                        <i class="fas fa-search"></i>
-                        <input type="text" id="searchInput" placeholder="Buscar seminario...">
-                        <button id="searchBtn">Ir</button>
-                    </div>
+            <div class="filter-toolbar">
+                <div class="filter-group">
+                    <button class="filter-btn active" data-filter="todos"><i class="fas fa-layer-group"></i> Todos</button>
+                    <button class="filter-btn" data-filter="anual"><i class="far fa-calendar-alt"></i> Anuales</button>
+                    <button class="filter-btn" data-filter="permanente"><i class="fas fa-sync-alt"></i> Permanentes</button>
+                    <button class="filter-btn" data-filter="especial"><i class="fas fa-star"></i> Otros</button>
                 </div>
-
-                <div class="uim-info-line">
-                    <i class="fas fa-chevron-circle-right"></i> Todos los seminarios activos
+                <div class="search-wrapper">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Buscar seminario...">
+                    <button id="searchBtn">Ir</button>
                 </div>
+            </div>
 
-                <div class="cards-grid" id="cardsContainer"></div>
-            </section>
-        </div>
+            <div style="margin: 0.2rem 0 1rem 0.2rem; color: #003B6F; font-weight: 600;">
+                <i class="fas fa-chevron-circle-right" style="color: #B38633;"></i> Todos los seminarios activos
+            </div>
+
+            <div class="cards-grid" id="cardsContainer"></div>
+        </section>
     </div>
+    <!-- Modal de Inscripción -->
+    <div class="modal-overlay" id="inscripcionModal">
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <div class="modal-header">
+                <h2 id="modalTitle"><i class="fas fa-pen-alt"></i> Inscripción al Seminario</h2>
+                <button class="modal-close" id="modalClose" aria-label="Cerrar"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="formInscripcion" class="modal-form" novalidate>
+                <div class="form-group">
+                    <label for="inputNombre">Nombre completo</label>
+                    <input type="text" id="inputNombre" placeholder="Tu nombre completo" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputCorreo">Correo electrónico</label>
+                    <input type="email" id="inputCorreo" placeholder="tu@correo.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="modalSeminario">Seminario</label>
+                    <select id="modalSeminario" required></select>
+                </div>
+                <div class="form-group">
+                    <label for="inputMotivo">Motivo de inscripción</label>
+                    <textarea id="inputMotivo" rows="4" placeholder="¿Por qué deseas inscribirte a este seminario?" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Enviar inscripción</button>
+            </form>
         </div>
     </div>
 @endsection

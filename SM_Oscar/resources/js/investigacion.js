@@ -38,6 +38,47 @@
 
     const container = document.getElementById('cardsContainer');
 
+    // ── Modal ──────────────────────────────────────────────
+    const modal        = document.getElementById('inscripcionModal');
+    const modalForm    = document.getElementById('formInscripcion');
+    const modalSelect  = document.getElementById('modalSeminario');
+    const modalClose   = document.getElementById('modalClose');
+
+    // Poblar el <select> con todos los títulos de seminarios
+    seminarios.forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = s.titulo;
+        opt.textContent = s.titulo;
+        modalSelect.appendChild(opt);
+    });
+
+    function openModal(titulo) {
+        modalSelect.value = titulo;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        modalForm.reset();
+    }
+
+    // Cerrar con el botón ×
+    modalClose.addEventListener('click', closeModal);
+
+    // Cerrar al hacer clic fuera del modal (en el overlay)
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    // Cerrar al enviar el formulario
+    modalForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        closeModal();
+    });
+    // ──────────────────────────────────────────────────────
+
     const placeholders = {
         'anual': 'https://via.placeholder.com/400x160/003B6F/ffffff?text=Seminario+Anual',
         'permanente': 'https://via.placeholder.com/400x160/1f4b7a/ffffff?text=Seminario+Permanente',
@@ -74,7 +115,8 @@
         document.querySelectorAll('.btn-inscripcion').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
-                alert('[Demo] Botón de inscripción. Formulario por implementar.');
+                const titulo = btn.closest('.seminario-card').querySelector('h3').textContent;
+                openModal(titulo);
             });
         });
     }
