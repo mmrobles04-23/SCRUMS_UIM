@@ -123,34 +123,47 @@
 
 /*Para boton abajo*/
 .btn-inscripcion {
-    background: white;
-    border: 2px solid #003B6F;
-    color: #003B6F;
+    background: #1a3a6b;
+    border: none;
+    color: white;
     font-weight: 700;
-    padding: 0.7rem 1rem;
-    border-radius: 40px;
+    padding: 0.85rem 1.4rem;
+    border-radius: 12px;
     width: 100%;
-    font-size: 1rem;
+    font-size: 1.05rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.6rem;
+    gap: 0.7rem;
     cursor: pointer;
-    transition: all 0.15s;
-    margin-top: auto; 
+    transition: all 0.2s;
+    margin-top: auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+    letter-spacing: 0.01em;
 }
 
 .btn-inscripcion i {
     color: #B38633;
+    font-size: 1.15rem;
+}
+
+.btn-arrow {
+    color: #B38633;
+    font-size: 1.15rem;
+    font-weight: 900;
+    margin-left: 2px;
 }
 
 .btn-inscripcion:hover {
-    background: #003B6F;
+    background: #122d56;
     color: white;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    transform: translateY(-1px);
 }
 
-.btn-inscripcion:hover i {
-    color: white;
+.btn-inscripcion:hover i,
+.btn-inscripcion:hover .btn-arrow {
+    color: #d4a843;
 }
 
 .card-img {

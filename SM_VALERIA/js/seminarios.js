@@ -107,7 +107,7 @@
                 <div class="responsable"><i class="fas fa-user-tie"></i> ${s.responsable}</div>
                 ${correoHtml}
                 ${telefonoHtml}
-                <button class="btn-inscripcion"><i class="fas fa-pen"></i> Inscribirme</button>
+                <button class="btn-inscripcion"><i class="fas fa-user-plus"></i> Inscribirme ahora <span class="btn-arrow">→</span></button>
                 </div>
             `;
             container.appendChild(card);
