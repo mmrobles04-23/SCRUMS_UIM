@@ -348,8 +348,10 @@ Layout
  .site-wrapper {
     max-width: 1280px;
     width: 100%;
+    margin: 0 auto;
     background: white;
     box-shadow: 0 10px 25px rgba(0,59,111,0.2);
+    border-radius: 0 0 16px 16px;
 }
 .seminarios-section {
     padding: 2rem 2rem 3rem;

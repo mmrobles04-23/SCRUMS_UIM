@@ -58,54 +58,23 @@
 
       <!-- Contenido Principal superior (Hero + Perfil) -->
       <div class="flex-grow-1 overflow-x-hidden">
-        <!-- Hero Banner Estilo Split Asimétrico (Estrecho) -->
-        <section class="position-relative w-100 overflow-hidden bg-white hero-banner">
-          <div class="row w-100 h-100 m-0 align-items-stretch">
-
-            <!-- Lado Izquierdo: Texto y Topografía -->
-            <div class="col-lg-9 position-relative z-2 d-flex flex-column pt-3 pb-2 px-4 px-lg-5 bg-white">
-              <!-- Patrón de topografía simulado por CSS (sutil) -->
-              <div class="position-absolute top-0 end-0 w-100 h-100 opacity-25 hero-topography"></div>
-
-              <div class="position-relative z-3 ps-lg-3 hero-text-container">
-                <h6 class="text-uppercase tracking-widest fw-bold mb-1 d-flex align-items-center gap-2 hero-subtitle">
-                  Departamentos de Investigación
-                </h6>
-
-                <h1 class="fw-bold font-headline lh-sm mb-1 hero-title">
-                  {{ $deptoActivo['nombre'] }}
-                </h1>
-
-                <p class="font-body mb-0 hero-description">
-                  Investigación aplicada para comprender, prevenir y gestionar los retos que enfrentan la sociedad y la
-                  infraestructura mediante el enfoque multidisciplinario de la UIMA.
-                </p>
-              </div>
+        <!-- Hero Banner Rediseñado - Compacto y Profesional -->
+        <section class="hero-modern">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <i class="bi bi-building-gear me-2"></i>
+              Departamento de Investigación
             </div>
-
-            <!-- Lado Derecho: Imagen con recorte curvo (Swoosh) -->
-            <div class="col-lg-3 p-0 position-relative d-none d-lg-block hero-img-col">
-              <!-- Contenedor de la Imagen con tinte dinámico -->
-              <div class="position-relative">
-                <img alt="{{ $deptoActivo['nombre'] }}" class="w-100 h-100 object-fit-cover"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEcuqQUFQ-pm3xuGkNtTmIeROUof2CHyVkA1ksB_5kSYXN5cCkD8BDpNlXxnPoPRfBC_C0ZUfPT-VflN7ptmTH-AP86BR455_BltBtcv38SB8vaUkNe_5AVP_60BZc_RUlCRsj6qz09WdkeMJsQ16DqcGHhVXroIStqXfSXeeOn8157r0UwP9f38Kpd5I1fhpZ1W1KNS7zWvKw7OLglfJMrRi4tGu8Vh0QFgQxTzl91iw4kD6HIhAzVuXgm8T5WzS11DksN3wDiQ" />
-                <div class="position-absolute top-0 start-0 w-100 h-100 hero-img-overlay"></div>
-              </div>
-
-              <!-- Recorte SVG Curvo para fusionarse con la izquierda -->
-              <svg class="position-absolute top-0 start-0 h-100 hero-swoosh" viewBox="0 0 100 100"
-                preserveAspectRatio="none">
-                <path d="M0,0 C70,30 30,70 100,100 L0,100 Z"></path>
-              </svg>
-            </div>
-
-            <!-- Banner en versión Móvil (Imagen arriba, texto abajo) -->
-            <div class="col-12 p-0 d-lg-none hero-mobile-img">
-              <img alt="{{ $deptoActivo['nombre'] }}" class="w-100 h-100 object-fit-cover"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEcuqQUFQ-pm3xuGkNtTmIeROUof2CHyVkA1ksB_5kSYXN5cCkD8BDpNlXxnPoPRfBC_C0ZUfPT-VflN7ptmTH-AP86BR455_BltBtcv38SB8vaUkNe_5AVP_60BZc_RUlCRsj6qz09WdkeMJsQ16DqcGHhVXroIStqXfSXeeOn8157r0UwP9f38Kpd5I1fhpZ1W1KNS7zWvKw7OLglfJMrRi4tGu8Vh0QFgQxTzl91iw4kD6HIhAzVuXgm8T5WzS11DksN3wDiQ" />
-            </div>
-
+            <h1 class="hero-title">{{ $deptoActivo['nombre'] }}</h1>
+            <p class="hero-description">
+              Investigación aplicada para comprender, prevenir y gestionar los retos que enfrentan la sociedad y la infraestructura.
+            </p>
           </div>
+<!--           <div class="hero-image">
+            <img alt="{{ $deptoActivo['nombre'] }}"
+              src="/UIMA-color_logo.png" />
+          </div> -->
+          <div class="hero-accent"></div>
         </section>
         <br>
 

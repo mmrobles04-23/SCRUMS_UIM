@@ -108,63 +108,114 @@
 
 
 /* 
-    ========================================================================
-    COMPONENTE: HERO BANNER (Cabecera asimétrica)
+    =======================================================================
+    COMPONENTE: HERO BANNER (Diseño Moderno y Profesional)
     ======================================================================== 
 */
-.hero-banner {
-    min-height: 180px;
+.hero-modern {
+    display: flex;
+    align-items: center;
+    min-height: 160px;
+    border-radius: 0 0 16px 16px;
+    padding: 1.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-.hero-text-container {
-    max-width: 700px;
+.hero-modern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
 }
 
-.hero-subtitle {
-    color: var(--unam-azul);
+.hero-content {
+    flex: 1;
+    z-index: 2;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    background: var(--depto-color-alpha);
+    color: var(--depto-color);
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
     font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.75rem;
 }
 
 .hero-title {
     color: var(--unam-azul);
-    font-size: clamp(2rem, 3.5vw, 2.75rem);
-    letter-spacing: -0.5px;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
 }
 
 .hero-description {
     color: #6c757d;
+    font-size: 0.95rem;
     line-height: 1.5;
-    font-size: 1.05rem;
+    max-width: 600px;
+    margin: 0;
 }
 
-/* Patrón tenue de topografía en el hero */
-.hero-topography {
-    background-image: repeating-radial-gradient(circle at 100% 50%, transparent 0, transparent 40px, rgba(0, 0, 0, 0.03) 41px, transparent 42px);
+.hero-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+    margin-left: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 3px solid #ffffff;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-accent {
+    position: absolute;
+    right: 150px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+    height: 200px;
+    opacity: 0.5;
     pointer-events: none;
 }
 
-/* Columna especial derecha */
-.hero-img-col {
-    min-height: 180px;
-}
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-modern {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
 
-.hero-img-overlay {
-    background-color: var(--depto-color);
-    mix-blend-mode: color;
-    opacity: 0.2;
-}
+    .hero-image {
+        margin: 1rem 0 0 0;
+        width: 100px;
+        height: 100px;
+    }
 
-/* Curva suavizada izquierda */
-.hero-swoosh {
-    width: 100px;
-    z-index: 2;
-    fill: #ffffff;
-    transform: translateX(-1px);
-}
+    .hero-description {
+        max-width: 100%;
+    }
 
-/* Versión móvil */
-.hero-mobile-img {
-    height: 180px;
+    .hero-accent {
+        display: none;
+    }
 }
 
 
