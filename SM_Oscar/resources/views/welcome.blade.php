@@ -367,7 +367,98 @@
                 </div>
             </div>
         </section>
-    
-
     </div>
+
+    {{-- Modal Emergente de Congreso --}}
+    @if($congresos->count() > 0)
+        @php $congresoModal = $congresos->first(); @endphp
+        <div id="congresoModal" class="congreso-modal">
+            <div class="congreso-modal-backdrop" onclick="cerrarModalCongreso()"></div>
+            <div class="congreso-modal-content">
+                <button class="congreso-modal-close" onclick="cerrarModalCongreso()" aria-label="Cerrar">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+                
+                <div class="congreso-modal-header">
+                    <span class="congreso-modal-badge">
+                        <i class="bi bi-people-fill me-2"></i>Próximo Congreso
+                    </span>
+                </div>
+                
+                <div class="congreso-modal-body">
+                    <div class="congreso-modal-image">
+                        <img src="{{ $congresoModal->urlPortada() }}" alt="{{ $congresoModal->titulo }}">
+                    </div>
+                    <div class="congreso-modal-info">
+                        <h2 class="congreso-modal-title">{{ $congresoModal->titulo }}</h2>
+                        
+                        @if($congresoModal->fecha_inicio)
+                            <div class="congreso-modal-fecha">
+                                <i class="bi bi-calendar-event"></i>
+                                <span>
+                                    {{ $congresoModal->fecha_inicio->format('d M Y') }}
+                                    @if($congresoModal->fecha_fin)
+                                        — {{ $congresoModal->fecha_fin->format('d M Y') }}
+                                    @endif
+                                </span>
+                            </div>
+                        @endif
+                        
+                        @if($congresoModal->sede)
+                            <div class="congreso-modal-sede">
+                                <i class="bi bi-geo-alt"></i>
+                                <span>{{ $congresoModal->sede }}</span>
+                            </div>
+                        @endif
+                        
+                        @if($congresoModal->resumen)
+                            <p class="congreso-modal-resumen">{{ Str::limit($congresoModal->resumen, 120) }}</p>
+                        @endif
+                    </div>
+                </div>
+                
+                <div class="congreso-modal-footer">
+                    <a href="{{ route('congresos.show', $congresoModal) }}" class="congreso-modal-btn">
+                        Ver detalles <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                    @if($congresoModal->enlace_inscripcion)
+                        <a href="{{ $congresoModal->enlace_inscripcion }}" target="_blank" rel="noopener noreferrer" class="congreso-modal-btn congreso-modal-btn-primary">
+                            <i class="bi bi-pencil-square me-2"></i>Inscribirme
+                        </a>
+                    @endif
+                </div>
+                
+                <div class="congreso-modal-timer">
+                    <div class="congreso-modal-progress"></div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const modal = document.getElementById('congresoModal');
+                const progress = modal.querySelector('.congreso-modal-progress');
+                
+                // Mostrar modal con animación
+                setTimeout(() => {
+                    modal.classList.add('active');
+                }, 500);
+                
+                // Auto-cerrar en 5 segundos
+                setTimeout(() => {
+                    cerrarModalCongreso();
+                }, 5500);
+            });
+            
+            function cerrarModalCongreso() {
+                const modal = document.getElementById('congresoModal');
+                if (modal) {
+                    modal.classList.remove('active');
+                    setTimeout(() => {
+                        modal.style.display = 'none';
+                    }, 300);
+                }
+            }
+        </script>
+    @endif
 @endsection

@@ -979,6 +979,244 @@ footer .col-6 {
     z-index: 1;
 }
 
+/* 
+    ========================================================================
+    MODAL EMERGENTE DE CONGRESO
+    ======================================================================== 
+*/
+.congreso-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1055;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    padding: 1rem;
+}
+
+.congreso-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.congreso-modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+.congreso-modal-content {
+    position: relative;
+    background: #ffffff;
+    border-radius: 20px;
+    max-width: 450px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transform: scale(0.9) translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.congreso-modal.active .congreso-modal-content {
+    transform: scale(1) translateY(0);
+}
+
+.congreso-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid var(--unam-azul, #1E3C70);
+    color: var(--unam-azul, #1E3C70);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s ease;
+    padding: 0;
+}
+
+.congreso-modal-close:hover {
+    background: var(--unam-azul, #1E3C70);
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+.congreso-modal-header {
+    background: linear-gradient(135deg, var(--unam-azul, #1E3C70) 0%, #2a4a7c 100%);
+    padding: 1rem 1.5rem;
+    text-align: center;
+}
+
+.congreso-modal-badge {
+    display: inline-flex;
+    align-items: center;
+    color: var(--unam-dorado, #b38c00);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.congreso-modal-badge i {
+    font-size: 1rem;
+}
+
+.congreso-modal-body {
+    padding: 0;
+}
+
+.congreso-modal-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.congreso-modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.congreso-modal-content:hover .congreso-modal-image img {
+    transform: scale(1.05);
+}
+
+.congreso-modal-info {
+    padding: 1.5rem;
+}
+
+.congreso-modal-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--unam-azul, #1E3C70);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.congreso-modal-fecha,
+.congreso-modal-sede {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.congreso-modal-fecha i,
+.congreso-modal-sede i {
+    color: var(--unam-dorado, #b38c00);
+    font-size: 1rem;
+}
+
+.congreso-modal-fecha span {
+    color: var(--unam-azul, #1E3C70);
+    font-weight: 600;
+}
+
+.congreso-modal-sede span {
+    color: #6a6a6a;
+}
+
+.congreso-modal-resumen {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.congreso-modal-footer {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0 1.5rem 1.5rem;
+}
+
+.congreso-modal-btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 2px solid var(--unam-azul, #1E3C70);
+    color: var(--unam-azul, #1E3C70);
+    background: transparent;
+}
+
+.congreso-modal-btn:hover {
+    background: var(--unam-azul, #1E3C70);
+    color: #ffffff;
+}
+
+.congreso-modal-btn-primary {
+    background: var(--unam-dorado, #b38c00);
+    border-color: var(--unam-dorado, #b38c00);
+    color: #ffffff;
+}
+
+.congreso-modal-btn-primary:hover {
+    background: #9a7700;
+    border-color: #9a7700;
+}
+
+.congreso-modal-timer {
+    height: 4px;
+    background: rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.congreso-modal-progress {
+    height: 100%;
+    background: var(--unam-dorado, #b38c00);
+    width: 100%;
+    animation: progressTimer 5s linear forwards;
+}
+
+@keyframes progressTimer {
+    from { width: 100%; }
+    to { width: 0%; }
+}
+
+@media (max-width: 575.98px) {
+    .congreso-modal-content {
+        max-width: 100%;
+        border-radius: 16px;
+    }
+    
+    .congreso-modal-title {
+        font-size: 1.2rem;
+    }
+    
+    .congreso-modal-image {
+        height: 160px;
+    }
+    
+    .congreso-modal-footer {
+        flex-direction: column;
+    }
+}
+
 /* Padding extra en el body para evitar que el contenido quede detrás de la nav */
 @media (max-width: 991.98px) {
     body {
