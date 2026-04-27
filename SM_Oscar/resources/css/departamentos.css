@@ -265,3 +265,104 @@
 .project-btn-details {
     font-size: 0.75rem;
 }
+
+/* 
+    ========================================================================
+    MENÚ MÓVIL OFFCANVAS
+    ======================================================================== 
+*/
+
+/* Botón hamburguesa fijo en móvil (parte inferior) */
+.mobile-menu-toggle {
+    position: fixed;
+    bottom: 5.5rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.98);
+    border: 2px solid var(--unam-azul, #1E3C70);
+    color: var(--unam-azul, #1E3C70);
+    font-size: 1.25rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1040;
+    transition: all 0.2s ease;
+}
+
+.mobile-menu-toggle:hover {
+    background: var(--unam-azul, #1E3C70);
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--depto-color);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--depto-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.mobile-menu-btn:hover {
+    background: var(--depto-color);
+    color: #ffffff;
+}
+
+.mobile-menu-btn i {
+    font-size: 1.4rem;
+}
+
+/* Estilos para items activos en móvil */
+.nav-link.active-mobile-depto {
+    background: linear-gradient(90deg, var(--depto-color-alpha, rgba(0,0,0,0.1)) 0%, transparent 100%);
+    color: var(--depto-color) !important;
+    font-weight: 600;
+}
+
+/* Offcanvas personalizado */
+#mobileSidebar.offcanvas {
+    width: 300px;
+    border-right: none;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+}
+
+#mobileSidebar .offcanvas-header {
+    background: linear-gradient(135deg, var(--unam-azul, #1E3C70) 0%, var(--unam-azul-claro, #2a4a7c) 100%);
+    color: #ffffff;
+}
+
+#mobileSidebar .offcanvas-header .offcanvas-title {
+    color: #ffffff;
+}
+
+#mobileSidebar .offcanvas-header .btn-close {
+    filter: invert(1);
+    opacity: 0.8;
+}
+
+#mobileSidebar .offcanvas-header .btn-close:hover {
+    opacity: 1;
+}
+
+#mobileSidebar .nav-link {
+    transition: all 0.2s ease;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+#mobileSidebar .nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+#mobileSidebar .nav-link:last-child {
+    border-bottom: none;
+}
