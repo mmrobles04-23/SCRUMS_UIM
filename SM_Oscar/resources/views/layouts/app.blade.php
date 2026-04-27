@@ -195,7 +195,7 @@ cortas. --}}
             <i class="bi bi-building"></i>
             <span>Departamentos</span>
         </a>
-        <a href="{{ url('/congresos') }}" class="mobile-nav-item {{ request()->is('congresos*') ? 'active' : '' }}">
+        <a href="{{ url('/congreso') }}" class="mobile-nav-item {{ request()->is('congreso*') ? 'active' : '' }}">
             <i class="bi bi-people"></i>
             <span>Congresos</span>
         </a>

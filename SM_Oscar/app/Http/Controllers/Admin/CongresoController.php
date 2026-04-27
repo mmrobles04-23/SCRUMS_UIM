@@ -12,6 +12,37 @@ use Illuminate\Http\UploadedFile;
 
 class CongresoController extends Controller
 {
+    /*
+     * =============================================
+     * RUTAS PÚBLICAS (sin autenticación)
+     * =============================================
+     */
+
+    public function indexPublico(): View
+    {
+        $congresos = Congreso::activos()
+            ->orderByDesc('fecha_inicio')
+            ->orderByDesc('created_at')
+            ->paginate(12);
+
+        return view('congresos.index', compact('congresos'));
+    }
+
+    public function showPublico(Request $request, Congreso $congreso): View
+    {
+        if (! $congreso->activo) {
+            abort(404);
+        }
+
+        return view('congresos.show', compact('congreso'));
+    }
+
+    /*
+     * =============================================
+     * RUTAS DE ADMINISTRACIÓN (requieren auth)
+     * =============================================
+     */
+
     public function index(): View
     {
         $congresos = Congreso::query()

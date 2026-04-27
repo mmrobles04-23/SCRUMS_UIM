@@ -4,13 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebAuthController;
 use App\Http\Controllers\WebPasswordResetController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CongresoController;
-use App\Http\Controllers\Admin\CongresoController as AdminCongresoController;
+use App\Http\Controllers\Admin\CongresoController;
 
 Route::get('/', [HomeController::class, 'welcome'])->name('home');
 
-Route::get('/congresos', [CongresoController::class, 'index'])->name('congresos.index');
-Route::get('/congresos/{congreso:slug}', [CongresoController::class, 'show'])->name('congresos.show');
+Route::get('/congreso', [CongresoController::class, 'indexPublico'])->name('congresos.index');
+Route::get('/congresos/{congreso:slug}', [CongresoController::class, 'showPublico'])->name('congresos.show');
 
 Route::get('/investigacion', function () {
     return view('investigacion');
@@ -55,8 +54,8 @@ Route::middleware('web')->group(function () {
             })->name('admin.dashboard');
 
             Route::prefix('admin')->name('admin.')->group(function () {
-                Route::patch('congresos/{congreso}/activo', [AdminCongresoController::class, 'toggleActivo'])->name('congresos.toggle-activo');
-                Route::resource('congresos', AdminCongresoController::class)->except(['show']);
+                Route::patch('congresos/{congreso}/activo', [CongresoController::class, 'toggleActivo'])->name('congresos.toggle-activo');
+                Route::resource('congresos', CongresoController::class)->except(['show']);
 
                 Route::get('departamentos', function () {
                     return view('admin.departamentos.index');
