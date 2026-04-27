@@ -183,10 +183,6 @@ cortas. --}}
 
     {{-- Barra de navegación móvil (solo visible en smartphones) --}}
     <nav class="mobile-bottom-nav d-lg-none">
-        <a href="{{ url('/') }}" class="mobile-nav-item {{ request()->is('/') ? 'active' : '' }}">
-            <i class="bi bi-house"></i>
-            <span>Inicio</span>
-        </a>
         <a href="{{ url('/investigacion') }}" class="mobile-nav-item {{ request()->is('investigacion*') ? 'active' : '' }}">
             <i class="bi bi-journal-text"></i>
             <span>Seminarios</span>
@@ -195,9 +191,17 @@ cortas. --}}
             <i class="bi bi-building"></i>
             <span>Departamentos</span>
         </a>
+        <a href="{{ url('/') }}" class="mobile-nav-item {{ request()->is('/') ? 'active' : '' }}">
+            <i class="bi bi-house"></i>
+            <span>Inicio</span>
+        </a>
         <a href="{{ url('/congreso') }}" class="mobile-nav-item {{ request()->is('congreso*') ? 'active' : '' }}">
             <i class="bi bi-people"></i>
             <span>Congresos</span>
+        </a>
+        <a href="{{ config('uim.urls.revista_figuras') }}" class="mobile-nav-item" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-journal-text"></i>
+            <span>Figuras</span>
         </a>
     </nav>
 

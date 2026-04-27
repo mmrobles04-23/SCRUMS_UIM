@@ -853,9 +853,9 @@ footer .col-6 {
     border-top: 1px solid rgba(0, 59, 111, 0.1);
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 0;
+    padding: 0.5rem 0.25rem;
     z-index: 1030;
     transition: all 0.3s ease;
 }
@@ -867,38 +867,49 @@ footer .col-6 {
     justify-content: center;
     text-decoration: none;
     color: #6c757d;
-    padding: 0.4rem 0.8rem;
-    border-radius: 12px;
+    padding: 0.5rem 0.25rem;
+    border-radius: 16px;
     transition: all 0.2s ease;
-    flex: 1;
-    max-width: 100px;
+    flex: 0 0 20%;
+    max-width: none;
+    min-width: 0;
 }
 
 .mobile-nav-item i {
-    font-size: 1.3rem;
-    margin-bottom: 0.2rem;
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
     transition: all 0.2s ease;
 }
 
 .mobile-nav-item span {
-    font-size: 0.65rem;
-    font-weight: 500;
+    font-size: 0.6rem;
+    font-weight: 600;
     white-space: nowrap;
+    letter-spacing: 0.3px;
     transition: all 0.2s ease;
 }
 
 .mobile-nav-item.active {
-    color: var(--unam-azul);
-    background: rgba(30, 60, 112, 0.08);
+    color: var(--unam-dorado, #b38c00);
+    background: rgba(179, 140, 0, 0.12);
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(179, 140, 0, 0.2);
 }
 
 .mobile-nav-item.active i {
-    color: var(--unam-azul);
+    color: var(--unam-dorado, #b38c00);
+    transform: scale(1.1);
+}
+
+.mobile-nav-item.active span {
+    color: var(--unam-dorado, #b38c00);
+    font-weight: 700;
 }
 
 .mobile-nav-item:hover {
     color: var(--unam-azul);
-    background: rgba(30, 60, 112, 0.05);
+    background: rgba(30, 60, 112, 0.06);
+    border-radius: 16px;
 }
 
 /* Estado compacto al hacer scroll hacia abajo */
@@ -908,7 +919,7 @@ footer .col-6 {
 }
 
 .mobile-bottom-nav.nav-compact .mobile-nav-item {
-    padding: 0.2rem 0.5rem;
+    padding: 0.25rem 0.2rem;
 }
 
 .mobile-bottom-nav.nav-compact .mobile-nav-item i {
@@ -917,7 +928,55 @@ footer .col-6 {
 }
 
 .mobile-bottom-nav.nav-compact .mobile-nav-item span {
-    font-size: 0.6rem;
+    font-size: 0.55rem;
+}
+
+/* Círculo dorado en modo compacto */
+.mobile-bottom-nav.nav-compact .mobile-nav-item:nth-child(3)::before {
+    width: 44px;
+    height: 44px;
+}
+
+.mobile-bottom-nav.nav-compact .mobile-nav-item:nth-child(3).active i {
+    transform: scale(1);
+}
+
+/* Destacar visualmente el botón de inicio (centro) */
+.mobile-nav-item:nth-child(3) {
+    position: relative;
+}
+
+.mobile-nav-item:nth-child(3)::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 62px;
+    height: 62px;
+    background: linear-gradient(135deg, var(--unam-dorado, #b38c00) 0%, #d4a500 100%);
+    border-radius: 50%;
+    z-index: -1;
+    box-shadow: 0 4px 15px rgba(179, 140, 0, 0.4);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-item:nth-child(3).active::before {
+    opacity: 1;
+    background: linear-gradient(135deg, var(--unam-dorado, #b38c00) 0%, #d4a500 100%);
+}
+
+.mobile-nav-item:nth-child(3).active {
+    background: transparent;
+    box-shadow: none;
+}
+
+.mobile-nav-item:nth-child(3).active i,
+.mobile-nav-item:nth-child(3).active span {
+    color: #ffffff;
+    position: relative;
+    z-index: 1;
 }
 
 /* Padding extra en el body para evitar que el contenido quede detrás de la nav */

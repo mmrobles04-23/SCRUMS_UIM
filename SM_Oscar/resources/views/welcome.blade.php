@@ -3,7 +3,7 @@
 @section('title', 'Inicio — UIM FES Acatlán')
 
 @section('subnav')
-    <nav class="uim-subnav text-white" aria-label="Navegación investigación UIM">
+    <nav class="uim-subnav text-white d-none d-lg-block" aria-label="Navegación investigación UIM">
         <div class="container-fluid px-3 px-lg-4 uim-subnav-inner">
             <ul class="nav flex-nowrap overflow-x-auto py-1 mb-0 gap-1 justify-content-center">
                 <li class="nav-item">
