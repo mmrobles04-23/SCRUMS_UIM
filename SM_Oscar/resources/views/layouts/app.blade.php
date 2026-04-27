@@ -57,9 +57,31 @@ cortas. --}}
                 }
             </style>
         </header>
-        @hasSection('subnav')
-            @yield('subnav')
-        @endif
+
+        {{-- Subnavegación principal (solo desktop) --}}
+        <nav class="uim-subnav text-white d-none d-lg-block" aria-label="Navegación principal UIM">
+            <div class="container-fluid px-3 px-lg-4 uim-subnav-inner">
+                <ul class="nav flex-nowrap overflow-x-auto py-1 mb-0 gap-1 justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('home') }}#uim-proposito">Propósito</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/investigacion') }}">Seminarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/departamento') }}">Departamentos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('congresos.index') }}">Congresos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ config('uim.urls.revista_figuras') }}" target="_blank" rel="noopener noreferrer">
+                            Revista FIGURAS
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </div>
 
     {{-- NOTA (Bootstrap): flex-grow-1 empuja el footer hacia abajo dentro del body flex. --}}
