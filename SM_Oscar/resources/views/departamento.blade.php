@@ -46,10 +46,11 @@
           @foreach($departamentos as $sigla => $depto)
             @php $isActive = ($deptoActivo['siglas'] === $depto['siglas']); @endphp
             <a class="nav-link px-3 py-2 rounded-3 d-flex align-items-center gap-3 transition-colors {{ $isActive ? 'active-depto shadow-sm fw-bold' : 'text-on-surface-variant hover-bg-surface-variant' }}"
-              href="{{ url('/departamento?id=' . $depto['siglas']) }}">
+              href="{{ url('/departamento?id=' . $depto['siglas']) }}" title="{{ $depto['nombre'] }}">
               <i class="bi {{ $depto['icono'] }} fs-5"
                 style="color: {{ $isActive ? 'var(--depto-color)' : 'inherit' }}"></i>
-              <span class="small lh-sm {{ $isActive ? 'sidebar-text-active' : '' }}">{{ $depto['nombre'] }}</span>
+              <span class="small lh-sm  {{ $isActive ? 'sidebar-text-active' : '' }}">Dpto. {{ $depto['siglas'] }}</span>
+              <span class="small lh-sm depto-nombre d-none">{{ $depto['nombre'] }}</span>
             </a>
           @endforeach
         </nav>
@@ -164,9 +165,6 @@
                         humanos.
                       </p>
                     </div>
-                    <div class="flex-shrink-0">
-                      <img src="{{ asset('dashboard/investigacion.jpg') }}" alt="Investigación" class="img-fluid rounded-3 shadow-sm" style="width: 200px; height: 180px; object-fit: cover;">
-                    </div>
                   </div>
                 </div>
               </div>
@@ -216,11 +214,8 @@
             </div>
           </div>
         </section>
-      </div> <!-- Cierre flex-grow-1 -->
-    </div> <!-- Cierre d-flex -->
-
-    <!-- Proyectos Destacados (Bento Grid Style) - AHORA FUERA DEL FLEX PARA OCUPAR COL-12 -->
-    <section class="py-5 bg-surface-container-low border-top border-secondary border-opacity-10 col-12">
+        <!-- Proyectos Destacados (Bento Grid Style) - AHORA DENTRO DEL CONTENIDO PRINCIPAL -->
+        <section class="py-5 bg-surface-container-low border-top border-secondary border-opacity-10">
       <div class="container-fluid px-4 px-lg-5 py-4">
 
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-5 gap-3">
@@ -308,5 +303,8 @@
       </div>
     </section>
 
-  </div>
+      </div> <!-- Cierre flex-grow-1 (Contenido Principal) -->
+    </div> <!-- Cierre d-flex w-100 -->
+
+  </div> <!-- Cierre w-100 bg-surface-container-lowest -->
 @endsection

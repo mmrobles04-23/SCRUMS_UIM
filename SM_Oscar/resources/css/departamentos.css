@@ -27,6 +27,7 @@
 .nav-link.active-depto {
     border-left: 4px solid var(--depto-color) !important;
     background-color: #ffffff !important;
+    color: #212529 !important;
 }
 
 .badge-depto {
@@ -40,10 +41,18 @@
     COMPONENTE: SIDEBAR (Menú lateral de navegación)
     ======================================================================== 
 */
+
+
 .sidebar-container {
     width: 320px;
     min-height: calc(100vh - 140px);
+    position: sticky;
+    top: 20px;
+    align-self: flex-start;
+    max-height: calc(100vh - 40px);
+    align-self: stretch;
 }
+
 
 .sidebar-text-active {
     color: var(--unam-azul);
@@ -51,6 +60,50 @@
 
 .sidebar-logo {
     max-height: 65px;
+}
+
+/* Efecto hover para items del menú lateral */
+.sidebar-container .nav-link {
+    transition: all 0.2s ease;
+    border-left: 4px solid transparent;
+}
+
+.sidebar-container .nav-link:hover {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    color: #212529 !important;
+}
+
+.sidebar-container .nav-link:hover i {
+    color: var(--depto-color) !important;
+}
+
+/* Mostrar nombre completo al hover, ocultar sigla */
+.sidebar-container .nav-link .depto-sigla {
+    display: inline;
+}
+
+.sidebar-container .nav-link .depto-nombre {
+    display: none;
+}
+
+.sidebar-container .nav-link:hover .depto-sigla {
+    display: none;
+}
+
+.sidebar-container .nav-link:hover .depto-nombre {
+    display: inline;
+    color: #212529 !important;
+}
+
+/* Mostrar nombre completo cuando el departamento está activo */
+.sidebar-container .nav-link.active-depto .depto-sigla {
+    display: none;
+}
+
+.sidebar-container .nav-link.active-depto .depto-nombre {
+    display: inline;
+    color: #212529 !important;
 }
 
 
