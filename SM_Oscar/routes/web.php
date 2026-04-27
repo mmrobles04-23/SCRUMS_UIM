@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\CongresoController as AdminCongresoController;
 
 Route::get('/', [HomeController::class, 'welcome'])->name('home');
 
+Route::get('/congresos', [CongresoController::class, 'index'])->name('congresos.index');
 Route::get('/congresos/{congreso:slug}', [CongresoController::class, 'show'])->name('congresos.show');
 
 Route::get('/investigacion', function () {

@@ -838,3 +838,107 @@ footer .col-6 {
 .group-arrow-hover:hover .group-hover-scale {
     transform: scale(1.08);
 }
+
+/* 
+    =======================================================================
+    BARRA DE NAVEGACIÓN MÓVIL (Bottom Navigation)
+    ======================================================================== 
+*/
+.mobile-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border-top: 1px solid rgba(0, 59, 111, 0.1);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.5rem 0;
+    z-index: 1030;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #6c757d;
+    padding: 0.4rem 0.8rem;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    flex: 1;
+    max-width: 100px;
+}
+
+.mobile-nav-item i {
+    font-size: 1.3rem;
+    margin-bottom: 0.2rem;
+    transition: all 0.2s ease;
+}
+
+.mobile-nav-item span {
+    font-size: 0.65rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.mobile-nav-item.active {
+    color: var(--unam-azul);
+    background: rgba(30, 60, 112, 0.08);
+}
+
+.mobile-nav-item.active i {
+    color: var(--unam-azul);
+}
+
+.mobile-nav-item:hover {
+    color: var(--unam-azul);
+    background: rgba(30, 60, 112, 0.05);
+}
+
+/* Estado compacto al hacer scroll hacia abajo */
+.mobile-bottom-nav.nav-compact {
+    padding: 0.25rem 0;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.08);
+}
+
+.mobile-bottom-nav.nav-compact .mobile-nav-item {
+    padding: 0.2rem 0.5rem;
+}
+
+.mobile-bottom-nav.nav-compact .mobile-nav-item i {
+    font-size: 1.1rem;
+    margin-bottom: 0.1rem;
+}
+
+.mobile-bottom-nav.nav-compact .mobile-nav-item span {
+    font-size: 0.6rem;
+}
+
+/* Padding extra en el body para evitar que el contenido quede detrás de la nav */
+@media (max-width: 991.98px) {
+    body {
+        padding-bottom: 70px;
+    }
+}
+
+/* Animación de entrada */
+@keyframes slideUpNav {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.mobile-bottom-nav {
+    animation: slideUpNav 0.3s ease;
+}

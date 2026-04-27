@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Congreso;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
+use Illuminate\Http\UploadedFile;
 
 class CongresoController extends Controller
 {
@@ -34,7 +34,7 @@ class CongresoController extends Controller
         $data['activo'] = $request->boolean('activo', true);
 
         if ($request->hasFile('imagen_portada')) {
-            $data['imagen_portada'] = $request->file('imagen_portada')->store('congresos', 'public');
+            $data['imagen_portada'] = $this->storePortada($request->file('imagen_portada'));
         } else {
             unset($data['imagen_portada']);
         }
@@ -57,9 +57,9 @@ class CongresoController extends Controller
 
         if ($request->hasFile('imagen_portada')) {
             if ($congreso->imagen_portada) {
-                Storage::disk('public')->delete($congreso->imagen_portada);
+                $this->deletePortada($congreso->imagen_portada);
             }
-            $data['imagen_portada'] = $request->file('imagen_portada')->store('congresos', 'public');
+            $data['imagen_portada'] = $this->storePortada($request->file('imagen_portada'));
         } else {
             unset($data['imagen_portada']);
         }
@@ -72,7 +72,7 @@ class CongresoController extends Controller
     public function destroy(Congreso $congreso): RedirectResponse
     {
         if ($congreso->imagen_portada) {
-            Storage::disk('public')->delete($congreso->imagen_portada);
+            $this->deletePortada($congreso->imagen_portada);
         }
         $congreso->delete();
 
@@ -131,5 +131,27 @@ class CongresoController extends Controller
         }
 
         return $slug;
+    }
+
+    private function storePortada(UploadedFile $file): string
+    {
+        $filename = Str::uuid()->toString() . '.' . $file->getClientOriginalExtension();
+        $path = public_path('congresos/portadas');
+        
+        if (!is_dir($path)) {
+            mkdir($path, 0755, true);
+        }
+        
+        $file->move($path, $filename);
+        
+        return 'congresos/portadas/' . $filename;
+    }
+
+    private function deletePortada(string $imagenPortada): void
+    {
+        $path = public_path($imagenPortada);
+        if (file_exists($path)) {
+            unlink($path);
+        }
     }
 }

@@ -181,11 +181,32 @@ cortas. --}}
         </div>
     </footer>
 
+    {{-- Barra de navegación móvil (solo visible en smartphones) --}}
+    <nav class="mobile-bottom-nav d-lg-none">
+        <a href="{{ url('/') }}" class="mobile-nav-item {{ request()->is('/') ? 'active' : '' }}">
+            <i class="bi bi-house"></i>
+            <span>Inicio</span>
+        </a>
+        <a href="{{ url('/investigacion') }}" class="mobile-nav-item {{ request()->is('investigacion*') ? 'active' : '' }}">
+            <i class="bi bi-journal-text"></i>
+            <span>Seminarios</span>
+        </a>
+        <a href="{{ url('/departamento') }}" class="mobile-nav-item {{ request()->is('departamento*') ? 'active' : '' }}">
+            <i class="bi bi-building"></i>
+            <span>Departamentos</span>
+        </a>
+        <a href="{{ url('/congresos') }}" class="mobile-nav-item {{ request()->is('congresos*') ? 'active' : '' }}">
+            <i class="bi bi-people"></i>
+            <span>Congresos</span>
+        </a>
+    </nav>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             let lastScrollTop = 0;
             const header = document.querySelector('.uim-site-head-sticky');
+            const mobileNav = document.querySelector('.mobile-bottom-nav');
 
             if (header) {
                 window.addEventListener('scroll', function () {
@@ -196,13 +217,16 @@ cortas. --}}
                         if (scrollTop > lastScrollTop) {
                             // Scrolee hacia abajo: Ocultar
                             header.classList.add('header-hidden');
+                            if (mobileNav) mobileNav.classList.add('nav-compact');
                         } else {
                             // Scrolee hacia arriba: Mostrar
                             header.classList.remove('header-hidden');
+                            if (mobileNav) mobileNav.classList.remove('nav-compact');
                         }
                     } else {
                         // Siempre mostrar si estamos hasta arriba (menos de 150px)
                         header.classList.remove('header-hidden');
+                        if (mobileNav) mobileNav.classList.remove('nav-compact');
                     }
                     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
                 }, { passive: true });

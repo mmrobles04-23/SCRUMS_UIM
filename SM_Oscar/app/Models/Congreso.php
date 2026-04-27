@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Storage;
 
 class Congreso extends Model
 {
@@ -41,11 +40,8 @@ class Congreso extends Model
     /** URL pública de la portada o imagen por defecto (estilo propio: fallback en app). */
     public function urlPortada(): string
     {
-        if ($this->imagen_portada && Storage::disk('public')->exists($this->imagen_portada)) {
-            // Usamos 'asset' directamente en vez de Storage::url para que Laravel construya
-            // la URL basada en la petición actual, resolviendo problemas si accedes 
-            // mediante otro puerto o IP (ej. 127.0.0.1 en vez de localhost).
-            return asset('storage/' . $this->imagen_portada);
+        if ($this->imagen_portada && file_exists(public_path($this->imagen_portada))) {
+            return asset($this->imagen_portada);
         }
 
         return asset('dashboard/img1.jpg');
