@@ -5,7 +5,7 @@
 
 {{-- NOTA (Bootstrap): componente Carousel (data-bs-ride, controles, captions). --}}
 {{-- NOTA (Estilo propio / app.css): .bloque-carrucel, #carousel, .slide-title, overlay ::before. --}}
-<section class="bg-secondary-subtle bloque-carrucel d-flex align-items-center shadow-sm" aria-label="Carrusel principal UIM">
+<section class="bloque-carrucel d-flex align-items-center mb-0" aria-label="Carrusel principal UIM">
     <div id="carousel" class="carousel slide" data-bs-ride="carousel">
 
         <div class="carousel-indicators">

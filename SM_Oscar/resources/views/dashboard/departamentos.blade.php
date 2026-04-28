@@ -27,24 +27,24 @@
             @endphp
 
             @foreach($departamentos as $index => $depto)
-                <div class="col-sm-6 col-lg-3">
-                    <div class="bg-surface-container-lowest p-4 rounded-4 border border-primary border-opacity-10 h-100 card-hover-premium d-flex flex-column group-arrow-hover position-relative overflow-hidden">
+                <div class="col-6 col-lg-3">
+                    <div class="bg-surface-container-lowest p-3 p-md-4 rounded-4 border border-primary border-opacity-10 h-100 card-hover-premium d-flex flex-column group-arrow-hover position-relative overflow-hidden">
                         <!-- Línea decorativa lateral -->
                         <div class="position-absolute top-0 bottom-0 start-0 bg-secondary-uim" style="width: 4px; opacity: 0.9;"></div>
-                        
-                        <div class="d-flex align-items-center mb-4 ps-2">
-                            <div class="bg-white shadow-sm text-primary-uim rounded-circle d-flex align-items-center justify-content-center" style="width: 52px; height: 52px;">
-                                <i class="bi {{ $depto['icono'] }} fs-4"></i>
+
+                        <div class="d-flex align-items-center mb-3 ps-2">
+                            <div class="bg-white shadow-sm text-primary-uim rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                <i class="bi {{ $depto['icono'] }} fs-5"></i>
                             </div>
-                            <div class="text-primary-uim opacity-25 fw-bold fs-3 ms-auto font-headline">0{{ $index + 1 }}</div>
+                            <div class="text-primary-uim opacity-25 fw-bold fs-5 ms-auto font-headline">0{{ $index + 1 }}</div>
                         </div>
-                        
+
                         <div class="ps-2 flex-grow-1 d-flex flex-column">
-                            <h3 class="font-headline fs-5 fw-bold text-primary-uim mb-2">{{ $depto['nombre'] }}</h3>
-                            <p class="small text-on-surface-variant mb-4">{{ $depto['desc'] }}</p>
-                            
-                            <a href="#" class="mt-auto text-decoration-none text-secondary-uim fw-bold small text-uppercase tracking-widest d-inline-flex align-items-center gap-2">
-                                Ver área <i class="bi bi-arrow-right icon-transition"></i>
+                            <h3 class="font-headline fs-6 fw-bold text-primary-uim mb-2">{{ $depto['nombre'] }}</h3>
+                            <p class="small text-on-surface-variant mb-3 d-none d-sm-block">{{ $depto['desc'] }}</p>
+
+                            <a href="#" class="mt-auto text-decoration-none text-secondary-uim fw-bold small text-uppercase tracking-widest d-inline-flex align-items-center gap-1">
+                                <span class="d-none d-sm-inline">Ver área</span> <i class="bi bi-arrow-right icon-transition"></i>
                             </a>
                         </div>
                     </div>

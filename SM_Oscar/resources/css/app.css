@@ -4,7 +4,7 @@ body {
 }
 /* Estilos para section */
 section {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: none;
 }
 
 .btn-custom {
@@ -297,6 +297,16 @@ footer .col-6 {
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     background-size: 70%;
+}
+
+/* Altura del carrusel en móvil - optimizado para eliminar espacio vacío */
+@media (max-width: 767.98px) {
+    #carousel,
+    #carousel .carousel-item,
+    #carousel img {
+        height: 30vh;
+        min-height: 180px;
+    }
 }
 
 
