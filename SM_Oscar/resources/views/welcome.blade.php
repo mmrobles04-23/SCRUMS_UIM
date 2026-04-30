@@ -105,19 +105,13 @@
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 const modal = document.getElementById('congresoModal');
-                const progress = modal.querySelector('.congreso-modal-progress');
-                
+
                 // Mostrar modal con animación
                 setTimeout(() => {
                     modal.classList.add('active');
                 }, 500);
-                
-                // Auto-cerrar en 5 segundos
-                setTimeout(() => {
-                    cerrarModalCongreso();
-                }, 5500);
             });
-            
+
             function cerrarModalCongreso() {
                 const modal = document.getElementById('congresoModal');
                 if (modal) {
