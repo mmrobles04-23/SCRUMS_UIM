@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -15,6 +16,45 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/typography.css">
     <link rel="stylesheet" href="css/utilities.css">
+
+```
+<style>
+    /* Transición suave para el campo de número de cuenta */
+    #grupo-numero-cuenta {
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.35s ease, opacity 0.3s ease, margin 0.3s ease;
+        margin-bottom: 0;
+    }
+    #grupo-numero-cuenta.visible {
+        max-height: 120px;
+        opacity: 1;
+        margin-bottom: 1rem; /* igual que .form-group */
+    }
+
+    /* Badge de tipo de usuario junto al label */
+    .tipo-badge {
+        display: inline-block;
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 2px 8px;
+        border-radius: 20px;
+        margin-left: 6px;
+        vertical-align: middle;
+        transition: background 0.3s, color 0.3s;
+    }
+    .tipo-badge.interno {
+        background: #003B6F;
+        color: #fff;
+    }
+    .tipo-badge.externo {
+        background: #B38633;
+        color: #fff;
+    }
+</style>
+```
+
 </head>
 <body>
     <div class="site-wrapper">
@@ -24,58 +64,156 @@
                 <span>SEMINARIOS DE INVESTIGACIÓN</span>
             </div>
 
-            <div class="filter-toolbar">
-                <div class="filter-group">
-                    <button class="filter-btn active" data-filter="todos"><i class="fas fa-layer-group"></i> Todos</button>
-                    <button class="filter-btn" data-filter="anual"><i class="far fa-calendar-alt"></i> Anuales</button>
-                    <button class="filter-btn" data-filter="permanente"><i class="fas fa-sync-alt"></i> Permanentes</button>
-                    <button class="filter-btn" data-filter="especial"><i class="fas fa-star"></i> Otros</button>
-                </div>
-                <div class="search-wrapper">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="searchInput" placeholder="Buscar seminario...">
-                    <button id="searchBtn">Ir</button>
-                </div>
+```
+        <div class="filter-toolbar">
+            <div class="filter-group">
+                <button class="filter-btn active" data-filter="todos"><i class="fas fa-layer-group"></i> Todos</button>
+                <button class="filter-btn" data-filter="anual"><i class="far fa-calendar-alt"></i> Anuales</button>
+                <button class="filter-btn" data-filter="permanente"><i class="fas fa-sync-alt"></i> Permanentes</button>
+                <button class="filter-btn" data-filter="especial"><i class="fas fa-star"></i> Otros</button>
             </div>
-
-            <div style="margin: 0.2rem 0 1rem 0.2rem; color: #003B6F; font-weight: 600;">
-                <i class="fas fa-chevron-circle-right" style="color: #B38633;"></i> Todos los seminarios activos
+            <div class="search-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Buscar seminario...">
+                <button id="searchBtn">Ir</button>
             </div>
-
-            <div class="cards-grid" id="cardsContainer"></div>
-        </section>
-    </div>
-    <!-- Modal de Inscripción -->
-    <div class="modal-overlay" id="inscripcionModal">
-        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-            <div class="modal-header">
-                <h2 id="modalTitle"><i class="fas fa-pen-alt"></i> Inscripción al Seminario</h2>
-                <button class="modal-close" id="modalClose" aria-label="Cerrar"><i class="fas fa-times"></i></button>
-            </div>
-            <form id="formInscripcion" class="modal-form" novalidate>
-                <div class="form-group">
-                    <label for="inputNombre">Nombre completo</label>
-                    <input type="text" id="inputNombre" placeholder="Tu nombre completo" required>
-                </div>
-                <div class="form-group">
-                    <label for="inputCorreo">Correo electrónico</label>
-                    <input type="email" id="inputCorreo" placeholder="tu@correo.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="modalSeminario">Seminario</label>
-                    <select id="modalSeminario" required></select>
-                </div>
-                <div class="form-group">
-                    <label for="inputMotivo">Motivo de inscripción</label>
-                    <textarea id="inputMotivo" rows="4" placeholder="¿Por qué deseas inscribirte a este seminario?" required></textarea>
-                </div>
-                <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Enviar inscripción</button>
-            </form>
         </div>
-    </div>
 
-    <!-- archivo de seminarios.js -->
-    <script src="js/seminarios.js"></script>
+        <div style="margin: 0.2rem 0 1rem 0.2rem; color: #003B6F; font-weight: 600;">
+            <i class="fas fa-chevron-circle-right" style="color: #B38633;"></i> Todos los seminarios activos
+        </div>
+
+        <div class="cards-grid" id="cardsContainer"></div>
+    </section>
+</div>
+
+<!-- Modal de Inscripción -->
+<div class="modal-overlay" id="inscripcionModal">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-header">
+            <h2 id="modalTitle"><i class="fas fa-pen-alt"></i> Inscripción al Seminario</h2>
+            <button class="modal-close" id="modalClose" aria-label="Cerrar"><i class="fas fa-times"></i></button>
+        </div>
+        <form id="formInscripcion" class="modal-form" novalidate>
+
+            <!-- Nombre -->
+            <div class="form-group">
+                <label for="inputNombre">Nombre completo</label>
+                <input type="text" id="inputNombre" placeholder="Tu nombre completo" required>
+            </div>
+
+            <!-- Correo -->
+            <div class="form-group">
+                <label for="inputCorreo">Correo electrónico</label>
+                <input type="email" id="inputCorreo" placeholder="tu@correo.com" required>
+            </div>
+
+            <!-- ── NUEVO: Tipo de usuario ── -->
+            <div class="form-group">
+                <label for="inputTipoUsuario">
+                    Tipo de usuario
+                    <span class="tipo-badge" id="tipoBadge"></span>
+                </label>
+                <select id="inputTipoUsuario" required>
+                    <option value="">-- Selecciona tu tipo de usuario --</option>
+                    <option value="interno">Interno (FES Acatlán)</option>
+                    <option value="externo">Externo</option>
+                </select>
+            </div>
+
+            <!-- ── NUEVO: Número de cuenta (solo interno) ── -->
+            <div class="form-group" id="grupo-numero-cuenta">
+                <label for="inputNumeroCuenta">
+                    <i class="fas fa-id-card" style="color:#003B6F; margin-right:4px;"></i>
+                    Número de cuenta
+                </label>
+                <input
+                    type="text"
+                    id="inputNumeroCuenta"
+                    placeholder="Ej. 420012345"
+                    maxlength="9"
+                    pattern="[0-9]{8,9}"
+                    inputmode="numeric"
+                >
+            </div>
+            <!-- ── fin nuevos campos ── -->
+
+            <!-- Seminario -->
+            <div class="form-group">
+                <label for="modalSeminario">Seminario</label>
+                <select id="modalSeminario" required></select>
+            </div>
+
+            <!-- Motivo -->
+            <div class="form-group">
+                <label for="inputMotivo">Motivo de inscripción</label>
+                <textarea id="inputMotivo" rows="4" placeholder="¿Por qué deseas inscribirte a este seminario?" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Enviar inscripción</button>
+        </form>
+    </div>
+</div>
+
+<!-- archivo de seminarios.js -->
+<script src="js/seminarios.js"></script>
+
+<!-- ── Lógica: selector tipo de usuario ── -->
+<script>
+    (function () {
+        const selectTipo   = document.getElementById('inputTipoUsuario');
+        const grupoCuenta  = document.getElementById('grupo-numero-cuenta');
+        const inputCuenta  = document.getElementById('inputNumeroCuenta');
+        const badge        = document.getElementById('tipoBadge');
+
+        selectTipo.addEventListener('change', function () {
+            const tipo = this.value;
+
+            if (tipo === 'interno') {
+                // Mostrar campo con animación
+                grupoCuenta.classList.add('visible');
+                inputCuenta.setAttribute('required', 'required');
+
+                // Badge azul "FES Acatlán"
+                badge.textContent = 'FES Acatlán';
+                badge.className = 'tipo-badge interno';
+
+            } else {
+                // Ocultar campo y limpiar
+                grupoCuenta.classList.remove('visible');
+                inputCuenta.removeAttribute('required');
+                inputCuenta.value = '';
+
+                if (tipo === 'externo') {
+                    // Badge dorado "Externo"
+                    badge.textContent = 'Externo';
+                    badge.className = 'tipo-badge externo';
+                } else {
+                    // Sin selección: quitar badge
+                    badge.textContent = '';
+                    badge.className = 'tipo-badge';
+                }
+            }
+        });
+
+        // Limpiar número de cuenta al cerrar/resetear el modal
+        const btnCerrar = document.getElementById('modalClose');
+        const formulario = document.getElementById('formInscripcion');
+
+        function resetTipoUsuario() {
+            selectTipo.value = '';
+            grupoCuenta.classList.remove('visible');
+            inputCuenta.removeAttribute('required');
+            inputCuenta.value = '';
+            badge.textContent = '';
+            badge.className = 'tipo-badge';
+        }
+
+        if (btnCerrar)  btnCerrar.addEventListener('click', resetTipoUsuario);
+        if (formulario) formulario.addEventListener('reset', resetTipoUsuario);
+    })();
+</script>
+```
 
 </body>
 </html>
