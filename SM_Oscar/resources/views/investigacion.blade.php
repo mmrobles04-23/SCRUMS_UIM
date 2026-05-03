@@ -86,39 +86,73 @@
     </div>
 
     {{-- Modal de Inscripción --}}
-    <div class="modal-overlay" id="inscripcionModal">
-        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-            <div class="modal-header">
-                <h2 id="modalTitle">
-                    <i class="bi bi-pencil-square me-2"></i>Inscripción al Seminario
-                </h2>
-                <button class="modal-close" id="modalClose" aria-label="Cerrar">
-                    <i class="bi bi-x-lg"></i>
-                </button>
-            </div>
-            <form id="formInscripcion" class="modal-form" novalidate>
-                <div class="form-group">
-                    <label for="inputNombre">Nombre completo</label>
-                    <input type="text" id="inputNombre" placeholder="Tu nombre completo" required>
-                </div>
-                <div class="form-group">
-                    <label for="inputCorreo">Correo electrónico</label>
-                    <input type="email" id="inputCorreo" placeholder="tu@correo.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="modalSeminario">Seminario</label>
-                    <select id="modalSeminario" required></select>
-                </div>
-                <div class="form-group">
-                    <label for="inputMotivo">Motivo de inscripción</label>
-                    <textarea id="inputMotivo" rows="4" placeholder="¿Por qué deseas inscribirte a este seminario?" required></textarea>
-                </div>
-                <button type="submit" class="btn-submit">
-                    <i class="bi bi-send me-2"></i>Enviar inscripción
-                </button>
-            </form>
+<!-- Modal de Inscripción -->
+<div class="modal-overlay" id="inscripcionModal">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-header">
+            <h2 id="modalTitle"><i class="fas fa-pen-alt"></i> Inscripción al Seminario</h2>
+            <button class="modal-close" id="modalClose" aria-label="Cerrar"><i class="fas fa-times"></i></button>
         </div>
+        <form id="formInscripcion" class="modal-form" novalidate>
+
+            <!-- Nombre -->
+            <div class="form-group">
+                <label for="inputNombre">Nombre completo</label>
+                <input type="text" id="inputNombre" placeholder="Tu nombre completo" required>
+            </div>
+
+            <!-- Correo -->
+            <div class="form-group">
+                <label for="inputCorreo">Correo electrónico</label>
+                <input type="email" id="inputCorreo" placeholder="tu@correo.com" required>
+            </div>
+
+            <!-- ── NUEVO: Tipo de usuario ── -->
+            <div class="form-group">
+                <label for="inputTipoUsuario">
+                    Tipo de usuario
+                    <span class="tipo-badge" id="tipoBadge"></span>
+                </label>
+                <select id="inputTipoUsuario" required>
+                    <option value="">-- Selecciona tu tipo de usuario --</option>
+                    <option value="interno">Interno (FES Acatlán)</option>
+                    <option value="externo">Externo</option>
+                </select>
+            </div>
+
+            <!-- ── NUEVO: Número de cuenta (solo interno) ── -->
+            <div class="form-group" id="grupo-numero-cuenta">
+                <label for="inputNumeroCuenta">
+                    <i class="fas fa-id-card" style="color:#003B6F; margin-right:4px;"></i>
+                    Número de cuenta
+                </label>
+                <input
+                    type="text"
+                    id="inputNumeroCuenta"
+                    placeholder="Ej. 420012345"
+                    maxlength="9"
+                    pattern="[0-9]{8,9}"
+                    inputmode="numeric"
+                >
+            </div>
+            <!-- ── fin nuevos campos ── -->
+
+            <!-- Seminario -->
+            <div class="form-group">
+                <label for="modalSeminario">Seminario</label>
+                <select id="modalSeminario" required></select>
+            </div>
+
+            <!-- Motivo -->
+            <div class="form-group">
+                <label for="inputMotivo">Motivo de inscripción</label>
+                <textarea id="inputMotivo" rows="4" placeholder="¿Por qué deseas inscribirte a este seminario?" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Enviar inscripción</button>
+        </form>
     </div>
+</div>
 
     {{-- Modal de Detalles del Seminario (para "Ver más") --}}
     <div class="modal-overlay" id="detailModal">

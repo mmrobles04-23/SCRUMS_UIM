@@ -329,3 +329,58 @@
     window.openDetailModal = openDetailModal;
 })();
    
+
+// ── Lógica: selector tipo de usuario 
+
+    (function () {
+        const selectTipo   = document.getElementById('inputTipoUsuario');
+        const grupoCuenta  = document.getElementById('grupo-numero-cuenta');
+        const inputCuenta  = document.getElementById('inputNumeroCuenta');
+        const badge        = document.getElementById('tipoBadge');
+
+        selectTipo.addEventListener('change', function () {
+            const tipo = this.value;
+
+            if (tipo === 'interno') {
+                // Mostrar campo con animación
+                grupoCuenta.classList.add('visible');
+                inputCuenta.setAttribute('required', 'required');
+
+                // Badge azul "FES Acatlán"
+                badge.textContent = 'FES Acatlán';
+                badge.className = 'tipo-badge interno';
+
+            } else {
+                // Ocultar campo y limpiar
+                grupoCuenta.classList.remove('visible');
+                inputCuenta.removeAttribute('required');
+                inputCuenta.value = '';
+
+                if (tipo === 'externo') {
+                    // Badge dorado "Externo"
+                    badge.textContent = 'Externo';
+                    badge.className = 'tipo-badge externo';
+                } else {
+                    // Sin selección: quitar badge
+                    badge.textContent = '';
+                    badge.className = 'tipo-badge';
+                }
+            }
+        });
+
+        // Limpiar número de cuenta al cerrar/resetear el modal
+        const btnCerrar = document.getElementById('modalClose');
+        const formulario = document.getElementById('formInscripcion');
+
+        function resetTipoUsuario() {
+            selectTipo.value = '';
+            grupoCuenta.classList.remove('visible');
+            inputCuenta.removeAttribute('required');
+            inputCuenta.value = '';
+            badge.textContent = '';
+            badge.className = 'tipo-badge';
+        }
+
+        if (btnCerrar)  btnCerrar.addEventListener('click', resetTipoUsuario);
+        if (formulario) formulario.addEventListener('reset', resetTipoUsuario);
+    })();

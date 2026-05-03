@@ -1016,3 +1016,38 @@ typography
         font-size: 0.75rem;
     }
 }
+
+
+    /* Transición suave para el campo de número de cuenta */
+    #grupo-numero-cuenta {
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.35s ease, opacity 0.3s ease, margin 0.3s ease;
+        margin-bottom: 0;
+    }
+    #grupo-numero-cuenta.visible {
+        max-height: 120px;
+        opacity: 1;
+        margin-bottom: 1rem; /* igual que .form-group */
+    }
+
+    /* Badge de tipo de usuario junto al label */
+    .tipo-badge {
+        display: inline-block;
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 2px 8px;
+        border-radius: 20px;
+        margin-left: 6px;
+        vertical-align: middle;
+        transition: background 0.3s, color 0.3s;
+    }
+    .tipo-badge.interno {
+        background: #003B6F;
+        color: #fff;
+    }
+    .tipo-badge.externo {
+        background: #B38633;
+        color: #fff;
+    }
