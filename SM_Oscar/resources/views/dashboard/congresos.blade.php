@@ -1,22 +1,22 @@
 {{--
     Componente: Congresos
     Descripción: Lista dinámica de congresos activos
-    Variables esperadas: $congresos (collection)
+    Variables esperadas: $congresos (collection), $settings (collection)
 --}}
+
+@php
+$s = $settings ?? collect([]);
+$listaCongresos = $congresos ?? collect([]);
+@endphp
 
 <section id="uim-congresos" class="py-5 bg-surface-uim">
     <div class="container py-4">
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4 gap-3">
             <div>
-                <h2 class="font-headline display-6 text-primary-uim fw-bold mb-2">Congresos</h2>
-                <p class="text-on-surface-variant fs-5">Encuentros académicos de la UIM; detalle e inscripción por
-                    evento.</p>
+                <h2 class="font-headline display-6 text-primary-uim fw-bold mb-2">{{ $s['congresos_titulo'] ?? 'Congresos' }}</h2>
+                <p class="text-on-surface-variant fs-5">{{ $s['congresos_subtitulo'] ?? 'Encuentros académicos de la UIM; detalle e inscripción por evento.' }}</p>
             </div>
         </div>
-
-        @php
-            $listaCongresos = $congresos ?? collect([]);
-        @endphp
 
         @forelse($listaCongresos as $congreso)
             <div class="card bg-surface-container-lowest border-0 shadow-sm rounded-4 mb-4 overflow-hidden card-hover-premium group-arrow-hover">
@@ -65,8 +65,7 @@
             </div>
         @empty
             <div class="bg-surface-uim p-4 rounded-4 text-center border shadow-sm">
-                <p class="text-on-surface-variant mb-0"><i class="bi bi-info-circle me-2 text-primary-uim"></i>No hay
-                    congresos publicados por el momento.</p>
+                <p class="text-on-surface-variant mb-0"><i class="bi bi-info-circle me-2 text-primary-uim"></i>{{ $s['congresos_empty'] ?? 'No hay congresos publicados por el momento.' }}</p>
             </div>
         @endforelse
     </div>

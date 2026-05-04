@@ -10,6 +10,46 @@
         </div>
     </div>
 
+    {{-- Estadísticas --}}
+    <div class="row g-3 mb-4">
+        <div class="col-6 col-md-3">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body text-center p-3">
+                    <div class="display-6" style="color: var(--unam-azul);">{{ $stats['usuarios'] }}</div>
+                    <div class="small text-muted">Usuarios</div>
+                    <small class="text-success">{{ $stats['usuarios_activos'] }} activos</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body text-center p-3">
+                    <div class="display-6" style="color: var(--fesa-verde);">{{ $stats['congresos_activos'] }}</div>
+                    <div class="small text-muted">Congresos Activos</div>
+                    <small class="text-body-secondary">de {{ $stats['congresos'] }} total</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body text-center p-3">
+                    <div class="display-6" style="color: var(--unam-dorado);">{{ $stats['departamentos_activos'] }}</div>
+                    <div class="small text-muted">Departamentos</div>
+                    <small class="text-body-secondary">{{ $stats['departamentos'] }} total</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body text-center p-3">
+                    <div class="display-6" style="color: var(--unam-azul);">{{ $stats['seminarios_proximos'] }}</div>
+                    <div class="small text-muted">Seminarios Próximos</div>
+                    <small class="text-body-secondary">{{ $stats['seminarios_publicados'] }} publicados</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="row g-3">
         <div class="col-12 col-md-6 col-xl-4">
             <a class="text-decoration-none" href="{{ route('admin.departamentos.index') }}">
@@ -81,6 +121,71 @@
                     </div>
                 </div>
             </a>
+        </div>
+    </div>
+
+    {{-- Actividad Reciente --}}
+    <div class="row g-3 mt-2">
+        <div class="col-12 col-lg-6">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <h3 class="h6 mb-3" style="color: var(--unam-dorado);">
+                        <i class="bi bi-clock-history me-2"></i>Congresos Recientes
+                    </h3>
+                    @if($actividad_reciente['congresos']->count() > 0)
+                        <ul class="list-group list-group-flush">
+                            @foreach($actividad_reciente['congresos'] as $congreso)
+                                <li class="list-group-item px-0 py-2 d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <div class="fw-medium">{{ \Illuminate\Support\Str::limit($congreso->titulo, 40) }}</div>
+                                        <small class="text-muted">{{ $congreso->created_at->diffForHumans() }}</small>
+                                    </div>
+                                    @if($congreso->activo)
+                                        <span class="badge text-bg-success">Activo</span>
+                                    @else
+                                        <span class="badge text-bg-secondary">Inactivo</span>
+                                    @endif
+                                </li>
+                            @endforeach
+                        </ul>
+                    @else
+                        <p class="text-muted small mb-0">No hay congresos registrados aún.</p>
+                    @endif
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <h3 class="h6 mb-3" style="color: var(--unam-dorado);">
+                        <i class="bi bi-clock-history me-2"></i>Seminarios Recientes
+                    </h3>
+                    @if($actividad_reciente['seminarios']->count() > 0)
+                        <ul class="list-group list-group-flush">
+                            @foreach($actividad_reciente['seminarios'] as $seminario)
+                                <li class="list-group-item px-0 py-2 d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <div class="fw-medium">{{ \Illuminate\Support\Str::limit($seminario->titulo, 40) }}</div>
+                                        <small class="text-muted">
+                                            {{ $seminario->departamento?->siglas ?? 'Sin depto' }} • 
+                                            {{ $seminario->created_at->diffForHumans() }}
+                                        </small>
+                                    </div>
+                                    @if($seminario->estado === 'publicado')
+                                        <span class="badge text-bg-success">Publicado</span>
+                                    @elseif($seminario->estado === 'borrador')
+                                        <span class="badge text-bg-secondary">Borrador</span>
+                                    @else
+                                        <span class="badge text-bg-danger">Cancelado</span>
+                                    @endif
+                                </li>
+                            @endforeach
+                        </ul>
+                    @else
+                        <p class="text-muted small mb-0">No hay seminarios registrados aún.</p>
+                    @endif
+                </div>
+            </div>
         </div>
     </div>
 

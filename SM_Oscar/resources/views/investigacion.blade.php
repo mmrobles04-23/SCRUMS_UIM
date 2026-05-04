@@ -11,6 +11,40 @@
 @endpush
 
 @section('content')
+    {{-- Datos de seminarios desde BD para el JS --}}
+    @php
+        $seminariosJson = $seminarios->map(function($s) {
+            $tipo = 'especial';
+            if (str_contains(strtolower($s->titulo), 'permanente')) $tipo = 'permanente';
+            elseif ($s->fecha_inicio && $s->fecha_fin) {
+                $dias = $s->fecha_inicio->diffInDays($s->fecha_fin);
+                if ($dias > 180) $tipo = 'permanente';
+                else $tipo = 'anual';
+            }
+            
+            return [
+                'id' => $s->id,
+                'tipo' => $tipo,
+                'titulo' => $s->titulo,
+                'objetivo' => $s->descripcion ?? 'Sin descripción',
+                'responsable' => $s->ponente,
+                'correo' => $s->departamento?->email_contacto ?? '',
+                'telefono' => $s->departamento?->telefono ?? '',
+                'areas' => $s->departamento ? [$s->departamento->siglas, $s->departamento->nombre] : [],
+                'imagen' => $s->imagen_banner ? asset($s->imagen_banner) : null,
+                'departamento' => $s->departamento?->siglas ?? 'UIMA',
+                'lugar' => $s->lugar ?? 'Por definir',
+                'fecha_inicio' => $s->fecha_inicio?->format('d/m/Y') ?? '',
+                'fecha_fin' => $s->fecha_fin?->format('d/m/Y') ?? '',
+            ];
+        });
+    @endphp
+    
+    <script>
+        window.seminariosData = @json($seminariosJson);
+        window.departamentosData = @json($departamentos->map(fn($d) => ['siglas' => $d->siglas, 'nombre' => $d->nombre, 'color' => $d->color]));
+    </script>
+
     {{-- NOTA: Vista homologada con el sistema de diseño UIMA usando variables CSS y Bootstrap Icons --}}
     <div class="font-body bg-surface-container-lowest py-5">
         <div class="container-fluid">

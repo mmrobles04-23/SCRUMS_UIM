@@ -1,0 +1,6 @@
+    $departamentos = [
+        ['siglas' => 'DTA', 'nombre' => 'Tecnología Ambiental', 'color' => '#78D64B', 'estado' => 'Activo'],
+        ['siglas' => 'IPAJ', 'nombre' => 'Procuración y Administración de Justicia', 'color' => '#69B3E7', 'estado' => 'Activo'],
+        ['siglas' => 'DPE', 'nombre' => 'Proyección Empresarial', 'color' => '#DF1995', 'estado' => 'Activo'],
+        ['siglas' => 'DIE', 'nombre' => 'Investigación Educativa', 'color' => '#FA4616', 'estado' => 'Activo'],
+    ];

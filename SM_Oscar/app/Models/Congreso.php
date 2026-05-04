@@ -51,4 +51,9 @@ class Congreso extends Model
     {
         return $query->where('activo', true);
     }
+
+    public function imagenes()
+    {
+        return $this->hasMany(CongresoImagen::class)->orderBy('orden');
+    }
 }

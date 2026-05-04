@@ -1,7 +1,12 @@
 {{--
     Componente: Hero Section (Carrusel Principal)
     Descripción: Carrusel de imágenes destacadas de la UIMA
+    Variables: $settings (collection de settings con key => value)
 --}}
+
+@php
+$s = $settings ?? collect([]);
+@endphp
 
 {{-- NOTA (Bootstrap): componente Carousel (data-bs-ride, controles, captions). --}}
 {{-- NOTA (Estilo propio / app.css): .bloque-carrucel, #carousel, .slide-title, overlay ::before. --}}
@@ -17,23 +22,23 @@
         <div class="carousel-inner">
 
             <div class="carousel-item active" data-bs-interval="5000">
-                <img src="{{ asset('dashboard/img1.jpg') }}" class="d-block w-100" alt="Campus y actividades de la FES Acatlán — UNAM">
+                <img src="{{ !empty($s['hero_slide1_imagen']) ? Storage::url($s['hero_slide1_imagen']) : asset('dashboard/img1.jpg') }}" class="d-block w-100" alt="Slide 1">
                 <div class="carousel-caption">
-                    <h2 class="slide-title">Unidad de Investigación Multidisciplinaria</h2>
+                    <h2 class="slide-title">{{ $s['hero_slide1_titulo'] ?? 'Unidad de Investigación Multidisciplinaria' }}</h2>
                 </div>
             </div>
 
             <div class="carousel-item" data-bs-interval="5000">
-                <img src="{{ asset('dashboard/img2.jpg') }}" class="d-block w-100" alt="Investigación en la FES Acatlán">
+                <img src="{{ !empty($s['hero_slide2_imagen']) ? Storage::url($s['hero_slide2_imagen']) : asset('dashboard/img2.jpg') }}" class="d-block w-100" alt="Slide 2">
                 <div class="carousel-caption">
-                    <h2 class="slide-title">FES Acatlán — UNAM</h2>
+                    <h2 class="slide-title">{{ $s['hero_slide2_titulo'] ?? 'FES Acatlán — UNAM' }}</h2>
                 </div>
             </div>
 
             <div class="carousel-item" data-bs-interval="5000">
-                <img src="{{ asset('dashboard/img3.jpg') }}" class="d-block w-100" alt="Difusión y formación en investigación">
+                <img src="{{ !empty($s['hero_slide3_imagen']) ? Storage::url($s['hero_slide3_imagen']) : asset('dashboard/img3.jpg') }}" class="d-block w-100" alt="Slide 3">
                 <div class="carousel-caption">
-                    <h2 class="slide-title">Docencia, investigación y cultura</h2>
+                    <h2 class="slide-title">{{ $s['hero_slide3_titulo'] ?? 'Docencia, investigación y cultura' }}</h2>
                 </div>
             </div>
 

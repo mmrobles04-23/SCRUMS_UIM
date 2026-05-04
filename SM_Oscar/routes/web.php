@@ -5,19 +5,22 @@ use App\Http\Controllers\WebAuthController;
 use App\Http\Controllers\WebPasswordResetController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\CongresoController;
+use App\Http\Controllers\DepartamentoController;
+use App\Http\Controllers\SeminarioController;
+use App\Http\Controllers\Admin\DepartamentoController as AdminDepartamentoController;
+use App\Http\Controllers\Admin\SeminarioController as AdminSeminarioController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\WelcomeController;
 
 Route::get('/', [HomeController::class, 'welcome'])->name('home');
 
 Route::get('/congreso', [CongresoController::class, 'indexPublico'])->name('congresos.index');
 Route::get('/congresos/{congreso:slug}', [CongresoController::class, 'showPublico'])->name('congresos.show');
 
-Route::get('/investigacion', function () {
-    return view('investigacion');
-});
+Route::get('/investigacion', [SeminarioController::class, 'index'])->name('seminarios.index');
 
-Route::get('/departamento', function () {
-    return view('departamento');
-});
+Route::get('/departamento/{siglas}', [DepartamentoController::class, 'show'])->name('departamento.show');
+Route::get('/departamento', [DepartamentoController::class, 'show'])->defaults('siglas', 'DRNA');
 
 Route::get('/boceto', function () {
     $congresos = App\Models\Congreso::activos()
@@ -49,25 +52,17 @@ Route::middleware('web')->group(function () {
         })->name('web.dashboard');
 
         Route::middleware('admin.or.dev')->group(function () {
-            Route::get('/admin/dashboard', function () {
-                return view('admin.dashboard');
-            })->name('admin.dashboard');
+            Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
             Route::prefix('admin')->name('admin.')->group(function () {
                 Route::patch('congresos/{congreso}/activo', [CongresoController::class, 'toggleActivo'])->name('congresos.toggle-activo');
                 Route::resource('congresos', CongresoController::class)->except(['show']);
 
-                Route::get('departamentos', function () {
-                    return view('admin.departamentos.index');
-                })->name('departamentos.index');
+                Route::resource('departamentos', AdminDepartamentoController::class);
+                Route::resource('seminarios', AdminSeminarioController::class);
 
-                Route::get('seminarios', function () {
-                    return view('admin.seminarios.index');
-                })->name('seminarios.index');
-
-                Route::get('welcome', function () {
-                    return view('admin.welcome.edit');
-                })->name('welcome.edit');
+                Route::get('welcome', [WelcomeController::class, 'edit'])->name('welcome.edit');
+                Route::post('welcome', [WelcomeController::class, 'update'])->name('welcome.update');
             });
         });
     });
