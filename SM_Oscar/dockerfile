@@ -24,20 +24,9 @@ RUN npm install
 # Build Vite producción
 RUN npm run build
 
-# Crear directorios necesarios para imágenes (banners, coordinadores, seminarios, welcome)
-RUN mkdir -p departamentos/banners \
-    storage/app/public/coordinadores \
-    storage/app/public/seminarios \
-    storage/app/public/welcome && \
-    (test -L public/storage || test -d public/storage) || mkdir -p public/storage
-
 # Permisos Laravel
 RUN chown -R www-data:www-data storage bootstrap/cache \
-    && chmod -R 775 storage bootstrap/cache \
-    && chown -R www-data:www-data departamentos \
-    && chmod -R 775 departamentos \
-    && chown -R www-data:www-data public/storage \
-    && chmod -R 775 public/storage
+    && chmod -R 775 storage bootstrap/cache
 
 # Preparar el archivo .env para producción antes de las optimizaciones
 RUN cp .env.produccion .env || true
@@ -46,7 +35,7 @@ RUN cp .env.produccion .env || true
 ENV PORT=10000
 EXPOSE 10000
 
-# Arranque con optimizaciones, migración y seeders
+# Arranque con optimizaciones y migración segura
 CMD php artisan config:cache && \
     php artisan route:cache && \
     php artisan view:cache && \
