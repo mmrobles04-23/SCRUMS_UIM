@@ -28,8 +28,8 @@ RUN npm run build
 RUN mkdir -p departamentos/banners \
     storage/app/public/coordinadores \
     storage/app/public/seminarios \
-    storage/app/public/welcome \
-    public/storage
+    storage/app/public/welcome && \
+    (test -L public/storage || test -d public/storage) || mkdir -p public/storage
 
 # Permisos Laravel
 RUN chown -R www-data:www-data storage bootstrap/cache \
