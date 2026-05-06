@@ -29,11 +29,18 @@
                                 <th>Slug</th>
                                 <th>Fechas</th>
                                 <th>Estado</th>
+                                <th>Cupo</th>
                                 <th class="text-end">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse($congresos as $c)
+                                @php
+                                    $totalInscritos = $c->totalInscritos();
+                                    $cupoMaximo = $c->cupo ?? 0;
+                                    $hayCupo = $c->hayCupo();
+                                    $cupoTexto = $cupoMaximo > 0 ? "{$totalInscritos}/{$cupoMaximo}" : ($totalInscritos > 0 ? "{$totalInscritos} inscritos" : 'Sin inscritos');
+                                @endphp
                                 <tr>
                                     <td class="fw-medium">{{ \Illuminate\Support\Str::limit($c->titulo, 40) }}</td>
                                     <td><code class="small">{{ $c->slug }}</code></td>
@@ -50,6 +57,17 @@
                                             <span class="badge text-bg-success">Activo</span>
                                         @else
                                             <span class="badge text-bg-secondary">Inactivo</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if($cupoMaximo > 0)
+                                            @if($hayCupo)
+                                                <span class="badge text-bg-info">{{ $cupoTexto }}</span>
+                                            @else
+                                                <span class="badge text-bg-danger">{{ $cupoTexto }} (Lleno)</span>
+                                            @endif
+                                        @else
+                                            <span class="badge text-bg-light text-dark">{{ $cupoTexto }}</span>
                                         @endif
                                     </td>
                                     <td class="text-end">
@@ -71,7 +89,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="5" class="text-center text-body-secondary py-4">No hay congresos registrados.</td>
+                                    <td colspan="6" class="text-center text-body-secondary py-4">No hay congresos registrados.</td>
                                 </tr>
                             @endforelse
                         </tbody>

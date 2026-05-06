@@ -21,6 +21,7 @@ class Congreso extends Model
         'enlace_programa',
         'enlace_sitio_web',
         'activo',
+        'cupo',
     ];
 
     protected function casts(): array
@@ -29,6 +30,7 @@ class Congreso extends Model
             'fecha_inicio' => 'date',
             'fecha_fin' => 'date',
             'activo' => 'boolean',
+            'cupo' => 'integer',
         ];
     }
 
@@ -55,5 +57,29 @@ class Congreso extends Model
     public function imagenes()
     {
         return $this->hasMany(CongresoImagen::class)->orderBy('orden');
+    }
+
+    public function inscripciones()
+    {
+        return $this->hasMany(Inscripcion::class);
+    }
+
+    /**
+     * Verificar si hay cupo disponible
+     */
+    public function hayCupo(): bool
+    {
+        if ($this->cupo === null || $this->cupo === 0) {
+            return true;
+        }
+        return $this->inscripciones()->count() < $this->cupo;
+    }
+
+    /**
+     * Obtener cantidad de inscritos
+     */
+    public function totalInscritos(): int
+    {
+        return $this->inscripciones()->count();
     }
 }

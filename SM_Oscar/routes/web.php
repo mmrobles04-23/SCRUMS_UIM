@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\SeminarioController as AdminSeminarioController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\WelcomeController;
 use App\Http\Controllers\Admin\InscripcionController as AdminInscripcionController;
+use App\Http\Controllers\Admin\InscripcionCongresoController as AdminInscripcionCongresoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\InscripcionController;
 
@@ -22,6 +23,7 @@ Route::get('/congresos/{congreso:slug}', [CongresoController::class, 'showPublic
 
 Route::get('/investigacion', [SeminarioController::class, 'index'])->name('seminarios.index');
 Route::post('/inscripcion', [InscripcionController::class, 'store'])->name('inscripciones.store');
+Route::post('/inscripcion-congreso', [InscripcionController::class, 'storeCongreso'])->name('inscripciones.congreso.store');
 
 Route::get('/departamento/{siglas}', [DepartamentoController::class, 'show'])->name('departamento.show');
 Route::get('/departamento', [DepartamentoController::class, 'show'])->defaults('siglas', 'DRNA');
@@ -78,6 +80,10 @@ Route::middleware('web')->group(function () {
                 // Gestión de Inscripciones a Seminarios
                 Route::get('inscripciones', [AdminInscripcionController::class, 'index'])->name('inscripciones.index');
                 Route::delete('inscripciones/{inscripcion}', [AdminInscripcionController::class, 'destroy'])->name('inscripciones.destroy');
+
+                // Gestión de Inscripciones a Congresos
+                Route::get('inscripciones-congresos', [AdminInscripcionCongresoController::class, 'index'])->name('inscripciones_congresos.index');
+                Route::delete('inscripciones-congresos/{inscripcion}', [AdminInscripcionCongresoController::class, 'destroy'])->name('inscripciones_congresos.destroy');
             });
         });
     });

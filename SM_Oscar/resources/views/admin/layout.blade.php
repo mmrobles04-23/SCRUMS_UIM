@@ -33,9 +33,13 @@
                                 href="{{ route('admin.seminarios.index') }}">
                                 <i class="bi bi-easel2 me-2"></i>Seminarios
                             </a>
-                            <a class="nav-link px-3 py-2 rounded-3 {{ request()->is('admin/inscripciones*') ? 'active' : '' }}"
+                            <a class="nav-link px-3 py-2 rounded-3 {{ request()->is('admin/inscripciones') || request()->is('admin/inscripciones/*') && !request()->is('admin/inscripciones-congresos*') ? 'active' : '' }}"
                                 href="{{ route('admin.inscripciones.index') }}">
-                                <i class="bi bi-person-check me-2"></i>Inscripciones
+                                <i class="bi bi-person-check me-2"></i>Inscripciones a Seminarios
+                            </a>
+                            <a class="nav-link px-3 py-2 rounded-3 {{ request()->is('admin/inscripciones-congresos*') ? 'active' : '' }}"
+                                href="{{ route('admin.inscripciones_congresos.index') }}">
+                                <i class="bi bi-people me-2"></i>Inscripciones a Congresos
                             </a>
                             <a class="nav-link px-3 py-2 rounded-3 {{ request()->is('admin/welcome*') ? 'active' : '' }}"
                                 href="{{ route('admin.welcome.edit') }}">

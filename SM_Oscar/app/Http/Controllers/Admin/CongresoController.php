@@ -136,6 +136,7 @@ class CongresoController extends Controller
             'enlace_inscripcion' => 'nullable|string|max:2048',
             'enlace_programa' => 'nullable|string|max:2048',
             'enlace_sitio_web' => 'nullable|string|max:2048',
+            'cupo' => 'nullable|integer|min:0',
         ]);
     }
 

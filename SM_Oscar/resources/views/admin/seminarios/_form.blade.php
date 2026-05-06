@@ -148,10 +148,51 @@ $method = $isEdit ? 'PUT' : 'POST';
         </div>
     </div>
 
+@php
+    $esEdit = isset($seminario) && $seminario->id;
+    $totalInscritos = $esEdit ? $seminario->totalInscritos() : 0;
+    $cupoMaximo = $esEdit ? ($seminario->cupo ?? 0) : 0;
+@endphp
+
     <div class="col-12 col-lg-4">
         <div class="card border-0 shadow-sm">
             <div class="card-body p-4">
                 <h2 class="h6 mb-3" style="color: var(--unam-dorado);">Publicación y Recursos</h2>
+
+                @if($esEdit)
+                {{-- Estadísticas de inscripciones --}}
+                <div class="mb-4 p-3" style="background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid var(--unam-azul, #1E3C70);">
+                    <h6 class="mb-2" style="color: var(--unam-azul);"><i class="bi bi-people me-2"></i>Inscripciones</h6>
+                    <div class="text-center mb-2">
+                        <span class="display-6 fw-bold" style="color: var(--unam-azul, #1E3C70);">{{ $totalInscritos }}</span>
+                        <small class="text-muted d-block">inscritos</small>
+                    </div>
+                    
+                    @if($cupoMaximo > 0)
+                        @php $porcentaje = min(100, round(($totalInscritos / $cupoMaximo) * 100)); @endphp
+                        <div class="mb-2">
+                            <div class="d-flex justify-content-between small">
+                                <span>Cupo: {{ $cupoMaximo }}</span>
+                                <span>{{ $porcentaje }}%</span>
+                            </div>
+                            <div class="progress" style="height: 6px;">
+                                <div class="progress-bar {{ $porcentaje >= 100 ? 'bg-danger' : 'bg-success' }}" role="progressbar" style="width: {{ $porcentaje }}%;"></div>
+                            </div>
+                        </div>
+                        @if($totalInscritos >= $cupoMaximo)
+                            <small class="text-danger"><i class="bi bi-exclamation-triangle me-1"></i>Cupo lleno</small>
+                        @else
+                            <small class="text-info"><i class="bi bi-info-circle me-1"></i>Quedan {{ $cupoMaximo - $totalInscritos }}</small>
+                        @endif
+                    @else
+                        <small class="text-muted"><i class="bi bi-infinity me-1"></i>Cupo ilimitado</small>
+                    @endif
+                    
+                    <a href="{{ route('admin.inscripciones.index', ['seminario_id' => $seminario->id]) }}" class="btn btn-sm btn-outline-primary w-100 mt-2">
+                        <i class="bi bi-list me-1"></i>Ver inscripciones
+                    </a>
+                </div>
+                @endif
 
                 <div class="mb-3">
                     <label for="cupo" class="form-label">Cupo de Usuarios</label>

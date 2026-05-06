@@ -49,6 +49,13 @@
 </div>
 
 <div class="mb-3">
+    <label for="cupo" class="form-label">Cupo (número de participantes)</label>
+    <input type="number" name="cupo" id="cupo" class="form-control @error('cupo') is-invalid @enderror" value="{{ old('cupo', $congreso->cupo) }}" min="0" placeholder="0 o vacío = sin límite">
+    <div class="form-text">Ingresa 0 o déjalo vacío para cupo ilimitado.</div>
+    @error('cupo')<div class="invalid-feedback">{{ $message }}</div>@enderror
+</div>
+
+<div class="mb-3">
     <label for="imagen_portada" class="form-label">Imagen de portada</label>
     <input type="file" name="imagen_portada" id="imagen_portada" class="form-control @error('imagen_portada') is-invalid @enderror" accept="image/*">
     @error('imagen_portada')<div class="invalid-feedback">{{ $message }}</div>@enderror

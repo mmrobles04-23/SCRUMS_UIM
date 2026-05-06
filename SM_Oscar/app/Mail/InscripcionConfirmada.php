@@ -24,12 +24,40 @@ class InscripcionConfirmada extends Mailable
     }
 
     /**
+     * Obtener el nombre del evento (seminario o congreso)
+     */
+    private function getNombreEvento(): string
+    {
+        if ($this->inscripcion->seminario) {
+            return $this->inscripcion->seminario->titulo;
+        }
+        if ($this->inscripcion->congreso) {
+            return $this->inscripcion->congreso->titulo;
+        }
+        return 'Evento UIMA';
+    }
+
+    /**
+     * Obtener el tipo de evento para el asunto
+     */
+    private function getTipoEvento(): string
+    {
+        if ($this->inscripcion->seminario) {
+            return 'Seminario';
+        }
+        if ($this->inscripcion->congreso) {
+            return 'Congreso';
+        }
+        return 'Evento';
+    }
+
+    /**
      * Get the message envelope.
      */
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Confirmación de Inscripción — ' . $this->inscripcion->seminario->titulo,
+            subject: 'Confirmación de Inscripción — ' . $this->getTipoEvento() . ': ' . $this->getNombreEvento(),
         );
     }
 

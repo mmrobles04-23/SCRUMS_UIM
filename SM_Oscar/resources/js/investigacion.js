@@ -49,9 +49,9 @@ import Swal from 'sweetalert2';
         const submitBtn = modalForm.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
         
-        // Deshabilitar botón
+        // Deshabilitar botón y mostrar animación de carga
         submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Procesando...';
+        submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Procesando...';
 
         const formData = {
             seminario_id: modalSeminarioId?.value || currentSeminarioSeleccionado?.id,

@@ -21,6 +21,15 @@
     </style>
 </head>
 <body>
+    @php
+        $esSeminario = $inscripcion->seminario !== null;
+        $esCongreso = $inscripcion->congreso !== null;
+        $evento = $esSeminario ? $inscripcion->seminario : ($esCongreso ? $inscripcion->congreso : null);
+        $tipoEvento = $esSeminario ? 'Seminario' : ($esCongreso ? 'Congreso' : 'Evento');
+        $urlVerMas = $esSeminario ? url('/investigacion') : url('/congreso');
+        $textoVerMas = $esSeminario ? 'Ver más Seminarios' : 'Ver más Congresos';
+    @endphp
+
     <div class="container">
         <div class="header">
             <h1>UIMA — UNAM</h1>
@@ -29,12 +38,12 @@
         <div class="content">
             <h2>Confirmación de Inscripción</h2>
             <p>Hola <strong>{{ $inscripcion->nombre_completo }}</strong>,</p>
-            <p>Te confirmamos que te has inscrito exitosamente al siguiente seminario:</p>
+            <p>Te confirmamos que te has inscrito exitosamente al siguiente {{ strtolower($tipoEvento) }}:</p>
             
             <table class="data-table">
                 <tr>
-                    <th>Seminario:</th>
-                    <td><strong>{{ $inscripcion->seminario->titulo }}</strong></td>
+                    <th>{{ $tipoEvento }}:</th>
+                    <td><strong>{{ $evento->titulo ?? 'N/A' }}</strong></td>
                 </tr>
                 <tr>
                     <th>Número de Registro:</th>
@@ -44,16 +53,24 @@
                     <th>Fecha de Registro:</th>
                     <td>{{ $inscripcion->created_at->format('d/m/Y H:i') }} hrs.</td>
                 </tr>
+                @if($esSeminario && $evento->lugar)
                 <tr>
                     <th>Lugar:</th>
-                    <td>{{ $inscripcion->seminario->lugar ?? 'Por definir' }}</td>
+                    <td>{{ $evento->lugar }}</td>
                 </tr>
+                @endif
+                @if($esCongreso && $evento->sede)
+                <tr>
+                    <th>Sede:</th>
+                    <td>{{ $evento->sede }}</td>
+                </tr>
+                @endif
             </table>
 
             <p>Por favor, conserva tu número de registro, ya que podría ser solicitado para el ingreso o la entrega de constancias.</p>
             
             <div style="text-align: center;">
-                <a href="{{ url('/investigacion') }}" class="btn">Ver más Seminarios</a>
+                <a href="{{ $urlVerMas }}" class="btn">{{ $textoVerMas }}</a>
             </div>
         </div>
         <div class="footer">

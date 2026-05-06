@@ -47,6 +47,25 @@ class Seminario extends Model
         return $this->hasMany(Inscripcion::class);
     }
 
+    /**
+     * Verificar si hay cupo disponible
+     */
+    public function hayCupo(): bool
+    {
+        if ($this->cupo === null || $this->cupo === 0) {
+            return true;
+        }
+        return $this->inscripciones()->count() < $this->cupo;
+    }
+
+    /**
+     * Obtener cantidad de inscritos
+     */
+    public function totalInscritos(): int
+    {
+        return $this->inscripciones()->count();
+    }
+
     public function getRouteKeyName(): string
     {
         return 'slug';

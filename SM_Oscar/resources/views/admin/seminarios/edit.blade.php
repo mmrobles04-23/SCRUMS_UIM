@@ -9,7 +9,10 @@
             <h1 class="h4 mb-0 text-body">Editar Seminario</h1>
             <p class="text-body-secondary small mb-0">Modifica la información del seminario.</p>
         </div>
-        <a href="{{ route('admin.seminarios.index') }}" class="btn btn-outline-secondary btn-sm">Volver al listado</a>
+        <div class="d-flex flex-wrap gap-2">
+            <a href="{{ route('admin.seminarios.index') }}" class="btn btn-outline-secondary btn-sm">Volver al listado</a>
+            <a href="{{ route('seminarios.index') }}" class="btn btn-outline-secondary btn-sm" target="_blank" rel="noopener noreferrer">Ver público</a>
+        </div>
     </div>
 
     @include('admin.seminarios._form', compact('seminario', 'departamentos'))

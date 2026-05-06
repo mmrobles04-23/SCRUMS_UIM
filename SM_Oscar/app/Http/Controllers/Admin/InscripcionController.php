@@ -15,6 +15,7 @@ class InscripcionController extends Controller
         $seminarioId = $request->query('seminario_id');
         
         $inscripciones = Inscripcion::with('seminario')
+            ->whereNotNull('seminario_id')
             ->when($seminarioId, function ($query, $seminarioId) {
                 return $query->where('seminario_id', $seminarioId);
             })
