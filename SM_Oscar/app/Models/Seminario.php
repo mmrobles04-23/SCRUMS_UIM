@@ -14,6 +14,7 @@ class Seminario extends Model
 
     protected $fillable = [
         'titulo',
+        'categoria',
         'slug',
         'descripcion',
         'ponente',
@@ -25,6 +26,7 @@ class Seminario extends Model
         'enlace_material',
         'estado',
         'departamento_id',
+        'cupo',
     ];
 
     protected function casts(): array
@@ -38,6 +40,11 @@ class Seminario extends Model
     public function departamento(): BelongsTo
     {
         return $this->belongsTo(Departamento::class);
+    }
+
+    public function inscripciones()
+    {
+        return $this->hasMany(Inscripcion::class);
     }
 
     public function getRouteKeyName(): string

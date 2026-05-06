@@ -35,7 +35,15 @@ class DepartamentoController extends Controller
             $data['imagen_coordinador'] = $this->storeCoordinadorImage($request->file('imagen_coordinador'));
         }
 
-        Departamento::create($data);
+        $departamento = Departamento::create($data);
+        
+        if ($request->has('funciones')) {
+            foreach ($request->input('funciones') as $descripcion) {
+                if (!empty($descripcion)) {
+                    $departamento->funciones()->create(['descripcion' => $descripcion]);
+                }
+            }
+        }
 
         return redirect()->route('admin.departamentos.index')
             ->with('status', 'Departamento creado correctamente.');
@@ -67,6 +75,15 @@ class DepartamentoController extends Controller
 
         $departamento->update($data);
 
+        if ($request->has('funciones')) {
+            $departamento->funciones()->delete();
+            foreach ($request->input('funciones') as $descripcion) {
+                if (!empty($descripcion)) {
+                    $departamento->funciones()->create(['descripcion' => $descripcion]);
+                }
+            }
+        }
+
         return redirect()->route('admin.departamentos.index')
             ->with('status', 'Departamento actualizado.');
     }
@@ -94,6 +111,7 @@ class DepartamentoController extends Controller
             'logo' => 'nullable|string|max:255',
             'icono' => 'nullable|string|max:50',
             'descripcion' => 'nullable|string',
+            'objetivo' => 'nullable|string',
             'imagen_banner' => 'nullable|image|max:4096',
             'coordinador' => 'nullable|string|max:255',
             'imagen_coordinador' => 'nullable|image|max:2048',
@@ -102,6 +120,8 @@ class DepartamentoController extends Controller
             'email_contacto' => 'nullable|email|max:255',
             'telefono' => 'nullable|string|max:50',
             'orden' => 'nullable|integer|min:0',
+            'funciones' => 'nullable|array',
+            'funciones.*' => 'nullable|string|max:255',
         ]);
     }
 

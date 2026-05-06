@@ -88,6 +88,7 @@ class SeminarioController extends Controller
 
         return $request->validate([
             'titulo' => 'required|string|max:255',
+            'categoria' => 'required|in:Anuales,Permanentes,Otros',
             'slug' => $slugRule,
             'descripcion' => 'nullable|string',
             'ponente' => 'required|string|max:255',
@@ -99,6 +100,7 @@ class SeminarioController extends Controller
             'enlace_material' => 'nullable|string|max:2048',
             'estado' => 'required|in:borrador,publicado,cancelado',
             'departamento_id' => 'nullable|exists:departamentos,id',
+            'cupo' => 'nullable|integer|min:0',
         ]);
     }
 

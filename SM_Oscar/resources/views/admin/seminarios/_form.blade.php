@@ -27,6 +27,19 @@ $method = $isEdit ? 'PUT' : 'POST';
                     </div>
 
                     <div class="col-12">
+                        <label for="categoria" class="form-label">Categoría <span class="text-danger">*</span></label>
+                        <select class="form-select @error('categoria') is-invalid @enderror" id="categoria" name="categoria" required>
+                            <option value="">-- Seleccionar categoría --</option>
+                            <option value="Anuales" {{ old('categoria', $seminario->categoria) === 'Anuales' ? 'selected' : '' }}>Anuales</option>
+                            <option value="Permanentes" {{ old('categoria', $seminario->categoria) === 'Permanentes' ? 'selected' : '' }}>Permanentes</option>
+                            <option value="Otros" {{ old('categoria', $seminario->categoria) === 'Otros' ? 'selected' : '' }}>Otros</option>
+                        </select>
+                        @error('categoria')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="col-12">
                         <label for="slug" class="form-label">Slug (URL amigable)</label>
                         <input type="text" class="form-control @error('slug') is-invalid @enderror" 
                                id="slug" name="slug" value="{{ old('slug', $seminario->slug) }}" 
@@ -38,7 +51,7 @@ $method = $isEdit ? 'PUT' : 'POST';
                     </div>
 
                     <div class="col-12">
-                        <label for="descripcion" class="form-label">Descripción</label>
+                        <label for="descripcion" class="form-label">Objetivo</label>
                         <textarea class="form-control @error('descripcion') is-invalid @enderror" 
                                   id="descripcion" name="descripcion" rows="4">{{ old('descripcion', $seminario->descripcion) }}</textarea>
                         @error('descripcion')
@@ -139,6 +152,17 @@ $method = $isEdit ? 'PUT' : 'POST';
         <div class="card border-0 shadow-sm">
             <div class="card-body p-4">
                 <h2 class="h6 mb-3" style="color: var(--unam-dorado);">Publicación y Recursos</h2>
+
+                <div class="mb-3">
+                    <label for="cupo" class="form-label">Cupo de Usuarios</label>
+                    <input type="number" class="form-control @error('cupo') is-invalid @enderror" 
+                           id="cupo" name="cupo" value="{{ old('cupo', $seminario->cupo ?? 0) }}" 
+                           min="0">
+                    @error('cupo')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                    <small class="text-muted">0 = sin límite de inscripción</small>
+                </div>
 
                 <div class="mb-3">
                     <label for="estado" class="form-label">Estado <span class="text-danger">*</span></label>

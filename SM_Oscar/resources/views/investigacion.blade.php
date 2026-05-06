@@ -14,13 +14,11 @@
     {{-- Datos de seminarios desde BD para el JS --}}
     @php
         $seminariosJson = $seminarios->map(function($s) {
-            $tipo = 'especial';
-            if (str_contains(strtolower($s->titulo), 'permanente')) $tipo = 'permanente';
-            elseif ($s->fecha_inicio && $s->fecha_fin) {
-                $dias = $s->fecha_inicio->diffInDays($s->fecha_fin);
-                if ($dias > 180) $tipo = 'permanente';
-                else $tipo = 'anual';
-            }
+            $tipo = match($s->categoria) {
+                'Anuales' => 'anual',
+                'Permanentes' => 'permanente',
+                default => 'especial',
+            };
             
             return [
                 'id' => $s->id,
@@ -30,7 +28,7 @@
                 'responsable' => $s->ponente,
                 'correo' => $s->departamento?->email_contacto ?? '',
                 'telefono' => $s->departamento?->telefono ?? '',
-                'areas' => $s->departamento ? [$s->departamento->siglas, $s->departamento->nombre] : [],
+                'areas' => $s->departamento ? [$s->departamento->siglas] : [],
                 'imagen' => $s->imagen_banner ? asset($s->imagen_banner) : null,
                 'departamento' => $s->departamento?->siglas ?? 'UIMA',
                 'lugar' => $s->lugar ?? 'Por definir',
@@ -171,10 +169,13 @@
             </div>
             <!-- ── fin nuevos campos ── -->
 
-            <!-- Seminario -->
+            <!-- Seminario (solo lectura) -->
             <div class="form-group">
-                <label for="modalSeminario">Seminario</label>
-                <select id="modalSeminario" required></select>
+                <label>Seminario</label>
+                <input type="hidden" id="modalSeminarioId" name="seminario_id">
+                <div id="modalSeminarioNombre" style="padding: 0.6rem 0.9rem; background: var(--surface-container-low, #f8f9fa); border-radius: 10px; border: 1px solid var(--outline-variant, #ddd); color: var(--unam-azul, #1E3C70); font-weight: 600;">
+                    <!-- Se llena con JS -->
+                </div>
             </div>
 
             <!-- Motivo -->

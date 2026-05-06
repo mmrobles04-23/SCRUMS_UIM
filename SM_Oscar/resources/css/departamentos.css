@@ -275,10 +275,10 @@
 /* Botón hamburguesa fijo en móvil (parte inferior) */
 .mobile-menu-toggle {
     position: fixed;
-    bottom: 5.5rem;
-    right: 1rem;
-    width: 40px;
-    height: 40px;
+    top: 0.8rem;
+    left: 1rem;
+    width: 42px;
+    height: 42px;
     padding: 0;
     display: flex;
     align-items: center;
@@ -289,7 +289,7 @@
     color: var(--unam-azul, #1E3C70);
     font-size: 1.25rem;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-    z-index: 1040;
+    z-index: 2000;
     transition: all 0.2s ease;
 }
 
@@ -324,7 +324,7 @@
 
 /* Estilos para items activos en móvil */
 .nav-link.active-mobile-depto {
-    background: linear-gradient(90deg, var(--depto-color-alpha, rgba(0,0,0,0.1)) 0%, transparent 100%);
+    background: linear-gradient(90deg, var(--depto-color-alpha, rgba(0, 0, 0, 0.1)) 0%, transparent 100%);
     color: var(--depto-color) !important;
     font-weight: 600;
 }

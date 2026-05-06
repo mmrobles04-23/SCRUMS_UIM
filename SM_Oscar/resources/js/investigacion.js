@@ -1,25 +1,29 @@
-(function() {
+import Swal from 'sweetalert2';
+
+(function () {
     // Usar datos de la BD inyectados desde la vista
     const seminarios = window.seminariosData || [];
 
     const container = document.getElementById('cardsContainer');
 
     // ── Modal ──────────────────────────────────────────────
-    const modal        = document.getElementById('inscripcionModal');
-    const modalForm    = document.getElementById('formInscripcion');
-    const modalSelect  = document.getElementById('modalSeminario');
-    const modalClose   = document.getElementById('modalClose');
+    const modal = document.getElementById('inscripcionModal');
+    const modalForm = document.getElementById('formInscripcion');
+    const modalSeminarioId = document.getElementById('modalSeminarioId');
+    const modalSeminarioNombre = document.getElementById('modalSeminarioNombre');
+    const modalClose = document.getElementById('modalClose');
 
-    // Poblar el <select> con todos los títulos de seminarios
-    seminarios.forEach(s => {
-        const opt = document.createElement('option');
-        opt.value = s.titulo;
-        opt.textContent = s.titulo;
-        modalSelect.appendChild(opt);
-    });
+    let currentSeminarioSeleccionado = null;
 
-    function openModal(titulo) {
-        modalSelect.value = titulo;
+    function openModal(id) {
+        const seminario = seminarios.find(s => s.id == id);
+        currentSeminarioSeleccionado = seminario;
+        
+        if (seminario && modalSeminarioId && modalSeminarioNombre) {
+            modalSeminarioId.value = seminario.id;
+            modalSeminarioNombre.textContent = seminario.titulo || seminario.departamento || 'UIMA';
+        }
+        
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
@@ -39,9 +43,84 @@
     });
 
     // Cerrar al enviar el formulario
-    modalForm.addEventListener('submit', (e) => {
+    modalForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        closeModal();
+        
+        const submitBtn = modalForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        
+        // Deshabilitar botón
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Procesando...';
+
+        const formData = {
+            seminario_id: modalSeminarioId?.value || currentSeminarioSeleccionado?.id,
+            nombre_completo: document.getElementById('inputNombre').value,
+            email: document.getElementById('inputCorreo').value,
+            tipo_usuario: document.getElementById('inputTipoUsuario').value,
+            numero_cuenta: document.getElementById('inputNumeroCuenta').value,
+            motivo: document.getElementById('inputMotivo').value,
+            _token: document.querySelector('meta[name="csrf-token"]')?.content || ''
+        };
+
+        try {
+            const response = await fetch('/inscripcion', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'X-CSRF-TOKEN': formData._token
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Inscripción exitosa!',
+                    html: `<p>Tu número de registro es:</p><h3 style="color: #D4AF37; margin: 15px 0;">${result.numero_registro}</h3><p style="font-size: 0.9em; color: #666;">Guarda este número, lo necesitarás para tu constancia.</p>`,
+                    confirmButtonText: 'Aceptar',
+                    confirmButtonColor: '#1E3C70',
+                    customClass: {
+                        popup: 'swal2-uiim'
+                    }
+                });
+                closeModal();
+            } else {
+                const errorMsg = result.message || 'Error al procesar la inscripción. Por favor revisa los campos.';
+                if (errorMsg.includes('Cupo lleno')) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Cupo lleno',
+                        text: 'Lo sentimos, el cupo para este seminario está completo.',
+                        confirmButtonText: 'Entendido',
+                        confirmButtonColor: '#1E3C70'
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: errorMsg,
+                        confirmButtonText: 'Aceptar',
+                        confirmButtonColor: '#1E3C70'
+                    });
+                }
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error inesperado',
+                text: 'Ocurrió un error al procesar tu inscripción. Inténtalo más tarde.',
+                confirmButtonText: 'Aceptar',
+                confirmButtonColor: '#1E3C70'
+            });
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+        }
     });
     // ──────────────────────────────────────────────────────
 
@@ -60,12 +139,12 @@
             let tagClass = s.tipo === 'permanente' ? 'permanente' : (s.tipo === 'especial' ? 'especial' : '');
             let correoHtml = s.correo ? `<div class="correo"><i class="bi bi-envelope"></i> ${s.correo}</div>` : '';
             let telefonoHtml = s.telefono ? `<div class="telefono"><i class="bi bi-telephone"></i> ${s.telefono}</div>` : '';
-            let imgSrc = s.imagen || placeholders[s.tipo] || placeholders['especial'];
+            let imgSrc = s.imagen || '/seminarios/banners/Seminariosdefault.png';
             let areasHtml = (s.areas && s.areas.length) ? `<div class="card-areas"><i class="bi bi-tag"></i>${s.areas.map(a => `<span>${a}</span>`).join('')}</div>` : '';
-            
+
             // Resumen corto del objetivo para móvil (primeros 80 caracteres)
             let objetivoResumen = s.objetivo.length > 80 ? s.objetivo.substring(0, 80) + '...' : s.objetivo;
-            
+
             card.innerHTML = `
                 <img class="card-img" src="${imgSrc}" alt="${s.titulo}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                 <div class="card-img-fallback" style="display:none;"><i class="bi bi-easel"></i></div>
@@ -78,10 +157,10 @@
                 ${correoHtml}
                 ${telefonoHtml}
                 <div class="card-actions">
-                    <button class="btn-ver-mas" data-titulo="${encodeURIComponent(s.titulo)}">
+                    <button class="btn-ver-mas" data-id="${s.id}" data-titulo="${encodeURIComponent(s.titulo)}">
                         <i class="bi bi-eye"></i> Ver más
                     </button>
-                    <button class="btn-inscripcion"><i class="bi bi-pencil"></i> Inscribirme</button>
+                    <button class="btn-inscripcion" data-id="${s.id}"><i class="fas fa-user-plus"></i> Inscribirme ahora <span class="btn-arrow">→</span></button>
                 </div>
                 </div>
             `;
@@ -91,11 +170,11 @@
         document.querySelectorAll('.btn-inscripcion').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
-                const titulo = btn.closest('.seminario-card').querySelector('h3').textContent;
-                openModal(titulo);
+                const id = btn.dataset.id;
+                openModal(id);
             });
         });
-        
+
         // Event listeners para botones "ver más"
         document.querySelectorAll('.btn-ver-mas').forEach(btn => {
             btn.addEventListener('click', (e) => {
@@ -135,7 +214,7 @@
     }
 
     filterBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function () {
             filterBtns.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
             filtrar();
@@ -153,7 +232,7 @@
 
     // Toggle del menú dropdown
     if (filterMenuToggle) {
-        filterMenuToggle.addEventListener('click', function(e) {
+        filterMenuToggle.addEventListener('click', function (e) {
             e.stopPropagation();
             filterDropdown.classList.toggle('active');
         });
@@ -161,7 +240,7 @@
 
     // Selección de filtro en dropdown
     filterDropdownItems.forEach(item => {
-        item.addEventListener('click', function() {
+        item.addEventListener('click', function () {
             const filterValue = this.dataset.filter;
             const filterText = this.textContent.trim();
 
@@ -190,8 +269,8 @@
     });
 
     // Cerrar dropdown al hacer click fuera
-    document.addEventListener('click', function(e) {
-        if (filterDropdown && !filterDropdown.contains(e.target) && 
+    document.addEventListener('click', function (e) {
+        if (filterDropdown && !filterDropdown.contains(e.target) &&
             filterMenuToggle && !filterMenuToggle.contains(e.target)) {
             filterDropdown.classList.remove('active');
         }
@@ -199,7 +278,7 @@
 
     // Cerrar dropdown al hacer scroll (mejor UX en móvil)
     let lastScrollY = window.scrollY;
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         if (filterDropdown && filterDropdown.classList.contains('active')) {
             const currentScrollY = window.scrollY;
             // Solo cerrar si hay scroll significativo
@@ -219,19 +298,19 @@
 
     function openDetailModal(seminario) {
         currentSeminarioDetail = seminario;
-        
-        const tagText = seminario.tipo === 'anual' ? 'Anual' : 
-                       (seminario.tipo === 'permanente' ? 'Permanente' : 'Seminario');
-        const areasHtml = (seminario.areas && seminario.areas.length) 
-            ? seminario.areas.map(a => `<span class="detail-area">${a}</span>`).join('') 
+
+        const tagText = seminario.tipo === 'anual' ? 'Anual' :
+            (seminario.tipo === 'permanente' ? 'Permanente' : 'Seminario');
+        const areasHtml = (seminario.areas && seminario.areas.length)
+            ? seminario.areas.map(a => `<span class="detail-area">${a}</span>`).join('')
             : '';
-        const correoHtml = seminario.correo 
-            ? `<div class="detail-contacto"><i class="bi bi-envelope"></i> ${seminario.correo}</div>` 
+        const correoHtml = seminario.correo
+            ? `<div class="detail-contacto"><i class="bi bi-envelope"></i> ${seminario.correo}</div>`
             : '';
-        const telefonoHtml = seminario.telefono 
-            ? `<div class="detail-contacto"><i class="bi bi-telephone"></i> ${seminario.telefono}</div>` 
+        const telefonoHtml = seminario.telefono
+            ? `<div class="detail-contacto"><i class="bi bi-telephone"></i> ${seminario.telefono}</div>`
             : '';
-        
+
         detailModalBody.innerHTML = `
             <div class="detail-header">
                 <span class="detail-tag">${tagText}</span>
@@ -255,7 +334,7 @@
                 ${telefonoHtml}
             </div>` : ''}
         `;
-        
+
         detailModal.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
@@ -272,7 +351,7 @@
     }
 
     if (detailModal) {
-        detailModal.addEventListener('click', function(e) {
+        detailModal.addEventListener('click', function (e) {
             if (e.target === detailModal) {
                 closeDetailModal();
             }
@@ -281,11 +360,11 @@
 
     // Botón "Inscribirme" desde el modal de detalles
     if (btnInscribirFromDetail) {
-        btnInscribirFromDetail.addEventListener('click', function() {
+        btnInscribirFromDetail.addEventListener('click', function () {
             if (currentSeminarioDetail) {
                 closeDetailModal();
                 setTimeout(() => {
-                    openModal(currentSeminarioDetail.titulo);
+                    openModal(currentSeminarioDetail.id);
                 }, 200);
             }
         });
@@ -294,59 +373,59 @@
     // Exponer función global para los botones "Ver más"
     window.openDetailModal = openDetailModal;
 })();
-   
+
 
 // ── Lógica: selector tipo de usuario 
 
-    (function () {
-        const selectTipo   = document.getElementById('inputTipoUsuario');
-        const grupoCuenta  = document.getElementById('grupo-numero-cuenta');
-        const inputCuenta  = document.getElementById('inputNumeroCuenta');
-        const badge        = document.getElementById('tipoBadge');
+(function () {
+    const selectTipo = document.getElementById('inputTipoUsuario');
+    const grupoCuenta = document.getElementById('grupo-numero-cuenta');
+    const inputCuenta = document.getElementById('inputNumeroCuenta');
+    const badge = document.getElementById('tipoBadge');
 
-        selectTipo.addEventListener('change', function () {
-            const tipo = this.value;
+    selectTipo.addEventListener('change', function () {
+        const tipo = this.value;
 
-            if (tipo === 'interno') {
-                // Mostrar campo con animación
-                grupoCuenta.classList.add('visible');
-                inputCuenta.setAttribute('required', 'required');
+        if (tipo === 'interno') {
+            // Mostrar campo con animación
+            grupoCuenta.classList.add('visible');
+            inputCuenta.setAttribute('required', 'required');
 
-                // Badge azul "FES Acatlán"
-                badge.textContent = 'FES Acatlán';
-                badge.className = 'tipo-badge interno';
+            // Badge azul "FES Acatlán"
+            badge.textContent = 'FES Acatlán';
+            badge.className = 'tipo-badge interno';
 
-            } else {
-                // Ocultar campo y limpiar
-                grupoCuenta.classList.remove('visible');
-                inputCuenta.removeAttribute('required');
-                inputCuenta.value = '';
-
-                if (tipo === 'externo') {
-                    // Badge dorado "Externo"
-                    badge.textContent = 'Externo';
-                    badge.className = 'tipo-badge externo';
-                } else {
-                    // Sin selección: quitar badge
-                    badge.textContent = '';
-                    badge.className = 'tipo-badge';
-                }
-            }
-        });
-
-        // Limpiar número de cuenta al cerrar/resetear el modal
-        const btnCerrar = document.getElementById('modalClose');
-        const formulario = document.getElementById('formInscripcion');
-
-        function resetTipoUsuario() {
-            selectTipo.value = '';
+        } else {
+            // Ocultar campo y limpiar
             grupoCuenta.classList.remove('visible');
             inputCuenta.removeAttribute('required');
             inputCuenta.value = '';
-            badge.textContent = '';
-            badge.className = 'tipo-badge';
-        }
 
-        if (btnCerrar)  btnCerrar.addEventListener('click', resetTipoUsuario);
-        if (formulario) formulario.addEventListener('reset', resetTipoUsuario);
-    })();
+            if (tipo === 'externo') {
+                // Badge dorado "Externo"
+                badge.textContent = 'Externo';
+                badge.className = 'tipo-badge externo';
+            } else {
+                // Sin selección: quitar badge
+                badge.textContent = '';
+                badge.className = 'tipo-badge';
+            }
+        }
+    });
+
+    // Limpiar número de cuenta al cerrar/resetear el modal
+    const btnCerrar = document.getElementById('modalClose');
+    const formulario = document.getElementById('formInscripcion');
+
+    function resetTipoUsuario() {
+        selectTipo.value = '';
+        grupoCuenta.classList.remove('visible');
+        inputCuenta.removeAttribute('required');
+        inputCuenta.value = '';
+        badge.textContent = '';
+        badge.className = 'tipo-badge';
+    }
+
+    if (btnCerrar) btnCerrar.addEventListener('click', resetTipoUsuario);
+    if (formulario) formulario.addEventListener('reset', resetTipoUsuario);
+})();

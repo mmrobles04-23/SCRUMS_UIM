@@ -74,10 +74,19 @@ $method = $isEdit ? 'PUT' : 'POST';
                     </div>
 
                     <div class="col-12">
-                        <label for="descripcion" class="form-label">Descripción</label>
+                        <label for="descripcion" class="form-label">Descripción Breve (para tarjetas)</label>
                         <textarea class="form-control @error('descripcion') is-invalid @enderror" 
-                                  id="descripcion" name="descripcion" rows="4">{{ old('descripcion', $departamento->descripcion) }}</textarea>
+                                  id="descripcion" name="descripcion" rows="2">{{ old('descripcion', $departamento->descripcion) }}</textarea>
                         @error('descripcion')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="col-12">
+                        <label for="objetivo" class="form-label">Nuestro Objetivo</label>
+                        <textarea class="form-control @error('objetivo') is-invalid @enderror" 
+                                  id="objetivo" name="objetivo" rows="4" placeholder="Escribe el objetivo institucional del departamento...">{{ old('objetivo', $departamento->objetivo) }}</textarea>
+                        @error('objetivo')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
@@ -150,6 +159,41 @@ $method = $isEdit ? 'PUT' : 'POST';
                         @enderror
                         <small class="text-muted">Número menor = aparece primero</small>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- Funciones Principales --}}
+        <div class="card border-0 shadow-sm mt-4">
+            <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 class="h6 mb-0" style="color: var(--unam-dorado);">
+                        <i class="bi bi-check-circle-fill me-2"></i>Funciones Principales
+                    </h2>
+                    <button type="button" class="btn btn-outline-warning btn-sm" onclick="addFuncion()">
+                        <i class="bi bi-plus-lg me-1"></i>Añadir Función
+                    </button>
+                </div>
+                
+                <div id="funciones-container" class="row g-2">
+                    @php $fList = old('funciones', $isEdit ? $departamento->funciones->pluck('descripcion')->toArray() : []); @endphp
+                    @forelse($fList as $desc)
+                        <div class="col-12 funcion-item">
+                            <div class="input-group shadow-sm">
+                                <span class="input-group-text bg-white border-end-0"><i class="bi bi-dot fs-4" style="color: var(--unam-dorado);"></i></span>
+                                <input type="text" name="funciones[]" class="form-control border-start-0" value="{{ $desc }}" placeholder="Describa la función...">
+                                <button type="button" class="btn btn-outline-danger" onclick="removeFuncion(this)"><i class="bi bi-trash"></i></button>
+                            </div>
+                        </div>
+                    @empty
+                        <div class="col-12 funcion-item">
+                            <div class="input-group shadow-sm">
+                                <span class="input-group-text bg-white border-end-0"><i class="bi bi-dot fs-4" style="color: var(--unam-dorado);"></i></span>
+                                <input type="text" name="funciones[]" class="form-control border-start-0" value="" placeholder="Describa la función...">
+                                <button type="button" class="btn btn-outline-danger" onclick="removeFuncion(this)"><i class="bi bi-trash"></i></button>
+                            </div>
+                        </div>
+                    @endforelse
                 </div>
             </div>
         </div>
@@ -232,4 +276,31 @@ $method = $isEdit ? 'PUT' : 'POST';
             document.getElementById('color').value = this.value;
         }
     });
+
+    // Lógica para Funciones Dinámicas
+    function addFuncion() {
+        const container = document.getElementById('funciones-container');
+        const div = document.createElement('div');
+        div.className = 'col-12 funcion-item';
+        div.innerHTML = `
+            <div class="input-group shadow-sm">
+                <span class="input-group-text bg-white border-end-0"><i class="bi bi-dot fs-4" style="color: var(--unam-dorado);"></i></span>
+                <input type="text" name="funciones[]" class="form-control border-start-0" value="" placeholder="Describa la función...">
+                <button type="button" class="btn btn-outline-danger" onclick="removeFuncion(this)">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </div>
+        `;
+        container.appendChild(div);
+        div.querySelector('input').focus();
+    }
+
+    function removeFuncion(btn) {
+        const items = document.querySelectorAll('.funcion-item');
+        if (items.length > 1) {
+            btn.closest('.funcion-item').remove();
+        } else {
+            btn.closest('.funcion-item').querySelector('input').value = '';
+        }
+    }
 </script>

@@ -30,8 +30,34 @@ use Illuminate\Validation\Rules\Password;
  * - `DELETE /api/users/{id}` -> {@see destroy()}
  */
 
+use App\Models\Permiso;
+use App\Models\Rol;
+
 class UserController extends Controller
 {
+    /**
+     * Lista los usuarios para la vista de administración.
+     */
+    public function index()
+    {
+        $users = User::with(['permiso', 'rol'])
+            ->orderBy('nombre')
+            ->paginate(15);
+
+        return view('admin.usuarios.index', compact('users'));
+    }
+
+    /**
+     * Muestra el formulario de edición.
+     */
+    public function edit(User $user)
+    {
+        $permisos = Permiso::all();
+        $roles = Rol::all();
+        
+        return view('admin.usuarios.edit', compact('user', 'permisos', 'roles'));
+    }
+
     /**
      * Crea un usuario "normal" desde el panel administrativo.
      *
@@ -185,7 +211,12 @@ class UserController extends Controller
 
         $user->update($validated);
 
-        return response()->json(['message' => 'Usuario actualizado con éxito', 'user' => $user]);
+        if ($request->expectsJson()) {
+            return response()->json(['message' => 'Usuario actualizado con éxito', 'user' => $user]);
+        }
+
+        return redirect()->route('admin.usuarios.index')
+            ->with('success', 'Usuario actualizado con éxito');
     }
 
     /**
@@ -237,8 +268,13 @@ class UserController extends Controller
             'active' => $request->active
         ])->save();
 
-        $status = $request->active ? 'activated' : 'deactivated';
-        return response()->json(['message' => "User has been {$status} successfully", 'active' => $user->active]);
+        $status = $request->active ? 'activado' : 'desactivado';
+        
+        if ($request->expectsJson()) {
+            return response()->json(['message' => "User has been {$status} successfully", 'active' => $user->active]);
+        }
+
+        return back()->with('success', "Usuario {$status} con éxito");
     }
 
     /**
@@ -272,6 +308,10 @@ class UserController extends Controller
             'password' => Hash::make($request->password)
         ])->save();
 
-        return response()->json(['message' => 'Contraseña actualizada con éxito']);
+        if ($request->expectsJson()) {
+            return response()->json(['message' => 'Contraseña actualizada con éxito']);
+        }
+
+        return back()->with('success', 'Contraseña actualizada con éxito');
     }
 }

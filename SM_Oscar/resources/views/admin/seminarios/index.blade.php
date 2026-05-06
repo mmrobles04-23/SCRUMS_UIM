@@ -26,6 +26,7 @@
                     <thead class="table-light">
                         <tr>
                             <th>Título</th>
+                            <th>Categoría</th>
                             <th>Ponente</th>
                             <th>Departamento</th>
                             <th>Fecha</th>
@@ -37,6 +38,7 @@
                         @forelse($seminarios as $s)
                             <tr>
                                 <td class="fw-medium">{{ \Illuminate\Support\Str::limit($s->titulo, 40) }}</td>
+                                <td><span class="badge bg-light text-dark border">{{ $s->categoria }}</span></td>
                                 <td>{{ $s->ponente }}</td>
                                 <td>{{ $s->departamento?->siglas ?? '—' }}</td>
                                 <td>

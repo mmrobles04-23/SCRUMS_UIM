@@ -6,6 +6,9 @@
         "build": "vite build",
         "dev": "vite"
     },
+    "dependencies": {
+        "sweetalert2": "11.26.24"
+    },
     "devDependencies": {
         "axios": "^1.11.0",
         "concurrently": "^9.0.1",

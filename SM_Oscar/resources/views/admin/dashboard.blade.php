@@ -106,8 +106,26 @@
         </div>
 
         <div class="col-12 col-md-6 col-xl-4">
+            <a class="text-decoration-none" href="{{ route('admin.usuarios.index') }}">
+                <div class="card border-0 shadow-sm h-100" style="border-radius: 20px;">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="rounded-3 d-inline-flex align-items-center justify-content-center" style="width: 44px; height: 44px; background: rgba(30,60,112,0.10); border-radius: 12px !important;">
+                                <i class="bi bi-people" style="color: var(--unam-azul);"></i>
+                            </div>
+                            <div>
+                                <div class="fw-bold" style="color: var(--unam-dorado);">Usuarios</div>
+                                <div class="small text-body-secondary">Gestión de cuentas y roles</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-4">
             <a class="text-decoration-none" href="{{ route('admin.welcome.edit') }}">
-                <div class="card border-0 shadow-sm h-100">
+                <div class="card border-0 shadow-sm h-100" style="border-radius: 20px;">
                     <div class="card-body p-4">
                         <div class="d-flex align-items-center gap-3">
                             <div class="rounded-3 d-inline-flex align-items-center justify-content-center" style="width: 44px; height: 44px; background: rgba(30,60,112,0.10);">

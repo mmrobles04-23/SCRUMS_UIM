@@ -107,7 +107,12 @@
                 <div class="responsable"><i class="fas fa-user-tie"></i> ${s.responsable}</div>
                 ${correoHtml}
                 ${telefonoHtml}
-                <button class="btn-inscripcion"><i class="fas fa-user-plus"></i> Inscribirme ahora <span class="btn-arrow">→</span></button>
+                <div class="card-actions">
+                    <button class="btn-ver-mas" data-titulo="${encodeURIComponent(s.titulo)}">
+                        <i class="bi bi-eye"></i> Ver más
+                    </button>
+                    <button class="btn-inscripcion"><i class="fas fa-user-plus"></i> Inscribirme ahora <span class="btn-arrow">→</span></button>
+                </div>
                 </div>
             `;
             container.appendChild(card);

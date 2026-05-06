@@ -72,11 +72,10 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        /*
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        $this->call([
+            SettingsSeeder::class,
+            DepartamentoSeeder::class,
+            SeminarioSeeder::class,
         ]);
-        */
     }
 }

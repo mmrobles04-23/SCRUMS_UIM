@@ -17,10 +17,7 @@
           <div class="d-flex align-items-center gap-2 gap-md-4">
             <div class="flex-grow-1">
               <p class="text-on-surface small lh-base lh-lg-md mb-0 font-body">
-                Caracterizar las acciones generadas por los distintos agentes perturbadores mediante el análisis
-                riguroso de modelos estocásticos y deterministas. Buscamos establecer marcos metodológicos que
-                permitan la prevención oportuna y la mitigación de impactos en infraestructuras críticas y asentamientos
-                humanos.
+                {{ $deptoActivo->objetivo ?? $deptoActivo->descripcion }}
               </p>
             </div>
           </div>
@@ -39,30 +36,14 @@
           </h3>
 
           <div class="row g-2 g-md-3">
-            <div class="col-12 col-md-6 d-flex gap-2 gap-md-3 align-items-start">
-              <span class="fw-bold fs-5 fs-md-4 lh-1 flex-shrink-0" style="color: var(--depto-color);">•</span>
-              <span class="text-on-surface-variant small pt-1">Evaluar riesgos geológicos e hidrometeorológicos.</span>
-            </div>
-            <div class="col-12 col-md-6 d-flex gap-2 gap-md-3 align-items-start">
-              <span class="fw-bold fs-5 fs-md-4 lh-1 flex-shrink-0" style="color: var(--depto-color);">•</span>
-              <span class="text-on-surface-variant small pt-1">Desarrollo de metodologías de cuantificación.</span>
-            </div>
-            <div class="col-12 col-md-6 d-flex gap-2 gap-md-3 align-items-start">
-              <span class="fw-bold fs-5 fs-md-4 lh-1 flex-shrink-0" style="color: var(--depto-color);">•</span>
-              <span class="text-on-surface-variant small pt-1">Análisis de vulnerabilidad estructural en zonas críticas.</span>
-            </div>
-            <div class="col-12 col-md-6 d-flex gap-2 gap-md-3 align-items-start">
-              <span class="fw-bold fs-5 fs-md-4 lh-1 flex-shrink-0" style="color: var(--depto-color);">•</span>
-              <span class="text-on-surface-variant small pt-1">Consultoría especializada para entes gubernamentales.</span>
-            </div>
-            <div class="col-12 col-md-6 d-flex gap-2 gap-md-3 align-items-start">
-              <span class="fw-bold fs-5 fs-md-4 lh-1 flex-shrink-0" style="color: var(--depto-color);">•</span>
-              <span class="text-on-surface-variant small pt-1">Monitoreo sísmico y alertamiento temprano.</span>
-            </div>
-            <div class="col-12 col-md-6 d-flex gap-2 gap-md-3 align-items-start">
-              <span class="fw-bold fs-5 fs-md-4 lh-1 flex-shrink-0" style="color: var(--depto-color);">•</span>
-              <span class="text-on-surface-variant small pt-1">Investigación en nuevos materiales resilientes.</span>
-            </div>
+            @forelse($deptoActivo->funciones as $funcion)
+              <div class="col-12 col-md-6 d-flex gap-2 gap-md-3 align-items-start">
+                <span class="fw-bold fs-5 fs-md-4 lh-1 flex-shrink-0" style="color: var(--depto-color);">•</span>
+                <span class="text-on-surface-variant small pt-1">{{ $funcion->descripcion }}</span>
+              </div>
+            @empty
+              <div class="col-12 text-muted small">No se han definido funciones para este departamento.</div>
+            @endforelse
           </div>
         </div>
       </div>

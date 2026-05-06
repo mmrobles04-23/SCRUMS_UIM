@@ -18,6 +18,7 @@ class Departamento extends Model
         'logo',
         'icono',
         'descripcion',
+        'objetivo',
         'imagen_banner',
         'coordinador',
         'imagen_coordinador',
@@ -45,5 +46,10 @@ class Departamento extends Model
     public function scopeOrdenados($query)
     {
         return $query->orderBy('orden')->orderBy('nombre');
+    }
+
+    public function funciones()
+    {
+        return $this->hasMany(FuncionDepartamento::class);
     }
 }

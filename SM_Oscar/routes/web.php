@@ -11,6 +11,9 @@ use App\Http\Controllers\Admin\DepartamentoController as AdminDepartamentoContro
 use App\Http\Controllers\Admin\SeminarioController as AdminSeminarioController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\WelcomeController;
+use App\Http\Controllers\Admin\InscripcionController as AdminInscripcionController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\InscripcionController;
 
 Route::get('/', [HomeController::class, 'welcome'])->name('home');
 
@@ -18,6 +21,7 @@ Route::get('/congreso', [CongresoController::class, 'indexPublico'])->name('cong
 Route::get('/congresos/{congreso:slug}', [CongresoController::class, 'showPublico'])->name('congresos.show');
 
 Route::get('/investigacion', [SeminarioController::class, 'index'])->name('seminarios.index');
+Route::post('/inscripcion', [InscripcionController::class, 'store'])->name('inscripciones.store');
 
 Route::get('/departamento/{siglas}', [DepartamentoController::class, 'show'])->name('departamento.show');
 Route::get('/departamento', [DepartamentoController::class, 'show'])->defaults('siglas', 'DRNA');
@@ -63,6 +67,17 @@ Route::middleware('web')->group(function () {
 
                 Route::get('welcome', [WelcomeController::class, 'edit'])->name('welcome.edit');
                 Route::post('welcome', [WelcomeController::class, 'update'])->name('welcome.update');
+
+                // Gestión de Usuarios
+                Route::get('usuarios', [UserController::class, 'index'])->name('usuarios.index');
+                Route::get('usuarios/{user}/edit', [UserController::class, 'edit'])->name('usuarios.edit');
+                Route::put('usuarios/{user}', [UserController::class, 'update'])->name('usuarios.update');
+                Route::put('usuarios/{user}/password', [UserController::class, 'changePassword'])->name('usuarios.password.update');
+                Route::patch('usuarios/{user}/status', [UserController::class, 'toggleStatus'])->name('usuarios.status.toggle');
+
+                // Gestión de Inscripciones a Seminarios
+                Route::get('inscripciones', [AdminInscripcionController::class, 'index'])->name('inscripciones.index');
+                Route::delete('inscripciones/{inscripcion}', [AdminInscripcionController::class, 'destroy'])->name('inscripciones.destroy');
             });
         });
     });
