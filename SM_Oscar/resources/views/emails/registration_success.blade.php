@@ -80,30 +80,18 @@
         </div>
         <div class="content">
             <h2>¡Bienvenido, {{ $user->nombre }}!</h2>
-            <p>Tu registro en nuestra plataforma ha sido exitoso. Para completar el proceso y activar tu cuenta de administrador, debes verificar tu correo electrónico.</p>
+            <p>Tu registro en nuestra plataforma ha sido exitoso. Estamos encantados de tenerte con nosotros.</p>
             
             <div class="details">
                 <p>Nombre Completo: <span>{{ $user->nombre }} {{ $user->apellido_paterno }} {{ $user->apellido_materno }}</span></p>
                 <p>Correo Electrónico: <span>{{ $user->email }}</span></p>
             </div>
 
-            <p style="text-align: center; margin: 30px 0;">
-                <strong>¡Importante!</strong><br>
-                Haz clic en el siguiente botón para verificar tu cuenta y obtener permisos de administrador:
-            </p>
-
+            <p>Ahora puedes acceder a todas las funcionalidades de UIM FES ACATLÁN.</p>
+            
             <center>
-                <a href="{{ $verificationUrl }}" class="btn" style="background-color: #1E3C70;">Verificar mi cuenta de Administrador</a>
+                <a href="#" class="btn">Ir a la Plataforma</a>
             </center>
-
-            <p style="font-size: 12px; color: #718096; margin-top: 30px; text-align: center;">
-                Si no puedes hacer clic en el botón, copia y pega este enlace en tu navegador:<br>
-                <a href="{{ $verificationUrl }}" style="color: #1E3C70;">{{ $verificationUrl }}</a>
-            </p>
-
-            <p style="margin-top: 30px; font-size: 14px; color: #e53e3e; text-align: center;">
-                <strong>Nota:</strong> Si no verificas tu cuenta, no podrás iniciar sesión en la plataforma.
-            </p>
         </div>
         <div class="footer">
             <p>&copy; {{ date('Y') }} UIM FES ACATLÁN. Todos los derechos reservados.</p>

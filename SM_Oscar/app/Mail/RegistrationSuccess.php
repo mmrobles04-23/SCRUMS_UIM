@@ -21,7 +21,7 @@ class RegistrationSuccess extends Mailable
     /**
      * Create a new message instance. (Crear una nueva instancia del mensaje.)
      */
-    public function __construct(public User $user, public string $verificationUrl)
+    public function __construct(public User $user)
     {
         //
     }
