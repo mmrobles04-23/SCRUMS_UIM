@@ -102,7 +102,11 @@
                 <div class="card-body">
                 <span class="card-tag ${tagClass}">${tagText}</span>
                 <h3>${s.titulo}</h3>
-                <div class="objetivo"><strong>OBJETIVO:</strong> <p>${s.objetivo}</p></div>
+                <div class="objetivo">
+                  <strong>OBJETIVO:</strong> 
+                  <p class="card-objetivo">${s.objetivo}</p>
+                  <button class="btn-toggle-texto">Ver más</button>
+                </div>
                 ${areasHtml}
                 <div class="responsable"><i class="fas fa-user-tie"></i> ${s.responsable}</div>
                 ${correoHtml}
@@ -128,22 +132,46 @@
 
     renderCards(seminarios);
 
+    container.addEventListener("click", function(e) {
+
+        // Botón ver más
+        if (e.target.classList.contains("btn-toggle-texto")) {
+            const btn = e.target;
+            const texto = btn.previousElementSibling;
+
+            texto.classList.toggle("expandido");
+
+            btn.textContent = texto.classList.contains("expandido")
+                ? "Ver menos"
+                : "Ver más";
+        }
+
+        if (e.target.classList.contains("btn-inscripcion")) {
+            const card = e.target.closest('.seminario-card');
+            const titulo = card.querySelector('h3').textContent;
+            openModal(titulo);
+        }
+    });
+
+    // ── FILTRO ────────────────────────
     const filterBtns = document.querySelectorAll('.filter-btn');
     const searchInput = document.getElementById('searchInput');
-    const searchBtn = document.getElementById('searchBtn');
 
     function filtrar() {
         const active = document.querySelector('.filter-btn.active')?.dataset.filter || 'todos';
-        const term = searchInput.value.trim().toLowerCase();
-        const filtered = seminarios.filter(s => {
-            const catMatch = (active === 'todos') ? true : s.tipo === active;
-            const searchMatch = term === '' ? true :
+        const term = searchInput.value.toLowerCase();
+
+        const filtrados = seminarios.filter(s => {
+            const catMatch = active === 'todos' || s.tipo === active;
+            const textMatch =
                 s.titulo.toLowerCase().includes(term) ||
                 s.objetivo.toLowerCase().includes(term) ||
                 s.responsable.toLowerCase().includes(term);
-            return catMatch && searchMatch;
+
+            return catMatch && textMatch;
         });
-        renderCards(filtered);
+
+        renderCards(filtrados);
     }
 
     filterBtns.forEach(btn => {
@@ -155,6 +183,5 @@
     });
 
     searchInput.addEventListener('input', filtrar);
-    searchBtn.addEventListener('click', filtrar);
+
 })();
-   
