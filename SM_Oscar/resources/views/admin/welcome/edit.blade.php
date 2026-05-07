@@ -135,6 +135,50 @@
         </div>
     </div>
 
+    {{-- Eventos Próximos --}}
+    <div class="card border-0 shadow-sm mb-4">
+        <div class="card-body p-4">
+            <h2 class="h6 mb-3" style="color: var(--unam-dorado);">
+                <i class="bi bi-calendar-week me-2"></i>Eventos Próximos a Vencer
+            </h2>
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <label class="form-label small">Mostrar sección</label>
+                    <select class="form-select" name="eventos_proximos_activo">
+                        <option value="1" {{ old('eventos_proximos_activo', $settings['eventos_proximos_activo']->value ?? '1') == '1' ? 'selected' : '' }}>Sí</option>
+                        <option value="0" {{ old('eventos_proximos_activo', $settings['eventos_proximos_activo']->value ?? '1') == '0' ? 'selected' : '' }}>No</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label small">Título</label>
+                    <input type="text" class="form-control" name="eventos_proximos_titulo"
+                           value="{{ old('eventos_proximos_titulo', $settings['eventos_proximos_titulo']->value ?? 'Eventos Próximos a Vencer') }}">
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label small">Período</label>
+                    <select class="form-select" name="eventos_proximos_periodo">
+                        <option value="semana" {{ old('eventos_proximos_periodo', $settings['eventos_proximos_periodo']->value ?? 'mes') == 'semana' ? 'selected' : '' }}>Semana (7 días)</option>
+                        <option value="mes" {{ old('eventos_proximos_periodo', $settings['eventos_proximos_periodo']->value ?? 'mes') == 'mes' ? 'selected' : '' }}>Mes (30 días)</option>
+                        <option value="trimestre" {{ old('eventos_proximos_periodo', $settings['eventos_proximos_periodo']->value ?? 'mes') == 'trimestre' ? 'selected' : '' }}>Trimestre (90 días)</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label small">Cantidad máx.</label>
+                    <input type="number" class="form-control" name="eventos_proximos_cantidad" min="3" max="12"
+                           value="{{ old('eventos_proximos_cantidad', $settings['eventos_proximos_cantidad']->value ?? '6') }}">
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label small">Tipo de eventos</label>
+                    <select class="form-select" name="eventos_proximos_tipo">
+                        <option value="ambos" {{ old('eventos_proximos_tipo', $settings['eventos_proximos_tipo']->value ?? 'ambos') == 'ambos' ? 'selected' : '' }}>Ambos</option>
+                        <option value="congresos" {{ old('eventos_proximos_tipo', $settings['eventos_proximos_tipo']->value ?? 'ambos') == 'congresos' ? 'selected' : '' }}>Solo Congresos</option>
+                        <option value="seminarios" {{ old('eventos_proximos_tipo', $settings['eventos_proximos_tipo']->value ?? 'ambos') == 'seminarios' ? 'selected' : '' }}>Solo Seminarios</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
     {{-- Congresos --}}
     <div class="card border-0 shadow-sm mb-4">
         <div class="card-body p-4">

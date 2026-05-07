@@ -76,6 +76,7 @@ class DatabaseSeeder extends Seeder
             SettingsSeeder::class,
             DepartamentoSeeder::class,
             SeminarioSeeder::class,
+            CongresoSeeder::class,
         ]);
     }
 }

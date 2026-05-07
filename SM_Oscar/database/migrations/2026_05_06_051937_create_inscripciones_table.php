@@ -24,9 +24,6 @@ return new class extends Migration
             $table->text('motivo');
             $table->string('numero_registro')->unique();
             $table->timestamps();
-
-            // Asegurar que solo haya una referencia (seminario o congreso, no ambas, no ninguna)
-            $table->check('(seminario_id IS NOT NULL AND congreso_id IS NULL) OR (seminario_id IS NULL AND congreso_id IS NOT NULL)');
         });
     }
 

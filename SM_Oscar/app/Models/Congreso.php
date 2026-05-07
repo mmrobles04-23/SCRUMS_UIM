@@ -54,6 +54,14 @@ class Congreso extends Model
         return $query->where('activo', true);
     }
 
+    public function scopeProximosAVencer($query, int $dias = 30)
+    {
+        return $query->where('activo', true)
+            ->where('fecha_fin', '>=', now())
+            ->where('fecha_fin', '<=', now()->addDays($dias))
+            ->orderBy('fecha_fin');
+    }
+
     public function imagenes()
     {
         return $this->hasMany(CongresoImagen::class)->orderBy('orden');

@@ -73,6 +73,13 @@ class SettingsSeeder extends Seeder
             ['group' => 'welcome', 'key' => 'noticia3_categoria', 'type' => 'text', 'label' => 'Noticia 3 - Categoría', 'value' => 'Vinculación'],
             ['group' => 'welcome', 'key' => 'noticia3_fecha', 'type' => 'text', 'label' => 'Noticia 3 - Fecha', 'value' => 'Sep 28'],
             ['group' => 'welcome', 'key' => 'noticia3_link', 'type' => 'text', 'label' => 'Noticia 3 - Link', 'value' => '#'],
+
+            // ========== EVENTOS PRÓXIMOS (Carrusel) ==========
+            ['group' => 'welcome', 'key' => 'eventos_proximos_activo', 'type' => 'boolean', 'label' => 'Eventos Próximos - Mostrar sección', 'value' => '1'],
+            ['group' => 'welcome', 'key' => 'eventos_proximos_titulo', 'type' => 'text', 'label' => 'Eventos Próximos - Título', 'value' => 'Eventos Próximos a Vencer'],
+            ['group' => 'welcome', 'key' => 'eventos_proximos_periodo', 'type' => 'text', 'label' => 'Eventos Próximos - Período (semana/mes/trimestre)', 'value' => 'mes'],
+            ['group' => 'welcome', 'key' => 'eventos_proximos_cantidad', 'type' => 'text', 'label' => 'Eventos Próximos - Cantidad máxima', 'value' => '6'],
+            ['group' => 'welcome', 'key' => 'eventos_proximos_tipo', 'type' => 'text', 'label' => 'Eventos Próximos - Tipo (ambos/congresos/seminarios)', 'value' => 'ambos'],
         ];
 
         foreach ($settings as $setting) {

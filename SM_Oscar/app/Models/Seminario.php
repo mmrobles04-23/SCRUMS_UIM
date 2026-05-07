@@ -81,6 +81,14 @@ class Seminario extends Model
         return $query->where('fecha_inicio', '>=', now())->orderBy('fecha_inicio');
     }
 
+    public function scopeProximosAVencer($query, int $dias = 30)
+    {
+        return $query->where('estado', 'publicado')
+            ->where('fecha_fin', '>=', now())
+            ->where('fecha_fin', '<=', now()->addDays($dias))
+            ->orderBy('fecha_fin');
+    }
+
     public function urlBanner(): string
     {
         if ($this->imagen_banner && file_exists(public_path($this->imagen_banner))) {

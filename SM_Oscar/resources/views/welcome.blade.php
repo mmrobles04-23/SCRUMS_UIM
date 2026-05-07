@@ -28,6 +28,9 @@
         
         {{-- Departamentos: 7 áreas de investigación --}}
         @include('dashboard.departamentos')
+
+        {{-- Eventos Próximos: Carrusel de congresos y seminarios próximos a vencer --}}
+        @include('dashboard.eventos-proximos')
         
         {{-- Congresos: Lista dinámica de congresos activos --}}
         @include('dashboard.congresos')
