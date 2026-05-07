@@ -29,6 +29,13 @@
                                 <h1 class="h4 mb-3">Iniciar sesión</h1>
 
                                 {{-- NOTA (Bootstrap): `alert` para mensajes de estado/error. --}}
+                                {{-- Mensaje de éxito después de registro --}}
+                                @if (session('success'))
+                                    <div class="alert alert-success" role="alert">
+                                        <i class="bi bi-check-circle-fill me-2"></i>{{ session('success') }}
+                                    </div>
+                                @endif
+
                                 @if (session('status'))
                                     <div class="alert alert-info" role="alert">{{ session('status') }}</div>
                                 @endif

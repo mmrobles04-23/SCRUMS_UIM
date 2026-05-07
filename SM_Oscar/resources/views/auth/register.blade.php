@@ -35,6 +35,25 @@
                                 <form method="POST" action="{{ route('web.register.submit') }}">
                                     @csrf
 
+                                    {{-- Clave de acceso --}}
+                                    <div class="mb-3">
+                                        <label for="registration_key" class="form-label fw-bold">
+                                            <i class="bi bi-key-fill me-1 text-warning"></i>Clave de registro
+                                        </label>
+                                        <input id="registration_key" type="text" name="registration_key" value="{{ old('registration_key') }}" 
+                                               class="form-control @error('registration_key') is-invalid @enderror" 
+                                               required placeholder="Ingresa la clave de registro proporcionada">
+                                        <div class="form-text small">
+                                            <i class="bi bi-info-circle me-1"></i>
+                                            Se requiere una clave de acceso válida para registrarse. Solicítala al administrador.
+                                        </div>
+                                        @error('registration_key')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    <hr class="my-3">
+
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Usuario</label>
                                         <input id="name" type="text" name="name" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror" required autocomplete="username">

@@ -44,6 +44,9 @@ Route::middleware('web')->group(function () {
     Route::get('/register', [WebAuthController::class, 'showRegister'])->name('web.register');
     Route::post('/register', [WebAuthController::class, 'register'])->name('web.register.submit');
 
+    // Verificación de email
+    Route::get('/verify-email/{token}', [WebAuthController::class, 'verifyEmail'])->name('web.verify.email');
+
     Route::get('/forgot-password', [WebPasswordResetController::class, 'showForgot'])->name('web.forgot.form');
     Route::post('/forgot-password', [WebPasswordResetController::class, 'sendResetCode'])->name('web.forgot.submit');
 
