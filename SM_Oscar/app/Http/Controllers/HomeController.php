@@ -12,11 +12,12 @@ class HomeController extends Controller
 {
     public function welcome(): View
     {
-        $congresos = Congreso::query()
+        // Congreso más próximo a vencer (solo el primero)
+        $congresoDestacado = Congreso::query()
             ->activos()
-            ->orderByDesc('fecha_inicio')
-            ->orderByDesc('created_at')
-            ->get();
+            ->where('fecha_fin', '>=', now())
+            ->orderBy('fecha_fin', 'asc')
+            ->first();
 
         // Cargar todos los settings de welcome de una sola vez
         $settings = Setting::where('group', 'welcome')->get()->keyBy('key')->map(fn($s) => $s->value);
@@ -27,7 +28,14 @@ class HomeController extends Controller
         // Eventos próximos a vencer (carrrusel)
         $eventosProximos = $this->getEventosProximos($settings);
 
-        return view('welcome', compact('congresos', 'settings', 'departamentosLista', 'eventosProximos'));
+        // Lista completa para referencia
+        $congresos = Congreso::query()
+            ->activos()
+            ->orderByDesc('fecha_inicio')
+            ->orderByDesc('created_at')
+            ->get();
+
+        return view('welcome', compact('congresos', 'congresoDestacado', 'settings', 'departamentosLista', 'eventosProximos'));
     }
 
     private function getEventosProximos($settings): array

@@ -24,43 +24,46 @@ $titulo = $settings['eventos_proximos_titulo'] ?? 'Eventos Próximos a Vencer';
                         $urgente = $diasRestantes <= 7;
                     @endphp
                     
-                    <div class="evento-card flex-shrink-0" style="width: 320px;">
-                        <div class="card h-100 border-0 shadow-sm overflow-hidden">
+                    <div class="evento-card flex-shrink-0" style="width: 320px; height: 420px;">
+                        <div class="card h-100 border-0 shadow-sm overflow-hidden d-flex flex-column" 
+                             style="border-top: 3px solid var(--unam-azul, #1E3C70) !important;">
                             {{-- Imagen --}}
-                            <div class="position-relative" style="height: 160px;">
+                            <div class="position-relative flex-shrink-0" style="height: 140px;">
                                 <img src="{{ $evento['imagen'] }}" 
                                      alt="{{ $evento['titulo'] }}" 
                                      class="w-100 h-100 object-fit-cover">
                                 
                                 {{-- Badge tipo --}}
                                 <span class="position-absolute top-0 start-0 m-2 badge 
-                                    {{ $evento['tipo'] === 'congreso' ? 'bg-primary' : 'bg-secondary' }}">
+                                    {{ $evento['tipo'] === 'congreso' ? 'bg-unam-azul' : 'bg-unam-azul-light' }}"
+                                    style="background-color: var(--unam-azul, #1E3C70) !important;">
                                     {{ $evento['tipo'] === 'congreso' ? 'Congreso' : 'Seminario' }}
                                 </span>
                                 
                                 {{-- Badge días restantes --}}
                                 <span class="position-absolute top-0 end-0 m-2 badge 
-                                    {{ $urgente ? 'bg-danger' : 'bg-success' }}">
+                                    {{ $urgente ? 'bg-danger' : 'bg-unam-azul' }}"
+                                    style="{{ !$urgente ? 'background-color: var(--unam-azul, #1E3C70) !important;' : '' }}">
                                     <i class="bi bi-clock me-1"></i>
                                     {{ $diasRestantes === 0 ? 'Último día' : $diasRestantes . ' día' . ($diasRestantes !== 1 ? 's' : '') }}
                                 </span>
                             </div>
                             
                             {{-- Contenido --}}
-                            <div class="card-body p-3">
-                                <h5 class="card-title font-headline fs-6 fw-bold text-primary-uim mb-2 line-clamp-2" 
-                                    style="min-height: 2.8em;">
+                            <div class="card-body p-3 d-flex flex-column flex-grow-1">
+                                <h5 class="card-title font-headline fs-6 fw-bold mb-2 line-clamp-2" 
+                                    style="min-height: 2.8em; color: var(--unam-azul, #1E3C70);">
                                     {{ $evento['titulo'] }}
                                 </h5>
                                 
-                                <div class="d-flex align-items-center text-muted small mb-3">
-                                    <i class="bi bi-calendar-event me-2"></i>
+                                <div class="d-flex align-items-center small mb-2" style="color: var(--unam-azul, #1E3C70);">
+                                    <i class="bi bi-calendar-event me-2" style="color: var(--unam-azul, #1E3C70);"></i>
                                     <span>Vence: {{ $evento['fecha_fin']->format('d M Y') }}</span>
                                 </div>
                                 
                                 @if($evento['tipo'] === 'seminario' && isset($evento['departamento']))
-                                    <div class="d-flex align-items-center text-muted small mb-3">
-                                        <i class="bi bi-building me-2"></i>
+                                    <div class="d-flex align-items-center small mb-2" style="color: var(--unam-azul, #1E3C70);">
+                                        <i class="bi bi-building me-2" style="color: var(--unam-azul, #1E3C70);"></i>
                                         <span>{{ $evento['departamento'] }}</span>
                                     </div>
                                 @endif
@@ -74,19 +77,20 @@ $titulo = $settings['eventos_proximos_titulo'] ?? 'Eventos Próximos a Vencer';
                                         default => 30,
                                     };
                                     $progreso = min(100, max(0, (($totalDias - $diasRestantes) / $totalDias) * 100));
-                                    $colorProgreso = $urgente ? 'danger' : ($diasRestantes <= 14 ? 'warning' : 'success');
+                                    $colorProgreso = $urgente ? 'danger' : 'unam';
                                 @endphp
-                                <div class="progress mb-3" style="height: 4px;">
-                                    <div class="progress-bar bg-{{ $colorProgreso }}" 
+                                <div class="progress mb-3" style="height: 6px; background-color: #e9ecef;">
+                                    <div class="progress-bar {{ $colorProgreso === 'unam' ? 'bg-unam-azul' : 'bg-danger' }}" 
                                          role="progressbar" 
-                                         style="width: {{ $progreso }}%"
+                                         style="width: {{ $progreso }}%; {{ $colorProgreso === 'unam' ? 'background-color: var(--unam-azul, #1E3C70) !important;' : '' }}"
                                          aria-valuenow="{{ $progreso }}" 
                                          aria-valuemin="0" 
                                          aria-valuemax="100">
                                     </div>
                                 </div>
                                 
-                                <a href="{{ $evento['route'] }}" class="btn btn-sm btn-outline-primary w-100">
+                                <a href="{{ $evento['route'] }}" class="btn btn-sm w-100 mt-auto"
+                                   style="background-color: var(--unam-azul, #1E3C70); color: white; border: none;">
                                     <i class="bi bi-arrow-right me-1"></i>Ver detalles
                                 </a>
                             </div>
