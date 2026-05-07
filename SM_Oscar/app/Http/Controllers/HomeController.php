@@ -62,6 +62,7 @@ class HomeController extends Controller
         // Cargar congresos si el tipo lo permite
         if (in_array($tipo, ['ambos', 'congresos'])) {
             $congresosProximos = Congreso::proximosAVencer($dias)
+                ->withCount('inscripciones')
                 ->limit($cantidad)
                 ->get()
                 ->map(fn($c) => [
@@ -71,6 +72,8 @@ class HomeController extends Controller
                     'fecha_fin' => $c->fecha_fin,
                     'imagen' => $c->urlPortada(),
                     'route' => route('congresos.show', $c->slug),
+                    'cupo' => $c->cupo,
+                    'inscritos' => $c->inscripciones_count ?? 0,
                 ]);
             $eventos = array_merge($eventos, $congresosProximos->toArray());
         }
@@ -79,6 +82,7 @@ class HomeController extends Controller
         if (in_array($tipo, ['ambos', 'seminarios'])) {
             $seminariosProximos = Seminario::proximosAVencer($dias)
                 ->with('departamento')
+                ->withCount('inscripciones')
                 ->limit($cantidad)
                 ->get()
                 ->map(fn($s) => [
@@ -89,6 +93,8 @@ class HomeController extends Controller
                     'imagen' => $s->urlBanner(),
                     'departamento' => $s->departamento?->siglas ?? 'UIMA',
                     'route' => route('seminarios.index'),
+                    'cupo' => $s->cupo,
+                    'inscritos' => $s->inscripciones_count ?? 0,
                 ]);
             $eventos = array_merge($eventos, $seminariosProximos->toArray());
         }

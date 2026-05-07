@@ -6,7 +6,34 @@
             <aside class="col-12 col-lg-3 col-xl-2">
                 <div class="card border-0 shadow-sm uim-admin-sidebar">
                     <div class="card-body p-3">
-                        <div class="d-flex align-items-center gap-2 mb-3">
+                        {{-- Info del usuario logeado --}}
+                <div class="d-flex align-items-center gap-3 mb-4 p-2 rounded-3" style="background: rgba(30,60,112,0.08);">
+                    <div class="rounded-circle d-flex align-items-center justify-content-center"
+                         style="width: 44px; height: 44px; background: var(--unam-azul);">
+                        <i class="bi bi-person-circle text-white fs-5"></i>
+                    </div>
+                    <div class="overflow-hidden">
+                        <div class="fw-bold text-truncate" style="color: var(--unam-azul); font-size: 0.9rem;">
+                            {{ auth()->user()->nombre ?? auth()->user()->name ?? 'Usuario' }}
+                        </div>
+                        <div class="small text-muted text-truncate" style="font-size: 0.75rem;">
+                            {{ auth()->user()->email }}
+                        </div>
+                        <div class="d-flex align-items-center gap-1 mt-1">
+                            @if(auth()->user()->active)
+                                <span class="badge bg-success" style="font-size: 0.65rem; padding: 0.2em 0.4em;">
+                                    <i class="bi bi-check-circle me-1"></i>Activo
+                                </span>
+                            @else
+                                <span class="badge bg-danger" style="font-size: 0.65rem; padding: 0.2em 0.4em;">
+                                    <i class="bi bi-x-circle me-1"></i>Inactivo
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center gap-2 mb-3">
                             <div class="rounded-circle" style="width: 10px; height: 10px; background: var(--unam-dorado);">
                             </div>
                             <div class="fw-bold">Administrador UIM</div>

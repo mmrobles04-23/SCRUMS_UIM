@@ -118,6 +118,8 @@ $action = $isEdit ? route('admin.usuarios.update', $user) : '#';
 
                 <div class="mb-4">
                     <div class="form-check form-switch">
+                        {{-- Hidden input para enviar 0 cuando el checkbox no está marcado --}}
+                        <input type="hidden" name="active" value="0">
                         <input class="form-check-input" type="checkbox" role="switch" id="active" name="active" value="1" {{ old('active', $user->active ?? true) ? 'checked' : '' }}>
                         <label class="form-check-label" for="active">Usuario Activo</label>
                     </div>

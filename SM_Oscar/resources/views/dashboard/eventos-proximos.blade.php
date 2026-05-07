@@ -22,6 +22,39 @@ $titulo = $settings['eventos_proximos_titulo'] ?? 'Eventos Próximos a Vencer';
                         $diasRestantes = now()->diffInDays($evento['fecha_fin'], false);
                         $diasRestantes = max(0, (int) $diasRestantes);
                         $urgente = $diasRestantes <= 7;
+                        
+                        // Cálculo de cupo
+                        $cupo = $evento['cupo'] ?? 0;
+                        $inscritos = $evento['inscritos'] ?? 0;
+                        $porcentajeCupo = ($cupo > 0) ? min(100, round(($inscritos / $cupo) * 100)) : 0;
+                        
+                        // Determinar estado del cupo
+                        if ($cupo === 0 || $cupo === null) {
+                            $estadoCupo = 'abierto';
+                            $leyendaCupo = 'Cupo abierto';
+                            $colorCupo = 'success';
+                            $iconoCupo = 'bi-infinity';
+                        } elseif ($inscritos >= $cupo) {
+                            $estadoCupo = 'lleno';
+                            $leyendaCupo = 'Cupo lleno';
+                            $colorCupo = 'danger';
+                            $iconoCupo = 'bi-x-circle-fill';
+                        } elseif ($porcentajeCupo >= 85) {
+                            $estadoCupo = 'casi_lleno';
+                            $leyendaCupo = '¡Últimos lugares!';
+                            $colorCupo = 'danger';
+                            $iconoCupo = 'bi-exclamation-circle-fill';
+                        } elseif ($porcentajeCupo >= 60) {
+                            $estadoCupo = 'limitado';
+                            $leyendaCupo = 'Cupos limitados';
+                            $colorCupo = 'warning';
+                            $iconoCupo = 'bi-clock-fill';
+                        } else {
+                            $estadoCupo = 'disponible';
+                            $leyendaCupo = 'Disponible';
+                            $colorCupo = 'success';
+                            $iconoCupo = 'bi-check-circle-fill';
+                        }
                     @endphp
                     
                     <div class="evento-card flex-shrink-0" style="width: 320px; height: 420px;">
@@ -68,26 +101,64 @@ $titulo = $settings['eventos_proximos_titulo'] ?? 'Eventos Próximos a Vencer';
                                     </div>
                                 @endif
                                 
-                                {{-- Barra de progreso visual --}}
-                                @php
-                                    $totalDias = match($settings['eventos_proximos_periodo'] ?? 'mes') {
-                                        'semana' => 7,
-                                        'mes' => 30,
-                                        'trimestre' => 90,
-                                        default => 30,
-                                    };
-                                    $progreso = min(100, max(0, (($totalDias - $diasRestantes) / $totalDias) * 100));
-                                    $colorProgreso = $urgente ? 'danger' : 'unam';
-                                @endphp
-                                <div class="progress mb-3" style="height: 6px; background-color: #e9ecef;">
-                                    <div class="progress-bar {{ $colorProgreso === 'unam' ? 'bg-unam-azul' : 'bg-danger' }}" 
-                                         role="progressbar" 
-                                         style="width: {{ $progreso }}%; {{ $colorProgreso === 'unam' ? 'background-color: var(--unam-azul, #1E3C70) !important;' : '' }}"
-                                         aria-valuenow="{{ $progreso }}" 
-                                         aria-valuemin="0" 
-                                         aria-valuemax="100">
-                                    </div>
+                                {{-- Badge de estado del cupo --}}
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <span class="badge bg-{{ $colorCupo }} d-flex align-items-center gap-1" 
+                                          style="font-size: 0.75rem; padding: 0.4em 0.6em;">
+                                        <i class="bi {{ $iconoCupo }}"></i>
+                                        {{ $leyendaCupo }}
+                                    </span>
+                                    @if($cupo > 0)
+                                        <small class="text-muted" style="font-size: 0.75rem;">
+                                            {{ $inscritos }} / {{ $cupo }}
+                                        </small>
+                                    @endif
                                 </div>
+                                
+                                {{-- Barra de progreso de cupo --}}
+                                @if($cupo > 0)
+                                    <div class="mb-2">
+                                        <div class="progress" style="height: 8px; background-color: #e9ecef; border-radius: 4px; overflow: hidden;">
+                                            <div class="progress-bar bg-{{ $colorCupo }}" 
+                                                 role="progressbar" 
+                                                 style="width: {{ $porcentajeCupo }}%; transition: width 0.3s ease;"
+                                                 aria-valuenow="{{ $porcentajeCupo }}" 
+                                                 aria-valuemin="0" 
+                                                 aria-valuemax="100">
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between mt-1">
+                                            <small class="text-muted" style="font-size: 0.7rem;">{{ $porcentajeCupo }}% ocupado</small>
+                                            @if($estadoCupo === 'casi_lleno')
+                                                <small class="text-danger fw-bold" style="font-size: 0.7rem;">¡Apúrate!</small>
+                                            @endif
+                                        </div>
+                                    </div>
+                                @else
+                                    {{-- Barra de progreso de tiempo cuando no hay cupo definido --}}
+                                    @php
+                                        $totalDias = match($settings['eventos_proximos_periodo'] ?? 'mes') {
+                                            'semana' => 7,
+                                            'mes' => 30,
+                                            'trimestre' => 90,
+                                            default => 30,
+                                        };
+                                        $progresoTiempo = min(100, max(0, (($totalDias - $diasRestantes) / $totalDias) * 100));
+                                        $colorTiempo = $urgente ? '#dc3545' : 'var(--unam-azul, #1E3C70)';
+                                    @endphp
+                                    <div class="mb-2">
+                                        <div class="progress" style="height: 6px; background-color: #e9ecef; border-radius: 3px;">
+                                            <div class="progress-bar" 
+                                                 role="progressbar" 
+                                                 style="width: {{ $progresoTiempo }}%; background-color: {{ $colorTiempo }};"
+                                                 aria-valuenow="{{ $progresoTiempo }}" 
+                                                 aria-valuemin="0" 
+                                                 aria-valuemax="100">
+                                            </div>
+                                        </div>
+                                        <small class="text-muted" style="font-size: 0.7rem;">Quedan {{ $diasRestantes }} días para inscribirte</small>
+                                    </div>
+                                @endif
                                 
                                 <a href="{{ $evento['route'] }}" class="btn btn-sm w-100 mt-auto"
                                    style="background-color: var(--unam-azul, #1E3C70); color: white; border: none;">

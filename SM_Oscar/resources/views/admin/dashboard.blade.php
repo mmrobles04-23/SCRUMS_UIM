@@ -3,6 +3,61 @@
 @section('title', 'Administración — UIM')
 
 @section('admin_content')
+    {{-- Bienvenida con info del usuario logeado --}}
+    <div class="card border-0 shadow-sm mb-4" style="background: linear-gradient(135deg, var(--unam-azul, #1E3C70) 0%, #2a4a7a 100%);">
+        <div class="card-body p-4">
+            <div class="d-flex flex-wrap align-items-center gap-3">
+                {{-- Avatar/Icono del usuario --}}
+                <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
+                     style="width: 60px; height: 60px; background: rgba(255,255,255,0.15);">
+                    <i class="bi bi-person-circle text-white fs-2"></i>
+                </div>
+                
+                {{-- Información del usuario --}}
+                <div class="flex-grow-1">
+                    <h2 class="h5 mb-1 text-white">
+                        ¡Bienvenido, {{ auth()->user()->nombre ?? auth()->user()->name ?? 'Usuario' }}!
+                    </h2>
+                    <div class="d-flex flex-wrap gap-2 text-white-50 small">
+                        <span class="d-inline-flex align-items-center gap-1">
+                            <i class="bi bi-envelope"></i>
+                            {{ auth()->user()->email }}
+                        </span>
+                        <span>|</span>
+                        <span class="d-inline-flex align-items-center gap-1">
+                            <i class="bi bi-shield-check"></i>
+                            {{ auth()->user()->rol?->nombre ?? 'Administrador' }}
+                        </span>
+                        @if(auth()->user()->asignado && count(auth()->user()->asignado) > 0)
+                            <span>|</span>
+                            <span class="d-inline-flex align-items-center gap-1">
+                                <i class="bi bi-building"></i>
+                                {{ auth()->user()->asignado[0] ?? 'Sin asignación' }}
+                            </span>
+                        @endif
+                    </div>
+                </div>
+                
+                {{-- Estado de la cuenta --}}
+                <div class="text-end">
+                    @if(auth()->user()->active)
+                        <span class="badge bg-success">
+                            <i class="bi bi-check-circle me-1"></i>Cuenta Activa
+                        </span>
+                    @else
+                        <span class="badge bg-danger">
+                            <i class="bi bi-x-circle me-1"></i>Cuenta Inactiva
+                        </span>
+                    @endif
+                    <div class="text-white-50 small mt-1">
+                        <i class="bi bi-clock me-1"></i>
+                        Sesión iniciada: {{ now()->format('d M Y, H:i') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
         <div>
             <h1 class="h4 mb-0 text-body">Panel administrativo</h1>
