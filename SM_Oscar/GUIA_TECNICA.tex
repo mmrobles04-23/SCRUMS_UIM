@@ -1,0 +1,303 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{hyperref}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\title{Guía Técnica del Proyecto SM\_Oscar (SCRUMS\_UIM)}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Introducción y Stack Tecnológico}
+
+El proyecto \textbf{SM\_Oscar} es una plataforma web construida con \textbf{Laravel 11} que gestiona:
+\begin{itemize}
+    \item Congresos académicos y científicos.
+    \item Seminarios e investigación.
+    \item Departamentos universitarios.
+    \item Inscripciones de usuarios a eventos.
+    \item Noticias y configuración general del sitio.
+\end{itemize}
+
+Cuenta con dos áreas principales integradas:
+\begin{enumerate}
+    \item \textbf{Área Pública y de Usuario Autenticado}: Accesible desde la raíz (\texttt{/}), permite la navegación pública y ofrece un dashboard para usuarios logueados.
+    \item \textbf{Panel de Administración}: Accesible desde \texttt{/admin/*}, protegido para usuarios con roles de administrador.
+\end{enumerate}
+
+Además, cuenta con una \textbf{API REST} bajo el prefijo \texttt{/api/*}, protegida mediante Laravel Sanctum.
+
+\textbf{Stack Tecnológico:}
+\begin{itemize}
+    \item \textbf{Backend}: Laravel 11 (PHP).
+    \item \textbf{Base de datos}: MySQL/MariaDB.
+    \item \textbf{Autenticación Web}: Sesiones nativas de Laravel con middleware personalizado (\texttt{auth.token}).
+    \item \textbf{Autenticación API}: Laravel Sanctum.
+    \item \textbf{Frontend}: Blade templating con CSS y JS nativo (Vanilla).
+\end{itemize}
+
+\section{Base de Datos}
+
+\subsection{Entidades y Relaciones (ERD)}
+
+Las principales entidades y sus relaciones son:
+\begin{itemize}
+    \item \textbf{USERS}: tiene PERMISOS, tiene ROLES, escribe NOTICIAS.
+    \item \textbf{DEPARTAMENTOS}: organiza SEMINARIOS, tiene FUNCIONES\_DEPARTAMENTO.
+    \item \textbf{CONGRESOS}: tiene CONGRESO\_IMAGENES, recibe INSCRIPCIONES.
+    \item \textbf{SEMINARIOS}: recibe INSCRIPCIONES.
+\end{itemize}
+
+\subsection{Migraciones}
+
+Las migraciones gestionan el esquema de la base de datos de forma incremental.
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{6cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{5cm}}
+\toprule
+\textbf{Migración (Fecha/Nombre)} & \textbf{Tabla Afectada / Acción} & \textbf{Propósito} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Migración} & \textbf{Tabla Afectada} & \textbf{Propósito} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+\texttt{0000\_01\_01\_000001\_create\_permisos\_table} & \texttt{permisos} & Catálogo de permisos del sistema. \\
+\texttt{0000\_01\_01\_000002\_create\_roles\_table} & \texttt{roles} & Catálogo de roles de usuario. \\
+\texttt{0001\_01\_01\_000000\_create\_users\_table} & \texttt{users} & Almacena los usuarios, incluye llaves foráneas a permisos y roles. \\
+\texttt{2025\_11\_22\_235257\_create\_personal\_access\_tokens} & \texttt{personal\_access\_tokens} & Tabla para tokens de autenticación de Sanctum (API). \\
+\texttt{2025\_11\_24\_030050\_create\_password\_reset\_codes} & \texttt{password\_reset\_codes} & Maneja los códigos temporales para recuperar contraseñas. \\
+\texttt{2026\_04\_04\_120000\_create\_congresos\_table} & \texttt{congresos} & Registra la información principal de los congresos. \\
+\texttt{2026\_05\_03\_000000\_create\_departamentos\_table} & \texttt{departamentos} & Gestión de los departamentos universitarios. \\
+\texttt{2026\_05\_03\_100000\_create\_seminarios\_table} & \texttt{seminarios} & Registro de seminarios (investigación), ligados a departamentos. \\
+\texttt{2026\_05\_03\_200000\_create\_settings\_table} & \texttt{settings} & Configuraciones dinámicas clave-valor para personalizar el sitio. \\
+\texttt{2026\_05\_03\_300000\_create\_noticias\_table} & \texttt{noticias} & Publicaciones o noticias del sitio, vinculadas al usuario autor. \\
+\texttt{2026\_05\_03\_400000\_create\_congreso\_imagenes\_table} & \texttt{congreso\_imagenes} & Galería de imágenes para congresos. \\
+\texttt{2026\_05\_04\_000000\_add\_campos\_to\_departamentos} & \texttt{departamentos} (ALTER) & Añade campos de logo, ícono e información del coordinador. \\
+\texttt{2026\_05\_06\_042110\_add\_categoria\_to\_seminarios} & \texttt{seminarios} (ALTER) & Añade la enumeración \texttt{categoria} a seminarios. \\
+\texttt{2026\_05\_06\_045205\_add\_objetivo...} & \texttt{departamentos}, \texttt{funciones\_departamento} & Añade \texttt{objetivo} a departamentos y crea tabla relacionada de funciones. \\
+\texttt{2026\_05\_06\_051934\_add\_cupo\_to\_seminarios\_table} & \texttt{seminarios} (ALTER) & Añade el campo límite \texttt{cupo}. \\
+\texttt{2026\_05\_06\_051937\_create\_inscripciones\_table} & \texttt{inscripciones} & Centraliza inscripciones tanto para seminarios como congresos. \\
+\texttt{2026\_05\_06\_235036\_add\_cupo\_to\_congresos\_table} & \texttt{congresos} (ALTER) & Añade límite de \texttt{cupo} a congresos. \\
+\texttt{2026\_05\_07\_045524\_add\_verification\_token...} & \texttt{users} (ALTER) & Prepara campo de verificación para usuarios. \\
+\end{longtable}
+
+\subsection{Seeders}
+
+Ubicados en \texttt{database/seeders/}, pueblan la base de datos inicial:
+\begin{itemize}
+    \item \textbf{\texttt{DatabaseSeeder}}: Orquesta la ejecución de los demás seeders.
+    \item \textbf{\texttt{DepartamentoSeeder}}: Carga departamentos iniciales con su configuración visual y siglas.
+    \item \textbf{\texttt{CongresoSeeder}}: Crea congresos de ejemplo para el entorno de desarrollo.
+    \item \textbf{\texttt{SeminarioSeeder}}: Pobla datos de prueba para los seminarios.
+    \item \textbf{\texttt{SettingsSeeder}}: Inyecta configuraciones por defecto (como las de la página \textit{Welcome}).
+\end{itemize}
+
+\section{Modelos}
+
+Los modelos interactúan con la base de datos mediante Eloquent ORM.
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{9cm}}
+\toprule
+\textbf{Modelo} & \textbf{Tabla asociada} & \textbf{Funcionalidad y Relaciones} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Modelo} & \textbf{Tabla} & \textbf{Funcionalidad y Relaciones} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+\texttt{User} & \texttt{users} & Maneja la autenticación. Oculta la contraseña. Relaciones: \texttt{belongsTo} a \texttt{Permiso} y \texttt{Rol}. Cuenta con un \textit{cast} de array en el campo \texttt{asignado}. \\
+\texttt{Rol} & \texttt{roles} & Catálogo simple con campo \texttt{nombre}. \\
+\texttt{Permiso} & \texttt{permisos} & Catálogo simple con campo \texttt{nombre}. \\
+\texttt{Congreso} & \texttt{congresos} & Registra congresos. Incluye métodos de lógica como \texttt{urlPortada()}, \texttt{hayCupo()}, \texttt{totalInscritos()} y Scopes (\texttt{activos()}, \texttt{proximosAVencer()}). Relaciones: \texttt{hasMany} a \texttt{CongresoImagen} e \texttt{Inscripcion}. \\
+\texttt{CongresoImagen} & \texttt{congreso\_imagenes} & Almacena los paths de la galería de un congreso. \texttt{belongsTo} \texttt{Congreso}. \\
+\texttt{Seminario} & \texttt{seminarios} & Registra seminarios. Scopes para filtrado (\texttt{publicados()}, \texttt{proximos()}). Métodos \texttt{hayCupo()} y \texttt{totalInscritos()}. Relaciones: \texttt{belongsTo} \texttt{Departamento} y \texttt{hasMany} \texttt{Inscripcion}. \\
+\texttt{Departamento} & \texttt{departamentos} & Atributos de área. Scopes (\texttt{activos()}, \texttt{ordenados()}). Relación: \texttt{hasMany} \texttt{FuncionDepartamento}. \\
+\texttt{FuncionDepartamento} & \texttt{funciones\_departamento} & Detalla las funciones específicas de un departamento. \\
+\texttt{Inscripcion} & \texttt{inscripciones} & Modelo polivalente de registro. Contiene métodos utilitarios como \texttt{evento()}, \texttt{tipoEvento()}, \texttt{esSeminario()}, \texttt{esCongreso()}. Relaciones: \texttt{belongsTo} a \texttt{Seminario} o \texttt{Congreso}. \\
+\texttt{Noticia} & \texttt{noticias} & Publicaciones del blog/muro. Scopes \texttt{publicadas()} y \texttt{recientes()}. Relación: \texttt{belongsTo} a \texttt{User} (como \texttt{autor}). \\
+\texttt{Setting} & \texttt{settings} & Utiliza caché interna de Laravel (\texttt{Cache::remember}) para accesos rápidos. Contiene métodos estáticos \texttt{get()}, \texttt{set()}, y \texttt{getGroup()}. \\
+\end{longtable}
+
+\section{Controladores, Rutas y API}
+
+El flujo de aplicación está definido en \texttt{routes/web.php} y \texttt{routes/api.php}. Las funcionalidades de la web y la API coexisten de manera fluida compartiendo controladores en algunos casos.
+
+\subsection{Área Pública y de Usuario (Web)}
+
+Gestión de la navegación abierta y los paneles para usuarios registrados.
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{7cm}}
+\toprule
+\textbf{Controlador} & \textbf{Métodos} & \textbf{Propósito} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Controlador} & \textbf{Métodos} & \textbf{Propósito} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+\textbf{\texttt{HomeController}} & \texttt{welcome} & Ensambla la página principal, cargando \textit{settings}, próximos eventos y departamentos. \\
+\textbf{\texttt{WebAuthController}} & \texttt{showLogin}, \texttt{login}, \texttt{showRegister}, \texttt{register}, \texttt{logout} & Maneja el ciclo completo de autenticación de sesión en la web. El registro valida un \texttt{REGISTRATION\_ACCESS\_KEY} y envía correos. \\
+\textbf{\texttt{WebPasswordResetController}} & \texttt{showForgot}, \texttt{sendResetCode}, \texttt{showReset}, \texttt{resetPassword} & Gestión del restablecimiento de contraseñas vía web usando un código de 8 dígitos numérico enviado por correo. \\
+\textbf{\texttt{Admin\textbackslash CongresoController}} & \texttt{indexPublico}, \texttt{showPublico} & Muestra el catálogo de congresos y el detalle de un evento específico para el usuario final. \\
+\textbf{\texttt{SeminarioController}} & \texttt{index} & Lista los seminarios publicados en la sección de investigación pública. \\
+\textbf{\texttt{DepartamentoController}} & \texttt{show} & Muestra la vista detallada de un departamento basada en sus siglas. \\
+\textbf{\texttt{InscripcionController}} & \texttt{store}, \texttt{storeCongreso} & Procesan la inscripción pública a Seminarios y Congresos respectivamente. Valida cupos, genera el \textit{número de registro} único y dispara un correo de confirmación. \\
+\end{longtable}
+
+\subsection{Área de Administración (Web)}
+
+Accesible bajo el prefijo \texttt{/admin/}, protegida por los middlewares \texttt{web}, \texttt{auth.token} y \texttt{admin.or.dev}. Se encargan de las operaciones CRUD del sistema.
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{5cm} >{\raggedright\arraybackslash}p{10cm}}
+\toprule
+\textbf{Controlador} & \textbf{Propósito y Métodos Principales} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Controlador} & \textbf{Propósito y Métodos Principales} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+\textbf{\texttt{Admin\textbackslash DashboardController}} & Genera estadísticas globales (conteo de usuarios, congresos, seminarios, actividad reciente) para la vista principal del panel administrativo. \\
+\textbf{\texttt{Admin\textbackslash CongresoController}} & CRUD de Congresos (\texttt{index}, \texttt{create}, \texttt{store}, \texttt{edit}, \texttt{update}, \texttt{destroy}). Maneja la subida de imágenes, generación de slugs únicos, y un método \texttt{toggleActivo} para activar/desactivar eventos rápidamente. \\
+\textbf{\texttt{Admin\textbackslash SeminarioController}} & CRUD de Seminarios. Gestiona los metadatos de los ponentes, categorías, ligas de materiales y la relación con el departamento organizador. \\
+\textbf{\texttt{Admin\textbackslash DepartamentoController}} & CRUD de Departamentos. Gestiona múltiples cargas de archivos (banner y coordinador) y guarda dinámicamente el array de funciones del departamento. \\
+\textbf{\texttt{Admin\textbackslash WelcomeController}} & Administra de forma dinámica las propiedades clave-valor (\texttt{Settings}) que construyen la vista pública principal. \\
+\textbf{\texttt{UserController}} & Visualización (\texttt{index}), edición (\texttt{edit}, \texttt{update}) y cambio de estado/contraseña (\texttt{toggleStatus}, \texttt{changePassword}) de los usuarios del sistema por parte del administrador. \\
+\textbf{\texttt{Admin\textbackslash InscripcionController}} & Listado y eliminación de registros de asistencia para Seminarios. \\
+\textbf{\texttt{Admin\textbackslash InscripcionCongresoController}} & Listado y eliminación de registros de asistencia para Congresos. \\
+\end{longtable}
+
+\subsection{API REST (\texttt{routes/api.php})}
+
+Expone funcionalidades para clientes externos o integraciones, protegida por tokens de \texttt{Laravel Sanctum}.
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{4.5cm}}
+\toprule
+\textbf{Endpoint} & \textbf{Controlador} & \textbf{Middleware} & \textbf{Propósito} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Endpoint} & \textbf{Controlador} & \textbf{Middleware} & \textbf{Propósito} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+\texttt{POST /api/register} & \textbf{\texttt{AuthController}} & \texttt{EnsureRegistrationKey} & Permite crear un usuario por API, validando la clave de seguridad del entorno y despachando correo de bienvenida. Retorna el token Sanctum. \\
+\texttt{POST /api/login} & \textbf{\texttt{AuthController}} & - & Valida credenciales, comprueba que el usuario esté activo y devuelve un token Bearer. \\
+\texttt{POST /api/forgot-password} & \textbf{\texttt{PasswordResetController}} & - & Genera el código de 8 dígitos y envía el correo de recuperación. \\
+\texttt{POST /api/reset-password} & \textbf{\texttt{PasswordResetController}} & - & Restablece la contraseña validando el código de 8 dígitos recibido. \\
+\texttt{GET /api/user} & \textbf{\texttt{AuthController}} & \texttt{auth:sanctum} & Devuelve el payload del usuario autenticado actualmente. \\
+\texttt{POST /api/logout} & \textbf{\texttt{AuthController}} & \texttt{auth:sanctum} & Revoca el token de sesión actual. \\
+\texttt{POST /api/users} & \textbf{\texttt{UserController}} & \texttt{auth:sanctum}, \texttt{CheckSuperAdmin} & Crea un usuario base (sin roles asignados) de forma administrativa. \\
+\texttt{POST /api/users/admin} & \textbf{\texttt{UserController}} & \texttt{auth:sanctum}, \texttt{CheckSuperAdmin} & Crea un usuario con rol y permisos específicos. \\
+\texttt{PUT /api/users/\{id\}} & \textbf{\texttt{UserController}} & \texttt{auth:sanctum}, \texttt{CheckSuperAdmin} & Actualiza metadatos de un usuario. \\
+\texttt{PUT /api/users/\{id\}/password} & \textbf{\texttt{UserController}} & \texttt{auth:sanctum}, \texttt{CheckSuperAdmin} & Obliga el cambio de contraseña de un usuario mediante API. \\
+\texttt{PATCH /api/users/\{id\}/status} & \textbf{\texttt{UserController}} & \texttt{auth:sanctum}, \texttt{CheckSuperAdmin} & Activa o inactiva la cuenta de un usuario. \\
+\texttt{DELETE /api/users/\{id\}} & \textbf{\texttt{UserController}} & \texttt{auth:sanctum}, \texttt{CheckSuperAdmin} & Elimina la cuenta permanentemente de la BD. \\
+\end{longtable}
+
+\section{Vistas (Blade Templates)}
+
+El frontend está centralizado en el sistema de plantillas Blade (\texttt{resources/views/}).
+
+\subsection{Layouts y Estructura Base}
+\begin{itemize}
+    \item \textbf{\texttt{layouts/app.blade.php}}: Layout principal para el frontend público y del usuario logueado. Carga assets, barra de navegación y pie de página.
+    \item \textbf{\texttt{admin/layout.blade.php}}: Layout exclusivo para el panel de administración, incluye sidebar administrativo y menús contextuales.
+\end{itemize}
+
+\subsection{Vistas Públicas / Usuario}
+
+Se encargan de presentar la información a visitantes no autenticados y la interfaz básica para usuarios estándar.
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{5cm} >{\raggedright\arraybackslash}p{10cm}}
+\toprule
+\textbf{Ruta/Archivo} & \textbf{Propósito y Contenido} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Ruta/Archivo} & \textbf{Propósito} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+\texttt{welcome.blade.php} & Página principal. Ensambla la estructura invocando componentes parciales de la carpeta \texttt{dashboard/}. \\
+\texttt{dashboard/hero.blade.php} & Sección superior (Hero banner) de la página de inicio. \\
+\texttt{dashboard/congresos.blade.php} & Bloque visual que destaca los congresos disponibles. \\
+\texttt{dashboard/noticias.blade.php} & Sección de últimas noticias publicadas. \\
+\texttt{dashboard/departamentos.blade.php} & Grid visual para enlazar a la información de los departamentos. \\
+\texttt{dashboard/eventos-proximos.blade.php} & Muestra un feed temporal de seminarios/congresos a punto de realizarse. \\
+\texttt{dashboard/proposito.blade.php} & Misión/visión y descripción general de la institución. \\
+\texttt{congresos/index.blade.php} & Directorio en forma de lista/grid de todos los congresos públicos. \\
+\texttt{congresos/show.blade.php} & Detalle íntegro de un congreso, incluyendo el formulario nativo para procesar la inscripción de los asistentes. \\
+\texttt{investigacion.blade.php} & Lista los seminarios e investigaciones actuales. \\
+\texttt{departamento.blade.php} & Página matriz del departamento que inyecta parciales (\texttt{hero}, \texttt{sidebar}, \texttt{objetivo}, \texttt{proyectos}, \texttt{data}) específicos de esa área. \\
+\texttt{auth/login.blade.php} & Formulario visual de inicio de sesión. \\
+\texttt{auth/register.blade.php} & Formulario visual de registro público con solicitud de llave de acceso. \\
+\texttt{auth/forgot-password.blade.php} & Formulario para solicitar el código de recuperación de cuenta. \\
+\texttt{auth/reset-password.blade.php} & Formulario final para teclear la nueva contraseña usando el código recibido. \\
+\end{longtable}
+
+\subsection{Vistas de Administración (\texttt{admin/})}
+
+Formularios y listados de datos. Por estándar, la mayoría de los módulos siguen una estructura de vistas de resource (CRUD):
+\begin{itemize}
+    \item \texttt{index.blade.php} (Listado y tablas)
+    \item \texttt{create.blade.php} (Llama al formulario vacío)
+    \item \texttt{edit.blade.php} (Llama al formulario poblado)
+    \item \texttt{\_form.blade.php} (Partial reusable con los inputs HTML)
+\end{itemize}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{5cm} >{\raggedright\arraybackslash}p{10cm}}
+\toprule
+\textbf{Módulo/Carpeta} & \textbf{Propósito} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Módulo/Carpeta} & \textbf{Propósito} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+\texttt{dashboard.blade.php} & Centro de comando, muestra KPI's estadísticos de la plataforma. \\
+\texttt{congresos/} & Formularios para la captura de eventos grandes (fechas, slug, portadas). \\
+\texttt{seminarios/} & Formularios de captura para charlas o investigación (ponentes, cupos, departamentos). \\
+\texttt{departamentos/} & Interfaz robusta para editar información de las áreas (imágenes, funciones por array, encargados). \\
+\texttt{usuarios/} & Panel de control de usuarios. Permite cambiar contraseñas, inhabilitar cuentas o alterar roles y permisos de acceso al panel. \\
+\texttt{inscripciones/} & Tablas de datos de usuarios que se registraron a Seminarios. Permite filtrado y borrado. \\
+\texttt{inscripciones\_congresos/} & Tablas de datos de usuarios que se registraron a Congresos. Permite filtrado y borrado. \\
+\texttt{welcome/edit.blade.php} & Panel especial de configuración de variables (\texttt{Settings}). Actúa como un CMS sencillo para alterar textos o imágenes de la landing page pública sin tocar el código fuente. \\
+\end{longtable}
+
+\end{document}
