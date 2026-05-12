@@ -36,7 +36,7 @@ $s = $settings ?? collect([]);
                             <h3 class="font-headline fs-6 fw-bold text-primary-uim mb-2">{{ $depto->siglas }} - {{ $depto->nombre }}</h3>
                             <p class="small text-on-surface-variant mb-3 d-none d-sm-block">{{ \Illuminate\Support\Str::limit($depto->descripcion, 100) }}</p>
 
-                            <a href="{{ url('/departamento?id=' . $depto->siglas) }}" class="mt-auto text-decoration-none text-secondary-uim fw-bold small text-uppercase tracking-widest d-inline-flex align-items-center gap-1">
+                            <a href="{{ route('departamento.show', ['siglas' => $depto->siglas]) }}" class="mt-auto text-decoration-none text-secondary-uim fw-bold small text-uppercase tracking-widest d-inline-flex align-items-center gap-1">
                                 <span class="d-none d-sm-inline">Ver área</span> <i class="bi bi-arrow-right icon-transition"></i>
                             </a>
                         </div>

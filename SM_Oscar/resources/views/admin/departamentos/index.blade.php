@@ -54,7 +54,7 @@
                                 </td>
                                 <td class="text-end">
                                     <div class="d-flex justify-content-end gap-1">
-                                        <a class="btn btn-outline-secondary btn-sm" href="{{ url('/departamento?id=' . $d->siglas) }}" target="_blank" rel="noopener noreferrer">Ver</a>
+                                        <a class="btn btn-outline-secondary btn-sm" href="{{ route('departamento.show', ['siglas' => $d->siglas]) }}" target="_blank" rel="noopener noreferrer">Ver</a>
                                         <a href="{{ route('admin.departamentos.edit', $d) }}" class="btn btn-outline-primary btn-sm">Editar</a>
                                         <form action="{{ route('admin.departamentos.destroy', $d) }}" method="post" class="d-inline" onsubmit="return confirm('¿Eliminar este departamento?');">
                                             @csrf

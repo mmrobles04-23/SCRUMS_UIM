@@ -72,10 +72,13 @@ Route::middleware('web')->group(function () {
 
                 // Gestión de Usuarios
                 Route::get('usuarios', [UserController::class, 'index'])->name('usuarios.index');
+                Route::get('usuarios/create', [UserController::class, 'create'])->name('usuarios.create');
+                Route::post('usuarios', [UserController::class, 'storeWeb'])->name('usuarios.store');
                 Route::get('usuarios/{user}/edit', [UserController::class, 'edit'])->name('usuarios.edit');
                 Route::put('usuarios/{user}', [UserController::class, 'update'])->name('usuarios.update');
                 Route::put('usuarios/{user}/password', [UserController::class, 'changePassword'])->name('usuarios.password.update');
                 Route::patch('usuarios/{user}/status', [UserController::class, 'toggleStatus'])->name('usuarios.status.toggle');
+                Route::delete('usuarios/{user}', [UserController::class, 'destroy'])->name('usuarios.destroy');
 
                 // Gestión de Inscripciones a Seminarios
                 Route::get('inscripciones', [AdminInscripcionController::class, 'index'])->name('inscripciones.index');

@@ -8,13 +8,13 @@
             <h1 class="h4 mb-0 text-body" style="font-weight: 700;">Gestión de Usuarios</h1>
             <p class="text-body-secondary small mb-0">Listado total de usuarios registrados en el sistema.</p>
         </div>
+        <div class="d-flex flex-wrap gap-2">
+            <a href="{{ route('admin.usuarios.create') }}" class="btn btn-warning btn-sm" style="border-radius: 8px; font-weight: 600;">Nuevo Usuario</a>
+            <a href="{{ route('admin.dashboard') }}" class="btn btn-outline-secondary btn-sm" style="border-radius: 8px;">Panel admin</a>
+        </div>
     </div>
 
-    @if(session('success'))
-        <div class="alert alert-success border-0 shadow-sm mb-4" style="border-radius: 14px; background-color: #d1e7dd; color: #0f5132;">
-            <i class="bi bi-check-circle-fill me-2"></i>{{ session('success') }}
-        </div>
-    @endif
+    {{-- SweetAlert maneja los mensajes de éxito --}}
 
     <div class="card border-0 shadow-sm" style="border-radius: 20px; overflow: hidden;">
         <div class="table-responsive">
@@ -84,6 +84,14 @@
                                             <i class="bi {{ $user->active ? 'bi-person-x' : 'bi-person-check' }}"></i>
                                         </button>
                                     </form>
+
+                                    <form action="{{ route('admin.usuarios.destroy', $user) }}" method="post" class="d-inline form-delete">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" style="border-radius: 8px;" title="Eliminar">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>
@@ -98,3 +106,42 @@
         @endif
     </div>
 @endsection
+
+@push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            @if(session('success'))
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Éxito!',
+                    text: '{{ session('success') }}',
+                    confirmButtonColor: 'var(--unam-dorado)',
+                    timer: 3000,
+                    timerProgressBar: true
+                });
+            @endif
+
+            const deleteForms = document.querySelectorAll('.form-delete');
+            deleteForms.forEach(form => {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    Swal.fire({
+                        title: '¿Estás seguro?',
+                        text: "Esta acción no se puede deshacer y el usuario será eliminado permanentemente.",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#dc3545',
+                        cancelButtonColor: '#6c757d',
+                        confirmButtonText: 'Sí, eliminar',
+                        cancelButtonText: 'Cancelar'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            form.submit();
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+@endpush

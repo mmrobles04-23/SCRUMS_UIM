@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
-
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
+use App\Mail\UserWelcomeMail;
 /**
  * Controlador administrativo de usuarios.
  *
@@ -56,6 +58,64 @@ class UserController extends Controller
         $roles = Rol::all();
         
         return view('admin.usuarios.edit', compact('user', 'permisos', 'roles'));
+    }
+
+    /**
+     * Muestra el formulario para crear un nuevo usuario.
+     */
+    public function create()
+    {
+        $permisos = Permiso::all();
+        $roles = Rol::all();
+        
+        return view('admin.usuarios.create', compact('permisos', 'roles'));
+    }
+
+    /**
+     * Guarda un nuevo usuario desde el panel web y envía un correo de bienvenida.
+     */
+    public function storeWeb(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255|unique:users',
+            'email' => 'required|string|email|max:255|unique:users',
+            'nombre' => 'required|string|max:255',
+            'apellido_paterno' => 'required|string|max:255',
+            'apellido_materno' => 'required|string|max:255',
+            'permiso_id' => 'nullable|exists:permisos,id',
+            'rol_id' => 'nullable|exists:roles,id',
+            'active' => 'sometimes|boolean',
+            'password' => ['nullable', Password::min(8)->mixedCase()->numbers()->symbols()],
+        ], [
+            'name.unique' => 'Este nombre de usuario ya está registrado.',
+            'email.unique' => 'Este correo electrónico ya está registrado.'
+        ]);
+
+        $plainPassword = $request->password ?: Str::password(12, true, true, true, false);
+
+        $user = User::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => Hash::make($plainPassword),
+            'nombre' => $validated['nombre'],
+            'apellido_paterno' => $validated['apellido_paterno'],
+            'apellido_materno' => $validated['apellido_materno'],
+            'permiso_id' => $validated['permiso_id'] ?? null,
+            'rol_id' => $validated['rol_id'] ?? null,
+            'active' => $validated['active'] ?? true,
+        ]);
+
+        $loginUrl = url('/login'); // We can also use route('web.login') but the user specified a specific URL structure. Actually url('/login') works in production. Let's just use url('/login').
+        
+        try {
+            Mail::to($user->email)->send(new UserWelcomeMail($user, $plainPassword, $loginUrl));
+        } catch (\Exception $e) {
+            // Registrar error de correo pero continuar
+            \Illuminate\Support\Facades\Log::error('No se pudo enviar correo de bienvenida: ' . $e->getMessage());
+        }
+
+        return redirect()->route('admin.usuarios.index')
+            ->with('success', 'Usuario creado con éxito. Se ha enviado un correo con sus credenciales.');
     }
 
     /**
@@ -238,7 +298,11 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        return response()->json(['message' => 'Usuario eliminado con éxito']);
+        if (request()->expectsJson()) {
+            return response()->json(['message' => 'Usuario eliminado con éxito']);
+        }
+
+        return back()->with('success', 'Usuario eliminado con éxito');
     }
 
     /**

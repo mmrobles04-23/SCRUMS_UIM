@@ -1,6 +1,6 @@
 @php
 $isEdit = isset($user) && $user->id;
-$action = $isEdit ? route('admin.usuarios.update', $user) : '#';
+$action = $isEdit ? route('admin.usuarios.update', $user) : route('admin.usuarios.store');
 @endphp
 
 <form action="{{ $action }}" method="post" class="row g-4">
@@ -109,6 +109,25 @@ $action = $isEdit ? route('admin.usuarios.update', $user) : '#';
                 </div>
             </div>
         </div>
+
+        @if(!$isEdit)
+            <div class="card border-0 shadow-sm mt-4" style="border-radius: 20px;">
+                <div class="card-body p-4">
+                    <h2 class="h6 mb-3" style="color: var(--unam-dorado); font-weight: 700;">Contraseña</h2>
+                    <p class="small text-muted mb-3">Si dejas este campo en blanco, el sistema generará una contraseña segura automáticamente y se la enviará al usuario por correo.</p>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="password" class="form-label">Contraseña (opcional)</label>
+                            <input type="password" class="form-control @error('password') is-invalid @enderror" 
+                                   id="password" name="password" style="border-radius: 8px;">
+                            @error('password')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
     </div>
 
     <div class="col-12 col-lg-4">
