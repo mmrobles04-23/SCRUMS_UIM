@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Seminario extends Model
 {
-    use HasFactory;
+    use HasFactory, \App\Traits\Auditable;
 
     protected $table = 'seminarios';
 

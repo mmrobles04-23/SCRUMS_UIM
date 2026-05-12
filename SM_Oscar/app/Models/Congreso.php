@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Congreso extends Model
 {
+    use \App\Traits\Auditable;
+
     protected $table = 'congresos';
 
     protected $fillable = [

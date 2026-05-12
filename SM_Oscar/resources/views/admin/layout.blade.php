@@ -72,6 +72,13 @@
                                 href="{{ route('admin.welcome.edit') }}">
                                 <i class="bi bi-house-door me-2"></i>Página principal
                             </a>
+
+                            @if(auth()->user()->permiso_id == 1)
+                                <a class="nav-link px-3 py-2 rounded-3 {{ request()->is('admin/logs*') ? 'active' : '' }}"
+                                    href="{{ route('admin.logs.index') }}">
+                                    <i class="bi bi-shield-check me-2"></i>Auditoría
+                                </a>
+                            @endif
                         </nav>
 
                         <hr class="my-3">

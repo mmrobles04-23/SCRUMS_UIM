@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Cache;
 
 class Setting extends Model
 {
+    use \App\Traits\Auditable;
+
     protected $fillable = ['group', 'key', 'value', 'type', 'label'];
 
     public static function get(string $key, $default = null)

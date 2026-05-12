@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Inscripcion extends Model
 {
+    use \App\Traits\Auditable;
+
     protected $table = 'inscripciones';
 
     protected $fillable = [

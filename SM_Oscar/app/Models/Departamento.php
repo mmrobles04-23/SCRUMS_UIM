@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Departamento extends Model
 {
-    use HasFactory;
+    use HasFactory, \App\Traits\Auditable;
 
     protected $table = 'departamentos';
 

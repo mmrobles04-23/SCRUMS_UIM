@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\InscripcionController as AdminInscripcionControll
 use App\Http\Controllers\Admin\InscripcionCongresoController as AdminInscripcionCongresoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\InscripcionController;
+use App\Http\Controllers\LogAuditoriaController;
 
 Route::get('/', [HomeController::class, 'welcome'])->name('home');
 
@@ -87,6 +88,9 @@ Route::middleware('web')->group(function () {
                 // Gestión de Inscripciones a Congresos
                 Route::get('inscripciones-congresos', [AdminInscripcionCongresoController::class, 'index'])->name('inscripciones_congresos.index');
                 Route::delete('inscripciones-congresos/{inscripcion}', [AdminInscripcionCongresoController::class, 'destroy'])->name('inscripciones_congresos.destroy');
+
+                // Logs de Auditoría (Solo desarrolladores)
+                Route::get('logs', [LogAuditoriaController::class, 'index'])->name('logs.index');
             });
         });
     });
