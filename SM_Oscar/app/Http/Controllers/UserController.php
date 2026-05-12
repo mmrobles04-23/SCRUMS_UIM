@@ -85,7 +85,7 @@ class UserController extends Controller
             'permiso_id' => 'nullable|exists:permisos,id',
             'rol_id' => 'nullable|exists:roles,id',
             'active' => 'sometimes|boolean',
-            'password' => ['nullable', Password::min(8)->mixedCase()->numbers()->symbols()],
+            'password' => 'nullable|string|min:8',
         ], [
             'name.unique' => 'Este nombre de usuario ya está registrado.',
             'email.unique' => 'Este correo electrónico ya está registrado.'

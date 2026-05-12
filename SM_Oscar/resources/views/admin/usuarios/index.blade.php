@@ -85,13 +85,15 @@
                                         </button>
                                     </form>
 
-                                    <form action="{{ route('admin.usuarios.destroy', $user) }}" method="post" class="d-inline form-delete">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-outline-danger" style="border-radius: 8px;" title="Eliminar">
-                                            <i class="bi bi-trash"></i>
-                                        </button>
-                                    </form>
+                                    @if(auth()->user()->permiso_id == 1)
+                                        <form action="{{ route('admin.usuarios.destroy', $user) }}" method="post" class="d-inline form-delete">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-sm btn-outline-danger" style="border-radius: 8px;" title="Eliminar">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </form>
+                                    @endif
                                 </div>
                             </td>
                         </tr>

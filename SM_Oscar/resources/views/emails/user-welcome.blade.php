@@ -106,7 +106,7 @@
             <h2>¡Hola, {{ $user->nombre }}!</h2>
 
             <p>Te damos la más cordial bienvenida al sistema administrativo de la Unidad de Investigación
-                Multidisciplinaria (UIM) de la FES Acatlán.</p>
+                Multidisciplinaria Aplicada (UIMA) de la FES Acatlán.</p>
 
             <p>Tu cuenta ha sido creada exitosamente. A continuación, te compartimos tus credenciales de acceso:</p>
 
