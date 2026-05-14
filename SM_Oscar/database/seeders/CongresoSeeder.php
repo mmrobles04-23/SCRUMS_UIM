@@ -24,6 +24,7 @@ class CongresoSeeder extends Seeder
                 'cupo' => 200,
                 'enlace_inscripcion' => '#inscripcion',
                 'enlace_programa' => '#programa',
+                'imagen_portada' => 'recursos/Congresofin.png',
             ],
             // Congreso próximo a vencer (próxima semana)
             [
@@ -38,6 +39,7 @@ class CongresoSeeder extends Seeder
                 'cupo' => 150,
                 'enlace_inscripcion' => '#inscripcion',
                 'enlace_programa' => '#programa',
+                'imagen_portada' => 'recursos/Congresos1.png',
             ],
             // Congreso próximo a vencer (este mes)
             [
@@ -52,6 +54,7 @@ class CongresoSeeder extends Seeder
                 'cupo' => 300,
                 'enlace_inscripcion' => '#inscripcion',
                 'enlace_programa' => '#programa',
+                'imagen_portada' => 'recursos/Congresos1.png',
             ],
             // Congreso próximo a vencer (dentro de 3 semanas)
             [
@@ -66,6 +69,7 @@ class CongresoSeeder extends Seeder
                 'cupo' => 80,
                 'enlace_inscripcion' => '#inscripcion',
                 'enlace_programa' => '#programa',
+                'imagen_portada' => 'recursos/Congresofin.png',
             ],
             // Congreso activo pero lejano (no debe aparecer en próximos a vencer de 30 días)
             [
@@ -80,6 +84,7 @@ class CongresoSeeder extends Seeder
                 'cupo' => 500,
                 'enlace_inscripcion' => '#inscripcion',
                 'enlace_programa' => '#programa',
+                'imagen_portada' => 'recursos/Congresos1.png',
             ],
             // Congreso inactivo (no debe aparecer)
             [

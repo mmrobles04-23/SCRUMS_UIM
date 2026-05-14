@@ -229,8 +229,19 @@
 }
 
 .profile-avatar {
-    width: 130px;
-    height: 130px;
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    transition: all 0.3s ease;
+}
+
+@media (min-width: 992px) {
+    .profile-avatar {
+        width: 160px !important;
+        height: 160px !important;
+        min-width: 160px !important;
+        border-width: 6px !important;
+    }
 }
 
 .objective-container {

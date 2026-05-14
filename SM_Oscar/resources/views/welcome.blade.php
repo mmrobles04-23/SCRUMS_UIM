@@ -13,31 +13,31 @@
 
 @section('content')
     {{--
-        Referencia: menú Investigación del portal FES Acatlán (Propósito, Seminarios, Departamentos, FIGURAS).
-        Guía para actualizar textos, imágenes y enlaces cuando la UNAM entregue material: docs/GUIA_CONTENIDO_UIM.md
-        URLs centralizadas: config/uim.php + variables .env (prefijo UIM_).
+    Referencia: menú Investigación del portal FES Acatlán (Propósito, Seminarios, Departamentos, FIGURAS).
+    Guía para actualizar textos, imágenes y enlaces cuando la UNAM entregue material: docs/GUIA_CONTENIDO_UIM.md
+    URLs centralizadas: config/uim.php + variables .env (prefijo UIM_).
     --}}
 
     <div class="font-body bg-surface-container-lowest" style="color: #141d23;">
-        
+
         {{-- Hero: Carrusel principal --}}
         @include('dashboard.hero')
-        
+
         {{-- Proposito: ¿Qué es la UIMA? --}}
         @include('dashboard.proposito')
-        
+
         {{-- Departamentos: 7 áreas de investigación --}}
         @include('dashboard.departamentos')
 
         {{-- Eventos Próximos: Carrusel de congresos y seminarios próximos a vencer --}}
         @include('dashboard.eventos-proximos')
-        
+
         {{-- Congresos: Lista dinámica de congresos activos --}}
         @include('dashboard.congresos')
-        
+
         {{-- Noticias: Últimas noticias y eventos --}}
         @include('dashboard.noticias')
-        
+
     </div>
 
     {{-- Modal Emergente de Congreso --}}
@@ -49,27 +49,21 @@
                 <button class="congreso-modal-close" onclick="cerrarModalCongreso()" aria-label="Cerrar">
                     <i class="bi bi-x-lg"></i>
                 </button>
-                
-                <div class="congreso-modal-header">
-                    <span class="congreso-modal-badge">
-                        <i class="bi bi-people-fill me-2"></i>Próximo Congreso
-                    </span>
-                </div>
-                
+
                 <div class="congreso-modal-body">
                     <div class="congreso-modal-image">
                         <img src="{{ $congresoModal->urlPortada() }}" alt="{{ $congresoModal->titulo }}">
-                    </div>  
+                    </div>
                 </div>
                 <br>
                 <div class="congreso-modal-footer">
-                    
+
                     <a href="{{ route('congresos.show', $congresoModal) }}" class="congreso-modal-btn">
                         Ver detalles <i class="bi bi-arrow-right ms-2"></i>
                     </a>
 
                 </div>
-                
+
                 <div class="congreso-modal-timer">
                     <div class="congreso-modal-progress"></div>
                 </div>
@@ -77,7 +71,7 @@
         </div>
 
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('DOMContentLoaded', function () {
                 const modal = document.getElementById('congresoModal');
 
                 // Mostrar modal con animación

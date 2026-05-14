@@ -28,6 +28,7 @@ class SeminarioSeeder extends Seeder
                 'fecha_fin' => now()->addDays(3),
                 'lugar' => 'Aula Magna, Edificio A',
                 'estado' => 'publicado',
+                'imagen_banner' => 'recursos/Seminariosdefault.png',
                 'departamento_id' => $deptos['IPAJ']->id ?? null,
             ],
             // Vence en 5 días - URGENTE 🔴
@@ -41,6 +42,7 @@ class SeminarioSeeder extends Seeder
                 'fecha_fin' => now()->addDays(5),
                 'lugar' => 'Sala de Seminarios, Edificio C',
                 'estado' => 'publicado',
+                'imagen_banner' => 'recursos/Seminariosdefault.png',
                 'departamento_id' => $deptos['DIE']->id ?? null,
             ],
             // Vence en 7 días (1 semana) - URGENTE 🔴
@@ -54,6 +56,7 @@ class SeminarioSeeder extends Seeder
                 'fecha_fin' => now()->addWeek(),
                 'lugar' => 'Laboratorio Ambiental',
                 'estado' => 'publicado',
+                'imagen_banner' => 'recursos/Seminariosdefault.png',
                 'departamento_id' => $deptos['DTA']->id ?? null,
             ],
             // Vence en 10 días - PRÓXIMO 🟡
@@ -67,6 +70,7 @@ class SeminarioSeeder extends Seeder
                 'fecha_fin' => now()->addDays(10),
                 'lugar' => 'Sala de Medios, Edificio E',
                 'estado' => 'publicado',
+                'imagen_banner' => 'recursos/Seminariosdefault.png',
                 'departamento_id' => $deptos['DICEC']->id ?? null,
             ],
             // Vence en 15 días - PRÓXIMO 🟡
@@ -80,6 +84,7 @@ class SeminarioSeeder extends Seeder
                 'fecha_fin' => now()->addDays(15),
                 'lugar' => 'Aula 203, Edificio D',
                 'estado' => 'publicado',
+                'imagen_banner' => 'recursos/Seminariosdefault.png',
                 'departamento_id' => $deptos['DIE']->id ?? null,
             ],
             // Vence en 20 días - PRÓXIMO 🟡
@@ -93,6 +98,7 @@ class SeminarioSeeder extends Seeder
                 'fecha_fin' => now()->addDays(20),
                 'lugar' => 'Aula 105, Edificio D',
                 'estado' => 'publicado',
+                'imagen_banner' => 'recursos/Seminariosdefault.png',
                 'departamento_id' => $deptos['DIE']->id ?? null,
             ],
             // Vence en 25 días - MODERADO 🟢
@@ -106,6 +112,7 @@ class SeminarioSeeder extends Seeder
                 'fecha_fin' => now()->addDays(25),
                 'lugar' => 'Sala de Juntas, Edificio C',
                 'estado' => 'publicado',
+                'imagen_banner' => 'recursos/Seminariosdefault.png',
                 'departamento_id' => $deptos['DPE']->id ?? null,
             ],
             // Vence en 30 días - MODERADO 🟢
@@ -119,6 +126,7 @@ class SeminarioSeeder extends Seeder
                 'fecha_fin' => now()->addDays(30),
                 'lugar' => 'Auditorio Principal',
                 'estado' => 'publicado',
+                'imagen_banner' => 'recursos/Seminariosdefault.png',
                 'departamento_id' => $deptos['DEGPP']->id ?? null,
             ],
             // Vence en 45 días - FUERA DE RANGO (no aparecerá con período mes)
@@ -132,6 +140,7 @@ class SeminarioSeeder extends Seeder
                 'fecha_fin' => now()->addDays(45),
                 'lugar' => 'Sala de Crisis, Edificio F',
                 'estado' => 'publicado',
+                'imagen_banner' => 'recursos/Seminariosdefault.png',
                 'departamento_id' => $deptos['DRNA']->id ?? null,
             ],
             // Seminario ya iniciado, vence en 12 días - URGENTE 🔴
@@ -145,6 +154,7 @@ class SeminarioSeeder extends Seeder
                 'fecha_fin' => now()->addDays(12),
                 'lugar' => 'Sala de Juntas, Edificio B',
                 'estado' => 'publicado',
+                'imagen_banner' => 'recursos/Seminariosdefault.png',
                 'departamento_id' => $deptos['IPAJ']->id ?? null,
             ],
             // Seminario inactivo (no debe aparecer)
